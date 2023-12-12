@@ -1,3 +1,116 @@
+# Setup and Configuration for CS 329M:
+
+## Introduction
+
+First and foremost we would like to thank the team responsible for this dataset 
+for their contributions.
+
+The purpose of this project is to automate useful test case generation. 
+Competitive programming problems are a natural place to start, given their 
+structured and precise problem specifications, restrictions on input and output, 
+and -- thanks to this dataset -- the presence of successful and unsuccessful 
+attempts to solve the problem. Our ultimate goal is to build a tool that
+composes useful test cases on the fly given a problem specification and
+an attempt to solve the problem. A "useful" test case is one that either 
+isolates a particular aspect of the problem specification or targets a
+pain point that a programmer might be likely to encounter when solving the problem.
+
+## Setup and Installation
+
+### Configure CodeContests dataset
+
+Firstly, follow the provided installation instructions provided by CodeContests.
+Verify that you have properly downloaded the dataset and configured the bazel
+workspace by (minimally) running:
+
+```
+bazel run -c opt \
+  :print_names_and_sources /tmp/dm-code_contests/code_contests_valid.riegeli
+```
+
+We have added two (very similar) scripts that were needed for the dataset generation. Verify that these run with 
+
+```
+bazel run -c opt \
+  :print_names_and_tests /tmp/dm-code_contests/code_contests_valid.riegeli
+```
+
+```
+bazel run -c opt \
+  :print_names_and_descriptions /tmp/dm-code_contests/code_contests_valid.riegeli
+```
+
+### Dataset Generation
+
+The provided dataset consists of 130 Riegeli files:
+ - 128 files in the training set, each called `code_contests_train.riegeli-00xxx-of-00128` 
+where `xxx` is between `000` and `127`.
+ - one file in the test set, called `code_contests_test.riegeli`
+ - one file in the validation set, called `code_contests_valid.riegeli`
+
+Each file contains roughly 110 problems' worth of data.
+
+The first component of our pipeline involves using few-shot prompting with PaLM 
+to generate candidate useful test cases for each problem, meant to target certain
+components of the spec or potential pain points a developer might encounter.
+
+Some preprocessing is required to efficiently make use of the data in text form:
+Execute the bash scripts in the `bash_scripts` directory called 
+`get_all_specs.sh` and `get_provided_tests.sh` to extract the problem specs 
+and provided test cases from the provided .riegeli files.
+
+Make sure to adjust the destination directory for each script!
+
+These scripts automate the processing of the 128 training data files. To do the
+same for the validation and test data files, run the following four commands:
+```
+bazel run -c opt   :print_names_and_descriptions /your/path/to/dm-code_contests/code_contests_valid.riegeli > /your/path/to/problem_specs/code_contests_valid_specs.txt
+```
+```
+bazel run -c opt   :print_names_and_descriptions /your/path/to/dm-code_contests/code_contests_test.riegeli > /your/path/to/probelm_specs/code_contests_test_specs.txt
+```
+```
+bazel run -c opt   :print_names_and_tests /your/path/to/dm-code_contests/code_contests_valid.riegeli > /your/path/to/provided_tests/code_contests_valid_tests.txt
+```
+```
+bazel run -c opt   :print_names_and_tests /your/path/to/dm-code_contests/code_contests_test.riegeli > /your/path/to/provided_tests/code_contests_test_tests.txt
+```
+
+Once these scripts execute, you will be able to run the `llm_pipeline.py` program to 
+create the candidate LLM-generate test cases. For the entire dataset, this will take 
+several hours, as we must be conservatively slow to not get rate limited.
+
+Examples for test and validation sets:
+```
+python3 llm_pipeline.py /path/to/problem_specs/code_contests_test.txt /path/to/llm_generation/test.txt
+```
+```
+python3 llm_pipeline.py /path/to/problem_specs/code_contests_valid.txt /path/to/llm_generation/valid.txt
+```
+The bash script `generate_tests.sh` executes this command for each problem spec in the 
+training set, and stores the generated test cases in a file called `train_num.txt`.
+
+The program `extract_simtests.py` is used to parse the LLM output files and extract
+the generated test cases only -- this makes it easier to isolate the test cases
+and evaluate their quality.
+
+### Funny notes
+
+Two CodeForces April Fools challenge problems (problem 409C -- 2014 and 
+1331G -- 2020) bamboozled the LLM! The problem specs were pranks, and they
+were written entirely in Latin, which caused an InvalidArgument exception: 
+"The requested language is not supported by models/text-bison-001".
+
+
+## Contributions and Resulting Data
+
+The resulting data is stored in three new folders:
+ - `problem_specs`: This folder contains the text files with the names problem descriptions of each corresponding file in the dataset.
+ - `provided_tests`: This folder contains the text files with the names and build-in test cases for each file in the CodeContests dataset.
+ - `llm_generation`: This folder contains the text files with the problem names, LLM generated pain points, and LLM generated test cases for each file in the dataset. This folder also contains the subdirectory `tests_only`, which contains the text same files, omitting the pain points for easier comparison. These files can be readile compared with the provided built-in tests stored in `provided_tests`.
+
+---------------------------------------------------------------------------------------
+
 # CodeContests
 
 CodeContests is a competitive programming dataset for machine-learning. This
@@ -184,119 +297,6 @@ materials.
 ## Disclaimer
 
 This is not an official Google product.
-
--------------------------------------------------------------------------------
-
-# Setup and Configuration for CS 329M:
-
-## Introduction
-
-First and foremost we would like to thank the team responsible for this dataset 
-for their contributions.
-
-The purpose of this project is to automate useful test case generation. 
-Competitive programming problems are a natural place to start, given their 
-structured and precise problem specifications, restrictions on input and output, 
-and -- thanks to this dataset -- the presence of successful and unsuccessful 
-attempts to solve the problem. Our ultimate goal is to build a tool that
-composes useful test cases on the fly given a problem specification and
-an attempt to solve the problem. A "useful" test case is one that either 
-isolates a particular aspect of the problem specification or targets a
-pain point that a programmer might be likely to encounter when solving the problem.
-
-## Setup and Installation
-
-### Configure CodeContests dataset
-
-Firstly, follow the provided installation instructions provided by CodeContests.
-Verify that you have properly downloaded the dataset and configured the bazel
-workspace by (minimally) running:
-
-```
-bazel run -c opt \
-  :print_names_and_sources /tmp/dm-code_contests/code_contests_valid.riegeli
-```
-
-We have added two (very similar) scripts that were needed for the dataset generation. Verify that these run with 
-
-```
-bazel run -c opt \
-  :print_names_and_tests /tmp/dm-code_contests/code_contests_valid.riegeli
-```
-
-```
-bazel run -c opt \
-  :print_names_and_descriptions /tmp/dm-code_contests/code_contests_valid.riegeli
-```
-
-### Dataset Generation
-
-The provided dataset consists of 130 Riegeli files:
- - 128 files in the training set, each called `code_contests_train.riegeli-00xxx-of-00128` 
-where `xxx` is between `000` and `127`.
- - one file in the test set, called `code_contests_test.riegeli`
- - one file in the validation set, called `code_contests_valid.riegeli`
-
-Each file contains roughly 110 problems' worth of data.
-
-The first component of our pipeline involves using few-shot prompting with PaLM 
-to generate candidate useful test cases for each problem, meant to target certain
-components of the spec or potential pain points a developer might encounter.
-
-Some preprocessing is required to efficiently make use of the data in text form:
-Execute the bash scripts in the `bash_scripts` directory called 
-`get_all_specs.sh` and `get_provided_tests.sh` to extract the problem specs 
-and provided test cases from the provided .riegeli files.
-
-Make sure to adjust the destination directory for each script!
-
-These scripts automate the processing of the 128 training data files. To do the
-same for the validation and test data files, run the following four commands:
-```
-bazel run -c opt   :print_names_and_descriptions /your/path/to/dm-code_contests/code_contests_valid.riegeli > /your/path/to/problem_specs/code_contests_valid_specs.txt
-```
-```
-bazel run -c opt   :print_names_and_descriptions /your/path/to/dm-code_contests/code_contests_test.riegeli > /your/path/to/probelm_specs/code_contests_test_specs.txt
-```
-```
-bazel run -c opt   :print_names_and_tests /your/path/to/dm-code_contests/code_contests_valid.riegeli > /your/path/to/provided_tests/code_contests_valid_tests.txt
-```
-```
-bazel run -c opt   :print_names_and_tests /your/path/to/dm-code_contests/code_contests_test.riegeli > /your/path/to/provided_tests/code_contests_test_tests.txt
-```
-
-Once these scripts execute, you will be able to run the `llm_pipeline.py` program to 
-create the candidate LLM-generate test cases. For the entire dataset, this will take 
-several hours, as we must be conservatively slow to not get rate limited.
-
-Examples for test and validation sets:
-```
-python3 llm_pipeline.py /path/to/problem_specs/code_contests_test.txt /path/to/llm_generation/test.txt
-```
-```
-python3 llm_pipeline.py /path/to/problem_specs/code_contests_valid.txt /path/to/llm_generation/valid.txt
-```
-The bash script `generate_tests.sh` executes this command for each problem spec in the 
-training set, and stores the generated test cases in a file called `train_num.txt`.
-
-The program `extract_simtests.py` is used to parse the LLM output files and extract
-the generated test cases only -- this makes it easier to isolate the test cases
-and evaluate their quality.
-
-### Funny notes
-
-Two CodeForces April Fools challenge problems (problem 409C -- 2014 and 
-1331G -- 2020) bamboozled the LLM! The problem specs were pranks, and they
-were written entirely in Latin, which caused an InvalidArgument exception: 
-"The requested language is not supported by models/text-bison-001".
-
-
-## Contributions and Resulting Data
-
-The resulting data is stored in three new folders:
- - `problem_specs`: This folder contains the text files with the names problem descriptions of each corresponding file in the dataset.
- - `provided_tests`: This folder contains the text files with the names and build-in test cases for each file in the CodeContests dataset.
- - `llm_generation`: This folder contains the text files with the problem names, LLM generated pain points, and LLM generated test cases for each file in the dataset. This folder also contains the subdirectory `tests_only`, which contains the text same files, omitting the pain points for easier comparison. These files can be readile compared with the provided built-in tests stored in `provided_tests`.
 
 ## Acknowledgements
 
