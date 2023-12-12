@@ -1,4 +1,4 @@
-# Setup and Configuration for CS 329M:
+# CS 329M: Competitive Testing
 
 ## Introduction
 
