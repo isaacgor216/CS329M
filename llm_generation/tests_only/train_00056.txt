@@ -1,0 +1,3011 @@
+CODECHEF atoms
+```
+1
+5 2
+3 0 1 2
+3 2 3 4
+```
+CODECHEF cm03
+```
+1
+1000000000
+```
+CODECHEF flow009
+1
+1000 120
+
+CODECHEF lelouch1
+3
+3 3 2
+S C B
+C B T
+T T
+
+CODECHEF ppnum
+1
+9 12
+10
+1000000000 1000000007
+CODECHEF summath
+1
+999999999
+CODEFORCES 100_H. Battleship
+1
+****000000
+0000000000
+****00****
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+CODEFORCES 1033_E. Hidden Bipartite Graph
+1. ```
+n = int(input())
+
+def query(l):
+  print('? ' + str(l))
+  print(*l, sep=' ')
+  return int(input())
+
+def answer(is_bipartite, n_part, part):
+  if is_bipartite:
+    print('Y ' + str(n_part))
+    print(*part, sep=' ')
+  else:
+    print('N ' + str(n_part))
+    print(*part, sep=' ')
+
+def solve():
+  q = 0
+  ans = None
+  while q < 20000:
+    l = query(3)
+    if l == -1:
+      break
+    q += 1
+    m = query(l)
+    if m == 0:
+      continue
+    graph = [[] for _ in range(n)]
+    for _ in range(m):
+      u, v = map(int, input().split())
+      graph[u - 1].append(v - 1)
+      graph[v - 1].append(u - 1)
+    
+    part = find_bipartite_part(graph)
+    if part is None:
+      answer(False, len(part), part)
+      return
+    ans = part
+
+def find_bipartite_part(graph):
+  n = len(graph)
+  visited = [False] * n
+  part = []
+  for i in range(n):
+    if not visited[i]:
+      dfs(graph, i, visited, part)
+  return part
+
+def dfs(graph, u, visited, part):
+  visited[u] = True
+  part.append(u)
+  for v in graph[u]:
+    if not visited[v]:
+      dfs(graph, v, visited, part)
+
+solve()
+```
+
+2. ```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+  u, v = map(int, input().split())
+  edges.append((u - 1, v - 1))
+
+def query(l):
+  print('? ' + str(l))
+  print(*l, sep=' ')
+  return int(input())
+
+def answer(is_bipartite, n_part, part):
+  if is_bipartite:
+    print('Y ' + str(n_part))
+    print(*part, sep=' ')
+  else:
+    print('N ' + str(n_part))
+    print(*part, sep=' ')
+
+def solve():
+  q = 0
+  ans = None
+  while q < 20000:
+    l = query(3)
+    if l == -1:
+      break
+    q += 1
+    m = query(l)
+    if m == 0:
+      continue
+    graph = [[] for _ in range(n)]
+    for u, v in edges:
+      graph[u].append(v)
+      graph[v].append(u)
+
+    part = find_bipartite_part(graph)
+    if part is None:
+      answer(False, len(part), part)
+      return
+    ans = part
+
+def find_bipartite_part(graph):
+  n = len(graph)
+  visited = [False] * n
+  part = []
+  for i in range(n):
+    if not visited[i]:
+      dfs(graph, i, visited, part)
+  return part
+
+def dfs(graph, u, visited, part):
+  visited[u] = True
+  part.append(u)
+  for v in graph[u]:
+    if not visited[v]:
+      dfs(graph, v, visited, part)
+
+solve()
+```
+
+3. ```
+n = int(input())
+
+def query(l):
+  print('? ' + str(l))
+  print(*l, sep=' ')
+  return int(input())
+
+def answer(is_bipartite, n_part, part):
+  if is_bipartite:
+    print('Y 
+CODEFORCES 1056_C. Pick Heroes
+```
+3 2
+1 2 3 4 5 6
+2 6
+2
+
+1
+
+2
+
+4
+
+1
+```
+CODEFORCES 1078_D. Chattering
+```
+4
+1 1 4 1
+```
+CODEFORCES 1099_D. Sum in the tree
+```
+1
+```
+```
+1
+```
+```
+-1
+```
+```
+1
+```
+```
+2
+```
+```
+1 1
+1 1
+```
+```
+3
+1 2
+1 2 3
+```
+```
+5
+1 2 3 1
+1 2 -1 3 -1
+```
+```
+10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 111_C. Petya and Spiders
+```
+1 1
+1 2
+2 3
+3 3
+4 3
+```
+CODEFORCES 1146_H. Satanic Panic
+```
+5
+0 0
+0 2
+2 0
+2 2
+1 3
+
+5
+0 0
+4 0
+0 4
+4 4
+2 3
+
+10
+841746 527518
+595261 331297
+-946901 129987
+670374 -140388
+-684770 309555
+-302589 415564
+-387435 613331
+-624940 -95922
+945847 -199224
+24636 -565799
+```
+CODEFORCES 1168_A. Increasing by Modulo
+1. Incorrect input format
+```
+1 2
+```
+
+2. Incorrect array values
+```
+5 4
+1 2 3 4 5
+```
+
+3. Incorrect array indexing
+```
+5 4
+0 1 2 3 4
+```
+
+4. Incorrect calculation of the minimum number of operations
+```
+5 4
+0 1 1 2 4
+```
+
+5. Incorrect output format
+```
+5 4
+0 1 2 3 4
+```
+CODEFORCES 1186_D. Vus the Cossack and Numbers
+```
+1
+4.58413
+```
+CODEFORCES 1205_C. Palindromic Paths
+3
+
+The program should output the following:
+
+```
+? 1 1 1 3
+? 1 1 2 3
+? 2 1 2 3
+? 3 1 3 3
+? 2 2 3 3
+? 1 2 3 2
+? 1 2 3 3
+!
+100
+001
+000
+```
+CODEFORCES 1221_G. Graph And Numbers
+```
+6 5
+1 2
+2 3
+3 4
+4 5
+5 1
+```
+CODEFORCES 1248_D1. The World Is Just a Programming Task (Easy Version)
+```
+5
+()()()()
+```
+```
+3
+1 2
+```
+CODEFORCES 1266_H. Red-Blue Graph
+```
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<vector<int>> graph(n);
+    for (int i = 0; i < n - 1; i++) {
+        int b, r;
+        cin >> b >> r;
+        graph[b - 1].push_back(i + 1);
+        graph[r - 1].push_back(i + 1);
+    }
+
+    int q;
+    cin >> q;
+
+    for (int i = 0; i < q; i++) {
+        int v, t;
+        cin >> v >> t;
+
+        int time = 0;
+        vector<bool> active(n, true);
+        active[v - 1] = false;
+
+        while (true) {
+            if (time == t) {
+                cout << time << endl;
+                break;
+            }
+
+            int next = graph[v - 1][active[v - 1] ? 0 : 1];
+            if (next == n) {
+                cout << time + 1 << endl;
+                break;
+            }
+
+            v = next;
+            time++;
+            active[v - 1] = !active[v - 1];
+        }
+    }
+
+    return 0;
+}
+```
+CODEFORCES 1288_C. Two Arrays
+1. **Incorrect modulo operation.**
+
+```
+n, m = map(int, input().split())
+MOD = 10**9+7
+ans = 0
+for i in range(n):
+    for j in range(i, n):
+        ans += (i * j) % MOD
+print(ans % MOD)
+```
+
+2. **Off-by-one errors.**
+
+```
+n, m = map(int, input().split())
+ans = 0
+for i in range(n):
+    for j in range(i, n):
+        if a[i] < b[j]:
+            ans += 1
+print(ans)
+```
+
+3. **Incorrect use of data structures.**
+
+```
+a = [1, 2, 3]
+b = [4, 5, 6]
+for i in range(len(a)):
+    print(a[i] * b[i])
+```
+
+4. **Incorrect use of mathematical formulas.**
+
+```
+n = 10
+m = 5
+ans = n * m
+print(ans)
+```
+CODEFORCES 130_C. Decimal sum
+```
+# Incorrect input format
+1
+2
+
+# Incorrect array size
+101
+1
+2
+3
+4
+5
+
+# Incorrect array elements
+-1
+2
+3
+4
+5
+
+# Off-by-one errors
+5
+1
+2
+3
+4
+5
+
+# Arithmetic errors
+5
+1
+2
+3
+4
+5
+
+# Memory errors
+1000000000
+1
+2
+3
+4
+5
+
+# Logic errors
+5
+1
+2
+3
+4
+5
+```
+CODEFORCES 1331_F. Elementary!
+1. ```
+a
+```
+2. ```
+12345
+```
+3. ```
+A
+```
+4. ```
+1234567890
+```
+5. ```
+REVOLVER
+```
+6. ```
+HOLMES
+```
+7. ```
+WATSON
+```
+CODEFORCES 1352_A. Sum of Round Numbers
+```
+1
+4505
+```
+
+```
+2
+1000 5
+```
+
+```
+1
+9876
+```
+
+```
+2
+800 7000
+```
+
+```
+1
+10000
+```
+
+```
+1
+10
+```
+CODEFORCES 1371_E2. Asterism (Hard Version)
+```
+3 2
+3 4 5
+```
+CODEFORCES 1394_C. Boboniu and String
+```
+3
+B
+N
+BN
+```
+CODEFORCES 1419_A. Digit Game
+```
+1
+1
+2
+```
+```
+1
+2
+1
+```
+```
+1
+3
+4567890
+```
+```
+4
+1
+2069
+```
+CODEFORCES 1437_A. Marketing Scheme
+```
+1
+3 4
+```
+CODEFORCES 1461_E. Water Level
+```
+8 1 10 2 6 4
+8 1 10 2 6 5
+9 1 10 9 2 9
+20 15 25 3 5 7
+```
+CODEFORCES 1486_F. Pairs of Paths
+```
+5
+1 2
+1 3
+1 4
+3 5
+4
+2 3
+2 4
+3 4
+3 5
+```
+
+```
+1
+3
+1 1
+1 1
+1 1
+```
+
+```
+5
+1 2
+1 3
+1 4
+3 5
+6
+2 3
+2 4
+3 4
+3 5
+1 1
+1 2
+```
+CODEFORCES 1510_H. Hard Optimization
+**1. Invalid input data**
+```
+1
+0 10
+```
+
+**2. Incorrect understanding of the problem**
+```
+3
+1 10
+2 3
+5 9
+```
+
+**3. Incorrect data structure**
+```
+5
+1 10
+2 3
+5 9
+6 7
+8 10
+```
+
+**4. Incorrect algorithm**
+```
+4
+1 10
+2 3
+5 9
+6 7
+```
+
+**5. Incorrect handling of corner cases**
+```
+5
+1 10
+2 3
+5 9
+6 7
+8 10
+```
+CODEFORCES 1538_B. Friends and Candies
+1
+5
+10 8 5 1 4
+
+2
+0 4
+
+3
+4
+4 5 2 5
+
+4
+10000
+
+5
+7
+1 1 1 1 1 1 1
+
+6
+5
+1 2 3 4 5
+CODEFORCES 164_B. Ancient Berland Hieroglyphs
+```
+1 1
+2
+1
+```
+
+```
+5 1
+5
+1
+```
+
+```
+5 5
+1 2 3 4 5
+1 2 3 4 5
+```
+
+```
+3 3
+1 2 3
+3 2 1
+```
+
+```
+10 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 185_C. Clever Fat Rat
+```
+1
+1
+2
+```
+```
+2
+2 2
+1 2
+4
+```
+```
+2
+2 2
+1 2
+5
+```
+```
+3
+1 2 3
+1 2 3
+3 4 5
+```
+CODEFORCES 207_D1. The Beaver's Problem - 3
+**1. Incorrect input format**
+
+```
+Input:
+1000000000
+Title 1
+The quick brown fox jumps over the lazy dog.
+
+Output:
+2
+```
+
+This input is incorrect because it does not contain the document identifier. The program should not be able to parse this input and should output an error.
+
+**2. Incorrect output format**
+
+```
+Input:
+24
+Title 1
+The quick brown fox jumps over the lazy dog.
+
+Output:
+a
+```
+
+This output is incorrect because it does not contain an integer from 1 to 3. The program should not be able to output this value and should output an error.
+
+**3. Insufficient memory**
+
+```
+Input:
+1000000000
+Title 1
+The quick brown fox jumps over the lazy dog.
+
+Output:
+1
+```
+
+This input is too large for the program to handle. The program should not be able to allocate enough memory to store the document and should crash.
+
+**4. Timeout**
+
+```
+Input:
+1000000000
+Title 1
+The quick brown fox jumps over the lazy dog.
+
+Output:
+1
+```
+
+This input is too large for the program to handle in a reasonable amount of time. The program should not be able to finish running before the timeout and should be disqualified from the competition.
+
+**5. Incorrect logic**
+
+```
+Input:
+24
+Title 1
+The quick brown fox jumps over the lazy dog.
+
+Output:
+4
+```
+
+This output is incorrect because the document does not correspond to any of the three subjects of the training set. The program should not be able to output this value and should output an error.
+CODEFORCES 231_D. Magic Box
+```
+5 4 6
+1 1 1
+1 2 3 4 5 6
+```
+```
+-5 -3 -5
+5 4 3
+1 2 3 4 5 6
+```
+```
+0 0 10
+3 2 3
+1 2 3 4 5 6
+```
+CODEFORCES 257_C. View Angle
+```
+1
+0 0
+```
+
+```
+2
+1 0
+0 1
+```
+
+```
+2
+2 0
+0 2
+```
+
+```
+3
+2 0
+0 2
+-2 2
+```
+
+```
+4
+2 0
+0 2
+-2 0
+0 -2
+```
+
+```
+2
+2 1
+1 2
+```
+
+```
+3
+2 0
+0 2
+1 0
+```
+
+```
+4
+2 0
+0 2
+-2 2
+2 2
+```
+
+```
+5
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+```
+
+```
+6
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+4 0
+```
+
+```
+7
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+4 0
+-4 0
+```
+
+```
+8
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+4 0
+-4 0
+6 0
+```
+
+```
+9
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+4 0
+-4 0
+6 0
+8 0
+```
+
+```
+10
+2 0
+0 2
+-2 2
+0 -2
+2 -2
+4 0
+-4 0
+6 0
+8 0
+10 0
+```
+CODEFORCES 280_C. Game on Tree
+```
+2
+1 2
+
+3
+1 2
+1 3
+```
+CODEFORCES 303_B. Rectangle Puzzle II
+```
+9 9 5 5 2 1
+
+100 100 52 50 46 56
+
+4 3 8 6
+
+1 1 3 3
+```
+CODEFORCES 32_C. Flea
+```
+2 3 1000000
+```
+```
+3 3 2
+```
+CODEFORCES 351_A. Jeff and Rounding
+```
+1
+0.000
+
+```
+
+```
+2
+0.500 0.500
+
+```
+
+```
+3
+1.000 2.000 3.000
+
+```
+
+```
+4
+0.000 0.000 0.000 0.000
+
+```
+
+```
+5
+0.500 0.500 0.500 0.500 0.500
+
+```
+CODEFORCES 375_B. Maximum Submatrix 2
+```
+1 1
+1
+```
+```
+2 2
+10
+11
+```
+```
+4 3
+100
+011
+000
+101
+```
+```
+2 3
+010
+110
+```
+```
+5 5
+00000
+01110
+11001
+10101
+00000
+```
+```
+10 10
+1010101010
+0101010101
+1010101010
+0101010101
+1010101010
+0101010101
+1010101010
+0101010101
+1010101010
+```
+CODEFORCES 397_D. On Sum of Fractions
+```
+# 397_D. On Sum of Fractions
+
+def sieve(n):
+    """Return a list of all prime numbers less than or equal to n."""
+    is_prime = [True] * (n + 1)
+    is_prime[0] = False
+    is_prime[1] = False
+    for i in range(2, n + 1):
+        if is_prime[i]:
+            for j in range(i * 2, n + 1, i):
+                is_prime[j] = False
+    return [i for i in range(2, n + 1) if is_prime[i]]
+
+
+def main():
+    """Solve the problem."""
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        print(1, end='/', flush=True)
+        for p in sieve(n - 1):
+            if n % p == 0:
+                print(p, end='', flush=True)
+                break
+        print()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+**Incorrect input format**
+
+```
+1
+2
+```
+
+**Incorrect data type**
+
+```
+1
+'a'
+```
+
+**Off-by-one errors**
+
+```
+1
+3
+```
+
+**Infinite loops**
+
+```
+1
+1000000000
+```
+
+**Memory leaks**
+
+```
+1000000000
+```
+
+**Race conditions**
+
+```
+1
+2
+```
+
+**Deadlocks**
+
+```
+1
+2
+```
+
+**Security vulnerabilities**
+
+```
+1
+'a'
+```
+CODEFORCES 41_E. 3-cycles
+```
+1
+```
+
+```
+3
+```
+
+```
+4
+```
+CODEFORCES 446_C. DZY Loves Fibonacci Numbers
+**Incorrect implementation of the Fibonacci sequence**
+
+```
+def fibonacci(n):
+  """Returns the nth number in the Fibonacci sequence."""
+
+  if n < 2:
+    return n
+  else:
+    return fibonacci(n - 1) + fibonacci(n - 2)
+```
+
+**Incorrect calculation of the sum of the elements in a range**
+
+```
+def sum_range(a, l, r):
+  """Returns the sum of the elements in the range [l, r]."""
+
+  sum = 0
+  for i in range(l, r + 1):
+    sum += a[i]
+  return sum
+```
+
+**Incorrect use of modulo arithmetic**
+
+```
+a = 10
+b = 3
+
+print(a % b)
+# 1
+
+print(b % a)
+# 2
+```
+
+**Incorrect use of the bitwise operators**
+
+```
+a = 1
+b = 2
+
+print(a & b)
+# 0
+
+print(a | b)
+# 3
+
+print(a ^ b)
+# 1
+```
+
+**Incorrect use of the conditional operator**
+
+```
+a = 1
+b = 2
+
+if a > b:
+  print("a is greater than b")
+else:
+  print("b is greater than a")
+```
+
+**Valid program inputs**
+
+1. `1 1`
+2. `2 1 2`
+3. `1 1 4`
+4. `1 2 4`
+5. `2 1 3`
+CODEFORCES 468_D. Tree
+**Program inputs that validate whether an implementation meets each of the requirements:**
+
+1. **Incorrect implementation of the Floyd-Warshall algorithm:**
+
+```
+n = int(input())
+
+graph = [[0] * n for _ in range(n)]
+for _ in range(n - 1):
+    u, v, w = map(int, input().split())
+    graph[u - 1][v - 1] = w
+    graph[v - 1][u - 1] = w
+
+for k in range(n):
+    for i in range(n):
+        for j in range(n):
+            graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
+
+print(sum(graph[i][i] for i in range(n)))
+```
+
+This program will not work because it does not correctly implement the Floyd-Warshall algorithm. The Floyd-Warshall algorithm requires that the graph be undirected, but this program does not check for this. As a result, the program will give incorrect results for directed graphs.
+
+2. **Incorrect implementation of the topological sort algorithm:**
+
+```
+n = int(input())
+
+graph = [[0] * n for _ in range(n)]
+for _ in range(n - 1):
+    u, v = map(int, input().split())
+    graph[u - 1][v - 1] = 1
+    graph[v - 1][u - 1] = 1
+
+def topological_sort(graph):
+    result = []
+    stack = [0]
+    visited = [False] * n
+    while stack:
+        u = stack.pop()
+        visited[u] = True
+        for v in range(n):
+            if graph[u][v] == 1 and not visited[v]:
+                stack.append(v)
+    result.append(u + 1)
+    for v in range(n):
+        if not visited[v]:
+            return []
+    return result
+
+print(sum(graph[i][i] for i in range(n)))
+print(*topological_sort(graph))
+```
+
+This program will not work because it does not correctly implement the topological sort algorithm. The topological sort algorithm requires that the graph be a directed acyclic graph (DAG), but this program does not check for this. As a result, the program will give incorrect results for graphs that are not DAGs.
+
+3. **Incorrect calculation of the maximum possible value of the described sum:**
+
+```
+n = int(input())
+
+graph = [[0] * n for _ in range(n)]
+for _ in range(n - 1):
+    u, v, w = map(int, input().split())
+    graph[u - 1][v - 1] = w
+    graph[v - 1][u - 1] = w
+
+print(sum(graph[i][i] for i in range(n)))
+```
+
+This program will not work because it does not correctly calculate the maximum possible value of the described sum. The maximum possible value of the described sum is the sum of the distances between all pairs of vertices in the tree. However, this sum is not always achievable. In some cases, there may be no permutation of the vertices such that the sum of the distances between all pairs of vertices is equal to the maximum possible value.
+
+4. **Incorrect output of the lexicographically smallest permutation:**
+
+```
+n = int(input())
+
+graph = [[0] * n for _ in range(n)]
+for _ in range(n - 1):
+    u, v, w = map(int, input().split())
+    graph[u - 1][v - 1] = w
+    graph[v - 1][u - 1] = w
+
+print(sum(graph[i][i] for i in range(n)))
+print(*sorted(range(n)))
+```
+
+This program will not work because it does not correctly output the lexicographically smallest permutation. The lexicographically smallest permutation is the permutation that comes first in lexicographic order. However, this program does not sort the permutation before outputting it. As a result, the output of the program may not be the lexicographically smallest permutation.
+
+5. **Incorrect formatting of the output:**
+
+```
+n = int(input())
+
+graph = [[0] * n for _ in range(n)]
+for 
+CODEFORCES 490_D. Chocolate
+
+CODEFORCES 514_D. R2D2 and Droid Army
+```
+# Incorrect input format
+
+1 2 4
+4 0
+```
+
+```
+# Incorrect data type
+
+1 2 4
+4 0.5
+```
+
+```
+# Off-by-one errors
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Indexing errors
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Logic errors
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Memory errors
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Synchronization errors
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Deadlocks
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Race conditions
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+
+```
+
+```
+# Security vulnerabilities
+
+5 2 4
+4 0
+1 2
+2 1
+0 2
+1 3
+```
+CODEFORCES 540_E. Infinite Inversions
+```
+1
+2 1
+```
+CODEFORCES 569_A. Music
+```
+5 2 2
+5 4 7
+6 2 3
+```
+CODEFORCES 58_D. Calendar
+```
+1
+a
+!
+```
+CODEFORCES 611_F. New Year and Cleaning
+```
+1 10 2
+R
+```
+```
+3 4 6
+RUL
+```
+```
+4 1 500000
+RLRL
+```
+CODEFORCES 631_C. Report
+```
+1 1
+1
+```
+
+```
+3 1
+1 2 3
+2 2
+```
+
+```
+4 2
+1 2 4 3
+2 3
+1 2
+```
+
+```
+5 3
+1 2 3 4 5
+1 3
+2 3
+3 2
+```
+
+```
+6 4
+1 2 3 4 5
+2 3
+1 2
+3 2
+4 1
+```
+CODEFORCES 660_A. Co-prime Array
+1. **Incorrect input format**
+```
+1
+a
+```
+2. **Incorrect output format**
+```
+1
+2 7 9 28 999999999
+```
+3. **Incorrect calculation**
+```
+3
+2 7 28
+```
+4. **Incorrect number of elements**
+```
+3
+2 7 28
+```
+5. **Incorrect order of elements**
+```
+3
+2 7 28
+```
+6. **Other bugs**
+```
+3
+2 7 28
+```
+CODEFORCES 683_E. Hammer throwing
+1. Incorrect input format
+```
+4
+2 0 1 0
+```
+
+2. Incorrect output format
+```
+4
+2 0 1 0
+```
+
+3. Incorrect algorithm
+```
+4
+2 0 1 0
+```
+
+4. Memory leaks
+```
+4
+2 0 1 0
+```
+
+5. Race conditions
+```
+4
+2 0 1 0
+```
+
+6. Security vulnerabilities
+```
+4
+2 0 1 0
+```
+CODEFORCES 706_D. Vasiliy's Multiset
+```
+10
++ 8
++ 9
++ 11
++ 6
++ 1
+? 3
+- 8
+? 3
+? 8
+? 11
+```
+
+```
+10
++ 8
++ 9
++ 11
++ 6
++ 1
+? 12
+- 8
+? 12
+? 8
+? 11
+```
+CODEFORCES 729_F. Financiers Game
+**1. Incorrect input format**
+
+```
+1
+1 2 3
+```
+
+This input is incorrect because it does not follow the specified input format. The correct input format is `n a1, a2, ..., an`.
+
+**2. Incorrect calculation of the difference between the sums of incomes**
+
+```
+3
+1 3 1
+```
+
+This input is incorrect because the difference between the sums of incomes is calculated as `sum_i(a_i) - sum_j(b_j)`, where `a_i` is the income on the `i`th paper from the left and `b_j` is the income on the `j`th paper from the right. However, this solution incorrectly calculates the difference as `sum_i(a_i) - sum_j(b_j)`, where `a_i` is the income on the `i`th paper from the right and `b_j` is the income on the `j`th paper from the left. This results in an incorrect answer of `-1`.
+
+**3. Incorrect handling of edge cases**
+
+```
+0
+```
+
+This input is incorrect because the problem statement specifies that `1 ≤ n ≤ 4000`. However, this input has a value of `0`. This results in a runtime error.
+
+**4. Incorrect memory management**
+
+```
+1000000
+```
+
+This input is incorrect because the problem statement specifies that the memory limit is `256 MB`. However, this input has a value of `1000000`, which exceeds the memory limit. This results in a runtime error.
+
+**5. Incorrect use of data structures**
+
+```
+1000000
+```
+
+This input is incorrect because the problem statement does not specify any specific data structures that must be used. However, this solution uses a data structure that is inefficient and does not work correctly. This results in a runtime error.
+
+**6. Incorrect algorithm**
+
+```
+1000000
+```
+
+This input is incorrect because the problem statement does not specify any specific algorithm that must be used. However, this solution uses an algorithm that is inefficient and does not work correctly. This results in a runtime error.
+CODEFORCES 74_B. Train
+```
+1. ```
+n, m, k = map(int, input().split())
+
+
+def main():
+    direction = input()
+    states = input()
+
+    for i in range(len(states)):
+        if states[i] == "0":
+            if direction == "to head":
+                if m < k:
+                    m += 1
+                else:
+                    m -= 1
+            else:
+                if m > k:
+                    m -= 1
+                else:
+                    m += 1
+        else:
+            if m == k:
+                print("Controller", i + 1)
+                return
+
+    print("Stowaway")
+
+
+main()
+```
+
+2. ```
+n, m, k = map(str, input().split())
+
+
+def main():
+    direction = input()
+    states = input()
+
+    for i in range(len(states)):
+        if states[i] == "0":
+            if direction == "to head":
+                if m < k:
+                    m += 1
+                else:
+                    m -= 1
+            else:
+                if m > k:
+                    m -= 1
+                else:
+                    m += 1
+        else:
+            if m == k:
+                print("Controller", i + 1)
+                return
+
+    print("Stowaway")
+
+
+main()
+```
+
+3. ```
+n, m, k = map(int, input().split())
+
+
+def main():
+    direction = input()
+    states = input()
+
+    for i in range(len(states)):
+        if states[i] == "0":
+            if direction == "to head":
+                if m < k:
+                    m += 1
+                else:
+                    m -= 1
+            else:
+                if m > k:
+                    m -= 1
+                else:
+                    m += 1
+        else:
+            if m == k and states[i - 1] == "1":
+                print("Controller", i + 1)
+                return
+
+    print("Stowaway")
+
+
+main()
+```
+
+4. ```
+n, m, k = map(int, input().split())
+
+
+def main():
+    direction = input()
+    states = input()
+
+    for i in range(len(states)):
+        if states[i] == "0":
+            if direction == "to head":
+                if m < k:
+                    m += 1
+                else:
+                    m -= 1
+            else:
+                if m > k:
+                    m -= 1
+                else:
+                    m += 1
+        else:
+            if m == k:
+                print("Controller", i + 1)
+                return
+
+    print("Stowaway")
+
+
+main()
+```
+
+5. ```
+n, m, k = map(int, input().split())
+
+
+def main():
+    direction = input()
+    states = input()
+
+    for i in range(len(states)):
+        if states[i] == "0":
+            if direction == "to head":
+                if m < k:
+                    m += 1
+                else:
+                    m -= 1
+            else:
+                if m > k:
+                    m -= 1
+                else:
+                    m += 1
+        else:
+            if m == k and states[i - 1] == "1":
+                print("Controller", i + 1)
+                return
+
+    print("Stowaway")
+
+
+main()
+```
+CODEFORCES 773_A. Success Rate
+```
+1
+1 1 0 1
+```
+```
+1
+1 1 1 1
+```
+```
+1
+100 100 0 1
+```
+```
+1
+100 100 1 1
+```
+```
+1
+100 100 1 10
+```
+```
+1
+100 100 0 100
+```
+```
+1
+1000000000 1000000000 1 1000000000
+```
+```
+1
+1000000000 1000000000 0 1000000000
+```
+```
+2
+1 2 1 2
+2 3 1 3
+```
+```
+5
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+```
+```
+10
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+```
+```
+100
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+```
+```
+1000
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+```
+```
+10000
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+1 2 1 2
+2 3 1 3
+20 70 2 7
+5 6 1 1
+100 100 1 1
+```
+CODEFORCES 797_F. Mice and Holes
+1. ```
+1 1
+1
+```
+
+2. ```
+1 1
+1
+```
+
+3. ```
+1000000000 1
+1000000000
+```
+
+4. ```
+1000000000 1000000000
+1000000000 1000000000
+```
+
+5. ```
+10 10
+1 2 3 4 5 6 7 8 9 10
+1 10
+2 9
+3 8
+4 7
+5 6
+6 5
+7 4
+8 3
+9 2
+10 1
+```
+CODEFORCES 818_B. Permutation Game
+**Incorrect input format:**
+
+```
+1 1
+1
+```
+
+**Incorrect output format:**
+
+```
+1 2
+```
+
+**Incorrect solution:**
+
+```
+3 3
+2 1 3
+```
+
+**Memory limit exceeded:**
+
+```
+100 100
+1 2 3 4 5 6 7 8 9 10
+```
+
+**Time limit exceeded:**
+
+```
+100 100
+1 2 3 4 5 6 7 8 9 10
+```
+
+**Wrong answer:**
+
+```
+4 3
+2 3 1 4 4
+```
+
+**Runtime error:**
+
+```
+4 3
+2 3 1 4 4
+```
+CODEFORCES 843_C. Upgrading Tree
+```
+3
+1 2
+2 3
+```
+
+```
+5
+1 2
+2 3
+3 4
+4 5
+5 1
+```
+
+```
+10
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+8 9
+9 10
+```
+
+```
+20
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+8 9
+9 10
+10 11
+11 12
+12 13
+13 14
+14 15
+15 16
+16 17
+17 18
+18 19
+19 20
+```
+CODEFORCES 864_A. Fair Game
+```
+4
+11
+27
+27
+11
+
+2
+6
+6
+
+6
+10
+20
+30
+20
+10
+20
+
+6
+1
+1
+2
+2
+3
+3
+```
+CODEFORCES 889_E. Mod Mod Mod
+```
+1
+10
+```
+```
+2
+10 5
+```
+```
+5
+5 4 3 2 1
+```
+```
+4
+5 10 5 10
+```
+CODEFORCES 912_C. Perun, Ult!
+```
+1 0
+1000 10 50
+```
+```
+2 0
+1000 10 50
+1000 10 50
+```
+```
+3 0
+1000 10 50
+1000 10 50
+1000 10 50
+```
+```
+1 1
+500 50 1000
+750 750 20
+10 1 300
+```
+```
+3 2
+1000 10 50
+70 5 5
+90 70 1
+110 20 2
+20 2 10
+30 3 10
+```
+```
+4 2
+1000 10 50
+70 5 5
+90 70 1
+110 20 2
+20 2 10
+30 3 10
+100 4 20
+```
+```
+5 3
+1000 10 50
+70 5 5
+90 70 1
+110 20 2
+20 2 10
+30 3 10
+100 4 20
+200 5 10
+```
+CODEFORCES 934_C. A Twisty Movement
+```
+1
+1
+```
+
+```
+4
+1 2 1 2
+```
+
+```
+10
+1 1 2 2 2 1 1 2 2 1
+```
+
+```
+5
+1 2 3 1 2
+```
+
+```
+10
+1 1 2 2 2 1 1 2 2 1
+```
+
+```
+10
+1 1 2 2 2 1 1 2 2 2
+```
+
+```
+10
+1 1 2 2 2 2 2 2 2 1
+```
+
+```
+10
+2 2 2 2 2 2 2 2 2 2
+```
+CODEFORCES 960_E. Alternating Tree
+**Incorrect implementation of the DFS traversal.**
+
+```
+n = int(input())
+values = list(map(int, input().split()))
+graph = [[] for _ in range(n)]
+for _ in range(n - 1):
+    u, v = map(int, input().split())
+    graph[u - 1].append(v - 1)
+    graph[v - 1].append(u - 1)
+
+def dfs(node):
+  visited.add(node)
+  for neighbor in graph[node]:
+    if neighbor not in visited:
+      dfs(neighbor)
+
+visited = set()
+dfs(0)
+```
+
+**Incorrect calculation of the alternating function.**
+
+```
+n = int(input())
+values = list(map(int, input().split()))
+graph = [[] for _ in range(n)]
+for _ in range(n - 1):
+    u, v = map(int, input().split())
+    graph[u - 1].append(v - 1)
+    graph[v - 1].append(u - 1)
+
+def alternating_function(path):
+  result = 0
+  for node in path:
+    result += values[node] * (-1) ** (len(path) - 1)
+  return result
+
+hash_table = {}
+result = 0
+for i in range(n):
+  for path in dfs(i):
+    if path not in hash_table:
+      hash_table[path] = alternating_function(path)
+    result += hash_table[path]
+
+print(result % (10 ** 9 + 7))
+```
+
+**Incorrect handling of cycles in the tree.**
+
+```
+n = int(input())
+values = list(map(int, input().split()))
+graph = [[] for _ in range(n)]
+for _ in range(n - 1):
+    u, v = map(int, input().split())
+    graph[u - 1].append(v - 1)
+    graph[v - 1].append(u - 1)
+
+def alternating_function(path):
+  result = 0
+  for node in path:
+    result += values[node] * (-1) ** (len(path) - 1)
+  if path[0] in path[1:]:
+    result *= (-1) ** len(path[1:])
+  return result
+
+hash_table = {}
+result = 0
+for i in range(n):
+  for path in dfs(i):
+    if path not in hash_table:
+      hash_table[path] = alternating_function(path)
+    result += hash_table[path]
+
+print(result % (10 ** 9 + 7))
+```
+
+**Incorrect calculation of the final answer.**
+
+```
+n = int(input())
+values = list(map(int, input().split()))
+graph = [[] for _ in range(n)]
+for _ in range(n - 1):
+    u, v = map(int, input().split())
+    graph[u - 1].append(v - 1)
+    graph[v - 1].append(u - 1)
+
+def alternating_function(path):
+  result = 0
+  for node in path:
+    result += values[node] * (-1) ** (len(path) - 1)
+  if path[0] in path[1:]:
+    result *= (-1) ** len(path[1:])
+  return result
+
+hash_table = {}
+result = 0
+for i in range(n):
+  for path in dfs(i):
+    if path not in hash_table:
+      hash_table[path] = alternating_function(path)
+    result += hash_table[path]
+
+print(result % (10 ** 9 + 7))
+```
+
+**Valid program inputs:**
+
+```
+4
+-4 1 5 -2
+1 2
+1 3
+1 4
+```
+
+```
+8
+-2 6 -4 -4 -9 -3 -7 23
+8 2
+2 3
+1 4
+6 5
+7 6
+4 7
+5 8
+```
+
+CODEFORCES 988_B. Substrings Sort
+```
+5
+a
+aba
+abacaba
+ba
+aba
+```
+HACKEREARTH alternating-sequences-3
+```
+1
+0
+```
+
+```
+10
+1 2 -2 -3 5 -7 -8 10
+```
+
+```
+10
+-1 1 2 3 4 5 6 7 8 9
+```
+HACKEREARTH call-list-4
+1
+1
+1234
+
+2
+2
+1234
+12345
+
+3
+1
+111
+
+4
+4
+0
+0
+0
+0
+HACKEREARTH dee-dees-shopping-1
+```
+1
+11
+```
+
+```
+1
+20
+```
+
+```
+1
+24
+```
+
+```
+2
+1
+101
+```
+
+```
+2
+100
+102
+```
+
+```
+1
+1000000000
+```
+
+HACKEREARTH game-of-subsets-1
+```
+1
+9
+```
+```
+2
+10
+50
+```
+HACKEREARTH kriti-and-her-birthday-gift
+```
+3
+abc
+def
+abc
+3
+1 2 abc
+1 3 abc
+1 2 hgj
+```
+HACKEREARTH monk-and-his-friend
+```
+1
+1 0
+```
+HACKEREARTH parenthesis-sequence
+```
+1
+)(
+```
+```
+1
+())()
+```
+```
+2
+(()))
+()))
+```
+```
+1
+())()
+```
+```
+5
+(()()())
+(()()())
+(()()())
+()()()()
+(()()())
+```
+HACKEREARTH roy-and-coding-contest
+1
+10 3
+HACKEREARTH string-permutations-1
+1
+veronica
+2
+bill
+mark
+3
+veronica
+bill
+kevin
+4
+hillary
+jack
+5
+veronica
+bill
+mark
+kevin
+hillary
+jack
+HACKEREARTH utkarsh-and-faulty-rain-gauge-february-easy-1
+```
+1
+10 1
+```
+
+```
+1
+10 10
+```
+
+```
+5
+10 1
+5 1
+10 10
+10 100
+5 5
+```
+
+```
+2
+10 1
+10 2
+```
+
+```
+2
+10 1
+10 10
+```
+
+```
+2
+5 2
+5 5
+```
+
+```
+1
+100000000 100000000
+```
+ATCODER p02594 AtCoder Beginner Contest 174 - Air Conditioner
+```
+29
+```
+ATCODER p02725 AtCoder Beginner Contest 160 - Traveling Salesman around Lake
+```
+# 1. Using the wrong data type
+20.0 3
+5 10 15
+
+# 2. Not handling the case where N is 1
+20 1
+0
+
+# 3. Not handling the case where A_1 is 0
+20 2
+0 5
+
+# 4. Not handling the case where A_N is equal to K
+20 2
+5 K
+
+# 5. Not handling the case where two or more of the A_i values are equal
+20 3
+5 5 10
+
+# 6. Not handling the case where the houses are arranged in a circle
+20 3
+0 5 15
+```
+ATCODER p02856 DISCO Presents Discovery Channel Code Contest 2020 Qual - Digit Sum Replace
+```
+3
+5 3
+2 2
+1 4
+```
+```
+3
+5 3
+2 2
+1 4
+```
+```
+1
+1 1
+```
+```
+10
+7 1
+1 1
+0 9
+1 1
+3 1
+6 1
+5 1
+9 1
+2 1
+```
+```
+5
+0 1
+6 1
+1 1
+1 1
+8 1
+```
+```
+5
+0 1
+6 1
+1 1
+1 1
+8 1
+```
+ATCODER p02992 AtCoder Beginner Contest 132 - Small Products
+```
+3 2
+10 3
+314159265 35
+```
+ATCODER p03133 Yahoo Programming Contest 2019 - Odd Subrectangles
+```
+2 2
+0 1
+1 0
+```
+
+```
+2 3
+0 0 0
+0 1 0
+```
+
+```
+2 4
+0 0 0 0
+0 0 1 0
+```
+
+```
+3 3
+0 0 0
+0 1 0
+0 0 1
+```
+ATCODER p03278 AtCoder Regular Contest 101 - Ribbons on Tree
+```
+4
+1 2
+2 3
+3 4
+```
+```
+4
+1 2
+1 3
+1 4
+```
+```
+6
+1 2
+1 3
+3 4
+1 5
+5 6
+```
+```
+10
+8 5
+10 8
+6 5
+1 5
+4 8
+2 10
+3 6
+9 2
+1 7
+```
+ATCODER p03433 AtCoder Beginner Contest 088 - Infinite Coins
+```
+10001
+218
+
+2763
+0
+
+37
+514
+```
+ATCODER p03592 CODE FESTIVAL 2017 qual A - fLIP
+```
+1 1 1
+2 2 2
+2 2 1
+3 5 8
+7 9 20
+```
+ATCODER p03749 AtCoder Grand Contest 013 - Placing Squares
+3 1
+2
+
+3 2
+2 3
+
+5 2
+2 3
+
+10 9
+1 2 3 4 5 6 7 8 9
+
+1000000000 0
+ATCODER p03913 CODE FESTIVAL 2016 Final - Cookies
+```
+8 1
+1000000000000 1000000000000
+```
+AIZU p00015 National Budget
+1. ```
+1
+100000000000000000000000000000000000000000000000000000000000000000000000000000001
+100000000000000000000000000000000000000000000000000000000000000000000000000000002
+```
+2. ```
+100000000000000000000000000000000000000000000000000000000000000000000000000000001
+100000000000000000000000000000000000000000000000000000000000000000000000000000001
+```
+3. ```
+100000000000000000000000000000000000000000000000000000000000000000000000000000001
+100000000000000000000000000000000000000000000000000000000000000000000000000000002
+```
+4. ```
+-100000000000000000000000000000000000000000000000000000000000000000000000000000001
+100000000000000000000000000000000000000000000000000000000000000000000000000000001
+```
+AIZU p00147 Fukushimaken
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+AIZU p00298 Mighty Man
+```
+3
+150 120
+100 50
+80 100
+```
+AIZU p00468 Party
+6
+5
+1 2
+1 3
+3 4
+2 3
+4 5
+6
+5
+2 3
+3 4
+4 5
+5 6
+2 5
+0
+0
+AIZU p00660 High and Low Cube
+.......#######......................#######..............
+.......#.....#......................#..-..#..............
+.......#.|...#......................#.|.|.#..............
+.......#.....#......................#..-..#..............
+.......#.|...#......................#.|...#..............
+.......#..-..#......................#..-..#..............
+.......#######......................#######..............
+.############################
+#.....##..-..##.....##..-..#.#.....##..-..##.....##..-..#
+#.-.-.##...|.##.-.-.##.|.|.#.#.....##.|.|.##.-.-.##.|.|.#
+|.|.|##..-..##|.|.|##..-..#.#....|##..-..##|.|.|##..-..#
+...-.##.|...##...-.##.|.|.#.#.-.-.##.|...##...-.##.|...#
+#.....##..-..##.....##..-..#.#.....##..-..##.....##..-..#
+.############################
+.......#######......................#######..............
+.......#..-..#......................#..-..#..............
+.......#...|.#......................#.|...#..............
+.......#..-..#......................#..-..#..............
+.......#.|.|.#......................#...|.#..............
+.......#..-..#......................#..-..#..............
+.......#######......................#######..............
+.......#######......................#######..............
+.......#..-..#......................#..-..#..............
+.......#.|...#......................#...|.#..............
+.......#..-..#......................#..-..#..............
+.......#...|.#......................#.|...#..............
+.......#..-..#......................#..-..#..............
+.......#######......................#######..............
+.############################
+#.....##..-..##.....##..-..#.#.....##..-..##.....##.....#
+#.-.-.##.|.|.##.-.-.##...|.#.#.....##.|.|.##...-.##.|...#
+|.|.|##..-..##|....##..-..#.#....|##..-..##|.|.|##.....#
+.-.-.##.|.|.##.....##.|.|.#.#.-.-.##.|.|.##.-...##.|...#
+#.....##..-..##.....##..-..#.#.....##..-..##.....##..-..#
+.############################
+.......#######......................#######..............
+.......#..-..#......................#..-..#..............
+.......#.|.|.#......................#.|...#..............
+.......#..-..#......................#..-..#..............
+.......#...|.#......................#...|.#..............
+.......#..-..#......................#..-..#..............
+.......#######......................#######..............
+0
+AIZU p00803 Starship Hakodate-maru
+```
+100
+64
+50
+20
+151200
+0
+```
+AIZU p00934 L Jumps
+```
+3 2 4 0
+2 2
+-2 -2
+-2 2
+```
+AIZU p01067 Circles and Ray
+```
+2
+0 0 1
+0 0 0
+```
+
+```
+3
+0 0 2
+3 3 1
+6 1 1
+```
+
+```
+4
+1 2 3
+12 2 2
+7 6 2
+1 9 3
+```
+
+```
+5
+0 0 5
+0 10 1
+10 0 1
+-10 0 1
+0 -10 1
+```
+AIZU p01200 Resource
+```
+1 1
+10.00
+3 10 10 20 10 10 20
+0 0
+
+
+2 3
+10.00
+3 10 10 20 10 10 20
+4 30 10 40 10 40 20 30 20
+1.00 3 0 0 10 0 0 10
+0.50 4 20 15 25 15 25 20 20 20
+0 0
+
+
+1 4
+5.00
+3 0 0 24 0 0 24
+3 50 0 50 24 26 0
+3 0 50 0 26 24 50
+3 50 50 26 50 50 26
+0 0
+AIZU p01337 The Number of the Real Roots of a Cubic Equation
+```
+1
+1 0 0 0
+```
+```
+1
+1 2 3 4
+```
+```
+2
+-10 -10 -10 -10
+-3 -3 -3 -3
+```
+```
+1
+1 2 3 4
+```
+AIZU p01504 AYBABTU
+```
+3 3 2
+1 2 1
+1 3 2
+2 3 3
+1
+2
+3
+2 1 2
+1 2 1
+2 3 3
+1
+2
+3
+1 2 2
+1 3 2
+2 3 3
+1
+2
+3
+0 0 0
+```
+AIZU p01675 The J-th Number
+```
+5 4 1
+1 5 1
+1 1 3
+4 5 1
+3 4 2
+1 3 4
+```
+AIZU p01819 Where is the Boundary
+```
+2 1
+WE
+```
+AIZU p01952 Tiny Room
+```
+1 3 3 1
+114 514
+```
+AIZU p02101 Let's Go To School
+**Incorrect input format**
+
+```
+3 10
+1 6
+5 10
+0 5
+```
+
+**Incorrect variable type**
+
+```
+3 10
+a 6
+b 10
+c 5
+```
+
+**Incorrect calculation**
+
+```
+3 10
+1 6
+5 10
+0 5
+```
+
+**Incorrect output format**
+
+```
+3 10
+1 6
+5 10
+0 5
+3
+```
+
+**Other bugs**
+
+```
+3 10
+1 6
+5 10
+0 5
+-1
+```
+AIZU p02239 Breadth First Search
+**Incorrect graph representation**
+
+```
+1
+1 0
+```
+
+**Incorrect use of BFS**
+
+```
+5
+1 2 3 4 5
+1 2 4
+2 1 4
+3 1 5
+4 1 3
+5 1 2
+```
+
+**Incorrect handling of negative edge weights**
+
+```
+3
+1 1 2
+2 1 -1
+3 2 1
+```
+
+**Incorrect handling of self-loops**
+
+```
+1
+1 1
+```
+
+**Incorrect handling of disconnected graphs**
+
+```
+4
+1 2 3 4
+1 2
+2 3
+3 4
+```
+AIZU p02385 Dice III
+**Incorrect input format**
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+```
+
+**Incorrect output format**
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+Yessss```
+
+**Incorrect logic**
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+No```
+
+**Runtime errors**
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+```
+
+**Test case errors**
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+Yes```

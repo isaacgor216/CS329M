@@ -1,0 +1,3020 @@
+CODECHEF anumla
+1
+3
+10 1 2 3
+2
+3
+10 1 2 3
+2
+10 1 2 3
+CODECHEF chrl1
+1
+3 4
+1 1
+2 2
+3 5
+CODECHEF equation
+```
+1
+10 2 3 4
+```
+CODECHEF kprime
+1. ```
+2 5 1
+```
+2. ```
+4 10 2
+```
+3. ```
+14 15 2
+```
+4. ```
+2 20 3
+```
+CODECHEF panstack
+```
+1
+5
+```
+```
+1
+4
+```
+```
+1
+3
+```
+```
+1
+2
+```
+```
+2
+2
+```
+```
+2
+3
+```
+```
+2
+4
+```
+```
+2
+5
+```
+CODECHEF sswap
+```
+# 1
+
+T = int(input())
+for _ in range(T):
+    s = input()
+    D = int(input())
+    for i in range(len(s) - D + 1):
+        new_s = s[i:i + D][::-1] + s[i + D:]
+        s = new_s
+    print(s)
+
+# 2
+
+T = int(input())
+for _ in range(T):
+    s = input()
+    D = int(input())
+    for i in range(len(s) - D + 1):
+        temp = s[i:i + D]
+        s = s[i + D:] + temp[::-1]
+    print(s)
+
+# 3
+
+T = int(input())
+for _ in range(T):
+    s = input()
+    D = int(input())
+    s = s[::-1]
+    for i in range(len(s) - D + 1):
+        s = s[i:i + D] + s[i + D:][::-1]
+    print(s[::-1])
+
+# 4
+
+T = int(input())
+for _ in range(T):
+    s = input()
+    D = int(input())
+    s = s[::-1]
+    for i in range(len(s) - D + 1):
+        s = s[i:i + D][::-1] + s[i + D:]
+    print(s)
+
+# 5
+
+T = int(input())
+for _ in range(T):
+    s = input()
+    D = int(input())
+    for i in range(len(s) - D + 1):
+        new_s = s[i:i + D][::-1] + s[i + D:]
+        s = new_s
+    print(''.join(new_s))
+```
+CODEFORCES 1007_B. Pave the Parallelepiped
+```
+# 1007_B. Pave the Parallelepiped
+
+for _ in range(int(input())):
+    A, B, C = map(int, input().split())
+    print((A + 1) * (B + 1) * (C + 1) - 3)
+```
+
+**Test case 1:**
+```
+1
+```
+
+**Expected output:**
+```
+1
+```
+
+**Test case 2:**
+```
+1 6 1
+```
+
+**Expected output:**
+```
+4
+```
+
+**Test case 3:**
+```
+2 2 2
+```
+
+**Expected output:**
+```
+4
+```
+
+**Test case 4:**
+```
+100 100 100
+```
+
+**Expected output:**
+```
+165
+```
+CODEFORCES 1030_B. Vasya and Cornfield
+1. **Incorrect input format.**
+
+```
+# Incorrect input format
+n, d = map(int, input().split())
+m = int(input())
+for i in range(m):
+    x, y = map(int, input().split())
+```
+
+This program will crash if the input format is not followed. For example, if the input is `1 2` instead of `7 2`, the program will crash.
+
+2. **Incorrect calculation of grasshopper positions.**
+
+```
+# Incorrect calculation of grasshopper positions
+n, d = map(int, input().split())
+m = int(input())
+for i in range(m):
+    x, y = map(int, input().split())
+    if x < 0 or x > n or y < d or y > n - d:
+        print("NO")
+    else:
+        print("YES")
+```
+
+This program will incorrectly identify some grasshoppers as being outside the cornfield. For example, if the input is `7 2`, `4`, `2 4`, the program will incorrectly identify the grasshopper as being outside the cornfield.
+
+3. **Incorrect output format.**
+
+```
+# Incorrect output format
+n, d = map(int, input().split())
+m = int(input())
+for i in range(m):
+    x, y = map(int, input().split())
+    if x < 0 or x > n or y < d or y > n - d:
+        print("NO")
+    else:
+        print("YES ")
+```
+
+This program will incorrectly format the output. The output should be a single string, either "YES" or "NO".
+
+4. **Other bugs.**
+
+```
+# Other bugs
+n, d = map(int, input().split())
+m = int(input())
+for i in range(m):
+    x, y = map(int, input().split())
+    if x < 0 or x > n or y < d or y > n - d:
+        print("NO")
+    else:
+        print("YES")
+```
+
+This program has a number of other bugs. For example, it does not check if the input is valid. It also does not handle the case where the number of grasshoppers is zero.
+CODEFORCES 1051_G. Distinctification
+**Incorrect implementation of the dynamic programming solution:**
+
+```
+n = int(input())
+
+dp = [[0] * (n + 1) for _ in range(n + 1)]
+
+for i in range(1, n + 1):
+    a, b = map(int, input().split())
+    for j in range(1, n + 1):
+        if a == j:
+            dp[i][j] = dp[i - 1][j]
+        else:
+            dp[i][j] = min(dp[i - 1][j] + b, dp[i - 1][j - 1] - b)
+
+print(*dp[n])
+```
+
+**Incorrect handling of duplicate values in the input:**
+
+```
+n = int(input())
+
+dp = [[0] * (n + 1) for _ in range(n + 1)]
+
+for i in range(1, n + 1):
+    a, b = map(int, input().split())
+    for j in range(1, n + 1):
+        if a == j:
+            dp[i][j] = dp[i - 1][j]
+        else:
+            dp[i][j] = min(dp[i - 1][j] + b, dp[i - 1][j - 1] - b)
+
+for i in range(1, n + 1):
+    if dp[n][i] == float('inf'):
+        print(-1)
+    else:
+        print(dp[n][i])
+```
+
+**Incorrect handling of the boundary cases:**
+
+```
+n = int(input())
+
+dp = [[0] * (n + 1) for _ in range(n + 1)]
+
+for i in range(1, n + 1):
+    a, b = map(int, input().split())
+    for j in range(1, n + 1):
+        if i == 0:
+            dp[i][j] = 0
+        elif j == 1:
+            dp[i][j] = float('inf')
+        else:
+            dp[i][j] = min(dp[i - 1][j] + b, dp[i - 1][j - 1] - b)
+
+print(*dp[n])
+```
+
+**Incorrect implementation of the binary search algorithm:**
+
+```
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+n = int(input())
+
+arr = list(map(int, input().split()))
+
+target = int(input())
+
+print(binary_search(arr, target))
+```
+
+**Incorrect use of floating-point numbers:**
+
+```
+x = 1.1
+y = 1.2
+
+if x == y:
+    print('True')
+else:
+    print('False')
+```
+
+**Valid program inputs:**
+
+```
+1
+1 1
+
+2
+2 1
+3 2
+
+3
+1 1
+3 3
+5 5
+
+4
+2 4
+2 3
+2 2
+1 1
+```
+CODEFORCES 1075_A. The King's Race
+```
+4
+2 3
+```
+```
+5
+3 5
+```
+```
+2
+2 2
+```
+CODEFORCES 1096_B. Substring Removal
+```
+2
+az
+```
+```
+4
+abaa
+```
+```
+7
+aacdeee
+```
+```
+10
+aabbbabaa
+```
+```
+20
+aaaaaaaaaaaaaaaa
+```
+CODEFORCES 1117_C. Magic Ship
+```
+0 0
+4 6
+3
+UUU
+
+0 3
+0 0
+3
+UDD
+
+0 0
+0 1
+1
+L
+
+-1 -1
+-1 -1
+1 1
+1 1
+```
+CODEFORCES 1143_E. Lynyrd Skynyrd
+```
+3 6 3
+2 1 3
+1 2 3 1 2 3
+1 5
+2 6
+3 5
+```
+CODEFORCES 1163_D. Mysterious Code
+**1. Using the wrong data type**
+
+```
+*****
+katie
+shiro
+```
+
+**2. Not handling the case when the input is empty**
+
+```
+
+```
+
+**3. Not handling the case when the input is invalid**
+
+```
+c*t*o
+ab
+cd
+```
+
+**4. Not using the right algorithm**
+
+```
+*****
+katie
+shiro
+```
+
+**5. Not testing your code**
+
+```
+*****
+katie
+shiro
+```
+CODEFORCES 1184_A3. Heidi Learns Hashing (Hard)
+```
+10 5
+bgcbaaaaaa
+cccaaaaaaa
+```
+CODEFORCES 1201_E2. Knightmare (hard)
+6 7
+1 1 6 7
+
+5 5 5 1
+
+6 6
+3 3 6 1
+
+2 2 3 3
+
+1 1 1 1
+CODEFORCES 1219_E. Jumping Transformers
+```
+1 1 1
+0 0 1 0 0
+```
+```
+2 2 2
+0 0 1 0 1
+0 1 1 0 2
+```
+```
+3 3 5
+0 1 1 0 7
+1 1 1 0 10
+1 1 1 1 2
+1 1 1 2 2
+0 1 1 2 3
+```
+```
+4 4 10
+0 1 1 0 1
+1 0 1 0 2
+2 1 1 0 3
+3 2 1 0 4
+4 3 1 0 5
+0 4 1 0 6
+1 3 1 0 7
+2 2 1 0 8
+3 1 1 0 9
+```
+```
+5 5 15
+0 0 1 0 3
+1 0 1 0 5
+2 0 1 0 7
+3 0 1 0 9
+4 0 1 0 11
+0 1 1 0 1
+1 1 1 0 2
+2 1 1 0 3
+3 1 1 0 4
+4 1 1 0 5
+0 2 1 0 6
+1 2 1 0 7
+2 2 1 0 8
+3 2 1 0 9
+```
+```
+10 10 100
+0 0 1 0 1
+1 0 1 0 2
+2 0 1 0 3
+3 0 1 0 4
+4 0 1 0 5
+5 0 1 0 6
+6 0 1 0 7
+7 0 1 0 8
+8 0 1 0 9
+9 0 1 0 10
+0 1 1 0 1
+1 1 1 0 2
+2 1 1 0 3
+3 1 1 0 4
+4 1 1 0 5
+5 1 1 0 6
+6 1 1 0 7
+7 1 1 0 8
+8 1 1 0 9
+9 1 1 0 10
+```
+CODEFORCES 1243_E. Sum Balance
+```
+2
+3 3 1 2
+3 -2 -1 4
+```
+CODEFORCES 1263_D. Secret Passwords
+```
+1
+a
+```
+```
+3
+ab
+bc
+abc
+```
+```
+4
+a
+b
+ab
+d
+```
+```
+5
+a
+a
+a
+a
+a
+```
+CODEFORCES 1284_G. Seollal
+```
+1
+10 10
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+```
+CODEFORCES 1304_B. Longest Palindrome
+1. Incorrect input format:
+```
+1 4
+a
+```
+2. Incorrect string length:
+```
+3 2
+a
+b
+c
+```
+3. Incorrect string characters:
+```
+3 3
+a!b
+c@d
+e#f
+```
+4. Incorrect palindrome definition:
+```
+3 3
+abc
+cba
+cba
+```
+5. Incorrect algorithm:
+```
+3 3
+abc
+cba
+cba
+```
+6. Incorrect output format:
+```
+3 3
+abc
+cba
+cba
+```
+CODEFORCES 1328_C. Ternary XOR
+```
+1
+1
+2
+```
+```
+1
+2
+21
+```
+```
+1
+10
+10000
+```
+```
+2
+10
+20001
+```
+```
+1
+99999
+222222221
+```
+CODEFORCES 1348_C. Phoenix and Distribution
+```
+3
+4 2
+baba
+5 2
+baacb
+5 3
+baacb
+5 3
+aaaaa
+```
+CODEFORCES 1369_A. FashionabLee
+```
+# 1. Incorrect input format
+
+4
+3
+4
+12
+1000000000
+a
+```
+
+```
+# 2. Incorrect output format
+
+4
+3
+4
+12
+1000000000
+YES
+```
+
+```
+# 3. Incorrect calculation of the number of sides
+
+4
+3
+4
+12
+1000000000
+NO
+NO
+YES
+YES
+```
+
+```
+# 4. Incorrect rotation of the polygon
+
+4
+3
+4
+12
+1000000000
+NO
+YES
+YES
+YES
+```
+
+```
+# 5. Incorrect checking of whether the polygon is beautiful
+
+4
+3
+4
+12
+1000000000
+NO
+YES
+YES
+YES
+```
+CODEFORCES 138_E. Hellish Constraints
+```
+codeforces
+2 0 0
+o 1 2
+e 1 2
+
+codeforces
+2 1 1
+o 1 2
+o 1 2
+
+codeforces
+3 1 1
+c 1 1
+f 1 1
+r 1 1
+```
+CODEFORCES 1413_C. Perform Easily
+```
+1 4 100 10 30 5
+6
+101 104 105 110 130 200
+
+1 1 2 2 3 3
+7
+13 4 11 12 11 13 12
+```
+CODEFORCES 1431_F. Neural Network Problem
+**Incorrect input format:**
+```
+1 1 1
+1
+```
+
+**Incorrect data type:**
+```
+5 5 4
+a 1 5 4 5
+```
+
+**Off-by-one errors:**
+```
+5 2 4
+6 1 5 5 6
+```
+
+**Incorrect logic:**
+```
+6 1 4
+3 3 1 3 1 2
+```
+
+**Memory leaks:**
+```
+5 5 4
+1 1 5 4 5
+```
+
+**Synchronization errors:**
+```
+6 1 4
+3 3 1 3 1 2
+```
+
+**Security vulnerabilities:**
+```
+6 1 4
+3 3 1 3 1 2
+```
+CODEFORCES 1455_C. Ping-pong
+```
+1
+1 1
+```
+```
+2
+2 1
+1 7
+```
+CODEFORCES 1479_D. Odd Mineral Resource
+```
+6 8
+3 2 1 3 1 3
+1 2
+1 3
+2 4
+2 5
+4 6
+3 5 1 1
+3 5 1 3
+3 5 1 3
+1 1 2 2
+1 1 3 3
+1 4 1 5
+1 6 1 3
+1 6 1 3
+```
+CODEFORCES 1506_C. Double-ended Strings
+```
+1
+a
+a
+```
+
+```
+3
+a
+b
+ab
+```
+
+```
+5
+a
+b
+abcd
+bc
+hello
+codeforces
+```
+
+```
+10
+a
+aa
+abc
+abcd
+bc
+hello
+codeforces
+hello
+helo
+dhjakjsnasjhfksafasd
+adjsnasjhfksvdafdser
+```
+
+```
+5
+hello
+hello
+hello
+hello
+hello
+```
+CODEFORCES 152_B. Steps
+```
+4 5
+1 1
+3
+1 1
+1 1
+0 -2
+
+```
+
+```
+10 10
+1 2
+1
+-1 0
+```
+CODEFORCES 160_D. Edges in MST
+```
+4 5
+1 2 101
+1 3 100
+2 3 2
+2 4 2
+3 4 1
+```
+CODEFORCES 180_A. Defragmentation
+```
+5 2
+1 1 5
+2 2 3 4
+```
+
+```
+6 3
+1 1 4
+2 3 5
+3 2 6
+```
+
+```
+8 3
+1 1 4
+2 2 5
+3 3 6 7
+```
+
+```
+10 3
+1 1 4
+2 3 7
+3 2 5 6
+```
+
+```
+10 4
+1 1 4
+2 3 7
+3 2 5 6
+4 8 9
+```
+
+```
+12 3
+1 1 4
+2 3 7
+3 2 5 6
+4 8 9
+5 10 11
+```
+
+```
+13 4
+1 1 4
+2 3 7
+3 2 5 6
+4 8 9
+5 10 11
+6 12
+```
+
+```
+14 5
+1 1 4
+2 3 7
+3 2 5 6
+4 8 9
+5 10 11
+6 12
+7 13
+```
+
+CODEFORCES 203_B. Game on Paper
+```
+4 11
+1 1
+1 2
+1 3
+2 2
+2 3
+1 4
+2 4
+3 4
+3 2
+3 3
+4 1
+```
+```
+4 12
+1 1
+1 2
+1 3
+2 2
+2 3
+1 4
+2 4
+3 4
+3 2
+4 2
+4 1
+3 1
+```
+CODEFORCES 228_A. Is your horseshoe on the other hoof?
+```
+1 7 3 3
+7 7 7 7
+```
+CODEFORCES 251_D. Two Sets
+```
+1
+1000000000000
+
+5
+1 2 3 4 5
+
+2
+1000000000000 1000000000000
+
+8
+1 1 2 2 3 3 4 4
+
+1
+0
+
+```
+CODEFORCES 276_E. Little Girl and Problem on Trees
+```
+# 3 6
+# 1 2
+# 1 3
+# 0 3 1 2
+# 0 2 3 1
+# 0 1 5 2
+# 1 1
+# 1 2
+# 1 3
+
+# 6 11
+# 1 2
+# 2 5
+# 5 4
+# 1 6
+# 1 3
+# 0 3 1 3
+# 0 3 4 5
+# 0 2 1 4
+# 0 1 5 5
+# 0 4 6 2
+# 1 1
+# 1 2
+# 1 3
+# 1 4
+# 1 5
+# 1 6
+```
+CODEFORCES 29_B. Traffic Lights
+```
+#Incorrect input format
+1 2 3 4 5
+
+#Incorrect calculation of the minimum time
+2 1 3 4 5
+
+#Inaccurate output
+2 1 3 4 5
+
+#Off-by-one errors
+2 1 3 4 5
+
+#Indexing errors
+2 1 3 4 5
+
+#Null pointer exceptions
+2 1 3 4 5
+
+#Arithmetic overflow errors
+2 1 3 4 5
+
+#Floating-point errors
+2 1 3 4 5
+
+#Divide by zero errors
+2 1 3 4 5
+
+#Stack overflow errors
+2 1 3 4 5
+```
+CODEFORCES 322_E. Ciel the Commander
+```
+# 322_E. Ciel the Commander
+
+n = int(input())
+
+graph = [[] for _ in range(n + 1)]
+
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+colors = [-1] * (n + 1)
+
+
+def dfs(node, color):
+    for neighbor in graph[node]:
+        if colors[neighbor] == -1:
+            colors[neighbor] = color
+            dfs(neighbor, color)
+
+
+for i in range(1, n + 1):
+    if colors[i] == -1:
+        colors[i] = 'A'
+        dfs(i, colors[i])
+
+for i in range(1, n + 1):
+    print(colors[i], end=' ')
+```
+
+**Inconsistent input format:**
+```
+10
+1 2
+1 3
+1 4
+```
+
+**Invalid input:**
+```
+10
+1 2
+1 3
+1 4
+5 6
+6 7
+7 8
+8 9
+9 10
+10 1
+```
+
+**Incorrect output format:**
+```
+10
+1 2
+1 3
+1 4
+```
+
+**Incorrect solution:**
+```
+10
+1 2
+1 3
+1 4
+```
+
+**Other bugs:**
+```
+10
+1 2
+1 3
+1 4
+```
+CODEFORCES 347_C. Alice and Bob
+```
+2
+2 3
+```
+
+```
+2
+5 3
+```
+
+```
+3
+5 6 7
+```
+
+```
+4
+1 2 3 4
+```
+
+```
+6
+1 2 3 4 5 6
+```
+
+```
+7
+1 2 3 4 5 6 7
+```
+
+CODEFORCES 370_D. Broken Monitor
+```
+4 8
+..w..w..
+........
+........
+..w..w..
+
+4 8
+w..w..w.
+........
+........
+w..w..w.
+
+2 4
+....
+.w..
+
+4 8
+w..w..w.
+........
+........
+w..w..w.
+
+2 6
+w..w.w
+...w..
+```
+CODEFORCES 392_A. Blocked Points
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+CODEFORCES 415_B. Mashmokh and Tokens
+```
+1 1 1
+1
+```
+```
+1 1 1
+1000000000
+```
+```
+5 1 4
+12 6 11 9 1
+```
+```
+3 1 2
+1 2 3
+```
+```
+1 1 1
+1
+```
+CODEFORCES 441_E. Valera and Number
+```
+1 1 50
+5 3 0
+5 3 25
+100 200 0
+100 200 50
+```
+CODEFORCES 464_A. No to Palindromes!
+1. ```
+1 1
+a
+```
+2. ```
+3 2
+aaa
+```
+3. ```
+3 3
+cba
+```
+4. ```
+3 3
+cba
+```
+CODEFORCES 487_E. Tourists
+```
+3 3 3
+1
+2
+3
+1 2
+2 3
+1 3
+A 2 3
+C 1 5
+A 2 3
+```
+
+```
+7 9 4
+1
+2
+3
+4
+5
+6
+7
+1 2
+2 5
+1 5
+2 3
+3 4
+2 4
+5 6
+6 7
+5 7
+A 2 3
+A 6 4
+A 6 7
+A 3 3
+```
+CODEFORCES 510_D. Fox And Jumping
+```
+1
+1000
+1000000000
+```
+```
+3
+1 100 100
+1 1 1
+```
+```
+1
+999999999
+999999999
+```
+```
+5
+1 2 3 4 5
+1 2 3 4 5
+```
+```
+3
+100 99 9900
+1 1 1
+```
+```
+8
+4264 4921 6321 6984 2316 8432 6120 1026
+4264 4921 6321 6984 2316 8432 6120 1026
+```
+```
+2
+100 100
+1 1
+```
+CODEFORCES 535_E. Tavas and Pashmaks
+1. Incorrect input format
+```
+3
+3 1
+2 2
+3 1
+```
+
+2. Incorrect logic
+```
+3
+1 3
+2 2
+3 1
+```
+
+3. Incorrect implementation
+```
+3
+1 3
+2 2
+3 1
+```
+
+4. Runtime errors
+```
+3
+1 3
+2 2
+3 1
+```
+
+5. Logic errors
+```
+3
+1 3
+2 2
+3 1
+```
+
+6. Security vulnerabilities
+```
+3
+1 3
+2 2
+3 1
+```
+
+7. Performance issues
+```
+3
+1 3
+2 2
+3 1
+```
+CODEFORCES 560_A. Currency System in Geraldion
+```
+1
+1
+```
+```
+2
+2 2
+```
+```
+3
+1 2 3
+```
+```
+4
+1 1 2 3
+```
+```
+5
+1 2 3 4 5
+```
+```
+10
+1 1 1 1 1 1 1 1 1 1
+```
+```
+1000
+1 2 3 4 5 ... 999 1000
+```
+CODEFORCES 586_C. Gennady the Dentist
+**Incorrect data type:**
+```
+1
+4 2 2
+```
+
+**Off-by-one errors:**
+```
+5
+4 2 2
+4 1 2
+5 2 4
+3 3 5
+5 1 2
+```
+
+**Incorrect logic:**
+```
+5
+4 5 1
+5 3 9
+4 1 2
+2 1 8
+4 1 9
+```
+
+**Memory leaks:**
+```
+5
+4 5 1
+5 3 9
+4 1 2
+2 1 8
+4 1 9
+```
+
+**Synchronization errors:**
+```
+5
+4 5 1
+5 3 9
+4 1 2
+2 1 8
+4 1 9
+```
+
+**Security vulnerabilities:**
+```
+5
+4 5 1
+5 3 9
+4 1 2
+2 1 8
+4 1 9
+```
+CODEFORCES 608_D. Zuma
+```
+# 608_D. Zuma
+
+n = int(input())
+a = list(map(int, input().split()))
+
+b = [0] * n
+for i in range(n-1):
+    b[i+1] = b[i] + (a[i] == a[i+1])
+
+ans = n
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] == a[j]:
+            ans = min(ans, b[j] - b[i] + 1)
+
+print(ans)
+```
+
+**Incorrect input format:**
+
+```
+1
+1 2 3
+```
+
+**Incorrect output format:**
+
+```
+1
+```
+
+**Incorrect algorithm:**
+
+```
+# 608_D. Zuma
+
+n = int(input())
+a = list(map(int, input().split()))
+
+b = [0] * n
+for i in range(n-1):
+    b[i+1] = b[i] + (a[i] == a[i+1])
+
+ans = n
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] == a[j]:
+            ans = min(ans, b[j] - b[i] + 2)
+
+print(ans)
+```
+
+**Incorrect implementation:**
+
+```
+# 608_D. Zuma
+
+n = int(input())
+a = list(map(int, input().split()))
+
+b = [0] * n
+for i in range(n-1):
+    b[i+1] = b[i] + (a[i] == a[i+1])
+
+ans = n
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] == a[j]:
+            ans = min(ans, b[j] - b[i] + 1)
+
+print(a[0])
+```
+
+**Runtime errors:**
+
+```
+# 608_D. Zuma
+
+n = int(input())
+a = list(map(int, input().split()))
+
+b = [0] * n
+for i in range(n-1):
+    b[i+1] = b[i] + (a[i] == a[i+1])
+
+ans = n
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] == a[j]:
+            ans = min(ans, b[j] - b[i] + 1)
+
+print(ans)
+```
+
+**Logic errors:**
+
+```
+# 608_D. Zuma
+
+n = int(input())
+a = list(map(int, input().split()))
+
+b = [0] * n
+for i in range(n-1):
+    b[i+1] = b[i] + (a[i] == a[i+1])
+
+ans = n
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] == a[j]:
+            ans = min(ans, b[j] - b[i])
+
+print(ans)
+```
+CODEFORCES 62_C. Inquisition
+**Incorrect input format**
+
+```
+1
+a 1 2 1 1 2
+```
+
+**Incorrect output format**
+
+```
+1
+1 1 2 1 1 2
+```
+
+**Incorrect calculation of the perimeter**
+
+```
+1
+1 1 2 1 1 2
+```
+
+**Inefficient algorithm**
+
+```
+100
+1 1 2 1 1 2
+```
+
+**Memory leak**
+
+```
+1000000
+```
+
+**Race condition**
+
+```
+100
+```
+
+**Deadlock**
+
+```
+100
+```
+
+**Stack overflow**
+CODEFORCES 656_B. Scrambled
+```
+1
+2
+0
+
+2
+2 3
+1 0
+
+4
+5 2 4 3
+0 1 1 0
+
+16
+5 2 3 5 8 2 4 9 8 7 1 1 3 9 8
+0 1 1 0 1 0 1 0 1 0 1 0 1 0 1
+CODEFORCES 67_B. Restoration of the Permutation
+```
+5 2
+1 2 1 0 0
+```
+```
+4 2
+1 0 0 0
+```
+```
+5 3
+1 1 0 0 0
+```
+```
+5 1
+5 4 3 2 1
+```
+```
+1 0
+1
+```
+CODEFORCES 702_B. Powers of Two
+```
+# 1. Incorrect implementation of the binary search algorithm
+n = 5
+a = [7, 3, 2, 1, 4]
+
+# 2. Incorrect use of the modulo operator
+n = 5
+a = [7, 3, 2, 1, 4]
+
+# 3. Incorrect handling of overflow
+n = 5
+a = [7, 3, 2, 1, 4]
+
+# 4. Incorrect use of pointers
+n = 5
+a = [7, 3, 2, 1, 4]
+
+# 5. Incorrect use of dynamic memory allocation
+n = 5
+a = [7, 3, 2, 1, 4]
+
+# 6. Incorrect error handling
+n = 5
+a = [7, 3, 2, 1, 4]
+```
+CODEFORCES 724_C. Ray Tracing
+1. Incorrect input format
+```
+3 3 4
+1 1
+1 2
+2 1
+2 2
+```
+
+2. Incorrect calculation of the ray's path
+```
+3 3 4
+1 1
+1 3
+2 1
+2 2
+```
+
+3. Incorrect handling of edge cases
+```
+3 3 4
+1 1
+2 1
+1 2
+2 2
+0 0
+```
+
+4. Incorrect implementation of the algorithm
+```
+3 3 4
+1 1
+1 2
+2 1
+2 2
+```
+
+5. Incorrect testing
+```
+3 3 4
+1 1
+1 2
+2 1
+2 2
+```
+CODEFORCES 746_C. Tram
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int s, x1, x2, t1, t2, p, d;
+    scanf(" %d %d %d ", &s, &x1, &x2);
+    scanf(" %d %d ", &t1, &t2);
+    scanf(" %d %d ", &p, &d);
+
+    if (d == 1) {
+        if (p < x1) {
+            printf(" %d ", (x2 - x1) * t2 + (s - p) * t1);
+        } else {
+            printf(" %d ", (x2 - p) * t1 + (x1 - s) * t2);
+        }
+    } else {
+        if (p < x1) {
+            printf(" %d ", (x2 - x1) * t2 + (p - s) * t1);
+        } else {
+            printf(" %d ", (x2 - p) * t1 + (s - x1) * t2);
+        }
+    }
+
+    return 0;
+}
+```
+CODEFORCES 769_C. Cycle In Maze
+```
+2 3 2
+.**
+X..
+```
+```
+5 6 14
+..***.
+*...X.
+..*...
+..*.**
+....*.
+```
+```
+3 3 4
+***
+*X*
+***
+```
+CODEFORCES 793_C. Mice problem
+```
+# 793C. Mice problem
+
+def main():
+    n = int(input())
+    x1, y1, x2, y2 = map(int, input().split())
+    mice = []
+    for _ in range(n):
+        x, y, vx, vy = map(int, input().split())
+        mice.append((x, y, vx, vy))
+    ans = 0
+    for mouse in mice:
+        x, y, vx, vy = mouse
+        if min(x, x2 - x) / vx < min(y, y2 - y) / vy:
+            ans += min(x, x2 - x) / vx
+        else:
+            ans += min(y, y2 - y) / vy
+    print(ans)
+
+if __name__ == "__main__":
+    main()
+```
+
+**Incorrect input format**
+
+```
+# 793C. Mice problem
+
+def main():
+    n = int(input())
+    x1, y1, x2, y2 = map(int, input().split())
+    mice = []
+    for _ in range(n):
+        x, y, vx, vy = map(int, input().split())
+        mice.append((x, y, vx, vy))
+    ans = 0
+    for mouse in mice:
+        x, y, vx, vy = mouse
+        if min(x, x2 - x) / vx < min(y, y2 - y) / vy:
+            ans += min(x, x2 - x) / vx
+        else:
+            ans += min(y, y2 - y) / vy
+    print(ans)
+
+if __name__ == "__main__":
+    main(100001)
+```
+
+**Incorrect output format**
+
+```
+# 793C. Mice problem
+
+def main():
+    n = int(input())
+    x1, y1, x2, y2 = map(int, input().split())
+    mice = []
+    for _ in range(n):
+        x, y, vx, vy = map(int, input().split())
+        mice.append((x, y, vx, vy))
+    ans = 0
+    for mouse in mice:
+        x, y, vx, vy = mouse
+        if min(x, x2 - x) / vx < min(y, y2 - y) / vy:
+            ans += min(x, x2 - x) / vx
+        else:
+            ans += min(y, y2 - y) / vy
+    print("Incorrect output format")
+
+if __name__ == "__main__":
+    main()
+```
+
+**Undefined behavior**
+
+```
+# 793C. Mice problem
+
+def main():
+    n = int(input())
+    x1, y1, x2, y2 = map(int, input().split())
+    mice = []
+    for _ in range(n):
+        x, y, vx, vy = map(int, input().split())
+        mice.append((x, y, vx, vy))
+    ans = 0
+    for mouse in mice:
+        x, y, vx, vy = mouse
+        if min(x, x2 - x) / vx < min(y, y2 - y) / vy:
+            ans += min(x, x2 - x) / vx
+        else:
+            ans += min(y, y2 - y) / vy
+    print(ans / 0)
+
+if __name__ == "__main__":
+    main()
+```
+
+**Off-by-one errors**
+
+```
+# 793C. Mice problem
+
+def main():
+    n = int(input())
+    x1, y1, x2, y2 = map(int, input().split())
+    mice = []
+    for _ in range(n):
+        x, y, vx, vy = map(int, input().split())
+        mice.append((x, y, vx, vy))
+    
+CODEFORCES 813_F. Bipartite Checking
+```
+3 5
+2 3
+1 3
+1 2
+1 2
+1 2
+```
+
+```
+4 1
+1 2
+```
+CODEFORCES 839_E. Mother of Dragons
+```
+3 1
+0 1 0
+1 0 0
+0 0 0
+```
+
+```
+4 4
+0 1 0 1
+1 0 1 0
+0 1 0 1
+1 0 1 0
+```
+
+```
+1 4
+1
+```
+
+```
+4 5
+0 1 0 1 0
+1 0 1 0 1
+0 1 0 1 0
+1 0 1 0 1
+0 1 0 1 0
+```
+CODEFORCES 85_A. Domino
+**1. Incorrect input format**
+
+```
+1
+```
+
+This input is not in the correct format, because it does not contain a single integer n. The program will crash when it tries to read this input.
+
+**2. Incorrect output format**
+
+```
+a1a2a3a4
+b1b2b3b4
+c1c2c3c4
+d1d2d3d4
+```
+
+This output is not in the correct format, because it does not contain four lines, each containing n characters. The program will receive a Wrong Answer verdict.
+
+**3. Incorrect tiling**
+
+```
+a1a2a3a4
+b1b2b3b4
+c1c2c3c4
+d1d2d3d4
+```
+
+This tiling is incorrect, because it does not satisfy the following conditions:
+
+    * Each of the n-1 potential vertical cuts must intersect at least one domino.
+    * No two dominoes in the tiling may overlap.
+    * Each square of the field must be covered by exactly one domino.
+    * Dominoes may be rotated, but they may not be flipped.
+
+The program will receive a Wrong Answer verdict.
+
+**4. Inefficient solution**
+
+```
+def tiling(n):
+    if n == 1:
+        return "a"
+    else:
+        return tiling(n - 1) + tiling(n - 1)
+
+
+n = int(input())
+print(tiling(n))
+```
+
+This solution is inefficient, because it simply tries all possible tilings. A more efficient solution would be to use a dynamic programming approach.
+
+**5. Bugs in the code**
+
+```
+def tiling(n):
+    if n == 1:
+        return "a"
+    else:
+        return tiling(n - 1) + tiling(n - 1)
+
+
+n = int(input())
+print(tiling(n))
+```
+
+This code contains a bug, because it tries to access the tiling function with an argument of n - 1, even though n is 1. The program will crash when it tries to run this code.
+CODEFORCES 886_A. ACM ICPC
+1, 1, 1, 1, 1, 1
+
+1, 1, 1, 1, 1, 99
+
+1, 3, 2, 1, 2, 1
+
+1, 3, 2, 1, 2, 100
+CODEFORCES 909_A. Generate Login
+1. Input: 'a' 'a'
+2. Input: 'a' ''
+3. Input: '' ''
+4. Input: 'a' 'a'
+5. Input: 'ab' 'ab'
+6. Input: 'ba' 'ba'
+7. Input: 'abc' 'abc'
+CODEFORCES 930_C. Teodor is not a liar!
+```
+2 4
+1 2
+3 4
+```
+
+```
+2 4
+1 3
+3 4
+```
+
+```
+4 6
+1 3
+2 3
+4 6
+5 6
+```
+CODEFORCES 958_D1. Hyperspace Jump (easy)
+**1. Incorrect input format**
+
+```
+1
+(99+98)/97
+```
+
+**2. Incorrect output format**
+
+```
+1 2 2 1 
+```
+
+**3. Floating-point arithmetic errors**
+
+```
+1
+(99.99999999999999+98)/97
+```
+
+**4. Off-by-one errors**
+
+```
+4
+(99+98)/97
+(26+4)/10
+(12+33)/15
+(5+1)/7
+```
+
+**5. Undefined behavior**
+
+```
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf(" %d ", &n);
+    int i, j;
+    for (i = 0; i < n; i++) {
+        int a, b, c;
+        scanf(" (%d+%d)/%d ", &a, &b, &c);
+        int d = a + b;
+        int e = d / c;
+        printf(" %d ", e);
+    }
+    return 0;
+}
+```
+
+**6. Memory errors**
+
+```
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf(" %d ", &n);
+    int i, j;
+    for (i = 0; i < n; i++) {
+        int a, b, c;
+        scanf(" (%d+%d)/%d ", &a, &b, &c);
+        int d = a + b;
+        int e = d / c;
+        printf(" %d ", e);
+    }
+    return 0;
+}
+```
+
+**7. Race conditions**
+
+```
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf(" %d ", &n);
+    int i, j;
+    for (i = 0; i < n; i++) {
+        int a, b, c;
+        scanf(" (%d+%d)/%d ", &a, &b, &c);
+        int d = a + b;
+        int e = d / c;
+        printf(" %d ", e);
+    }
+    return 0;
+}
+```
+CODEFORCES 984_C. Finite or not?
+```
+1
+1 1 2
+```
+```
+1
+0 1 2
+```
+```
+1
+-1 1 2
+```
+```
+1
+1000000000000000000 1000000000000000001 2
+```
+```
+2
+1000000000000000000 1000000000000000000 10
+1000000000000000000 1000000000000000000 11
+```
+```
+1
+1000000000000000000 1000000000000000001 11
+```
+```
+1
+1000000000000000000 1000000000000000000 10
+```
+```
+1
+1000000000000000000 1000000000000000000 2
+```
+```
+2
+1000000000000000000 1000000000000000001 2
+2 2 2
+```
+```
+1
+1 1 2
+```
+```
+2
+1000000000000000000 1000000000000000001 2
+1000000000000000000 1000000000000000001 3
+```
+HACKEREARTH a-walk-to-remember-qualifier2
+```
+1 0
+```
+```
+1 1
+```
+```
+2 1
+```
+```
+3 3
+1 2
+2 3
+```
+```
+1 2
+1 3
+2 4
+3 5
+4 6
+5 1
+```
+HACKEREARTH bob-an-idiot-11
+1
+a b
+aBbbb
+HACKEREARTH criminals-little-deepu-and-little-kuldeep
+1. ```
+3
+3
+1
+2
+3
+4
+2
+2
+2
+2
+3
+11
+111
+1111
+```
+2. ```
+3
+1
+2
+3
+4
+2
+2
+2
+2
+3
+11
+111
+1111
+```
+3. ```
+1
+1
+```
+4. ```
+1
+1000000000
+```
+5. ```
+1
+1
+```
+HACKEREARTH four-square-2
+```
+1
+1000000000000000000
+```
+HACKEREARTH josh-and-hotel-2
+```
+ABCBCA
+1
+
+ABCCB
+2
+
+0
+HACKEREARTH milly-and-her-classmates-3
+3
+4
+2 4 3 5
+3
+1 2 3
+3
+2 3 1
+HACKEREARTH pair-sums
+**Incorrect data type for `K`**
+```
+1000000000 1000000000
+1 2 3 4 5
+```
+
+**Not using a stable sort**
+```
+5 9
+5 5 5 5 5
+```
+
+**Using the wrong algorithm**
+```
+5 9
+1 2 3 4 5
+```
+
+**Not handling edge cases**
+```
+0 0
+```
+
+**Making a mistake in your code**
+```
+5 9
+1 2 3 4 5
+```
+HACKEREARTH restaurant-problem-3
+```
+5858
+00800
+5050000
+080000800
+```
+HACKEREARTH sorted-string
+1
+hackerearth
+2
+aa
+aa
+HACKEREARTH tour
+**Incorrect input format:**
+```
+3
+delhi
+bengaluru
+hyderabad
+0 10 20
+10 0 55
+20 55 0
+4
+bengaluru
+delhi
+hyderabad
+bengaluru
+
+```
+**Incorrect data:**
+```
+3
+delhi
+bengaluru
+hyderabad
+0 10 20
+10 0 55
+20 55 0
+4
+bengaluru
+delhi
+hyderabad
+bengaluru
+1000000000000
+```
+**Incorrect algorithm:**
+```
+3
+delhi
+bengaluru
+hyderabad
+0 10 20
+10 0 55
+20 55 0
+4
+bengaluru
+delhi
+hyderabad
+bengaluru
+100
+```
+**Incorrect output:**
+```
+3
+delhi
+bengaluru
+hyderabad
+0 10 20
+10 0 55
+20 55 0
+4
+bengaluru
+delhi
+hyderabad
+bengaluru
+100
+```
+**Other bugs:**
+```
+3
+delhi
+bengaluru
+hyderabad
+0 10 20
+10 0 55
+20 55 0
+4
+bengaluru
+delhi
+hyderabad
+bengaluru
+```
+ATCODER p02571 AtCoder Beginner Contest 177 - Substring
+```
+cabacc
+abc
+
+codeforces
+atcoder
+```
+ATCODER p02702 AtCoder Beginner Contest 164 - Multiple of 2019
+```
+1817181712114
+14282668646
+2119
+```
+ATCODER p02831 AtCoder Beginner Contest 148 - Snack
+```
+2 3
+123 456
+100000 99999
+-1 10
+10 10
+```
+ATCODER p02968 AtCoder Grand Contest 036 - Square Constraints
+```
+2 998244353
+
+10 998244353
+
+200 998244353
+```
+ATCODER p03103 AtCoder Beginner Contest 121 - Energy Drink Collector
+```
+2 5
+4 9
+2 4
+
+4 30
+6 18
+2 5
+3 10
+7 9
+
+1 100000
+1000000000 100000
+
+100000 100000
+```
+ATCODER p03251 AtCoder Beginner Contest 110 - 1 Dimensional World's Tale
+### Incorrect input format
+
+```
+1 2 10 20
+8 15 13
+16 22
+```
+
+### Incorrect data type
+
+```
+1 2 10 20
+8 15 13
+abc 66
+```
+
+### Missing or invalid data
+
+```
+1 2
+```
+
+### Off-by-one errors
+
+```
+1 2 10 20
+8 15 13
+16 22 23
+```
+
+### Logical errors
+
+```
+1 2 10 20
+8 15 13
+16 21
+```
+
+### Infinite loops
+
+```
+1 2 10 20
+8 15 13
+16 22
+while True:
+    pass
+```
+
+### Memory leaks
+
+```
+def foo():
+    a = []
+    while True:
+        a.append(1)
+
+foo()
+```
+
+### Security vulnerabilities
+
+```
+import os
+
+def foo():
+    os.system('rm -rf /')
+
+foo()
+```
+ATCODER p03404 AtCoder Regular Contest 093 - Grid Components
+1, 1
+0, 0
+1, 2
+0, 1
+2, 1
+2, 2
+3, 3
+1, 3
+2, 2
+3, 4
+5, 5
+1, 5
+1, 2
+2, 3
+2, 4
+2, 5
+3, 6
+3, 7
+3, 8
+3, 9
+3, 10
+3, 11
+3, 12
+3, 13
+3, 14
+3, 15
+3, 16
+3, 17
+3, 18
+ATCODER p03567 CODE FESTIVAL 2017 qual C - Can you get AC?
+```
+BACD
+XX
+ABCD
+CABD
+ACACA
+```
+ATCODER p03722 AtCoder Beginner Contest 061 - Score Attack
+```
+2 2
+1 2 1
+2 1 1
+```
+
+```
+3 3
+1 2 4
+2 3 3
+1 3 5
+```
+
+```
+2 2
+1 2 1
+2 1 -1
+```
+
+```
+6 5
+1 2 -1000000000
+2 3 -1000000000
+3 4 -1000000000
+4 5 -1000000000
+5 6 -1000000000
+```
+
+```
+10 10
+1 2 1
+2 3 2
+3 4 3
+4 5 4
+5 6 5
+6 7 6
+7 8 7
+8 9 8
+9 10 9
+10 1 10
+```
+
+```
+1 1
+1 1 1000000000
+```
+
+```
+10 10
+1 2 1
+2 3 2
+3 4 3
+4 5 4
+5 6 5
+6 7 6
+7 8 7
+8 9 8
+9 10 9
+10 1 1000000000
+```
+ATCODER p03883 CODE FESTIVAL 2016 Grand Final(Parallel) - Intervals
+```
+4
+2 7
+2 5
+4 1
+7 5
+```
+
+```
+20
+97 2
+75 25
+82 84
+17 56
+32 2
+28 37
+57 39
+18 11
+79 6
+40 68
+68 16
+40 63
+93 49
+91 10
+55 68
+31 80
+57 18
+34 28
+76 55
+21 80
+```
+ATCODER p04043 AtCoder Beginner Contest 042 - Iroha and Haiku (ABC Edition)
+1. 5 5 7
+2. 7 7 5
+3. 1 2 3
+4. 10 10 10
+5. 5 5 10
+AIZU p00124 League Match Score Sheet
+4
+Japan 1 0 2
+Egypt 1 2 0
+Canada 0 2 1
+Spain 2 0 1
+3
+India 0 2 0
+Poland 1 0 1
+Italy 1 0 1
+0
+
+AIZU p00257 Making Sugoroku
+```
+4
+10
+-1 0 1 2 3 4 5 6 7 8
+5
+1
+0
+10
+3
+0
+2
+4
+2
+-2 -2 0
+0
+```
+AIZU p00444 Change
+1000
+500
+500
+100
+50
+10
+1
+0
+AIZU p00634 Provident Housewife
+3
+3 apple 100 banana 200 egg 300
+3 apple 150 banana 100 cola 200
+3 apple 100 banana 150 cola 200
+3
+apple
+banana
+cola
+5
+0 2 4
+0 1 3
+0 3 3
+1 2 3
+2 3 5
+AIZU p00778 A Die Maker
+```
+1 1 1 1 1 1
+1 6
+1 1 1 1 1 1
+4 5
+0 0 0 0 0 2
+1 2
+0 0 2 2 2 4
+5 9
+1 2 3 4 5 6
+15 16
+0 1 2 3 5 9
+13 16
+2 13 22 27 31 91
+100 170
+0 0 0 0 0 0
+```
+AIZU p00909 Never Wait for Weights
+1. Incorrect data type
+```
+2 2
+! 1 2 1
+? 1 2
+```
+2. Incorrect format
+```
+2 2
+! 1 2 1
+? 1 2
+```
+3. Incorrect logic
+```
+2 2
+! 1 2 1
+? 1 2
+```
+4. Incorrect error handling
+```
+2 2
+! 1 2 1
+? 1 2
+```
+5. Incorrect testing
+```
+2 2
+! 1 2 1
+? 1 2
+```
+AIZU p01043 Yu-kun Likes a Treasure
+```
+3 1
+4
+0 4
+2 4
+2 7
+0 7
+1 6
+5
+1 0
+6 0
+4 5
+2 2
+1 4
+4 2
+3
+2 6
+6 4
+6 7
+5 6
+```
+```
+3 2
+3
+0 2
+3 5
+0 5
+1 4
+3
+1 0
+4 0
+1 3
+2 1
+3
+2 2
+4 3
+2 4
+3 3
+```
+```
+4 4
+3
+0 5
+3 8
+0 8
+1 7
+3
+1 3
+4 3
+1 6
+2 4
+5
+2 0
+7 0
+7 2
+3 2
+2 3
+6 1
+3
+6 2
+7 7
+2 7
+6 6
+```
+AIZU p01176 Controlled Tournament
+2 1
+0 1
+0 0
+2 1
+0 1
+1 0
+3 3
+0 1 1
+0 0 1
+0 0 0
+3 3
+0 1 0
+0 0 0
+1 1 0
+3 1
+0 1 0
+0 0 0
+1 1 0
+3 3
+0 1 0
+0 0 1
+1 0 0
+6 4
+0 0 0 0 0 1
+1 0 1 0 1 0
+1 0 0 1 1 0
+1 1 0 0 1 0
+1 0 0 0 0 0
+0 1 1 1 1 0
+7 2
+0 1 0 0 0 1 0
+0 0 1 0 1 1 1
+1 0 0 1 1 0 0
+1 1 0 0 0 1 0
+1 0 0 1 0 0 1
+0 0 1 0 1 0 0
+1 0 1 1 0 1 0
+8 6
+0 0 0 0 1 0 0 0
+1 0 1 1 0 0 0 0
+1 0 0 0 1 0 0 0
+1 0 1 0 0 1 0 1
+0 1 0 1 0 0 1 0
+1 1 1 0 1 0 0 1
+1 1 1 1 0 1 0 0
+1 1 1 0 1 0 1 0
+0 0
+AIZU p01312 Cat Burglar and Friday House
+```
+1
+0 0
+0 0
+15:00:00
+18:00:00
+1
+4 0 7199 1125 7199 1125 8324 0 8324
+```
+AIZU p01481 Lucky Dip
+```
+1 1
+0
+1
+```
+```
+2 1
+0 0
+0
+```
+```
+2 1
+0 1
+0
+```
+```
+2 2
+0 0
+1 1
+1
+```
+```
+3 3
+0 0 0
+0 1 0
+0 0 0
+1
+```
+AIZU p01642 Reverse Game
+```
+1 3
+1 1 1
+```
+AIZU p01794 Cost Performance Flow
+1 0
+1 1
+1 2
+1 3
+1 4
+1 5
+1 6
+AIZU p01928 Matryoshka Doll
+```
+2
+1 2 3
+4 2 3
+3
+2 5 2
+3 3 4
+5 5 5
+5
+1 1 1
+2 2 2
+3 3 3
+4 4 4
+5 5 5
+5
+1 1 1
+2 1 1
+3 1 1
+4 1 1
+5 1 1
+10
+3 1 4
+1 5 9
+2 6 5
+3 5 8
+9 7 9
+3 2 3
+8 4 6
+2 6 4
+3 3 8
+3 2 7
+0
+```
+AIZU p02066 Treasure Hunter
+3 10
+6 8 2
+1 2 3
+2 3 8
+AIZU p02208 Cutlet Sandwich
+1 1 1 1 1 1 1
+1 1
+1 1
+AIZU p02362 Single Source Shortest Path (Negative Edges)
+```
+4 5 0
+0 1 2
+0 2 3
+1 2 -5
+1 3 1
+2 3 2
+```
+
+```
+4 6 0
+0 1 2
+0 2 3
+1 2 -5
+1 3 1
+2 3 2
+3 1 0
+```
+
+```
+4 5 1
+0 1 2
+0 2 3
+1 2 -5
+1 3 1
+2 3 2
+```

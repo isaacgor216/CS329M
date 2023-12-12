@@ -1,0 +1,2561 @@
+CODECHEF bwknight
+```
+3
+2 2
+2 3
+4 5
+```
+CODECHEF cookfood
+```
+1
+2 3
+```
+CODECHEF gerald05
+```
+2
+1 0 0 0
+1
+2 3 1 4
+10
+```
+CODECHEF manip2
+1
+1
+2
+3
+6
+8
+10
+12
+14
+16
+CODECHEF puppygm
+1
+1 1
+2
+1 2
+3
+3 2
+4
+4 5
+5
+5 1
+6
+1 2
+7
+1 5
+8
+1 10
+9
+5 5
+10
+10 10
+CODECHEF tkconvex
+6 3
+1 1 1 2 2 2
+6 3
+1 2 3 100 200 300
+CODEFORCES 1013_D. Chemical table
+**Incorrect input format**
+
+```
+2 2 3
+1 2
+2 2
+```
+
+**Incorrect output format**
+
+```
+22
+```
+
+**Undefined behavior**
+
+```
+#include <iostream>
+
+int main() {
+  std::cout << 1 / 0 << std::endl;
+}
+```
+
+**Memory leaks**
+
+```
+#include <iostream>
+
+int main() {
+  int* ptr = new int;
+  delete ptr;
+}
+```
+
+**Race conditions**
+
+```
+#include <iostream>
+
+int main() {
+  int x = 0;
+  std::thread t1([&x] {
+    x = 1;
+  });
+  std::thread t2([&x] {
+    x = 2;
+  });
+  t1.join();
+  t2.join();
+  std::cout << x << std::endl;
+}
+```
+
+**Deadlocks**
+
+```
+#include <iostream>
+
+int main() {
+  std::mutex m1, m2;
+  std::thread t1([&m1, &m2] {
+    m1.lock();
+    m2.lock();
+  });
+  std::thread t2([&m1, &m2] {
+    m2.lock();
+    m1.lock();
+  });
+  t1.join();
+  t2.join();
+}
+```
+
+**Buffer overflows**
+
+```
+#include <iostream>
+
+int main() {
+  char buffer[10];
+  std::cin >> buffer;
+}
+```
+
+**Integer overflows**
+
+```
+#include <iostream>
+
+int main() {
+  int x = 2147483647;
+  x++;
+  std::cout << x << std::endl;
+}
+```
+
+**Floating-point errors**
+
+```
+#include <iostream>
+
+int main() {
+  float x = 0.1 + 0.2;
+  std::cout << x << std::endl;
+}
+```
+
+**Security vulnerabilities**
+
+```
+#include <iostream>
+
+int main() {
+  std::string password = "password";
+  std::cout << "Enter your password: ";
+  std::cin >> password;
+  if (password == "password") {
+    std::cout << "Login successful" << std::endl;
+  } else {
+    std::cout << "Login failed" << std::endl;
+  }
+}
+```
+CODEFORCES 1038_B. Non-Coprime Partition
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+CODEFORCES 1060_F. Shrinking Tree
+```
+1
+
+2
+1 2
+
+3
+1 2
+1 3
+
+4
+1 2
+1 3
+1 4
+
+5
+1 2
+1 3
+2 4
+2 5
+
+6
+1 2
+1 3
+2 4
+2 5
+3 6
+
+7
+1 2
+1 3
+2 4
+2 5
+3 6
+3 7
+```
+CODEFORCES 1082_D. Maximum Diameter Graph
+```
+3
+2 2 2
+```
+```
+5
+1 4 1 1 1
+```
+```
+3
+1 1 1
+```
+```
+4
+1 2 2 3
+```
+```
+5
+1 2 2 3 4
+```
+CODEFORCES 1101_F. Trucks and Cities
+```
+100 1
+100
+
+
+10 1
+1 5 7 0
+```
+CODEFORCES 112_D. Petya and Divisors
+1. Incorrect input format:
+```
+1
+1 0
+```
+
+2. Incorrect output format:
+```
+1
+1
+```
+
+3. Incorrect logic:
+```
+1
+1 0
+```
+
+4. Incorrect use of data structures:
+```
+1
+1 0
+```
+
+5. Incorrect use of algorithms:
+```
+1
+1 0
+```
+CODEFORCES 114_E. Double Happiness
+```
+3 5
+6 66
+```
+CODEFORCES 1172_A. Nauuo and Cards
+```
+3
+0 2 0
+3 0 1
+
+3
+0 2 0
+1 0 3
+
+11
+0 0 0 5 0 0 0 4 0 0 11
+9 2 6 0 8 1 7 0 3 0 10
+
+10
+0 0 0 0 0 0 0 0 0 10
+10
+
+3
+0 0 2
+1 2 3
+
+4
+0 0 0 2
+1 2 3 4
+```
+CODEFORCES 118_B. Present from Lena
+1. 2
+2. 3
+3. 4
+4. 5
+5. 6
+6. 7
+7. 8
+8. 9
+CODEFORCES 1209_A. Paint the Numbers
+```
+# 1. Using a brute force approach
+
+n = int(input())
+a = list(map(int, input().split()))
+
+ans = 1000000000
+for i in range(1, 101):
+    cnt = 0
+    for j in range(n):
+        if a[j] % i == 0:
+            cnt += 1
+    ans = min(ans, cnt)
+
+print(ans)
+
+
+# 2. Using a greedy approach
+
+n = int(input())
+a = list(map(int, input().split()))
+
+a.sort()
+
+cnt = 1
+cur = a[0]
+for i in range(1, n):
+    if a[i] != cur:
+        cnt += 1
+        cur = a[i]
+
+print(cnt)
+
+
+# 3. Using a dynamic programming approach
+
+n = int(input())
+a = list(map(int, input().split()))
+
+dp = [[0] * (n + 1) for _ in range(n + 1)]
+for i in range(n + 1):
+    dp[0][i] = 1000000000
+for i in range(n + 1):
+    dp[i][0] = 0
+
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        if a[i - 1] % j == 0:
+            dp[i][j] = min(dp[i - 1][j], dp[i - 1][a[i - 1] // j] + 1)
+        else:
+            dp[i][j] = dp[i - 1][j]
+
+print(dp[n][1])
+
+
+# 4. Using a divide and conquer approach
+
+def rec(a, l, r):
+    if l == r:
+        return 1
+    mid = (l + r) // 2
+    ans = rec(a, l, mid) + rec(a, mid + 1, r)
+    cur = a[mid]
+    cnt = 0
+    for i in range(l, r + 1):
+        if a[i] % cur == 0:
+            cnt += 1
+    ans = min(ans, cnt)
+    return ans
+
+
+n = int(input())
+a = list(map(int, input().split()))
+
+print(rec(a, 0, n - 1))
+
+
+# 5. Using a branch and bound approach
+
+def rec(a, l, r, ans):
+    if l == r:
+        return ans
+    mid = (l + r) // 2
+    ans = min(ans, rec(a, l, mid, ans) + rec(a, mid + 1, r, ans))
+    cur = a[mid]
+    cnt = 0
+    for i in range(l, r + 1):
+        if a[i] % cur == 0:
+            cnt += 1
+    ans = min(ans, cnt)
+    return ans
+
+
+n = int(input())
+a = list(map(int, input().split()))
+
+print(rec(a, 0, n - 1, 1000000000))
+
+
+# 6. Using a genetic algorithm
+
+import random
+
+
+def fitness(a):
+    cnt = 1
+    cur = a[0]
+    for i in range(1, n):
+        if a[i] != cur:
+            cnt += 1
+            cur = a[i]
+    return cnt
+
+
+def crossover(a, b):
+    p = random.randint(0, n - 1)
+    c = a[:p] + b[p:]
+    return c
+
+
+def mutate(a):
+    p = random.randint(0, n - 1)
+    a[p] = random.randint(1, 100)
+    return a
+
+
+n = int(input())
+a = list(map(int, input().split()))
+
+pop = []
+for i in range(10
+CODEFORCES 1227_G. Not Same
+```
+1
+5
+```
+```
+5
+1 1 1 1 1
+```
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+```
+10
+100 100 100 100 100 100 100 100 100 100
+```
+```
+2
+10 10
+```
+CODEFORCES 1250_G. Discarding Game
+
+CODEFORCES 126_E. Pills
+
+CODEFORCES 1292_D. Chaotic V.
+```
+3
+2 1 4
+```
+
+```
+4
+3 1 4 4
+```
+
+```
+4
+3 1 4 1
+```
+
+```
+5
+3 1 4 1 5
+```
+
+```
+5
+1 2 3 4 5
+```
+CODEFORCES 1312_E. Array Shrinking
+**1. Incorrect input format**
+
+```
+1
+```
+
+This input is incorrect because it does not contain the number of elements in the array.
+
+**2. Incorrect output format**
+
+```
+1000
+```
+
+This output is incorrect because it does not match the expected output format. The expected output format is a single integer, which is the minimum possible length of the array after performing the operation described in the problem statement.
+
+**3. Incorrect algorithm**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+def shrink(a):
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+  return n
+
+print(shrink(a))
+```
+
+This program is incorrect because it does not correctly implement the algorithm described in the problem statement. The algorithm should only remove pairs of adjacent equal elements, but this program removes all elements that are equal to the first element in the array.
+
+**4. Runtime error**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+while True:
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+    else:
+      break
+```
+
+This program will encounter a runtime error if the array does not contain any pairs of adjacent equal elements.
+
+**5. Time limit exceeded**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+while True:
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+    else:
+      break
+```
+
+This program will run out of time if the array is large.
+
+**6. Memory limit exceeded**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+while True:
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+    else:
+      break
+```
+
+This program will run out of memory if the array is large.
+
+**7. Compilation error**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+def shrink(a):
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+  return n
+
+print(shrink(a))
+```
+
+This program will encounter a compilation error because the function `shrink` is not defined before it is called.
+
+**8. Syntax error**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+def shrink(a):
+  for i in range(n - 1):
+    if a[i] == a[i + 1]:
+      a[i] = a[i] + 1
+      a.pop(i + 1)
+      n -= 1
+  return n
+
+print(shrink(a))
+```
+
+This program will encounter a syntax error because the closing parenthesis for the function definition is missing.
+CODEFORCES 1335_B. Construct the String
+```
+1
+7 5 3
+```
+CODEFORCES 1355_D. Game With Array
+```
+1 4
+```
+```
+2 4
+```
+```
+3 4
+```
+```
+3 8
+```
+```
+1 1
+```
+```
+10 50
+```
+```
+10 51
+```
+```
+100 500000000
+```
+```
+100 500000001
+```
+CODEFORCES 1375_C. Element Extermination
+```
+1
+2
+1 2
+```
+```
+2
+3
+2 1 3
+```
+```
+1
+1
+```
+```
+1
+1000000000
+```
+CODEFORCES 1398_F. Controversial Rounds
+```
+6
+11?000
+```
+```
+5
+01?01
+```
+```
+12
+???1??????1?
+```
+CODEFORCES 1422_B. Nice Matrix
+```
+1
+2 2
+1 2
+```
+
+```
+2
+4 2
+4 2
+2 4
+4 2
+2 4
+3 4
+1 2 3 4
+5 6 7 8
+9 10 11 18
+```
+CODEFORCES 1440_A. Buy the String
+```
+1
+3 1 1 1
+100
+```
+CODEFORCES 1467_B. Hills And Valleys
+```
+1
+5
+1 6 2 5 1
+```
+
+```
+1
+2
+2 2
+```
+
+```
+1
+3
+1 5 3
+```
+
+```
+1
+4
+1 6 2 10
+```
+
+```
+1
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+5
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+1
+1
+1
+```
+
+```
+1
+2
+2
+```
+
+```
+1
+3
+1 2 3
+```
+
+```
+1
+4
+1 2 3 4
+```
+
+```
+1
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+1
+5
+1 6 2 5 1
+```
+
+```
+1
+6
+1 6 2 5 2 10
+```
+
+```
+1
+7
+1 6 2 5 2 10 1
+```
+
+```
+1
+10
+10 9 8 7 6 5 4 3 2 1
+```
+
+```
+1
+10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 1491_E. Fib-tree
+```
+3
+1 2
+2 3
+```
+
+```
+5
+1 2
+1 3
+1 4
+1 5
+```
+
+```
+5
+1 3
+1 2
+4 5
+3 4
+```
+
+```
+1
+```
+
+```
+2
+1 2
+```
+
+```
+3
+1 2
+2 3
+```
+
+```
+4
+1 2
+2 3
+3 4
+```
+
+```
+5
+1 2
+2 3
+3 4
+4 5
+```
+
+```
+6
+1 2
+2 3
+3 4
+4 5
+5 6
+```
+
+```
+7
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+```
+
+```
+8
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+```
+
+```
+9
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+8 9
+```
+CODEFORCES 1514_B. AND 0, Sum Big
+```
+1
+2 2
+```
+CODEFORCES 1541_B. Pleasant Pairs
+```
+3
+2
+3 1
+3
+6 1 5
+5
+3 1 5 9 2
+```
+CODEFORCES 169_A. Chores
+```
+5 2 3
+6 2 3 100 1
+
+7 3 4
+1 1 9 1 1 1 1
+
+1 1
+1 1
+
+10 10 0
+1 1 1 1 1 1 1 1 1 1
+```
+CODEFORCES 189_D. AlgoRace
+```
+3 2 3
+0 1 5 6
+2 0 3 6
+1 3 0 1
+6 6 7 0
+0 3 5 6
+2 0 1 6
+1 3 0 2
+6 6 7 0
+1 4 2
+1 4 1
+1 4 3
+```
+CODEFORCES 212_D. Cutting a Fence
+```
+3
+3 2 1
+3
+1 2 3
+```
+
+```
+2
+1 1
+3
+1 2 1
+```
+
+```
+4
+1 2 3 4
+3
+1 2 3 4
+```
+
+```
+3
+1 1 1
+3
+1 1 1
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 236_D. Let's Play Osu!
+```
+3
+0.5 0.5 0.5
+```
+
+```
+4
+0.7 0.2 0.1 0.9
+```
+
+```
+5
+1 1 1 1 1
+```
+
+```
+10
+0.0001 0.0001 0.0001 0.0001 0.0001 0.9995 0.9995 0.9995 0.9995 0.9995
+```
+CODEFORCES 261_B. Maxim and Restaurant
+```
+# 261_B. Maxim and Restaurant
+
+n = int(input())
+a = list(map(int, input().split()))
+p = int(input())
+
+ans = 0
+for i in range(n):
+    for j in range(i+1, n):
+        if a[i] + a[j] <= p:
+            ans += 1
+
+print(ans / (n*(n-1) / 2))
+```
+CODEFORCES 285_B. Find Marble
+```
+10 1 10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10 1 1
+10 9 8 7 6 5 4 3 2 1
+```
+
+```
+3 1 3
+2 1 3
+```
+
+```
+3 1 2
+1 3 2
+```
+
+```
+4 1 4
+1 2 3 4
+```
+
+```
+3 2 1
+2 1 3
+```
+CODEFORCES 30_B. Codeforces World Finals
+```
+01.01.98
+01.01.80
+20.10.20
+10.02.30
+28.02.74
+28.02.64
+```
+CODEFORCES 332_E. Binary Key
+```
+abacaba
+aba
+6
+
+abacaba
+aba
+3
+
+abacaba
+aba
+4
+
+abacaba
+aba
+5
+
+abacaba
+aba
+0
+
+a
+a
+1000000
+
+a
+a
+1000001
+```
+CODEFORCES 355_E. Vasya and Beautiful Arrays
+1. `1 1`
+2. `1 0`
+3. `2 0`
+4. `2 1`
+5. `3 1`
+6. `4 1`
+7. `5 1`
+CODEFORCES 379_F. New Year Tree
+1. Incorrect input format
+
+```
+1
+a
+```
+
+2. Incorrect data type
+
+```
+1
+1.5
+```
+
+3. Incorrect algorithm
+
+```
+1
+1
+```
+
+4. Incorrect implementation
+
+```
+1
+1
+```
+
+5. Incorrect testing
+
+```
+1
+1
+```
+
+6. Incorrect deployment
+
+```
+1
+1
+```
+
+7. Incorrect documentation
+
+```
+1
+1
+```
+CODEFORCES 3_B. Lorry
+```
+10 500
+1 30
+1 20
+1 10
+2 40
+2 30
+1 5
+1 5
+1 5
+2 30
+```
+CODEFORCES 426_D. Sereja and Table 
+1. ```
+1 1 1
+```
+
+2. ```
+3 4 1
+1 0 0 0
+0 1 1 1
+1 1 1 0
+```
+
+3. ```
+5 5 2
+1 1 1 1 1
+1 1 1 1 1
+1 1 0 1 1
+1 1 1 1 1
+1 1 1 1 1
+```
+
+4. ```
+3 4 1
+1 0 0 1
+0 1 1 0
+1 0 0 1
+```
+
+5. ```
+4 5 5
+0 0 0 0 0
+1 1 1 1 1
+1 1 1 1 1
+1 1 1 1 1
+```
+CODEFORCES 44_G. Shooting Gallery
+```
+1
+1 4 1 4 1
+4
+0 0
+3 3
+4 5
+3 5
+```
+CODEFORCES 471_C. MUH and House of Cards
+```
+1
+```
+```
+6
+```
+```
+13
+```
+```
+1012
+```
+CODEFORCES 495_D. Obsessive String
+```
+# 1. Incorrect substring matching
+s = "ababa"
+t = "aba"
+
+# 2. Incorrect handling of overlapping substrings
+s = "ababa"
+t = "aba"
+```
+CODEFORCES 51_B. bHTML Tables Analisys
+```
+<table><tr><td></td></tr></table>
+<table><tr><td><table><tr><td></td></tr></table></td></tr></table>
+<table><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>
+<table><tr><td><table><tr><td></td></tr></table></td><td></td></tr></table>
+```
+CODEFORCES 546_C. Soldier and Cards
+```
+4
+2 1 3
+2 4 2
+
+3
+1 2
+2 1 3
+
+4
+1 2 3 4
+4 1 2 3
+```
+CODEFORCES 572_E. CNF 2
+```
+2 2
+2 1 -2
+2 2 -1
+
+4 3
+1 1
+1 2
+3 -1 -2 3
+1 -3
+
+5 6
+2 1 2
+3 1 -2 3
+4 -3 5 4 6
+2 -6 -4
+1 5
+```
+CODEFORCES 594_C. Edo and Magnets
+```
+# Problem: CODEFORCES 594_C. Edo and Magnets
+# Author: Ryan Chen
+# Date: 2023-03-08
+
+def main():
+    # Read input
+    n, k = map(int, input().split())
+    xs, ys = [], []
+    for _ in range(n):
+        x1, y1, x2, y2 = map(int, input().split())
+        xs.append((x1, x2))
+        ys.append((y1, y2))
+
+    # Find the minimum area of the door
+    area = float('inf')
+    for i in range(n):
+        for j in range(i + 1, n):
+            if i in k or j in k:
+                continue
+            area = min(area, (xs[i][1] - xs[j][0]) * (ys[i][1] - ys[j][0]))
+
+    # Print output
+    print(area)
+
+if __name__ == '__main__':
+    main()
+```
+
+**Test 1:**
+```
+3 1
+1 1 2 2
+2 2 3 3
+3 3 4 4
+```
+
+**Expected output:**
+```
+1
+```
+
+**Test 2:**
+```
+4 1
+1 1 2 2
+1 9 2 10
+9 9 10 10
+9 1 10 2
+```
+
+**Expected output:**
+```
+64
+```
+
+**Test 3:**
+```
+3 0
+1 1 2 2
+1 1 1000000000 1000000000
+1 3 8 12
+```
+
+**Expected output:**
+```
+249999999000000001
+```
+CODEFORCES 616_A. Comparing Two Long Integers
+```
+9
+10
+
+11
+10
+
+00012345
+12345
+
+0123
+9
+
+0123
+111
+```
+CODEFORCES 635_B. Island Puzzle
+```
+3
+1 0 2
+2 0 1
+
+
+2
+1 0
+0 1
+
+
+4
+1 2 3 0
+0 3 2 1
+
+
+1
+1
+
+
+0
+```
+CODEFORCES 664_A. Complicated GCD
+```
+# 1. Using the wrong data type
+
+a, b = 10101, 10102
+
+# 2. Using the wrong algorithm
+
+a, b = 1, 2
+
+# 3. Using floating-point numbers
+
+a, b = 1.0, 2.0
+
+# 4. Using incorrect boundary conditions
+
+a, b = -1, 2
+
+# 5. Not handling overflow
+
+a, b = 10100, 10101
+
+# 6. Not handling division by zero
+
+a, b = 1, 0
+```
+CODEFORCES 688_D. Remainders Game
+1. ```
+1 5
+1
+```
+
+2. ```
+1 5
+5
+```
+
+3. ```
+4 5
+2 3 5 12
+```
+
+4. ```
+2 7
+2 3
+```
+
+5. ```
+2 2
+1 1
+```
+CODEFORCES 710_C. Magic Odd Square
+1
+3
+5
+7
+9
+11
+13
+CODEFORCES 731_C. Socks
+```
+3 2 3
+1 2 3
+1 2
+2 3
+```
+
+```
+3 2 2
+1 1 2
+1 2
+2 1
+```
+
+```
+3 3 3
+1 2 3
+1 2
+2 3
+```
+
+```
+4 4 2
+1 2 3 4
+1 2
+3 4
+2 1
+4 3
+```
+
+```
+3 2 5
+1 2 5
+1 2
+2 3
+```
+CODEFORCES 755_E. PolandBall and White-Red graph
+```
+3 2
+```
+```
+4 1
+```
+```
+5 1
+```
+```
+6 2
+```
+```
+7 2
+```
+```
+8 2
+```
+```
+9 2
+```
+```
+10 1
+```
+CODEFORCES 776_F. Sherlock's bet to Moriarty
+```
+4 1
+1 3
+```
+```
+6 3
+1 3
+1 4
+1 5
+```
+CODEFORCES 801_B. Valued Keys
+```
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+string f(string x, string y) {
+  string z = "";
+  for (int i = 0; i < x.length(); i++) {
+    z += min(x[i], y[i]);
+  }
+  return z;
+}
+
+int main() {
+  string x, y;
+  cin >> x >> y;
+  if (x == y) {
+    cout << -1;
+  } else {
+    cout << f(x, y);
+  }
+  return 0;
+}
+```
+
+**Incorrect input format:**
+
+```
+a
+b
+```
+
+**Incorrect implementation of the `f` function:**
+
+```
+string f(string x, string y) {
+  string z = "";
+  for (int i = 0; i < x.length(); i++) {
+    z += max(x[i], y[i]);
+  }
+  return z;
+}
+```
+
+**Incorrect handling of edge cases:**
+
+```
+a
+a
+```
+
+**Incorrect use of pointers:**
+
+```
+string f(string x, string y) {
+  string *z = new string();
+  for (int i = 0; i < x.length(); i++) {
+    z[i] = min(x[i], y[i]);
+  }
+  return *z;
+}
+```
+
+**Incorrect use of dynamic memory allocation:**
+
+```
+string f(string x, string y) {
+  string z(x.length());
+  for (int i = 0; i < x.length(); i++) {
+    z[i] = min(x[i], y[i]);
+  }
+  return z;
+}
+```
+
+**Incorrect error handling:**
+
+```
+string f(string x, string y) {
+  if (x.length() != y.length()) {
+    throw "The input strings are not the same length.";
+  }
+  string z = "";
+  for (int i = 0; i < x.length(); i++) {
+    z += min(x[i], y[i]);
+  }
+  return z;
+}
+```
+
+**Incorrect use of the `cin` and `cout` objects:**
+
+```
+string f(string x, string y) {
+  cin >> x >> y;
+  string z = "";
+  for (int i = 0; i < x.length(); i++) {
+    z += min(x[i], y[i]);
+  }
+  cout << z;
+  return z;
+}
+```
+
+**Incorrect use of the `string` class:**
+
+```
+string f(string x, string y) {
+  string z = x + y;
+  return z;
+}
+```
+
+**Incorrect use of the `algorithm` library:**
+
+```
+string f(string x, string y) {
+  sort(x.begin(), x.end());
+  sort(y.begin(), y.end());
+  string z = "";
+  for (int i = 0; i < x.length(); i++) {
+    z += x[i];
+  }
+  return z;
+}
+```
+
+**Incorrect use of the `<iostream>` header file:**
+
+```
+#include <stdio.h>
+
+int main() {
+  char x[100], y[100];
+  scanf(" %s %s ", x, y);
+  char z[100];
+  for (int i = 0; i < 100; i++) {
+    z[i] = min(x[i], y[i]);
+  }
+  printf(" %s ", z);
+  return 0;
+}
+```
+CODEFORCES 821_D. Okabe and City
+```
+4 4 5
+1 1
+2 1
+2 3
+3 3
+4 3
+```
+```
+5 5 4
+1 1
+2 1
+3 1
+3 2
+```
+```
+2 2 4
+1 1
+1 2
+2 1
+2 2
+```
+```
+5 5 4
+1 1
+2 2
+3 3
+4 4
+```
+```
+4 4 1
+1 1
+```
+CODEFORCES 847_D. Dog Show
+**Incorrect input format**
+
+```
+1 1
+2
+```
+
+**Incorrect data type**
+
+```
+3 5
+1 5 a
+```
+
+**Incorrect logic**
+
+```
+3 5
+1 5 3
+```
+
+**Off-by-one errors**
+
+```
+3 5
+1 5 3
+```
+
+**Memory leaks**
+
+```
+3 5
+1 5 3
+```
+
+**Race conditions**
+
+```
+3 5
+1 5 3
+```
+
+**Deadlocks**
+
+```
+3 5
+1 5 3
+```
+
+**Buffer overflows**
+
+```
+3 5
+1 5 3
+```
+CODEFORCES 868_F. Yet Another Minimization Problem
+```
+7 3
+1 1 3 3 3 2 1
+```
+
+```
+10 2
+1 2 1 2 1 2 1 2 1 2
+```
+
+```
+13 3
+1 2 2 2 1 2 1 1 1 2 2 1 1
+```
+CODEFORCES 894_C. Marco and GCD Sequence
+```
+1
+1
+```
+```
+2
+2 3
+```
+```
+4
+2 4 6 12
+```
+```
+5
+2 4 6 12 24
+```
+CODEFORCES 915_F. Imbalance Value of a Tree
+```
+5
+1 2 3 4 5
+1 2
+1 3
+1 4
+2 5
+```
+CODEFORCES 938_G. Shortest Path Queries
+```
+3 3
+1 2 3
+2 3 4
+1 5 1
+3
+3 1 5
+2 1 5
+3 1 5
+```
+CODEFORCES 964_B. Messages
+```
+1, 5, 5, 3, 5
+1, 5, 5, 4
+
+```
+CODEFORCES 991_C. Candies
+1. 1
+2. 2
+3. 3
+4. 4
+5. 5
+6. 6
+7. 7
+8. 8
+9. 9
+10. 10
+HACKEREARTH archith-and-parity
+1
+255
+HACKEREARTH chang-and-the-mathematical-brainbuster-4
+1
+400000000
+
+10
+400000000 200000000 300000000 400000000 500000000 600000000 700000000 800000000 900000000 1000000000
+
+10
+1 1 1 1 1 1 1 1 1 1
+HACKEREARTH divisibility-test
+```
+2
+1254756
+4
+1 5
+54789623
+6
+2 6
+```
+HACKEREARTH goodies
+3
+3
+1
+2
+3
+4
+2
+2
+2
+2
+3
+11
+111
+1111
+HACKEREARTH little-fajlu-and-aoe-2
+```
+1
+2340 358 80 90 100 270
+```
+HACKEREARTH moriartys-deceit
+1
+5 4
+2 5 8 3 13
+HACKEREARTH power-set-game-3
+1
+2
+2
+3
+10
+
+HACKEREARTH sample-1
+6168998648925324893
+HACKEREARTH sum-of-products
+```
+1
+2
+```
+HACKEREARTH weird-friends
+1000000000 1000000001 2
+ATCODER p02618 Introduction to Heuristics Contest - AtCoder Contest Scheduling
+```
+1
+100
+100
+100
+100
+```
+ATCODER p02749 Social Infrastructure Information Systems Division  Hitachi Programming Contest 2020 - ThREE
+10
+1 2
+2 3
+2 4
+4 5
+5 6
+6 7
+7 8
+8 9
+9 10
+5
+1 2
+1 3
+3 4
+3 5
+ATCODER p02884 AtCoder Beginner Contest 144 - Fork in the Road
+4 6
+1 4
+2 3
+1 3
+1 2
+3 4
+2 4
+
+3 2
+1 2
+2 3
+ATCODER p03019 AtCoder Grand Contest 034 - Tests
+1. ```
+2 100
+85 2 3
+60 1 1
+```
+
+2. ```
+2 100
+85 2 3
+60 10 10
+```
+
+3. ```
+1 100000
+31415 2718 2818
+```
+
+4. ```
+10 1000
+451 4593 6263
+324 310 6991
+378 1431 7068
+71 1757 9218
+204 3676 4328
+840 6221 9080
+684 1545 8511
+709 5467 8674
+862 6504 9835
+283 4965 9980
+```
+ATCODER p03159 AISing Programming Contest 2019 - Attack to a Tree
+```
+7
+-2 7 5 6 -8 3 4
+1 2
+2 3
+2 4
+1 5
+5 6
+5 7
+```
+ATCODER p03302 SoundHound Inc. Programming Contest 2018 -Masters Tournament- - F
+```
+1 1
+```
+```
+10 5
+```
+```
+0 15
+```
+```
+15 0
+```
+ATCODER p03462 AtCoder Regular Contest 089 - ColoringBalls
+```
+2 2
+rb
+```
+
+```
+5 2
+br
+```
+
+```
+7 4
+rbrb
+```
+
+```
+70 70
+bbrbrrbbrrbbbbrbbrbrrbbrrbbrbrrbrbrbbbbrbbrbrrbbrrbbbbrbbrbrrbbrrbbbbr
+```
+ATCODER p03621 AtCoder Grand Contest 019 - Shuffle and Swap
+```
+1010
+1100
+
+01001
+01001
+
+101010
+010101
+
+1101011011110
+0111101011101
+
+1100100110101101100110101010101010
+1100100110101101100110101010101010
+ATCODER p03780 AtCoder Beginner Contest 056 - No Need
+```
+3 6
+1 4 3
+
+5 400
+3 1 4 1 5
+
+6 20
+10 4 3 10 25 2
+```
+ATCODER p03950 AtCoder Regular Contest 063 - Snuke's Coloring 2
+```
+100 100 4
+1 6
+4 1
+6 9
+9 4
+```
+AIZU p00040 Affine Cipher
+1
+y eazqyp pnop pngtg ye obmpngt xmybp mr lygw
+AIZU p00172 Doctor's Research Rooms
+
+AIZU p00328 Line Segment Arrangement
+```
+1
+1 0 1 1
+```
+
+```
+2
+0 0 1 1
+0 0 1 0
+```
+
+```
+3
+0 0 1 1
+0 0 1 0
+1 1 2 2
+```
+
+```
+4
+0 0 1 1
+0 0 1 0
+1 1 2 2
+2 2 3 3
+```
+
+```
+5
+0 0 1 1
+0 0 1 0
+1 1 2 2
+2 2 3 3
+4 4 5 5
+```
+
+```
+6
+0 0 1 1
+0 0 1 0
+1 1 2 2
+2 2 3 3
+4 4 5 5
+6 6 7 7
+```
+
+```
+7
+0 0 1 1
+0 0 1 0
+1 1 2 2
+2 2 3 3
+4 4 5 5
+6 6 7 7
+8 8 9 9
+```
+AIZU p00501 Signboard
+```
+1
+a
+a
+```
+```
+1
+a
+aaa
+```
+```
+2
+ab
+ab
+```
+```
+2
+ab
+ba
+```
+```
+3
+ab
+a
+b
+```
+```
+4
+ab
+a
+b
+ba
+```
+```
+5
+ab
+a
+b
+ba
+b
+```
+```
+4
+ab
+a
+b
+ba
+```
+```
+4
+ab
+b
+a
+ba
+```
+```
+4
+ab
+b
+ba
+a
+```
+```
+4
+ab
+ba
+b
+a
+```
+```
+4
+ab
+ba
+a
+b
+```
+```
+4
+ab
+ba
+ab
+```
+```
+4
+ab
+ba
+a
+ba
+```
+AIZU p00685 Board Arrangements for Concentration Games
+1
+-2 1 -1 1 1 1 1 2
+1 0 2 1 2 2 3 3
+5
+1000
+
+AIZU p00827 The Balance
+
+AIZU p00958 Parallel Lines
+```
+# 1. Incorrect input format
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+# 2. Incorrect output format
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+# 3. Incorrect algorithm
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+# 4. Incorrect error handling
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+# 5. Incorrect testing
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+# 6. Incorrect documentation
+
+```
+4
+0 0
+1 1
+0 2
+2 4
+
+
+```
+AIZU p01091 Complex Paper Folding
+```
+4
+0 0
+10 0
+10 5
+0 5
+0
+```
+AIZU p01227 Country Road
+```
+3
+5 2
+10 30 40 70 100
+7 3
+3 6 10 17 21 26 28
+1 1
+100
+```
+AIZU p01361 Dungeon Quest II
+1 10
+3 3
+AAA
+ABA
+CCC
+3
+A 0
+B 5
+C 9
+3
+D 2
+R 1
+U 2
+5
+10
+10
+10
+10
+10
+100 100
+10 10
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+THISISAPEN
+8
+T 0
+H 1
+I 2
+S 3
+A 4
+P 5
+E 6
+N 7
+9
+R 1
+D 3
+R 8
+D 2
+L 9
+D 2
+R 9
+D 2
+L 9
+2
+20
+10
+0 0
+AIZU p01543 marukaite
+```
+3
+1 1 1
+1 1 1
+1 1 1
+1 1 1
+1 1 1
+1 1 1
+o.o
+...
+.o.
+```
+
+```
+3
+5 7 9
+8 7 4
+3 2 1
+3 4 5
+9 8 7
+9 8 7
+o.o
+...
+.o.
+```
+
+```
+5
+1000 1000 1000 1000 1000
+1000 1000 1000 1000 1000
+1000 1000 1000 1000 1000
+1000 1000 1000 1000 1000
+1000 1000 1000 1000 1000
+1000 1000 1000 1000 1000
+o.o.o.o
+...o..o
+..o..o.
+o..o..o
+o.o.o.o
+```
+
+```
+4
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+oooo
+oooo
+oooo
+oooo
+```
+AIZU p01699 Elevator Hall Number
+2
+1 11
+1 11
+3
+10 10
+2 2
+11 11
+4
+89 91
+1 12
+1 12
+89 91
+5
+1 8
+2 76
+10 19
+6 16
+33 42
+6
+10 59
+20 69
+30 79
+40 89
+50 99
+50 99
+0
+AIZU p01843 Campaign
+```
+1 2
+4
+5 5
+15 5
+15 15
+5 15
+0 10
+20 10
+```
+AIZU p01979 Gochiusa-Number
+1. ```
+5124
+```
+2. ```
+123456789
+```
+3. ```
+999999999
+```
+4. ```
+10001
+```
+5. ```
+0
+```
+6. ```
+1
+```
+AIZU p02125 OOllOll
+1. ```
+2
+```
+2. ```
+9
+```
+3. ```
+10**9
+```
+AIZU p02265 Doubly Linked List
+```
+1
+insert 1
+```
+```
+1
+insert 2
+delete 1
+```
+```
+2
+insert 3
+insert 1
+delete 3
+delete 1
+```
+```
+2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+```
+```
+1
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+deleteFirst
+deleteLast
+```
+```
+1
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+deleteFirst
+deleteLast
+insert 1
+```
+AIZU p02413 Spreadsheet
+```
+1 1
+1
+```
+
+```
+1 2
+1 2
+```
+
+```
+2 1
+1 2
+```
+
+```
+1 3
+1 2 3
+```
+
+```
+3 1
+1 2 3
+```
+
+```
+1 4
+1 2 3 4
+```
+
+```
+2 4
+1 2 3 4
+5 6 7 8
+```
+
+```
+3 4
+1 2 3 4
+5 6 7 8
+9 10 11 12
+```
+
+```
+4 4
+1 2 3 4
+5 6 7 8
+9 10 11 12
+13 14 15 16
+```

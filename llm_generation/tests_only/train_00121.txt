@@ -1,0 +1,3059 @@
+CODECHEF chapd
+```
+1
+1000000000 1000000001
+```
+```
+2
+120 75
+128 16
+```
+```
+3
+7 8
+1000000000 1000000001
+```
+```
+1
+1000000000 1
+```
+CODECHEF destroy
+1
+2
+1 2
+2
+1 2
+3
+1 1 3
+CODECHEF iitk1p11
+```
+1
+1
+```
+CODECHEF ncc3
+```
+1
+1000000000000000000
+1000000000000000000
+1000000000000000000
+```
+CODECHEF rrstone
+1 1
+-5
+CODECHEF wprob
+1
+rgrb
+1
+rbgr
+3
+rgbr
+2
+1
+rgr
+1
+CODEFORCES 1023_B. Pair of Toys
+**1. Incorrect input format**
+
+```
+1 2
+```
+
+**2. Incorrect data type**
+
+```
+1 'a'
+```
+
+**3. Off-by-one errors**
+
+```
+8 5
+```
+
+**4. Undefined behavior**
+
+```
+0 0
+```
+
+**5. Memory leaks**
+
+```
+#include <iostream>
+
+int main() {
+  int n, k;
+  std::cin >> n >> k;
+
+  int i = 1;
+  while (i <= n) {
+    int j = 1;
+    while (j <= n) {
+      if (i + j == k) {
+        std::cout << 1 << std::endl;
+        return 0;
+      }
+      j++;
+    }
+    i++;
+  }
+
+  std::cout << 0 << std::endl;
+
+  return 0;
+}
+```
+
+**6. Race conditions**
+
+```
+#include <iostream>
+#include <thread>
+
+int main() {
+  int n, k;
+  std::cin >> n >> k;
+
+  std::thread t1([&]() {
+    int i = 1;
+    while (i <= n) {
+      int j = 1;
+      while (j <= n) {
+        if (i + j == k) {
+          std::cout << 1 << std::endl;
+          return;
+        }
+        j++;
+      }
+      i++;
+    }
+
+    std::cout << 0 << std::endl;
+  });
+
+  std::thread t2([&]() {
+    int i = 1;
+    while (i <= n) {
+      int j = 1;
+      while (j <= n) {
+        if (i + j == k) {
+          std::cout << 1 << std::endl;
+          return;
+        }
+        j++;
+      }
+      i++;
+    }
+
+    std::cout << 0 << std::endl;
+  });
+
+  t1.join();
+  t2.join();
+
+  return 0;
+}
+```
+
+**7. Deadlocks**
+
+```
+#include <iostream>
+#include <mutex>
+
+int main() {
+  int n, k;
+  std::cin >> n >> k;
+
+  std::mutex m1;
+  std::mutex m2;
+
+  std::thread t1([&]() {
+    std::lock_guard<std::mutex> lock(m1);
+    int i = 1;
+    while (i <= n) {
+      int j = 1;
+      while (j <= n) {
+        if (i + j == k) {
+          std::cout << 1 << std::endl;
+          return;
+        }
+        j++;
+      }
+      i++;
+    }
+
+    std::cout << 0 << std::endl;
+  });
+
+  std::thread t2([&]() {
+    std::lock_guard<std::mutex> lock(m2);
+    int i = 1;
+    while (i <= n) {
+      int j = 1;
+      while (j <= n) {
+        if (i + j == k) {
+          std::cout << 1 << std::endl;
+          return;
+        }
+        j++;
+      }
+      i++;
+    }
+
+    std::cout << 0 << std::endl;
+  });
+
+  t1.join();
+  t2.join();
+
+  return 0;
+}
+```
+
+**8. Security vulnerabilities**
+
+```
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+  std::ifstream in("flag.txt");
+  std::string flag;
+  in >> flag;
+  std::cout << flag << std::endl;
+
+  return 0;
+}
+```
+CODEFORCES 1044_C. Optimal Polygon Perimeter
+```
+# 3 4
+2 4
+4 3
+3 0
+1 3
+
+# 3 3
+0 0
+0 2
+2 0
+
+# 4 5
+1 2
+2 3
+3 4
+4 5
+5 1
+```
+CODEFORCES 1067_B. Multihedgehog
+```
+3 1
+1 3
+2 3
+```
+```
+3 2
+1 3
+2 3
+```
+```
+14 2
+1 4
+2 4
+3 4
+4 13
+10 5
+11 5
+12 5
+14 5
+5 13
+6 7
+8 6
+13 6
+9 6
+```
+```
+5 1
+1 2
+2 3
+3 4
+4 5
+```
+CODEFORCES 1089_L. Lazyland
+```
+8 7
+1 1 3 1 5 3 7 1
+5 7 4 8 1 3 5 2
+```
+CODEFORCES 1108_E2. Array and Segments (Hard version)
+```
+1 1
+1000000
+```
+CODEFORCES 1138_B. Circus
+```
+4
+0011
+0101
+
+4
+000000
+111111
+
+4
+0011
+1100
+
+8
+00100101
+01111100
+```
+CODEFORCES 1156_D. 0-1-Tree
+```
+2
+1 2 1
+```
+
+```
+3
+1 2 1
+2 3 0
+```
+
+```
+4
+1 2 1
+2 3 1
+3 4 0
+```
+
+```
+5
+1 2 1
+2 3 1
+3 4 0
+4 5 1
+```
+
+```
+6
+1 2 1
+2 3 1
+3 4 0
+4 5 1
+5 6 1
+```
+
+```
+7
+2 1 1
+3 2 0
+4 2 1
+5 2 0
+6 7 1
+7 2 1
+```
+
+```
+8
+1 2 1
+2 3 1
+3 4 0
+4 5 1
+5 6 1
+6 7 1
+7 8 1
+```
+
+```
+9
+1 2 1
+2 3 1
+3 4 0
+4 5 1
+5 6 1
+6 7 1
+7 8 1
+8 9 1
+```
+
+```
+10
+1 2 1
+2 3 1
+3 4 0
+4 5 1
+5 6 1
+6 7 1
+7 8 1
+8 9 1
+9 10 1
+```
+
+CODEFORCES 1178_F2. Long Colorful Strip
+```
+# 1178F2. Long Colorful Strip
+# Author: Antti Laaksonen
+
+def solve():
+    n, m = map(int, input().split())
+    c = list(map(int, input().split()))
+    dp = [[0] * n for _ in range(m + 1)]
+    dp[0][0] = 1
+    for i in range(1, m + 1):
+        for j in range(n):
+            dp[i][j] = (dp[i - 1][j] * (n - j)) % 998244353
+            if j > 0:
+                dp[i][j] += (dp[i - 1][j - 1] * (j)) % 998244353
+    ans = 0
+    for i in range(n):
+        ans += dp[m][i]
+    print(ans % 998244353)
+
+
+def main():
+    t = int(input())
+    for _ in range(t):
+        solve()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+```
+5
+3 3
+1 2 3
+2 3
+1 2 1
+2 1 2
+7 7
+4 5 1 6 2 3 7
+8 17
+1 3 2 2 7 8 2 5 5 4 4 4 1 1 6 1 1
+```
+CODEFORCES 1196_F. K-th Path
+```
+6 10 5
+2 5 1
+5 3 9
+6 2 2
+1 3 1
+5 1 8
+6 5 10
+1 6 5
+6 4 6
+3 6 2
+3 4 5
+
+
+7 15 18
+2 6 3
+5 7 4
+6 5 4
+3 6 9
+6 7 7
+1 6 4
+7 1 6
+7 2 1
+4 3 2
+3 2 8
+5 3 6
+2 5 5
+3 7 9
+4 1 8
+2 1 1
+```
+CODEFORCES 1214_A. Optimal Currency Exchange
+1. ```
+n = int(input())
+d = int(input())
+e = int(input())
+minn = 1000000000
+if n % e == 0:
+    minn = min(n // e, n // d)
+else:
+    minn = min(n // d, n // e + 1)
+print(minn)
+```
+
+2. ```
+n = int(input())
+d = int(input())
+e = int(input())
+minn = 1000000000
+for i in range(1, 601):
+    for j in range(1, 601):
+        if i * e == n:
+            minn = min(minn, j * d)
+        elif i * e + j * d == n:
+            minn = min(minn, j * d)
+print(minn)
+```
+
+3. ```
+n = int(input())
+d = int(input())
+e = int(input())
+minn = 1000000000
+if n < d:
+    print(n)
+else:
+    minn = n // d * d
+    for i in range(501):
+        for j in range(501):
+            if i * e + j * d == n:
+                minn = min(minn, i * e + j * d)
+    print(minn)
+```
+
+4. ```
+n = int(input())
+d = int(input())
+e = int(input())
+minn = 1000000000
+for i in range(1, n + 1):
+    if i % d == 0:
+        minn = min(minn, i)
+    for j in range(1, n + 1):
+        if i * e + j * d == n:
+            minn = min(minn, j * d)
+    print(minn)
+```
+
+5. ```
+n = int(input())
+d = int(input())
+e = int(input())
+minn = 1000000000
+for i in range(1001):
+    for j in range(1001):
+        if i * e + j * d == n:
+            minn = min(minn, i * e + j * d)
+print(minn)
+```
+CODEFORCES 1237_C2. Balanced Removals (Harder)
+```
+6
+3 1 0
+0 3 0
+2 2 0
+1 0 0
+1 3 0
+0 1 0
+```
+CODEFORCES 1255_C. League of Leesins
+```
+5
+4 3 2
+2 3 5
+4 1 2
+```
+CODEFORCES 1279_B. Verse For Santa
+```
+1
+5 11
+1 9 1 3 18
+```
+
+```
+2
+4 35
+11 9 10 7
+```
+
+```
+1
+1 8
+```
+
+```
+3
+7 11
+2 9 1 3 18 1 4
+```
+
+```
+1
+8 10
+2 1 6 2 8 7 8 3
+```
+
+```
+1
+1 1
+1
+```
+
+```
+3
+2 2
+1 1
+```
+
+```
+2
+3 10
+2 10 10
+```
+
+```
+3
+4 10
+1 1 1 1
+```
+
+```
+1
+6 12
+1 1 1 1 1 1
+```
+CODEFORCES 1299_E. So Mean
+```
+1
+```
+
+```
+2
+1 2
+```
+
+```
+8
+1 2 3 4 5 6 7 8
+```
+
+```
+3
+1 2 3
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+2
+1 2
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 1322_C. Instant Noodles
+```
+1
+2 3
+1 1
+1 2
+```
+CODEFORCES 1341_B. Nastya and Door
+```
+1
+3 2
+3
+```
+
+```
+2
+7 6
+1 2 4 1 2 4 1 2
+5 3
+3 2 3 2 1
+```
+
+```
+1
+10 4
+4 3 4 3 2 3 2 1 0 1
+```
+
+```
+4
+8 6
+1 2 4 1 2 4 1 2
+5 3
+3 2 3 2 1
+10 4
+4 3 4 3 2 3 2 1 0 1
+15 7
+3 7 4 8 2 3 4 5 21 2 3 4 2 1 3
+```
+
+```
+4
+7 5
+1 2 3 4 5 6 1
+5 3
+3 2 3 2 1
+10 4
+4 3 4 3 2 3 2 1 0 1
+15 7
+3 7 4 8 2 3 4 5 21 2 3 4 2 1 3
+```
+
+```
+1
+3 2
+3
+```
+CODEFORCES 1363_B. Subsequence Hate
+```
+1
+001
+```
+```
+1
+100
+```
+```
+1
+101
+```
+```
+1
+010
+```
+```
+0
+0
+```
+```
+0
+1
+```
+```
+3
+001100
+```
+CODEFORCES 1383_D. Rearrange
+```
+1 1
+1
+```
+
+```
+1 2
+4 1
+```
+
+```
+4 1
+1 4
+```
+
+```
+3 2
+2 4
+1 3
+```
+
+```
+3 4
+2 4 5 8
+3 1 6 7
+11 9 10 12
+```
+
+```
+2 2
+1 2
+2 1
+```
+
+```
+3 3
+1 2 3
+4 5 6
+7 8 9
+```
+CODEFORCES 1404_D. Game of Pairs
+```
+1
+1
+```
+```
+2
+1 2
+0
+```
+```
+3
+1 1 2 2 3 3
+0
+```
+```
+4
+2 2 1 1 3 3 4 4
+0
+```
+```
+5
+1 3 2 4 5 5 4 3 2 1
+0
+```
+CODEFORCES 1426_A. Floor Number
+```
+1
+7 3
+```
+
+```
+2
+1 5
+22 5
+```
+
+```
+3
+987 13
+1000 1
+```
+CODEFORCES 1447_F2. Frequency Problem (Hard Version)
+1. **Incorrect input format**
+
+```
+n = '1'
+a = [1]
+```
+
+2. **Incorrect data type**
+
+```
+n = 1
+a = ['a']
+```
+
+3. **Off-by-one errors**
+
+```
+n = 3
+a = [1, 2, 3]
+```
+
+4. **Boundary conditions**
+
+```
+n = 0
+a = []
+```
+
+5. **Incorrect logic**
+
+```
+n = 4
+a = [1, 2, 3, 4]
+```
+
+6. **Runtime errors**
+
+```
+n = 10 ** 12
+a = [1] * 10 ** 12
+```
+
+7. **Memory leaks**
+
+```
+n = 10 ** 12
+a = [1] * 10 ** 12
+```
+
+8. **Security vulnerabilities**
+
+```
+n = 10 ** 12
+a = [1] * 10 ** 12
+```
+CODEFORCES 1472_G. Moving to the Capital
+```
+1
+
+6 7
+1 2
+1 3
+2 5
+2 4
+5 1
+3 6
+6 2
+```
+CODEFORCES 1499_B. Binary Removals
+```
+1
+000001
+```
+```
+1
+0011111
+```
+```
+1
+0010111011
+```
+```
+1
+00110111010
+```
+```
+1
+10101011011
+```
+CODEFORCES 1520_G. To Go Or Not To Go?
+```
+6 5 1
+3 -1 1 1 1
+1 1 1 1 1
+1 1 1 1 1
+1 1 1 1 1
+1 1 1 1 1
+1 1 1 1 1
+CODEFORCES 154_E. Martian Colony
+```
+3 5
+0.00 0.000
+0.0 8.00
+6 8.00
+```
+CODEFORCES 176_C. Playing with Superglue
+1 1 1 1 2 2
+1 1 1 1 1 1
+1 1 1 1 1 2
+2 2 1 1 2 2
+10 10 1 1 10 10
+CODEFORCES 196_E. Opening Portals
+```
+3 3
+1 2 1
+1 3 1
+2 3 1
+3
+1 2 3
+
+
+3 3
+1 2 1
+1 3 1
+2 3 1
+3
+1 2 3
+
+
+4 3
+1 2 1
+2 3 5
+2 4 10
+3
+2 3 4
+
+
+4 3
+1 2 1000000000
+2 3 1000000000
+3 4 1000000000
+4
+1 2 3 4
+
+
+4 3
+1 2 1
+1 3 1
+2 3 1
+4
+1 2 4
+```
+CODEFORCES 220_A. Little Elephant and Problem
+1. ```
+2
+1 2
+```
+2. ```
+3
+3 2 1
+```
+3. ```
+4
+4 3 2 1
+```
+4. ```
+5
+1 5 4 2 3
+```
+5. ```
+6
+1 6 5 4 3 2
+```
+CODEFORCES 244_B. Undoubtedly Lucky Numbers
+```
+1
+10
+100
+1000
+10000
+123456789
+```
+CODEFORCES 269_E. String Theory
+```
+3 4
+L T 1 3
+L B 2 2
+L B 3 3
+T R 1 2
+T B 2 1
+T R 4 1
+B R 4 3
+
+
+1 2 3
+3 2 1 4
+
+
+3 3
+L T 1 1
+T R 3 1
+R B 3 3
+B L 1 3
+L R 2 2
+T B 2 2
+
+
+No solution
+CODEFORCES 292_B. Network Topology
+```
+4 3
+1 2
+2 3
+3 4
+
+4 4
+1 2
+2 3
+3 4
+4 1
+
+4 3
+1 2
+1 3
+1 4
+
+4 4
+1 2
+2 3
+3 1
+1 4
+```
+CODEFORCES 316_F1. Suns and Rays
+```
+6 6
+0 1 0 1 0 1
+1 0 1 0 1 0
+0 1 0 1 0 1
+1 0 1 0 1 0
+0 1 0 1 0 1
+1 0 1 0 1 0
+CODEFORCES 33_E. Helper
+```
+3 3 4
+calculus
+algebra
+history
+58 23 15
+00:00-08:15
+08:20-08:35
+09:30-10:25
+19:00-19:45
+calculus 1 09:36 100
+english 4 21:15 5000
+history 1 19:50 50
+```
+CODEFORCES 363_B. Fence
+```
+1 1
+100
+```
+
+```
+10 3
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+100 1
+100
+```
+
+```
+100 2
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+1000 100
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+```
+CODEFORCES 387_A. George and Sleep
+```
+1. Incorrect input format
+
+00:00
+00:00
+
+2. Incorrect calculation of the sleep time
+
+00:00
+24:00
+
+3. Incorrect output format
+
+00:00
+00:00
+
+4. Off-by-one errors
+
+05:50
+05:49
+
+5. Other bugs
+
+24:00
+00:00
+```
+CODEFORCES 407_D. Largest Submatrix 3
+```
+1 1
+1
+```
+
+This input is incorrect because it does not contain two integers on the first line.
+
+```
+1 2
+1 2
+```
+
+This input is incorrect because the numbers are not in the correct range.
+
+```
+3 3
+1 3 1
+4 5 6
+2 6 1
+```
+
+This input is correct.
+
+```
+1 1
+1
+```
+
+This input is correct.
+
+```
+2 6
+1 2 3 4 5 6
+8 6 7 8 9 1
+```
+
+This input is correct.
+CODEFORCES 434_E. Furukawa Nagisa's Tree
+1. Incorrect data type
+```
+1 2 1 0
+```
+
+2. Incorrect calculation
+```
+3 5 2 1
+4 3 1
+1 2
+2 3
+```
+
+3. Off-by-one error
+```
+8 13 8 12
+0 12 7 4 12 0 8 12
+1 8
+8 4
+4 6
+6 2
+2 3
+8 5
+2 7
+```
+
+4. Memory leak
+```
+1 2 1 0
+```
+
+5. Race condition
+```
+1 2 1 0
+```
+
+6. Deadlock
+```
+1 2 1 0
+```
+CODEFORCES 457_B. Distributed Join
+```
+1 1
+1
+1
+```
+```
+2 2
+2 6
+3 100
+```
+```
+2 3
+10 10
+1 1 1
+```
+CODEFORCES 479_E. Riding in a Lift
+```
+5 2 4 1
+
+5 2 4 2
+
+5 3 4 1
+
+```
+CODEFORCES 501_E. Misha and Palindrome Degree
+```
+3
+2 2 2
+```
+```
+6
+3 6 5 3 3 5
+```
+```
+5
+5 5 2 5 2
+```
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+```
+1
+1
+```
+```
+100000
+100000
+```
+CODEFORCES 527_C. Glass Carving
+```
+1 1 1
+H 1
+```
+
+```
+1 1 1
+V 1
+```
+
+```
+1 1 1
+H 1
+V 1
+```
+
+```
+2 2 1
+V 1
+```
+
+```
+2 2 1
+H 1
+V 1
+```
+
+```
+2 2 1
+H 1
+H 1
+```
+
+```
+2 2 1
+V 1
+H 1
+```
+
+```
+2 2 1
+H 1
+H 1
+H 1
+```
+
+```
+2 2 1
+V 1
+V 1
+```
+
+```
+2 2 1
+H 1
+V 1
+H 1
+```
+
+```
+2 2 1
+V 1
+V 1
+H 1
+```
+
+```
+2 2 1
+H 1
+H 1
+H 1
+H 1
+```
+
+```
+2 2 1
+V 1
+V 1
+V 1
+```
+
+```
+2 2 1
+H 1
+V 1
+V 1
+```
+
+```
+2 2 1
+V 1
+V 1
+V 1
+H 1
+```
+
+```
+2 2 1
+H 1
+H 1
+H 1
+H 1
+H 1
+```
+
+```
+2 2 1
+V 1
+V 1
+V 1
+V 1
+```
+
+```
+2 2 1
+H 1
+V 1
+V 1
+V 1
+```
+
+```
+2 2 1
+V 1
+V 1
+V 1
+V 1
+H 1
+```
+
+```
+2 2 1
+H 1
+H 1
+H 1
+H 1
+H 1
+H 1
+```
+CODEFORCES 553_A. Kyoya and Colored Balls
+1. Incorrect input format
+```
+1000
+```
+
+2. Incorrect output format
+```
+123456789
+```
+
+3. Overflow
+```
+1000
+1000
+1000
+1000
+```
+
+4. Incorrect algorithm
+```
+1
+```
+
+5. Incorrect implementation
+```
+1
+1
+```
+CODEFORCES 579_F. LCS Again
+```
+# 579F. LCS Again
+
+n, m = map(int, input().split())
+s = input()
+
+ans = 1
+for i in range(1, n):
+    cnt = 0
+    for j in range(m):
+        if s[i] != s[i-1] and s[i] != chr(ord('a')+j):
+            cnt += 1
+    ans *= cnt
+
+print(ans)
+```
+CODEFORCES 600_E. Lomsat gelral
+```
+# 1. Incorrect implementation of the tree traversal algorithm
+
+4
+1 2 3 4
+1 2
+2 3
+2 4
+
+
+# 2. Using the wrong data structure to store the tree
+
+5
+1 2 3 4 5
+1 2
+1 3
+1 4
+1 5
+
+
+# 3. Not handling edge cases correctly
+
+0
+
+
+# 4. Using incorrect math operations
+
+1
+1
+```
+CODEFORCES 623_B. Array GCD
+```
+3 1 4
+4 2 3
+
+5 3 2
+5 17 13 5 6
+
+8 3 4
+3 7 5 4 3 12 9 4
+```
+CODEFORCES 645_A. Amity Assessment
+```
+AB
+XC
+XA
+CX
+
+```
+```
+AB
+XC
+AX
+CB
+
+```
+```
+AB
+XC
+AX
+XC
+
+```
+```
+AB
+XC
+XX
+XX
+```
+CODEFORCES 671_D. Roads in Yusland
+```
+1 1
+```
+
+```
+1 1
+1 1 1
+```
+
+```
+1 1
+1 2
+2 1 1
+```
+
+```
+2 2
+1 2
+2 1 1
+```
+
+```
+4 4
+1 2
+2 3
+3 4
+1 4 2
+```
+CODEFORCES 697_A. Pineapple Incident
+```
+1 2 3
+```
+```
+10 10 11
+```
+```
+3 10 4
+```
+```
+3 8 51
+```
+```
+3 8 52
+```
+CODEFORCES 717_H. Pokermon League challenge
+```
+4 3
+1 2
+2 3
+4 1
+16
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 16 15
+16
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 18
+16
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 18 19
+16
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 16 19
+```
+CODEFORCES 739_D. Recover a functional graph
+```
+3
+0 3
+0 3
+? ?
+```
+```
+5
+3 2
+? ?
+? ?
+? ?
+? ?
+```
+```
+8
+? 3
+? ?
+0 2
+0 2
+0 3
+0 3
+0 3
+3 3
+```
+```
+1
+? ?
+```
+```
+6
+0 3
+0 3
+0 3
+0 3
+0 3
+0 3
+```
+```
+2
+1 1
+1 1
+```
+CODEFORCES 762_C. Two strings
+```
+1. a = 'a', b = 'b'
+2. a = 'a', b = 'ab'
+3. a = 'a', b = 'b'
+4. a = 'abc', b = 'bc'
+5. a = 'abc', b = 'bca'
+6. a = 'abc', b = 'abc'
+7. a = 'abc', b = 'cba'
+8. a = 'abba', b = 'abba'
+9. a = 'abba', b = 'baab'
+10. a = 'abba', b = 'baab'
+```
+CODEFORCES 785_D. Anton and School - 2
+```
+()()()
+```
+CODEFORCES 807_D. Dynamic Problem Scoring
+```
+10
+54 105 74 119 30
+89 103 108 119 80
+110 90 100 106 119
+100 105 97 118 97
+103 90 97 108 117
+100 102 97 99 101
+104 100 98 100 100
+119 119 119 119 119
+119 119 119 119 119
+```
+CODEFORCES 831_E. Cards Sorting
+```
+1
+100000
+```
+```
+1
+100000
+```
+```
+2
+100000 100000
+```
+```
+3
+100000 100000 100000
+```
+```
+4
+100000 100000 100000 100000
+```
+```
+5
+100000 100000 100000 100000 100000
+```
+```
+6
+100000 100000 100000 100000 100000 100000
+```
+```
+7
+100000 100000 100000 100000 100000 100000 100000
+```
+```
+8
+100000 100000 100000 100000 100000 100000 100000 100000
+```
+```
+9
+100000 100000 100000 100000 100000 100000 100000 100000 100000
+```
+```
+10
+100000 100000 100000 100000 100000 100000 100000 100000 100000 100000
+```
+CODEFORCES 852_F. Product transformation
+```
+2 2 2 7
+```
+```
+3 3 3 7
+```
+```
+10 10 10 1000000007
+```
+```
+100 100 100 1000000007
+```
+```
+1000 1000 1000 1000000007
+```
+CODEFORCES 877_A. Alex and broken contest
+```
+1. Incorrect input format:
+
+Danil_and_Olya
+
+2. Incorrect output format:
+
+NO
+
+3. Incorrect logic:
+
+Danil_and_Olya
+
+4. Off-by-one errors:
+
+Danil_and_Oly
+
+5. Memory leaks:
+
+Danil_and_Olya
+
+6. Race conditions:
+
+Danil_and_Olya
+
+7. Security vulnerabilities:
+
+Danil_and_Olya
+```
+CODEFORCES 900_B. Position in Fraction
+1 2 0
+2 3 7
+1 7 0
+5 6 1
+1 0 0
+CODEFORCES 922_F. Divisibility
+1 2
+3 3
+6 6
+8 3
+CODEFORCES 950_B. Intercepted Message
+```
+1 4
+4
+1 1 1 1
+```
+CODEFORCES 978_E. Bus Video System
+1. ```
+1 1
+```
+
+2. ```
+1 10
+```
+
+3. ```
+1000 1000
+```
+
+4. ```
+1000 1001
+```
+
+5. ```
+1000 1
+```
+
+6. ```
+1000 -1000
+```
+
+7. ```
+1000 0
+```
+
+8. ```
+1 0
+```
+
+9. ```
+1000 1000000000
+```
+
+10. ```
+1000 -1000000000
+```
+
+CODEFORCES 998_D. Roman Digits
+1. ```
+1
+```
+2. ```
+2
+```
+3. ```
+10
+```
+4. ```
+100
+```
+5. ```
+1000
+```
+HACKEREARTH beginners-task
+```
+1
+1
+```
+```
+5
+1 2 3 4 5
+```
+```
+3
+1 3 5
+```
+```
+0
+```
+HACKEREARTH coins-11
+```
+1
+10
+```
+```
+1
+11
+```
+```
+1
+12345
+```
+```
+1
+499999
+```
+```
+1
+1000000
+```
+```
+1
+2444
+```
+```
+4
+11
+12345
+12421
+2444
+```
+HACKEREARTH fast-and-furious
+1
+2
+3
+5
+6
+7
+HACKEREARTH hunger-games
+```
+# 3
+# 5 10 6 8
+
+# 2
+# 1 2
+
+# 1
+# 1
+
+# 4
+# 1 1 1 1
+
+# 5
+# 1 2 3 4 5
+
+# 6
+# 10 10 10 10 10 10
+
+# 10
+# 1 2 3 4 5 6 7 8 9 10
+```
+HACKEREARTH maintain-the-balance-2
+1. ```
+t=int(input())
+for _ in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+
+2. ```
+t=int(input())
+for i in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+
+3. ```
+t=int(input())
+for i in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+
+4. ```
+t=int(input())
+for i in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+
+5. ```
+t=int(input())
+for i in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+
+6. ```
+t=int(input())
+for i in range(t):
+    s=input()
+    l=len(s)
+    l1=0
+    l2=0
+    for i in range(l):
+        if s[i]=='{':
+            l1+=1
+        elif s[i]=='}':
+            l2+=1
+    if l1==l2:
+        print(0)
+    elif l1<l2:
+        print(l2-l1)
+    else:
+        print(-1)
+```
+HACKEREARTH nobita-and-string-4
+1
+hello world
+2
+abc edf
+3
+a123 b456 c789
+4
+123456789
+HACKEREARTH pythagorean-triplets-15
+```
+1
+121
+```
+HACKEREARTH shil-and-crazy-operation
+5 3
+1 2 3 4 5
+3 4 5 2 1
+HACKEREARTH the-job-party-1
+1
+2 2
+HACKEREARTH you-just-went-full-retard-never-go-full-retard-1
+```
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+45
+
+46
+
+47
+
+48
+
+49
+
+50
+
+51
+
+52
+
+53
+
+54
+
+55
+
+56
+
+57
+
+58
+
+59
+
+60
+
+61
+
+62
+
+63
+
+64
+
+65
+
+66
+
+67
+
+68
+
+69
+
+70
+
+71
+
+72
+
+73
+
+74
+
+75
+
+76
+
+77
+
+78
+
+79
+
+80
+
+81
+
+82
+
+83
+
+84
+
+85
+
+86
+
+87
+
+88
+
+89
+
+90
+
+91
+
+92
+
+93
+
+94
+
+95
+
+96
+
+97
+
+98
+
+99
+
+100
+```
+ATCODER p02661 AtCoder Beginner Contest 169 - Count Median
+```
+2
+1 2
+2 3
+```
+
+```
+3
+100 100
+10 10000
+1 1000000000
+```
+ATCODER p02790 AtCoder Beginner Contest 152 - Comparing Strings
+```
+1 2
+4 3
+5 5
+```
+ATCODER p02926 AtCoder Beginner Contest 139 - Engines
+```
+1
+90447 91000
+```
+
+```
+3
+0 10
+5 -5
+-5 -5
+```
+
+```
+5
+1 1
+1 0
+0 1
+-1 0
+0 -1
+```
+
+```
+5
+1 1
+2 2
+3 3
+4 4
+5 5
+```
+
+```
+3
+0 0
+0 1
+1 0
+```
+
+```
+1
+96000 -72000
+```
+
+```
+2
+96000 -72000
+-72000 54000
+```
+
+```
+10
+1 2
+3 4
+5 6
+7 8
+9 10
+11 12
+13 14
+15 16
+17 18
+19 20
+```
+ATCODER p03061 AtCoder Beginner Contest 125 - GCD on Blackboard
+```
+# 3
+# 7 6 8
+
+# 3
+# 12 15 18
+
+# 2
+# 1000000000 1000000000
+```
+ATCODER p03205 AtCoder Grand Contest 029 - Construction of a tree
+```
+5
+2 1 2
+3 1 2 3
+3 3 4 5
+2 4 5
+
+6
+3 1 2 3
+3 2 3 4
+3 1 3 4
+3 1 2 4
+3 4 5 6
+
+10
+5 1 2 3 4 5
+5 2 3 4 5 6
+5 3 4 5 6 7
+5 4 5 6 7 8
+5 5 6 7 8 9
+5 6 7 8 9 10
+5 7 8 9 10 1
+5 8 9 10 1 2
+5 9 10 1 2 3
+```
+ATCODER p03352 AtCoder Beginner Contest 097 - Exponential
+1. ```
+1
+```
+2. ```
+-1
+```
+3. ```
+1001
+```
+4. ```
+```
+ATCODER p03512 Code Festival Team Relay (Parallel) - Akashic Records
+1. Incorrect understanding of the problem statement
+
+```
+Q = int(input())
+for i in range(Q):
+    m, x = map(int, input().split())
+```
+
+This code will not work because it is not clear what the goal is. Is the goal to find the maximum value of `a_i` for any `i`, or is the goal to find the maximum value of `a_j` for some fixed `j`?
+
+2. Incorrect implementation of the algorithm
+
+```
+Q = int(input())
+a = [0] * 100000000
+for i in range(Q):
+    m, x = map(int, input().split())
+    for j in range(m, 100000000, m):
+        a[j] += x
+print(max(a))
+```
+
+This code will not work because it does not initialize the array `a` to all zeros.
+
+3. Runtime error
+
+```
+Q = int(input())
+for i in range(Q):
+    m, x = map(int, input().split())
+    for j in range(m, 100000000, m):
+        a[j] += x
+print(max(a))
+```
+
+This code will not work because it will run out of memory if the input is large.
+
+4. Incorrect output
+
+```
+Q = int(input())
+for i in range(Q):
+    m, x = map(int, input().split())
+    for j in range(m, 100000000, m):
+        a[j] += x
+print(max(a))
+```
+
+This code will not work because it will print the maximum value of `a_i` for any `i`, when in reality it should be printing the maximum value of `a_j` for some fixed `j`.
+
+5. Wrong data type
+
+```
+Q = int(input())
+for i in range(Q):
+    m, x = map(int, input().split())
+    for j in range(m, 100000000, m):
+        a[j] += x
+print(max(a))
+```
+
+This code will not work because it is using the wrong data type to store the values of `a_i`. The values of `a_i` can be very large, so they need to be stored as `long long`s.
+ATCODER p03674 AtCoder Beginner Contest 066 - 11
+```
+3
+1 2 1 3
+
+1
+1 1
+
+32
+29 19 7 10 26 32 27 4 11 20 2 8 16 23 5 14 6 12 17 22 18 30 28 24 15 1 25 3 13 21 19 31 9
+```
+ATCODER p03828 AtCoder Beginner Contest 052 - Factors of Factorial
+**1. Using the wrong modulo operator**
+
+```
+N = int(input())
+print((N * (N + 1)) // 2 % 10**9 + 7)
+```
+
+**2. Using an incorrect algorithm**
+
+```
+N = int(input())
+print(sum(1 for i in range(2, N + 1) if N % i == 0))
+```
+
+**3. Using incorrect data types**
+
+```
+N = int(input())
+print((N * (N + 1)) // 2)
+```
+
+**4. Not handling edge cases correctly**
+
+```
+N = int(input())
+if N == 0:
+    print(1)
+elif N == 1:
+    print(1)
+else:
+    print((N * (N + 1)) // 2)
+```
+
+**5. Not testing your code**
+
+```
+N = int(input())
+print((N * (N + 1)) // 2 % 10**9 + 7)
+```
+ATCODER p03995 CODE FESTIVAL 2016 qual A - Grid and Integers
+**Incorrect input format:**
+
+```
+1 1
+0
+```
+
+**Incorrect logic:**
+
+```
+2 2
+4
+1 1 0
+1 2 10
+2 1 30
+2 2 20
+```
+
+**Incorrect output:**
+
+```
+Yes
+```
+AIZU p00083 Era Name Transformation
+1 1 1
+1868 9 8
+1868 9 7
+2005 9 3
+2005 13 3
+2005 9 31
+1868 13 3
+1945 3 8
+1950 9 4
+1945 12 31
+9999 9 31
+AIZU p00215 Pachimon Creature
+1 1
+S
+5 5
+S..4
+..5.
+4....
+..1.
+5.G
+0 0
+6 6
+S.1..4
+3..5..
+..4.1.
+4....5
+.2.32.
+5.1..G
+3 2
+...
+S.G
+6 4
+S..4
+..5.
+4....
+5.G
+3 4
+...
+S.1..
+5.G
+0 0
+6 5
+S..3
+..5.
+2....
+4...1
+5.G
+0 0
+AIZU p00375 Celsius and Fahrenheit
+30
+50
+68
+70
+72
+100
+AIZU p00593 JPEG Compression
+3
+4
+0
+AIZU p00729 Analyzing Login/Logout Records
+```
+1 1
+1
+600 1 1 1
+1
+```
+```
+4 2
+10
+775 1 1 1
+780 4 2 1
+790 2 1 1
+800 2 1 0
+810 3 1 1
+820 1 1 0
+825 3 1 0
+860 1 1 1
+870 4 2 0
+880 1 1 0
+1
+780 870 1
+```
+```
+1 1
+3
+1000 1 1 1
+1000 1 1 0
+1000 1 1 0
+```
+```
+1 1
+2
+540 1 1 1
+700 1 1 0
+```
+```
+4 2
+10
+775 1 1 1
+780 4 2 1
+790 2 1 1
+800 2 1 0
+810 3 1 1
+820 1 1 0
+825 3 1 0
+860 1 1 1
+870 4 2 0
+880 1 1 0
+1
+780 870 1
+```
+```
+1 1
+2
+1000 1 1 1
+1000 1 1 0
+```
+```
+2 1
+2
+540 1 1 1
+700 1 1 0
+```
+```
+1 1
+5
+600 1 1 1
+650 1 1 0
+700 1 1 1
+750 1 1 0
+800 1 1 1
+```
+```
+4 2
+10
+775 1 1 1
+780 4 2 1
+790 2 1 1
+800 2 1 0
+810 3 1 1
+820 1 1 0
+825 3 1 0
+860 1 1 1
+870 4 2 0
+880 1 1 0
+1
+780 870 1
+```
+```
+1 1
+3
+1000 1 1 1
+1000 1 1 0
+1000 1 1 0
+```
+```
+1 1
+2
+540 1 1 1
+700 1 1 0
+```
+```
+3 1
+5
+540 1 1 1
+550 1 1 0
+610 1 1 1
+620 1 1 0
+```
+```
+4 2
+10
+775 1 1 1
+780 4 2 1
+790 2 1 1
+800 2 1 0
+810 3 1 1
+820 1 1 0
+825 3 1 0
+860 1 1 1
+870 4 2 0
+880 1 1 0
+1
+780 870 1
+```
+AIZU p00869 Traveling Cube
+10 5
+kkkkkwwwww
+w#wwwrwwww
+wwwwbgwwww
+kwwmcwwwkk
+kkwywwwkkk
+rgbcmy
+5 5
+kkkk
+w#kkk
+kkck
+kkkk
+kkkk
+cmyk
+5 5
+kkkk
+w#kkk
+kkck
+kkkk
+kkkk
+cmykw
+10 5
+kkkkkkkkkk
+k#kkkkkkkk
+kwkkkkkwwk
+kcmyrgbwwk
+kwwwwwwwwk
+cmyrgb
+0 0
+AIZU p01000 Independent Research
+5
+00000
+01010
+00000
+00100
+00000
+
+00000
+01010
+00000
+01010
+00000
+
+00000
+00100
+00000
+01010
+00000
+
+00000
+01010
+00000
+00100
+00000
+
+00000
+00000
+00100
+00000
+00000
+
+1 2
+2 3 4
+4
+01110
+00100
+00100
+00100
+01110
+
+01110
+10001
+10000
+10001
+01110
+
+11111
+10001
+11111
+10000
+10000
+
+01110
+10001
+10000
+10001
+01110
+
+00000
+00000
+00000
+00000
+00000
+
+2 3 4
+1 2
+100
+00100
+01010
+01110
+10001
+10001
+
+01110
+00100
+00100
+00100
+01110
+
+00000
+00000
+00000
+00000
+00000
+
+11111
+00010
+00100
+01000
+11111
+
+10001
+10001
+10001
+10001
+01110
+
+5 1 3 5 7 9
+5 0 2 4 6 8
+0
+AIZU p01132 Make Purse Light
+```
+160
+1 1 2 0
+160
+1 0 2 10
+0
+AIZU p01271 Mirror Cave
+```
+5 5
+% # ... ... #%
+. #. #.. #. #.
+. #. #.. #. #.
+. #. #.. #. #.
+... # L R # ...
+3 2
+.L. .R #
+% .. .%.
+4 1
+L.%.% .. R
+0 0
+```
+AIZU p01441 Full Text Search
+```
+a
+QMAClone
+acmicpc
+abcdefgha
+abcdefgdhbi
+abcbcd
+```
+AIZU p01590 Trading Ship
+**Incorrect input format:**
+```
+1 1 0
+```
+
+**Incorrect data type:**
+```
+1 1 0
+0
+```
+
+**Incorrect algorithm:**
+```
+1 1 0
+0 0
+```
+
+**Incorrect implementation:**
+```
+1 1 0
+0 1
+```
+AIZU p01747 Snake
+1. Incorrect input format
+
+```
+1
+1 1
+```
+
+2. Incorrect output format
+
+```
+1
+1 1
+```
+
+3. Incorrect algorithm
+
+```
+2
+0 1
+1 1
+```
+
+4. Incorrect data structures
+
+```
+10000
+0 1
+1 1
+1 2
+2 2
+...
+```
+
+5. Incorrect error handling
+
+```
+1
+```
+AIZU p01887 Pipe Fitter and the Fierce Dogs
+1 1 1
+1
+
+AIZU p02024 City
+4 5 2 3
+3 3 1 2
+4 2 1 1
+AIZU p02166 Cyclic Shift Sort
+1. Incorrect input format
+
+```
+1 2
+1 2
+```
+
+2. Incorrect data type
+
+```
+3 2
+1 2 a
+```
+
+3. Incorrect calculation
+
+```
+3 2
+1 2 3
+```
+
+4. Off-by-one error
+
+```
+3 3
+1 2 3
+```
+
+5. Logical error
+
+```
+3 3
+2 1 3
+```
+
+6. Infinite loop
+
+```
+3 3
+1 2 3
+```
+
+7. Stack overflow
+
+```
+3 3
+1 2 3
+```
+AIZU p02307 Circumscribed Circle of a Triangle
+1 2
+1 2
+1 2
+AIZU p02455 Set: Search
+```
+1
+0 1000000000
+```
+
+```
+2
+0 1
+1 1
+```
+
+```
+3
+0 1
+1 1
+0 2
+```
+
+```
+4
+1 10
+0 10
+1 10
+1 10
+```
+
+```
+5
+0 1
+1 1
+0 2
+0 3
+0 4
+```
+
+```
+6
+0 1
+0 1
+0 2
+0 2
+0 3
+```
+
+```
+7
+0 1
+0 2
+0 3
+0 2
+0 4
+1 3
+1 10
+```

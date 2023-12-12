@@ -1,0 +1,2747 @@
+CODECHEF buy1get1
+```
+1
+a
+```
+```
+1
+aa
+```
+```
+1
+aaa
+```
+```
+1
+aaaa
+```
+```
+4
+ssss
+```
+```
+4
+ssas
+```
+```
+4
+sa
+```
+```
+4
+s
+```
+CODECHEF comr03
+1
+400
+1000
+10000
+CODECHEF gerald03
+1
+1
+0
+1
+3
+-1 0
+0 1
+3 5
+1
+0 1
+3
+-2 -1
+-2 -1
+-2 0
+4
+4 6
+3 5
+-1 1
+1 2
+CODECHEF maandi
+1
+1000000000
+1000000000000000000
+CODECHEF psudo1
+```
+2
+12:21 11:10
+06:00
+```
+CODECHEF time
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+CODEFORCES 1013_B. And
+```
+4 3
+1 2 3 7
+
+2 228
+1 1
+
+3 7
+1 2 3
+```
+CODEFORCES 1037_H. Security
+```
+# 1. Incorrect use of comparison operators.
+
+s = "baa"
+q = 5
+queries = [
+    (1, 2, "ba"),
+    (2, 3, "a"),
+    (1, 2, "b"),
+    (2, 3, "aa"),
+    (1, 3, "b"),
+]
+
+for l, r, x in queries:
+    if x > s[l:r]:
+        print(x)
+    else:
+        print(-1)
+
+# 2. Incorrect use of substrings.
+
+s = "baa"
+q = 5
+queries = [
+    (1, 2, "ba"),
+    (2, 3, "a"),
+    (1, 2, "b"),
+    (2, 3, "aa"),
+    (1, 3, "b"),
+]
+
+for l, r, x in queries:
+    print(s[l:r])
+
+# 3. Incorrect use of recursion.
+
+def find_next_greater_string(s, l, r, x):
+    if l == r:
+        return -1
+
+    if s[l:r] > x:
+        return s[l:r]
+
+    mid = (l + r) // 2
+    return max(
+        find_next_greater_string(s, l, mid, x),
+        find_next_greater_string(s, mid + 1, r, x),
+    )
+
+s = "baa"
+q = 5
+queries = [
+    (1, 2, "ba"),
+    (2, 3, "a"),
+    (1, 2, "b"),
+    (2, 3, "aa"),
+    (1, 3, "b"),
+]
+
+for l, r, x in queries:
+    print(find_next_greater_string(s, l, r, x))
+
+# 4. Incorrect use of dynamic programming.
+
+def find_next_greater_string(s, l, r, x):
+    dp = [[-1 for _ in range(r + 1)] for _ in range(l + 1)]
+
+    for i in range(l, r + 1):
+        for j in range(i, r + 1):
+            if s[i:j] > x:
+                dp[i][j] = s[i:j]
+            else:
+                dp[i][j] = max(
+                    dp[i][j - 1],
+                    dp[i + 1][j],
+                )
+
+    return dp[l][r]
+
+s = "baa"
+q = 5
+queries = [
+    (1, 2, "ba"),
+    (2, 3, "a"),
+    (1, 2, "b"),
+    (2, 3, "aa"),
+    (1, 3, "b"),
+]
+
+for l, r, x in queries:
+    print(find_next_greater_string(s, l, r, x))
+
+# 5. Incorrect use of data structures.
+
+def find_next_greater_string(s, l, r, x):
+    q = collections.deque([(l, r)])
+    seen = set()
+
+    while q:
+        l, r = q.popleft()
+
+        if l == r:
+            continue
+
+        if s[l:r] > x and s[l:r] not in seen:
+            return s[l:r]
+
+        seen.add(s[l:r])
+
+        q.append((l, mid))
+        q.append((mid + 1, r))
+
+s = "baa"
+q = 5
+queries = [
+    (1, 2, "ba"),
+    (2, 3, "a"),
+    (1, 2, "b"),
+    (2, 3, "aa"),
+    (1, 3, "b"),
+]
+
+for l, r, x in queries:
+    print(find_next_greater_string(s, l, r, x))
+```
+CODEFORCES 1060_D. Social Circles
+```
+1
+1 1
+```
+```
+3
+1 1
+1 1
+1 1
+```
+```
+4
+1 2
+2 1
+3 5
+5 3
+```
+```
+1
+5 6
+```
+```
+1
+1000000000 1000000000
+```
+```
+10
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+1000000000 1000000000
+```
+CODEFORCES 1082_B. Vova and Trophies
+1. ```
+2
+SS
+```
+2. ```
+3
+SSS
+```
+3. ```
+4
+GGGG
+```
+4. ```
+5
+GGGSS
+```
+5. ```
+6
+GGGGGGG
+```
+6. ```
+7
+GGGSGGGSGG
+```
+7. ```
+8
+GGGGGGGS
+```
+8. ```
+9
+GGGGGGGGGG
+```
+9. ```
+10
+GGGSGGGSGG
+```
+10. ```
+11
+GGGSGGGSGGGS
+```
+CODEFORCES 1101_D. GCD Counting
+```
+# 1. Incorrect implementation of the algorithm
+
+```
+n = int(input())
+
+a = list(map(int, input().split()))
+
+edges = []
+for _ in range(n - 1):
+    x, y = map(int, input().split())
+    edges.append((x - 1, y - 1))
+
+def dfs(i, parent, gcd):
+    global max_dist
+    if max_dist < gcd:
+        max_dist = gcd
+    for j in range(n):
+        if j == i or (i, j) in edges:
+            continue
+        gcd = gcd * a[j] // gcd.gcd(a[j])
+        dfs(j, i, gcd)
+
+max_dist = 0
+dfs(0, -1, 1)
+print(max_dist)
+```
+
+```
+# 2. Incorrect input
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+
+edges = []
+for _ in range(n - 1):
+    x, y = map(int, input().split())
+    edges.append((x - 1, y - 1))
+
+max_dist = 0
+for i in range(n):
+    max_dist = max(max_dist, dfs(i, -1, 1))
+
+print(max_dist)
+```
+
+```
+# 3. Runtime errors
+
+```
+n = int(input())
+
+a = list(map(int, input().split()))
+
+edges = []
+for _ in range(n - 1):
+    x, y = map(int, input().split())
+    edges.append((x - 1, y - 1))
+
+def dfs(i, parent, gcd):
+    global max_dist
+    if max_dist < gcd:
+        max_dist = gcd
+    for j in range(n):
+        if j == i or (i, j) in edges:
+            continue
+        gcd = gcd * a[j] // gcd.gcd(a[j])
+        dfs(j, i, gcd)
+
+max_dist = 0
+for i in range(n):
+    try:
+        dfs(i, -1, 1)
+    except:
+        print("Runtime error")
+        exit()
+
+print(max_dist)
+```
+
+```
+# 4. Logical errors
+
+```
+n = int(input())
+
+a = list(map(int, input().split()))
+
+edges = []
+for _ in range(n - 1):
+    x, y = map(int, input().split())
+    edges.append((x - 1, y - 1))
+
+def dfs(i, parent, gcd):
+    global max_dist
+    if max_dist < gcd:
+        max_dist = gcd
+    for j in range(n):
+        if j == i or (i, j) in edges:
+            continue
+        gcd = gcd * a[j] // gcd.gcd(a[j])
+        dfs(j, i, gcd)
+
+max_dist = 0
+for i in range(n):
+    dfs(i, -1, 1)
+    print(max_dist)
+```
+
+```
+# 5. Off-by-one errors
+
+```
+n = int(input())
+
+a = list(map(int, input().split()))
+
+edges = []
+for _ in range(n - 1):
+    x, y = map(int, input().split())
+    edges.append((x - 1, y - 1))
+
+def dfs(i, parent, gcd):
+    global max_dist
+    if max_dist < gcd:
+        max_dist = gcd
+    for j in range(n):
+        if j == i or (i, j) in edges:
+            continue
+        gcd = gcd * a[j] // gcd.gcd(a[j])
+        dfs(j, i, gcd)
+
+max_dist = 0
+for i in range
+CODEFORCES 112_B. Petya and Square
+```
+# Example 1: Incorrect input format
+
+```
+2,1,1
+
+```
+# Example 2: Incorrect data type
+
+```
+2n,x,y
+
+```
+# Example 3: Incorrect values
+
+```
+2,1,101
+
+```
+# Example 4: Off-by-one error
+
+```
+4,1,2
+
+```
+# Example 5: Incorrect algorithm
+
+```
+4,1,1
+
+```
+# Example 6: Memory leak
+
+```
+4,1,1
+
+```
+# Example 7: Security vulnerability
+
+```
+4,1,1
+```
+CODEFORCES 114_C. Grammar Lessons
+1. etis atis animatis etis atis amatis
+2. nataliala kataliala vetra feinites
+3. nataliala kataliala vetra feinites nataliala kataliala vetra feinites
+4. nataliala kataliala vetra feinites nataliala kataliala vetra feinites nataliala kataliala vetra feinites
+5. YES
+6. NO
+CODEFORCES 1170_H. Longest Saw
+```
+1
+2
+1 2
+```
+
+```
+1
+10
+10 9 8 7 6 5 4 3 2 1
+```
+
+```
+1
+7
+1 2 2 2 3 2 2
+```
+
+```
+2
+2
+1 2
+2
+1 1
+```
+
+```
+3
+3
+1 1 1
+5
+1 1 1 1 1
+10
+100 100 100
+```
+CODEFORCES 1189_F. Array Beauty
+1. ```
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+b=[[0]*(10**5+1) for i in range(n+1)]
+c=[[0]*(10**5+1) for i in range(n+1)]
+for i in range(n):
+    for j in range(10**5+1):
+        if a[i]<=j:
+            c[i+1][j]=c[i][j]+1
+            b[i+1][j]=min(b[i][j],b[i][j-a[i]]+1)
+ans=0
+for i in range(1,n+1):
+    for j in range(1,10**5+1):
+        ans=(ans+c[i][j]*b[i][j])%998244353
+print(ans)
+```
+2. ```
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+dp=[0]*(n+1)
+for i in range(n-1,-1,-1):
+    dp[i]=dp[i+1]+abs(a[i]-a[i+1])
+s=0
+for i in range(n-k+1):
+    s+=dp[i+k-1]-dp[i]
+print(s%998244353)
+```
+3. ```
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+dp=[[0]*(10**5+1) for i in range(n+1)]
+dp[0][0]=1
+for i in range(1,n+1):
+    for j in range(10**5+1):
+        if j-a[i-1]>=0:
+            dp[i][j]=(dp[i-1][j]+dp[i-1][j-a[i-1]])%998244353
+for i in range(k-1,-1,-1):
+    ans=0
+    for j in range(10**5+1):
+        ans=(ans+dp[n-i][j])%998244353
+    print(ans)
+```
+4. ```
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+dp=[0]*(n+1)
+dp[0]=1
+for i in range(1,k):
+    dp[i]=(dp[i-1]*(i+1))%998244353
+for i in range(1,n-k+1):
+    dp[i+k-1]+=(dp[i-1]*k)%998244353
+print(dp[n-1])
+```
+5. ```
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+d=[0]*(n+1)
+for i in range(1,n+1):
+    d[i]=d[i-1]+abs(a[i]-a[i-1])
+print((d[k]-d[k-1])%998244353)
+```
+CODEFORCES 1208_G. Polygons
+```
+6 2
+```
+
+```
+200 50
+```
+CODEFORCES 1227_F1. Wrong Answer on test 233 (Easy Version)
+```
+3 3
+1 3 1
+```
+```
+5 5
+1 1 4 2 2
+```
+```
+5 5
+1 2 3 4 5
+```
+CODEFORCES 1250_E. The Coronation
+5
+5 7 2
+1010100
+0010101
+1111010
+1000010
+0000101
+6 9 3
+011111110
+100111000
+111100000
+000111111
+110100111
+111110111
+3 4 2
+0001
+1000
+0000
+3 4 4
+0001
+1000
+0000
+2 4 3
+0001
+1000
+CODEFORCES 126_C. E-reader Display
+```
+1
+0
+```
+
+```
+2
+01
+10
+```
+
+```
+3
+011
+100
+011
+```
+
+```
+4
+0111
+1001
+1000
+1001
+```
+
+```
+5
+01110
+10010
+10001
+10011
+11110
+```
+
+```
+6
+011110
+100100
+100010
+100110
+111100
+```
+
+```
+7
+0111110
+1001001
+1000100
+1001100
+1111000
+```
+
+```
+8
+01111110
+10010001
+10001000
+10011000
+11110000
+```
+CODEFORCES 1292_B. Aroma's Search
+```
+1 1 2 3 1 0
+2 4 20
+```
+```
+1 1 2 3 1 0
+15 27 26
+```
+```
+1 1 2 3 1 0
+2 2 1
+```
+CODEFORCES 1312_C. Adding Powers
+```
+1
+2 2
+0 0
+```
+```
+1
+2 2
+1 1
+```
+```
+1
+3 4
+0 1 4
+```
+```
+1
+3 4
+1 4 1
+```
+```
+3
+4 3
+0 0 0 0
+1 2 3 4
+3 2
+0 1 3
+3 9
+0 59049 810
+```
+CODEFORCES 1334_G. Substring Search
+**Incorrect input format**
+
+```
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+a
+abcaaba
+```
+
+**Incorrect output format**
+
+```
+1100111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+CODEFORCES 1355_B. Young Explorers
+```
+1
+3
+1 1 1
+```
+```
+2
+5
+2 3 1 2 2
+3
+1 1 1
+```
+CODEFORCES 1375_A. Sign Flipping
+```
+5
+3
+-2 4 3
+5
+1 1 1 1 1
+5
+-2 4 7 -6 4
+9
+9 7 -4 -2 1 -3 9 -4 -5
+9
+-4 1 9 4 8 9 5 1 -9
+```
+CODEFORCES 1398_D. Colored Rectangles
+```
+1 1 1
+3
+5
+4
+
+2 1 3
+9 5
+1
+2 8 5
+
+10 1 1
+11 7 20 15 19 14 2 4 13 14
+8
+11
+
+```
+CODEFORCES 1421_E. Swedish Heroes
+```
+1
+100
+```
+```
+2
+1 2
+```
+```
+5
+-100000 -100000 100000 100000 100000
+```
+```
+5
+100000 -100000 100000 100000 100000
+```
+```
+6
+-50000 -50000 100000 100000 100000 100000
+```
+CODEFORCES 143_D. Help General
+1. ```
+3 3
+```
+2. ```
+1 1000
+```
+3. ```
+1000 1
+```
+4. ```
+1000 1000
+```
+5. ```
+1000 1001
+```
+6. ```
+1001 1000
+```
+7. ```
+1001 1001
+```
+8. ```
+-1 1000
+```
+9. ```
+1000 -1
+```
+10. ```
+0 0
+```
+CODEFORCES 1466_I. The Riddle of the Sphinx
+```
+5 3
+yes
+no
+no
+no
+no
+yes
+```
+
+```
+4 3
+no
+no
+no
+no
+```
+
+```
+1 1
+```
+CODEFORCES 1491_C. Pekora and Trampoline
+1
+7
+1 4 2 2 2 2 2
+1
+4
+2
+2 3
+5
+1 1 1 1 1
+CODEFORCES 1513_F. Swapping Problem
+```
+5
+5 4 3 2 1
+1 2 3 4 5
+
+2
+1 3
+4 2
+
+1
+1
+
+5
+1 1 1 1 1
+5 5 5 5 5
+```
+CODEFORCES 1540_E. Tasty Dishes
+```
+5
+1 0 -2 -2 4
+4 2 3 4 5
+1 3
+1 4
+1 5
+0
+7
+1 1 1 5
+2 4 3
+1 1 1 5
+2 3 2
+1 2 2 4
+2 5 1
+1 981 4 5
+```
+CODEFORCES 168_D. Wizards and Huge Prize
+```
+1 0 0
+10
+-1
+```
+```
+10 1 3
+10 20 30
+-1 -1 2
+```
+```
+2 1 1
+100
+123
+```
+```
+1 1 1
+100
+123
+```
+CODEFORCES 189_B. Counting Rhombi
+```
+1 1
+2 2
+1 2
+```
+CODEFORCES 212_B. Polycarpus is Looking for Good Substrings
+```
+aaaaa
+2
+a
+a
+```
+
+```
+abacaba
+3
+ac
+ba
+a
+```
+CODEFORCES 236_B. Easy Number Challenge
+```
+1 1 1
+```
+```
+100 100 100
+```
+```
+100 101 102
+```
+```
+-1 0 1
+```
+```
+1000000000 1000000000 1000000000
+```
+```
+2147483647 2147483647 2147483647
+```
+```
+1073741824 0 0
+```
+CODEFORCES 260_E. Dividing Kingdom
+```
+1
+1 1
+1 1 1 1 1 1 1 1 1
+```
+```
+2
+1 1
+2 2
+1 1 1 1 1 1 1 1 1
+```
+```
+10
+100 200
+101 201
+102 202
+103 203
+104 204
+105 205
+106 206
+107 207
+108 208
+109 209
+2 1 2 1 2 1 2 1 2 1
+```
+CODEFORCES 284_E. Coin Troubles
+```
+4 2 17
+3 1 2 5
+4 2
+3 4
+```
+CODEFORCES 309_E. Sheep
+```
+# Wrong data type
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Incorrect logic
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+for i in range(n):
+    if li[i] > ri[i]:
+        li[i], ri[i] = ri[i], li[i]
+
+# Off-by-one errors
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+for i in range(n):
+    li[i] -= 1
+    ri[i] -= 1
+
+# Memory leaks
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Race conditions
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Deadlocks
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Buffer overflows
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Security vulnerabilities
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Unmaintainable code
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+
+# Undocumented code
+
+n = int(input())
+li, ri = [int(x) for x in input().split()]
+```
+CODEFORCES 332_C. Students' Revenge
+**Incorrect input format**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+
+**Incorrect output format**
+
+```
+5 3 2
+1 2 3
+```
+
+**Incorrect algorithm**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+
+**Memory errors**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+
+**Timeout errors**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+
+**Incorrect data**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+
+**Bugs**
+
+```
+5 3 2
+5 6
+5 8
+1 3
+4 3
+4 11
+```
+CODEFORCES 355_C. Vasya and Robot
+**Incorrect input format**
+
+```
+1 2 3 4 5
+1 2 3 4 5
+```
+
+**Incorrect output format**
+
+```
+1 2 3 4 5
+6
+```
+
+**Incorrect algorithm**
+
+```
+1 2 3 4 5
+6
+```
+
+**Incorrect data structures**
+
+```
+1 2 3 4 5
+6
+```
+
+**Incorrect implementation**
+
+```
+1 2 3 4 5
+6
+```
+
+**Off-by-one errors**
+
+```
+1 2 3 4 5
+6
+```
+
+**Indexing errors**
+
+```
+1 2 3 4 5
+6
+```
+
+**Null pointer errors**
+
+```
+1 2 3 4 5
+6
+```
+
+**Memory leaks**
+
+```
+1 2 3 4 5
+6
+```
+
+**Race conditions**
+
+```
+1 2 3 4 5
+6
+```
+CODEFORCES 379_D. New Year Letter
+3 2 2 2
+3 3 2 2
+3 0 2 2
+4 3 2 1
+4 2 2 1
+3 1 2 1
+3 2 1 1
+3 3 1 1
+3 4 1 1
+3 5 1 1
+3 6 1 1
+3 7 1 1
+3 8 1 1
+3 9 1 1
+3 10 1 1
+CODEFORCES 39_K. Testing
+1. Incorrect input format:
+```
+3 3 3
+*..
+...
+*..
+```
+This input is incorrect because it contains more than three integers in the first line.
+
+2. Incorrect output format:
+```
+3 3 3
+*.*
+...
+*..
+
+123
+```
+This output is incorrect because it is not a single integer.
+
+3. Incorrect algorithm:
+```
+def count_ways(n, m, k):
+  # This algorithm is incorrect because it does not find all the possible ways to hit a target.
+  return 0
+
+
+n, m, k = map(int, input().split())
+print(count_ways(n, m, k))
+```
+
+4. Incorrect implementation:
+```
+def count_ways(n, m, k):
+  # This implementation is incorrect because it has a bug that causes it to crash when the input is invalid.
+  if n < 1 or m < 1 or k < 1:
+    raise ValueError("Invalid input")
+  return 0
+
+
+n, m, k = map(int, input().split())
+print(count_ways(n, m, k))
+```
+
+5. Incorrect testing:
+```
+def test_count_ways():
+  # This test is incorrect because it does not test all the possible input cases.
+  assert count_ways(3, 3, 3) == 21
+
+
+test_count_ways()
+```
+CODEFORCES 426_B. Sereja and Mirroring
+1. Incorrect input format:
+```
+3 3
+0 0 0
+0 0 0
+0 0 0
+```
+
+2. Incorrect logic:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+
+3. Incorrect data:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+
+4. Insufficient testing:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+
+5. Inefficient implementation:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+
+6. Use of third-party libraries:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+
+7. Security vulnerabilities:
+```
+4 3
+0 0 1
+1 1 0
+1 1 0
+0 0 1
+```
+CODEFORCES 44_E. Anfisa the Monkey
+1. ```
+1 1 1
+a
+```
+
+2. ```
+1 2 2
+a
+```
+
+3. ```
+3 1 2
+ab
+```
+
+4. ```
+4 1 2
+abrakadabra
+```
+
+5. ```
+3 2 5
+abrakadabra
+```
+
+6. ```
+4 1 5
+abrakadabra
+```
+
+7. ```
+3 2 200
+abrakadabra
+```
+
+8. ```
+3 200 200
+abrakadabra
+```
+
+9. ```
+3 2 201
+abrakadabra
+```
+
+10. ```
+3 201 200
+abrakadabra
+```
+CODEFORCES 471_A. MUH and Sticks
+**Incorrect input format**
+
+```
+1 2 3 4 5 6
+```
+
+**Incorrect output format**
+
+```
+Bear!
+```
+
+**Off-by-one errors**
+
+```
+4 5 5 4 4 4
+```
+
+**Incorrect logic**
+
+```
+1 2 3 4 5 6
+```
+
+**Memory leaks**
+
+```
+while True:
+    pass
+```
+
+**Synchronization issues**
+
+```
+import threading
+
+def worker():
+    # Do some work
+
+for i in range(10):
+    threading.Thread(target=worker).start()
+```
+CODEFORCES 495_B. Modular Equations
+```
+10 10
+21 5
+9435152 272
+10 10
+```
+CODEFORCES 519_E. A and B and Lecture Rooms
+```
+4
+1 2
+1 3
+2 4
+1
+2 3
+```
+CODEFORCES 546_A. Soldier and Bananas
+```
+3 17 4
+3 17 5
+```
+CODEFORCES 572_C. Lengthening Sticks
+1. **Incorrect input format**
+
+```
+1 2 3 4
+```
+
+2. **Incorrect output format**
+
+```
+1 2 3
+```
+
+3. **Incorrect algorithm**
+
+```
+1 2 3 4
+```
+CODEFORCES 594_A. Warrior and Archer
+```
+6
+0 1 3 7 15 31
+```
+```
+2
+73 37
+```
+```
+2
+1 3
+```
+```
+1
+0
+```
+```
+4
+3 1 2 4
+```
+```
+3
+5 1 3
+```
+CODEFORCES 615_D. Multipliers
+```
+2
+2 3
+```
+
+```
+3
+2 3 2
+```
+
+```
+1
+200001
+```
+
+```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+100000
+200003
+```
+CODEFORCES 634_F. Orchestra
+```
+2 2 1 1
+1 2
+
+3 2 3 3
+1 1
+3 1
+2 2
+
+3 2 3 2
+1 1
+3 1
+2 2
+```
+CODEFORCES 663_D. To Hack or not to Hack
+```
+1
+```
+
+```
+2
+```
+
+```
+3
+-120 61 120
+120 -61 120
+0 0 0
+```
+
+```
+4
+0 0 119
+-3 -17 -42
+0 7 0
+51 0 0
+```
+CODEFORCES 688_B. Lovely Palindromes
+1
+10
+1000000
+CODEFORCES 710_A. King Moves
+```
+# Incorrect input format
+a1
+
+# Incorrect output format
+e4 8
+
+# Off-by-one errors
+e4 9
+
+# Memory errors
+import sys
+sys.setrecursionlimit(10**9)
+
+# Synchronization errors
+from threading import Thread
+
+# Security vulnerabilities
+import os
+os.system('ls -la')
+
+# Performance problems
+import time
+start = time.time()
+for i in range(10**8):
+    x = i**2
+end = time.time()
+print(end - start)
+```
+CODEFORCES 731_A. Night at the Museum
+```
+Input 1:
+zeus
+
+Input 2:
+map
+
+Input 3:
+ares
+
+Input 4:
+a
+
+Input 5:
+abcdefghijklmnopqrstuvwxyz
+
+Input 6:
+xxyy
+
+Input 7:
+xxy
+
+Input 8:
+xx
+
+Input 9:
+xxyyx
+
+Input 10:
+xxyyxy
+```
+CODEFORCES 755_C. PolandBall and Forest
+### Incorrect input format
+
+The following program input is incorrect because it does not have the correct format:
+
+```
+1
+1
+```
+
+The correct format is:
+
+```
+n
+p1, p2, ..., pn
+```
+
+where `n` is the number of balls and `pi` is the id of the most distant relative of ball `i`.
+
+### Incorrect output format
+
+The following program input is incorrect because it does not have the correct format:
+
+```
+1
+1
+2
+```
+
+The correct format is:
+
+```
+k
+```
+
+where `k` is the number of trees in the forest.
+
+### Incorrect logic
+
+The following program input is incorrect because it does not have the correct logic:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+for i in range(n):
+    for j in range(i + 1, n):
+        if p[i] == p[j]:
+            k += 1
+
+print(k)
+```
+
+This code is incorrect because it does not take into account the fact that a ball may have multiple most distant relatives.
+
+The correct logic is as follows:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+for i in range(n):
+    # Find all of the balls that are most distant from ball i.
+    most_distant_balls = set()
+    for j in range(n):
+        if p[i] == p[j]:
+            most_distant_balls.add(j)
+
+    # If there is only one ball that is most distant from ball i, then it is a tree.
+    if len(most_distant_balls) == 1:
+        k += 1
+
+print(k)
+```
+
+### Memory errors
+
+The following program input is incorrect because it can lead to a memory error:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+for i in range(n):
+    for j in range(i + 1, n):
+        if p[i] == p[j]:
+            k += 1
+
+print(k)
+```
+
+This code is incorrect because it creates a new list `most_distant_balls` for each ball `i`. This can lead to a memory error if `n` is large.
+
+The correct logic is as follows:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+most_distant_balls = set()
+for i in range(n):
+    # Find all of the balls that are most distant from ball i.
+    if p[i] in most_distant_balls:
+        k += 1
+    else:
+        most_distant_balls.add(p[i])
+
+print(k)
+```
+
+This code uses a single set `most_distant_balls` to store all of the balls that are most distant from any ball. This prevents the creation of a new list for each ball, which can help to avoid memory errors.
+
+### Runtime errors
+
+The following program input is incorrect because it can lead to a runtime error:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+for i in range(n):
+    for j in range(i + 1, n):
+        if p[i] == p[j]:
+            k += 1
+
+print(k)
+```
+
+This code is incorrect because it iterates over all pairs of balls, which can take a long time if `n` is large.
+
+The correct logic is as follows:
+
+```
+n = int(input())
+p = list(map(int, input().split()))
+
+# Find the number of trees in the forest.
+k = 0
+for i in range(n):
+    # Find the ball that is most distant from ball i.
+    most_distant_ball = p[i
+CODEFORCES 776_D. The Door Problem
+```
+2 2
+0 0
+1 1
+
+3 3
+1 0 1
+2 1 3
+2 1 2
+2 2 3
+
+3 3
+1 0 1
+3 1 2 3
+1 2
+2 1 3
+
+3 3
+1 0 1
+3 1 2 3
+2 1 2
+1 3
+```
+CODEFORCES 7_E. Defining Macros
+```
+2
+#define a 1
+b
+4 + a
+```
+```
+2
+#define a 1
+#define b 2
+a + b
+```
+```
+2
+#define a 1
+#define b 2
+1 + a*b
+```
+```
+2
+#define a (1 + 2)
+#define b a
+b*b
+```
+```
+2
+#define a 10
+#define b 20
+a - b
+```
+```
+2
+#define a 10
+#define b 20
+a * b
+```
+```
+2
+#define a 1
+#define b 2
+a + b
+```
+```
+1
+#define sum  (x + y)
+sum - sum
+```
+```
+5
+#define sum  x + y
+#define mul  a * b
+#define div  a / b
+#define expr sum + mul * div * mul
+expr
+```
+```
+3
+#define SumSafe   (a+b)
+#define DivUnsafe  a/b
+#define DenominatorUnsafe  a*b
+((SumSafe) + DivUnsafe/DivUnsafe + x/DenominatorUnsafe)
+```
+```
+5
+#define a 1
+#define b 2
+#define c 3
+#define d 4
+a + b + c + d
+```
+```
+1
+#define a 0
+a == 0
+```
+```
+1
+#define a 0
+a < 0
+```
+```
+1
+#define a 0
+a > 0
+```
+```
+1
+#define a 0
+a != 0
+```
+CODEFORCES 821_B. Okabe and Banana Trees
+```
+1 5
+
+2 3
+
+-1 1
+
+1 10000
+
+1000 1000
+```
+CODEFORCES 847_B. Preparing for Merge Sort
+```
+5
+1 3 2 5 4
+
+5
+1 1 1 1 1
+
+4
+4 3 2 1
+
+4
+10 30 50 101
+
+```
+CODEFORCES 868_D. Huge Strings
+```
+5
+01
+10
+101
+11111
+0
+3
+1 2
+6 5
+4 4
+```
+CODEFORCES 894_A. QAQ
+```
+QAQAQYSYIOIWIN
+
+QAQAQZZYNOIWIN
+
+QAQAQZZYNOIWIN
+
+QAQTQZ
+```
+CODEFORCES 915_D. Almost Acyclic Graph
+```
+3 4
+1 2
+2 3
+3 2
+3 1
+```
+```
+5 6
+1 2
+2 3
+3 2
+3 1
+2 1
+4 5
+```
+```
+5 7
+1 2
+2 3
+2 4
+3 4
+4 5
+5 4
+```
+CODEFORCES 938_E. Max History
+```
+2
+1 3
+
+3
+1 1 2
+
+5
+1 5 4 3 2
+
+1000000
+1 1 1 1 1 1 1 1 1 1
+```
+CODEFORCES 963_E. Circles of Waiting
+**Incorrect input format**
+
+```
+0 1 a2 a3 a4
+```
+
+**Incorrect calculation of probabilities**
+
+```
+0 1 1 1 1
+```
+
+**Incorrect calculation of the expected time**
+
+```
+1 1 2 1 2
+```
+
+**Modulo arithmetic error**
+
+```
+1 1 1 1 1
+```
+
+**Other bugs**
+
+```
+1 1 2 1 2
+```
+CODEFORCES 991_A. If at first you don't succeed...
+```
+10 10 5 20
+```
+
+```
+2 2 0 4
+```
+
+```
+2 2 2 1
+```
+HACKEREARTH aqua-park
+```
+0 1
+```
+HACKEREARTH chandu-and-his-toy-stack
+1
+4 1 2
+1 2
+2 3
+3 4
+4 3
+HACKEREARTH divide-array-2
+**1. Using a list to store the input array**
+
+```
+n = int(input())
+a = list(map(int, input().split()))
+q = int(input())
+for _ in range(q):
+    d = int(input())
+    a = list(map(lambda x: x / d, a))
+print(*a)
+```
+
+**2. Using the wrong data type for the input array**
+
+```
+n = int(input())
+a = [int(x) for x in input().split()]
+q = int(input())
+for _ in range(q):
+    d = int(input())
+    a = [x / d for x in a]
+print(*a)
+```
+
+**3. Not using the `map()` function correctly**
+
+```
+n = int(input())
+a = [int(x) for x in input().split()]
+q = int(input())
+for _ in range(q):
+    d = int(input())
+    a = list(map(lambda x: x / d, a))
+print(*a)
+```
+
+**4. Not using the `reduce()` function correctly**
+
+```
+n = int(input())
+a = [int(x) for x in input().split()]
+q = int(input())
+for _ in range(q):
+    d = int(input())
+    a = list(map(lambda x: x / d, a))
+print(*a)
+```
+HACKEREARTH good-times-vs-bad-times-3
+1
+00 00 00
+HACKEREARTH little-deepu-and-array
+```
+5
+7 8 3 2 10
+4
+1
+3
+5
+7
+```
+HACKEREARTH monks-school-4
+```
+3 4
+vasya
+petya
+kolya
+vasya errichto 21
+kolya petr 22
+petya egor 19
+vasya tourist 19
+```
+HACKEREARTH power-of-two-4
+```
+1
+3
+1 2 3
+```
+HACKEREARTH saksham-and-fifa
+```
+1
+3 0
+```
+HACKEREARTH sum-of-powers-6
+5
+5
+15
+9
+77
+100
+HACKEREARTH we-are-on-fire
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n, m, q;
+    scanf(" %d %d %d ", &n, &m, &q);
+    int a[n][m];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            scanf(" %d ", &a[i][j]);
+        }
+    }
+    int x, y;
+    for (int i = 0; i < q; i++)
+    {
+        scanf(" %d %d ", &x, &y);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (a[i][j] == 1 && (i == x || j == y || i + j == x + y || i - j == x - y))
+                {
+                    a[i][j] = 0;
+                }
+            }
+        }
+    }
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (a[i][j] == 1)
+            {
+                count++;
+            }
+        }
+    }
+    printf(" %d ", count);
+    return 0;
+}
+```
+ATCODER p02616 AtCoder Beginner Contest 173 - Multiplication 4
+```
+1 1
+1000000000
+
+2 1
+-1
+```
+ATCODER p02747 Social Infrastructure Information Systems Division  Hitachi Programming Contest 2020 - Hitachi String
+1. `hi`
+2. `hihi`
+3. `ha`
+4. `hii`
+5. `12345`
+ATCODER p02882 AtCoder Beginner Contest 144 - Water Bottle
+```
+1 1 1
+```
+
+```
+1 2 1
+```
+
+```
+2 1 2
+```
+
+```
+2 2 1
+```
+
+```
+2 2 2
+```
+
+```
+2 2 3
+```
+ATCODER p03017 AtCoder Grand Contest 034 - Kenken Race
+```
+4 1 2 4 3
+.#.#
+```
+
+```
+7 1 3 6 7
+.#..#..
+```
+
+```
+7 1 3 7 6
+.#..#..
+```
+
+```
+15 1 3 15 13
+...#.#...#.#...
+```
+ATCODER p03157 AISing Programming Contest 2019 - Alternating Path
+3 3
+.#.
+..#
+#..
+ATCODER p03300 AtCoder Grand Contest 026 - Synchronized Subsequence
+```
+3
+aababb
+```
+
+```
+3
+bbabaa
+```
+
+```
+6
+bbbaabbabaaa
+```
+
+```
+9
+abbbaababaababbaba
+```
+ATCODER p03458 AtCoder Beginner Contest 086 - Checker
+1. ```
+1 2
+1 1 W
+```
+
+2. ```
+2 1000
+0 0 B
+0 1 W
+```
+
+3. ```
+6 2
+1 2 B
+2 1 W
+2 2 B
+1 0 B
+0 6 W
+4 5 W
+```
+ATCODER p03619 AtCoder Grand Contest 019 - Fountain Walk
+```
+1 1 6 5
+3
+3 2
+5 3
+2 4
+```
+ATCODER p03777 AtCoder Beginner Contest 056 - HonestOrDishonest
+```
+H H
+H D
+D H
+D D
+ATCODER p03948 AtCoder Regular Contest 063 - An Invisible Hand
+```
+3 2
+100 50 200
+```
+```
+5 8
+50 30 40 10 20
+```
+```
+10 100
+7 10 4 5 9 3 6 8 2 1
+```
+```
+1000 1000
+1000 1000
+```
+AIZU p00038 Poker Hand
+1,2,3,4,1
+2,3,2,3,12
+12,13,11,12,12
+7,6,7,6,7
+3,3,2,3,3
+6,7,8,9,10
+11,12,10,1,13
+11,12,13,1,2
+AIZU p00170 Lunch
+```
+# 1. Inconsistent data
+1
+a 10 10
+
+# 2. Incorrect output
+3
+a 10 10
+b 10 10
+c 10 10
+
+# 3. Off-by-one errors
+3
+a 10 10
+b 10 10
+c 10 10
+
+# 4. Memory errors
+10
+a 10 10
+b 10 10
+c 10 10
+d 10 10
+e 10 10
+f 10 10
+g 10 10
+h 10 10
+i 10 10
+j 10 10
+
+# 5. Time errors
+1000
+a 10 10
+b 10 10
+c 10 10
+d 10 10
+e 10 10
+f 10 10
+g 10 10
+h 10 10
+i 10 10
+j 10 10
+
+# 6. Concurrency errors
+2
+a 10 10
+b 10 10
+```
+AIZU p00326 Scheduler
+```
+5 3
+1 5 2
+3 8 5
+1 2 3
+5 5 5
+4 8 2
+0
+1 2 3
+2
+2 2 3 1
+4 3 1 2
+
+3
+2
+5
+1
+4
+```
+AIZU p00499 Homework
+**1. The input data is not guaranteed to be valid.**
+```
+-1
+25
+30
+6
+8
+```
+
+**2. The program does not check if JOI can finish his homework during the winter vacation.**
+```
+20
+25
+30
+6
+8
+```
+
+**3. The program does not check if JOI can play for at least one day.**
+```
+1
+25
+30
+6
+8
+```
+
+**4. The program does not handle overflows.**
+```
+2147483647
+25
+30
+6
+8
+```
+
+**5. The program does not handle negative values.**
+```
+-1
+25
+30
+6
+8
+```
+AIZU p00683 A Simple Offline Text Editor
+```
+1
+Hello, World
+1
+forward word
+Hello, World^
+
+1
+Hello, World
+1
+insert "World"
+Hello, World^World
+
+3
+Hello, World
+3
+forward word
+insert "World"
+forward word
+Hello, World, World^
+
+1
+
+1
+^
+
+3
+A sample input
+9
+forward word
+delete char
+forward word
+delete char
+forward word
+delete char
+backward word
+backward word
+forward word
+Hello, Word.
+7
+forward char
+delete word
+insert "ello, "
+forward word
+backward char
+backward char
+insert "l"
+
+3
+forward word
+backward word
+delete word
+
+```
+AIZU p00825 Concert Hall Scheduling
+1
+1 1 10
+1
+1 1 10
+1
+2 1 10
+1
+1 2 10
+1
+1 2 10
+1
+1 1 10
+1
+1 2 10
+1
+1 1 10
+1
+1 1 10
+1
+1 2 10
+AIZU p00956 Black and White Boxes
+1. 
+
+```
+4
+B
+W
+WB
+WB
+```
+
+2. 
+
+```
+4
+B
+W
+WB
+W
+```
+
+3. 
+
+```
+4
+B
+W
+WB
+B
+```
+
+4. 
+
+```
+4
+B
+B
+W
+W
+```
+
+5. 
+
+```
+1
+W
+```
+AIZU p01089 Deadlock Detection
+
+AIZU p01225 Rummy
+0
+1 2 3 4 5 6 7 8 9
+R R R R R R R R R
+AIZU p01359 Era Name
+6 6
+genroku 1 1688
+kyoho 3 1718
+genbun 1 1736
+kansei 1 1789
+bunsei 5 1822
+kyowa 2 1848
+1688 1815 1822 1868 1911 1923 1989 2010 2041 2168
+2010
+1 1
+2010
+0 0
+AIZU p01541 hosonagaitokoro
+```
+100
+2
+1
+2
+0
+```
+
+```
+100
+2
+2
+1
+0
+```
+
+```
+100
+3
+2
+1
+1
+1
+50
+```
+
+```
+100
+4
+3
+1
+1
+3
+2
+40
+60
+```
+AIZU p01697 1 Day Passport
+```
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jul 17 10:59:14 2017
+
+@author: mhiro
+"""
+
+N,M,H,K=map(int,input().split())
+
+g=[[] for i in range(N+1)]
+
+for i in range(M):
+    a,b,c,t,r=map(int,input().split())
+    g[a].append([b,c,t,r])
+    g[b].append([a,c,t,r])
+
+S,T=map(int,input().split())
+P=int(input())
+
+#dp[i][j][k] : 行き先iに着くまでにj枚の切符を使いkの会社に属する切符を使った場合の最短時間
+dp=[[[float('inf')]*(K+1) for j in range(P+1)] for i in range(N+1)]
+
+dp[S][0][0]=0
+
+def dijkstra(s,p,c):
+    que=[[s,0,c]]
+    while que:
+        cur,time,c=que.pop(0)
+        if cur==T:
+            return time
+        for nxt,cost,t,r in g[cur]:
+            if dp[nxt][p][r]<=time+t:
+                continue
+            dp[nxt][p][r]=time+t
+            que.append([nxt,time+t,r])
+            
+for p in range(P+1):
+    for c in range(K+1):
+        for i in range(N+1):
+            dp[i][p][c]=min(dp[i][p][c],dijkstra(i,p,c))
+
+ans=float('inf')
+for i in range(P+1):
+    ans=min(ans,dp[T][i][0])
+    if ans<=H:
+        break
+if ans<=H:
+    print(ans)
+else:
+    print(-1)
+```
+AIZU p01841 Rooted Tree for Misawa-san
+```
+(() [8] ()) [2] ()) [5] (((() [2] ()) [6] (() [3] ())) [1] ())
+(() [4] ()) [3] (((() [2] ()) [1] ()) [8] (() [3] ()))
+```
+AIZU p01977 Aquarium
+3 2
+-1 -2
+
+AIZU p02123 Fissure Puzzle Hard
+```
+3
+oxx
+oxx
+ooo
+```
+```
+5
+oxooo
+oxooo
+oxooo
+xxxxx
+oxooo
+```
+```
+7
+xoxoxoxo
+xoxoxoxo
+xoxoxoxo
+xoxoxoxo
+xoxoxoxo
+xoxoxoxo
+xoxoxoxo
+```
+```
+3
+oxx
+oxx
+xxx
+```
+```
+11
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+xoxxxoxox
+```
+```
+5
+xxxx
+xxxx
+xxxx
+xxxx
+xxxx
+```
+AIZU p02263 Stack
+1 2 +
+1 2 + 3 4 - *
+1 2 + 3 *
+1 2 - 3 4 - *
+1 2 + 1
+1 2 + 1 +
+AIZU p02411 Grading
+40 42 -1
+20 30 -1
+0 2 -1
+-1 -1 -1

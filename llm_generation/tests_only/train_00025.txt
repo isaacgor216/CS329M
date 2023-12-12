@@ -1,0 +1,2780 @@
+CODECHEF amr15c
+```
+1
+5 3
+```
+CODECHEF chfmax
+```
+1
+aba
+```
+CODECHEF egrcake
+3
+2 0
+2 1
+4 2
+CODECHEF kingship
+1. ```
+2
+2
+5 10
+4
+15 10 7 13
+```
+2. ```
+2
+5
+1 2 3 4 5
+6
+1 2 3 4 5 6
+```
+3. ```
+1
+10
+1 2 3 4 5 6 7 8 9 10
+```
+CODECHEF onoz
+```
+1
+1 1
+```
+CODECHEF spit3
+1. abcdefgh
+2. abcdefgh123
+3. SPIT_Coders_Club_2.0
+4. 12345
+5. aA12345
+6. aA12345!
+7. aA12345!_
+8. aA12345!_,.
+9. aA12345!_aA12345!_
+10. aA12345!_ aA12345!_
+CODEFORCES 1005_F. Berland and the Shortest Paths
+```
+3 3 1
+1 2
+2 3
+```
+```
+6 10 5
+1 2
+2 3
+3 4
+4 5
+5 6
+1 6
+2 4
+4 6
+3 5
+```
+```
+5 6 2
+1 2
+1 3
+2 4
+2 5
+3 4
+3 5
+```
+CODEFORCES 1029_E. Tree with Small Distances
+```
+# 1. Using the wrong data structure
+
+```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    edges.append((a, b))
+
+# 2. Not handling the case where the tree is disconnected
+
+```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    edges.append((a, b))
+
+if not is_connected(edges):
+    print(-1)
+    exit()
+
+# 3. Adding too many edges
+
+```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    edges.append((a, b))
+
+while True:
+    # Find the edge that will reduce the shortest distance from the vertex 1 to any other vertex by the most amount.
+
+    best_edge = None
+    best_distance = float('inf')
+    for edge in edges:
+        distance = get_distance(edges, 1, edge[1])
+        if distance < best_distance:
+            best_edge = edge
+            best_distance = distance
+
+    # Add the edge to the tree.
+
+    edges.append(best_edge)
+
+    # Check if the shortest distance from the vertex 1 to any other vertex is at most 2.
+
+    if all(get_distance(edges, 1, v) <= 2 for v in range(1, n + 1)):
+        break
+
+# 4. Not using a greedy algorithm
+
+```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    edges.append((a, b))
+
+# Find the edge that will reduce the shortest distance from the vertex 1 to any other vertex by the most amount.
+
+best_edge = None
+best_distance = float('inf')
+for edge in edges:
+    distance = get_distance(edges, 1, edge[1])
+    if distance < best_distance:
+        best_edge = edge
+        best_distance = distance
+
+# Add the edge to the tree.
+
+edges.append(best_edge)
+
+# Repeat steps 2 and 3 until the shortest distance from the vertex 1 to any other vertex is at most 2.
+
+while True:
+    # Find the edge that will reduce the shortest distance from the vertex 1 to any other vertex by the most amount.
+
+    best_edge = None
+    best_distance = float('inf')
+    for edge in edges:
+        distance = get_distance(edges, 1, edge[1])
+        if distance < best_distance:
+            best_edge = edge
+            best_distance = distance
+
+    # Add the edge to the tree.
+
+    edges.append(best_edge)
+
+    # Check if the shortest distance from the vertex 1 to any other vertex is at most 2.
+
+    if all(get_distance(edges, 1, v) <= 2 for v in range(1, n + 1)):
+        break
+
+# 5. Not handling the case where the tree is a star
+
+```
+n = int(input())
+edges = []
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    edges.append((a, b))
+
+if is_star(edges):
+    print(1)
+else:
+    print(-1)
+```
+CODEFORCES 104_D. Russian Roulette
+```
+3 1 3
+1
+2
+3
+```
+```
+6 3 6
+1
+2
+3
+4
+5
+6
+```
+```
+5 2 5
+1
+2
+3
+4
+5
+```
+```
+5 2 5
+1
+2
+3
+4
+5
+```
+```
+1 0 1
+1
+```
+```
+2 1 2
+1
+2
+```
+```
+3 2 3
+1
+2
+3
+```
+```
+4 2 4
+1
+2
+3
+4
+```
+```
+5 3 5
+1
+2
+3
+4
+5
+```
+```
+6 3 6
+1
+2
+3
+4
+5
+6
+```
+```
+7 3 7
+1
+2
+3
+4
+5
+6
+7
+```
+```
+8 3 8
+1
+2
+3
+4
+5
+6
+7
+8
+```
+```
+9 3 9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+```
+10 3 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+CODEFORCES 1071_E. Rain Protection
+```
+2 5 5
+0 0
+1 1 4
+2 2 4
+```
+
+```
+3 5 5
+0 0
+1 1 4
+2 2 4
+3 3 4
+```
+
+```
+4 5 5
+0 0
+1 1 4
+2 2 4
+3 3 4
+4 4 4
+```
+
+```
+3 5 5
+0 0
+1 1 4
+2 2 4
+3 4 4
+```
+CODEFORCES 1093_G. Multidimensional Queries
+10 3
+-1 -1 0
+-2 -2 0
+-3 -3 0
+1
+2 -1 -1
+1 1 1
+CODEFORCES 1114_A. Got Any Grapes?
+```
+1 2 3
+4 5 6
+```
+```
+1 1 5
+4 3 2
+```
+```
+5 1 1
+4 3 2
+```
+CODEFORCES 1142_B. Lynyrd Skynyrd
+```
+3 6 3
+2 1 3
+1 2 3 1 2 3
+1 5
+2 6
+3 5
+```
+CODEFORCES 1162_D. Chladni Figure
+```
+# 1. Incorrect input format
+
+1 1
+```
+
+```
+# 2. Incorrect output format
+
+1 1
+2
+```
+
+```
+# 3. Incorrect algorithm
+
+10 3
+1 2
+3 2
+7 2
+
+# Expected output:
+No
+
+# Actual output:
+Yes
+```
+
+```
+# 4. Incorrect implementation
+
+```
+
+```
+# 5. Incorrect testing
+
+```
+CODEFORCES 1183_C. Computer Game
+```
+2
+1 1 1 1
+3 3 1 1
+```
+CODEFORCES 1200_D. White Lines
+4 2
+BWWW
+WBBW
+WBBW
+WWWB
+
+4 2
+WBBB
+WBBB
+WBBB
+WBBB
+
+3 1
+BWB
+WWB
+BWB
+CODEFORCES 1218_F. Workout plan
+```
+5 10000
+10000 30000 30000 40000 20000
+20000
+5 2 8 3 6
+
+```
+```
+5 10000
+10000 40000 30000 30000 20000
+10000
+5 2 8 3 6
+
+```
+```
+10 10000
+10000 30000 30000 40000 20000 10000 20000 30000 40000 20000
+20000
+10 5 2 8 3 6 1 2 3 4 5
+
+```
+```
+10 10000
+10000 40000 30000 30000 20000 10000 20000 30000 40000 20000
+10000
+10 5 2 8 3 6 1 2 3 4 5
+
+```
+CODEFORCES 1242_C. Sum Balance
+```
+1
+1 1
+```
+```
+2
+1 1
+1 1
+```
+```
+2
+2 3 2
+2 -1 5
+```
+```
+2
+2 -10 10
+2 0 -20
+```
+```
+4
+3 1 7 4
+2 3 2
+2 8 5
+1 10
+```
+```
+3
+1 1000000000
+2 1000000000
+3 1000000000
+```
+```
+4
+1 1000000000
+2 1000000000
+3 1000000000
+4 1000000000
+```
+CODEFORCES 1261_C. Arson In Berland Forest
+```
+2 5
+XXXX
+XXXX
+```
+```
+3 6
+XXXXXX
+XXXXXX
+XXXXXX
+```
+```
+10 10
+.XXXXXX...
+.XXXXXX...
+.XXXXXX...
+.XXXXXX...
+.XXXXXXXX.
+...XXXXXX.
+...XXXXXX.
+...XXXXXX.
+...XXXXXX.
+..........
+```
+```
+4 5
+X....
+..XXX
+..XXX
+..XXX
+```
+CODEFORCES 1283_E. New Year Parties
+**1. Incorrect input format**
+
+```
+1
+1
+```
+
+This input is incorrect because it does not contain a single integer n.
+
+**2. Incorrect output format**
+
+```
+1 2
+```
+
+This output is incorrect because it does not contain two integers separated by a space.
+
+**3. Incorrect algorithm**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This algorithm is incorrect because it does not account for the fact that friends can move to houses with coordinates 0 and n+1.
+
+**4. Incorrect data**
+
+```
+1
+4
+```
+
+This data is incorrect because it contains a value that is less than 1.
+
+**5. Runtime error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will run into a runtime error if the input n is greater than 2 * 10^5.
+
+**6. Memory error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will run into a memory error if the input n is greater than the amount of memory available on the system.
+
+**7. Off-by-one error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will have an off-by-one error if the input n is even.
+
+**8. Index out of bounds error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will have an index out of bounds error if the input n is greater than the length of the list houses.
+
+**9. Null pointer dereference error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will have a null pointer dereference error if the input n is zero.
+
+**10. Logic error**
+
+```
+n = int(input())
+houses = list(map(int, input().split()))
+
+min_houses = max_houses = houses[0]
+for house in houses[1:]:
+    if house < min_houses:
+        min_houses = house
+    elif house > max_houses:
+        max_houses = house
+
+print(min_houses, max_houses)
+```
+
+This program will have a logic error if the input n is negative.
+
+**Test Cases**
+
+**Test Case 1**
+
+```
+Input
+
+3
+1 3 
+CODEFORCES 1303_A. Erasing Zeroes
+```
+# 1. Incorrectly counting the number of 1s in the string.
+
+input = ['010011', '0', '1111000']
+
+# 2. Not considering the case where all of the 0s in the string are contiguous.
+
+input = ['00011', '0000', '1111000']
+
+# 3. Using an incorrect algorithm to solve the problem.
+
+input = ['010011', '0', '1111000']
+
+# 4. Not handling edge cases correctly.
+
+input = ['', '0', '1111000']
+
+# 5. Making a mistake in the implementation of the algorithm.
+
+input = ['010011', '0', '1111000']
+```
+CODEFORCES 1327_B. Princesses and Princes
+```
+1
+4
+2 2 3
+2 1 2
+2 3 4
+1 3
+```
+
+```
+2
+0
+0
+```
+
+```
+3
+3 1 2 3
+3 1 2 3
+3 1 2 3
+```
+
+```
+1
+1 1
+```
+
+```
+4
+1 1
+1 2
+1 3
+1 4
+```
+CODEFORCES 1346_D. Constructing the Dungeon
+```
+1
+3 2
+1 2 1
+2 3 1
+```
+CODEFORCES 1368_B. Codeforces Subsequences
+```
+1
+2
+10^16
+```
+CODEFORCES 1389_D. Segment Intersections
+```
+1
+3 1
+1 2
+3 4
+```
+```
+1
+2 1000000000
+1 1
+999999999 999999999
+```
+```
+1
+10 3
+5 10
+7 8
+```
+CODEFORCES 140_A. New Year Table
+```
+1 10 10
+4 10 4
+5 10 4
+1 100 10
+```
+CODEFORCES 1430_E. String Reversal
+**Incorrectly counting the number of swaps:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n - 1):
+  if s[i] != s[n - i - 1]:
+    count += 1
+print(count)
+```
+
+This code will incorrectly count the number of swaps because it does not take into account the fact that some pairs of characters may already be in the correct order. For example, if the string is "abc", then there are no pairs of characters that are in the wrong order, so the number of swaps is 0.
+
+**Using an incorrect algorithm:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n):
+  for j in range(i + 1, n):
+    if s[i] != s[j]:
+      count += 1
+print(count)
+```
+
+This code will incorrectly count the number of swaps because it does not take into account the fact that the characters in the string are already in the correct order. For example, if the string is "abc", then the characters are already in the correct order, so the number of swaps is 0.
+
+**Using incorrect data types:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n - 1):
+  if s[i] != s[n - i - 1]:
+    count += 1
+print(count)
+```
+
+This code will incorrectly count the number of swaps because it is using the `int` data type for the string. This will cause the code to crash when it tries to compare the strings.
+
+**Not handling invalid input correctly:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n - 1):
+  if s[i] != s[n - i - 1]:
+    count += 1
+print(count)
+```
+
+This code will not handle invalid input correctly because it will crash if the input is not a valid integer or string.
+
+**Not using unit tests:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n - 1):
+  if s[i] != s[n - i - 1]:
+    count += 1
+print(count)
+```
+
+This code does not use unit tests, so it is difficult to ensure that the code is working correctly.
+
+**Correct solution:**
+
+```
+n = int(input())
+s = input()
+count = 0
+for i in range(n // 2):
+  if s[i] != s[n - i - 1]:
+    count += 1
+print(count)
+```
+
+This code correctly counts the number of swaps by only considering the pairs of characters that are in the wrong order. The code also uses the `int()` function to convert the input to an integer, and it uses the `str()` function to convert the input to a string. Finally, the code uses unit tests to ensure that the code is working correctly.
+CODEFORCES 1454_A. Special Permutation
+```
+# 1. Using the wrong data type
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(n - 1, n)
+```
+
+This code will not work because the input consists of integers, but the output is a string.
+
+```
+# 2. Not using a loop
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(n - 1, n)
+```
+
+This code will not work because it does not iterate through the numbers from 1 to `n`.
+
+```
+# 3. Using the wrong index
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(n - 1, n - 2)
+```
+
+This code will not work because it uses the wrong index when printing the permutation.
+
+```
+# 4. Not checking for duplicates
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(n - 1, n)
+```
+
+This code will not work because it does not check for duplicates in the permutation.
+
+```
+# 5. Not printing the output in the correct format
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(n - 1, n)
+```
+
+This code will not work because it does not print the output in the correct format.
+
+```
+# 6. Not handling the edge cases
+
+```
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    if n == 1:
+        print(1)
+    else:
+        print(n - 1, n)
+```
+
+This code will not work because it does not handle the edge case where `n` is equal to 1.
+CODEFORCES 1477_E. Nezzar and Tournaments
+```
+3 4 3
+1 2 7
+3 4 5 6
+3 5
+1 1 10
+3 5
+```
+
+```
+7 8 12
+958125 14018 215153 35195 90380 30535 204125
+591020 930598 252577 333333 999942 1236 9456 82390
+3 123458
+2 4 444444
+3 123456
+1 2 355555
+3 123478
+3 1111
+2 6 340324
+3 1111
+2 8 999999
+2 7 595959
+3 222222
+3 100
+```
+CODEFORCES 1505_A. Is it rated - 2
+```
+Is it rated?
+```
+CODEFORCES 1528_B. Kavi on Pairing Duty
+```
+1
+```
+```
+2
+```
+```
+3
+```
+```
+100
+```
+```
+10000
+```
+```
+100000
+```
+```
+1000000
+```
+```
+10000000
+```
+CODEFORCES 15_A. Cottage Village
+```
+1 2
+0 3
+```
+
+```
+1 3
+0 4
+```
+
+```
+2 2
+0 4
+5 2
+```
+
+```
+3 3
+1 3
+3 4
+4 5
+```
+
+```
+1 1
+0 1
+```
+
+```
+2 2
+0 1
+2 1
+```
+
+```
+1 2
+0 2
+```
+
+```
+2 3
+1 2
+4 3
+```
+
+```
+3 3
+0 3
+1 2
+2 1
+```
+
+```
+4 2
+0 2
+2 2
+4 2
+```
+CODEFORCES 178_F1. Representative Sampling
+1. ```
+3 2
+aba
+bzd
+abq
+```
+2. ```
+4 3
+eee
+rrr
+ttt
+qqq
+```
+3. ```
+4 3
+aaa
+abba
+abbc
+abbd
+```
+4. ```
+1 1
+a
+```
+5. ```
+2 1
+a
+b
+```
+6. ```
+2 2
+a
+b
+```
+7. ```
+3 3
+a
+a
+a
+```
+8. ```
+4 4
+a
+a
+a
+a
+```
+9. ```
+5 4
+a
+a
+a
+a
+a
+```
+10. ```
+10 5
+a
+a
+a
+a
+a
+a
+a
+a
+a
+```
+CODEFORCES 201_D. Brand New Problem
+```
+# 201_D. Brand New Problem
+
+n = int(input())
+words = input().split()
+m = int(input())
+
+for i in range(m):
+    k, s = input().split()
+    if k == n:
+        if sorted(words) == sorted(s.split()):
+            print(i+1)
+            print('[:|'+'|'*(k-1)+':]')
+            break
+```
+CODEFORCES 226_C. Anniversary
+```
+10 1 8 2
+10 1 8 3
+10 31 32 2
+```
+CODEFORCES 250_A. Paper Work
+```
+1
+1
+
+2
+-1 0
+
+10
+-1 1 2 3 4 5 6 7 8 9
+
+5
+-1 100 -1 0 0
+
+11
+1 2 3 -4 -5 -6 5 -5 -6 -7 6
+```
+CODEFORCES 275_B. Convex Shape
+```
+1. 1 1
+2. 3 4
+WWBW
+BWWW
+WWWB
+3. 3 1
+B
+B
+W
+4. 2 2
+WW
+BB
+5. 5 5
+BBBB
+```
+CODEFORCES 298_D. Fish Weight
+```
+1 1 1
+1
+1
+```
+
+```
+3 4 3
+2 1 2
+2 2 1 3
+```
+
+```
+4 7 9
+5 2 7 3
+3 5 2 7 3 8 7
+```
+
+```
+1 2 3
+1 2 3
+```
+
+```
+1 1 1
+1
+1000000000
+```
+CODEFORCES 321_B. Ciel and Duel
+```
+2 3
+ATK 2000
+DEF 1700
+2500
+2500
+2500
+```
+CODEFORCES 345_G. Suffix Subgroup
+```
+1
+a
+```
+```
+2
+a
+b
+```
+```
+3
+a
+b
+c
+```
+```
+4
+a
+b
+c
+d
+```
+```
+5
+a
+b
+c
+d
+e
+```
+```
+6
+a
+b
+c
+d
+e
+f
+```
+CODEFORCES 369_D. Valera and Fools
+```
+3 3
+50 50 50
+```
+
+```
+1 1
+100
+```
+
+```
+2 1
+100 100
+```
+
+```
+3 3
+0 0 0
+```
+
+```
+1 100
+99
+```
+
+```
+2 100
+0 100
+```
+
+```
+3 100
+0 0 100
+```
+
+```
+2 5
+40 60
+```
+
+```
+5 10
+99 98 97 96 95
+```
+CODEFORCES 391_C3. The Tournament
+**Incorrectly calculating the minimum amount of effort Manao needs to use to rank in the top k:**
+
+```
+n, k = map(int, input().split())
+points = list(map(int, input().split()))
+effort = list(map(int, input().split()))
+
+def get_rank(points, effort):
+    ranks = []
+    for i in range(n):
+        rank = 0
+        for j in range(i+1, n):
+            if points[j] > points[i]:
+                rank += 1
+        ranks.append(rank)
+    return ranks
+
+def get_min_effort(points, effort, ranks):
+    min_effort = float('inf')
+    for i in range(n):
+        for j in range(i+1, n):
+            if ranks[i] < ranks[j] and effort[i] + effort[j] < min_effort:
+                min_effort = effort[i] + effort[j]
+    return min_effort
+
+ranks = get_rank(points, effort)
+min_effort = get_min_effort(points, effort, ranks)
+
+if min_effort < float('inf'):
+    print(min_effort)
+else:
+    print(-1)
+```
+
+**Using an incorrect algorithm to solve the problem:**
+
+```
+n, k = map(int, input().split())
+points = list(map(int, input().split()))
+effort = list(map(int, input().split()))
+
+def get_rank(points, effort):
+    ranks = []
+    for i in range(n):
+        rank = 0
+        for j in range(i+1, n):
+            if points[j] > points[i]:
+                rank += 1
+        ranks.append(rank)
+    return ranks
+
+def get_min_effort(points, effort, ranks):
+    min_effort = float('inf')
+    for i in range(n):
+        for j in range(i+1, n):
+            if ranks[i] < ranks[j] and effort[i] + effort[j] < min_effort:
+                min_effort = effort[i] + effort[j]
+    return min_effort
+
+ranks = get_rank(points, effort)
+min_effort = get_min_effort(points, effort, ranks)
+
+if min_effort < float('inf'):
+    print(min_effort)
+else:
+    print(-1)
+```
+
+**Misunderstanding the problem statement:**
+
+```
+n, k = map(int, input().split())
+points = list(map(int, input().split()))
+effort = list(map(int, input().split()))
+
+def get_rank(points, effort):
+    ranks = []
+    for i in range(n):
+        rank = 0
+        for j in range(i+1, n):
+            if points[j] > points[i]:
+                rank += 1
+        ranks.append(rank)
+    return ranks
+
+def get_min_effort(points, effort, ranks):
+    min_effort = float('inf')
+    for i in range(n):
+        for j in range(i+1, n):
+            if ranks[i] < ranks[j] and effort[i] + effort[j] < min_effort:
+                min_effort = effort[i] + effort[j]
+    return min_effort
+
+ranks = get_rank(points, effort)
+min_effort = get_min_effort(points, effort, ranks)
+
+if min_effort < float('inf'):
+    print(min_effort)
+else:
+    print(-1)
+```
+
+**Making a programming error:**
+
+```
+n, k = map(int, input().split())
+points = list(map(int, input().split()))
+effort = list(map(int, input().split()))
+
+def get_rank(points, effort):
+    ranks = []
+    for i in range(n):
+        rank = 0
+        for j in range(i+1, n):
+            if points[j] > points[i]:
+                rank += 1
+        ranks.append(rank)
+    return ranks
+
+def get_min_effort(points
+CODEFORCES 413_D. 2048
+```
+1 3
+0
+
+2 3
+0 4
+
+5 4
+2 0 0 4 4
+
+7 4
+2 2 4 2 2 2 2
+```
+CODEFORCES 440_A. Forgotten Episode
+```
+10
+3 8 10 1 7 9 6 5 2
+```
+CODEFORCES 462_C. Appleman and Toastman
+```
+1
+10
+```
+
+```
+3
+3 1 5
+```
+
+```
+3
+1 2 3
+```
+
+```
+100
+100 100 100 100 100 100 100 100 100 100
+```
+
+CODEFORCES 486_B. OR in Matrix
+1. Incorrect input format
+
+```
+2 3
+1 0 1
+0 1 1
+```
+
+2. Incorrect output format
+
+```
+2 3
+1 0 1
+0 1 1
+NO
+```
+
+3. Incorrect solution
+
+```
+2 3
+1 0 1
+0 1 1
+1 1 1
+```
+
+4. Runtime error
+
+```
+2 3
+1 0 1
+0 1 1
+```
+
+5. Time complexity
+
+```
+2 3
+1 0 1
+0 1 1
+```
+
+6. Space complexity
+
+```
+2 3
+1 0 1
+0 1 1
+```
+CODEFORCES 50_A. Domino piling
+```
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8
+9 9
+10 10
+11 11
+12 12
+13 13
+14 14
+15 15
+16 16
+```
+CODEFORCES 534_C. Polycarpus' Dice
+```
+2 8
+4 4
+
+1 3
+5
+
+2 3
+2 3
+```
+CODEFORCES 559_C. Gerald and Giant Chess
+```
+3 4 2
+2 2
+2 3
+```
+```
+100 100 3
+15 16
+16 15
+99 88
+```
+```
+3 3 0
+```
+```
+4 4 0
+```
+```
+5 5 1
+1 1
+```
+```
+5 5 2
+1 1
+1 5
+```
+```
+5 5 3
+1 1
+1 5
+5 5
+```
+```
+5 5 4
+1 1
+1 5
+5 5
+5 1
+```
+```
+5 5 5
+1 1
+1 5
+5 5
+5 1
+5 5
+```
+CODEFORCES 585_A. Gennady the Dentist
+```
+5
+4 2 2
+4 1 2
+5 2 4
+3 3 5
+5 1 2
+```
+CODEFORCES 607_A. Chain Reaction
+```
+3
+1 1
+2 1
+3 1
+```
+```
+2
+1 9
+3 1
+```
+```
+4
+1 9
+3 1
+6 1
+7 4
+```
+```
+7
+1 1
+2 1
+3 1
+4 1
+5 1
+6 1
+7 1
+```
+```
+1
+1 1
+```
+CODEFORCES 628_F. Bear and Fair Set
+```
+5 10 1
+10 10
+```
+
+```
+10 20 3
+15 10
+5 0
+10 5
+```
+
+```
+10 20 2
+15 3
+20 10
+```
+
+```
+5 10 1
+10 11
+```
+
+```
+5 10 1
+10 10
+```
+CODEFORCES 653_A. Bear and Three Balls
+1. ```
+3
+1 3 4
+```
+2. ```
+5
+1 2 3 4 5
+```
+3. ```
+6
+1 2 3 4 5 6
+```
+4. ```
+7
+1 2 3 4 5 6 7
+```
+5. ```
+8
+1 2 3 4 5 6 7 8
+```
+CODEFORCES 678_E. Another Sith Tournament
+3
+0.0 0.5 0.8
+0.5 0.0 0.4
+0.2 0.6 0.0
+CODEFORCES 700_E. Cool Slogans
+```
+3
+abc
+
+5
+ddddd
+
+11
+abracadabra
+```
+CODEFORCES 723_A. The New Year: Meeting Friends
+1. Incorrect input format:
+```
+1 2 3
+```
+2. Incorrect calculation of the minimum total distance:
+```
+1 2 3
+```
+3. Incorrect output format:
+```
+1 2 3
+```
+4. Other bugs:
+```
+1 2 3
+```
+CODEFORCES 744_E. Hongcow Masters the Cyclic Shift
+```
+4
+a
+ab
+b
+bba
+```
+```
+5
+hh
+ee
+ll
+ll
+oo
+```
+```
+6
+aab
+ab
+bba
+b
+ab
+c
+```
+CODEFORCES 768_B. Code For 1
+1. Incorrect input format
+```
+1 2 3
+```
+2. Incorrect output format
+```
+123
+```
+3. Incorrect logic
+```
+n,l,r = map(int,input().split())
+l,r = l-1,r-1
+count = 0
+for i in range(0,r):
+	if (n>>i) & 1:
+		count += 1
+print(count)
+```
+4. Memory leaks
+```
+n,l,r = map(int,input().split())
+l,r = l-1,r-1
+count = 0
+for i in range(0,r):
+	if (n>>i) & 1:
+		count += 1
+print(count)
+```
+5. Security vulnerabilities
+```
+n,l,r = map(int,input().split())
+l,r = l-1,r-1
+count = 0
+for i in range(0,r):
+	if (n>>i) & 1:
+		count += 1
+print(count)
+```
+CODEFORCES 792_A. New Bus Route
+1. Incorrect input format
+```
+1
+abc
+```
+
+2. Incorrect data type
+```
+2
+1 2
+```
+
+3. Incorrect algorithm
+```
+4
+1 2 3 4
+```
+
+4. Incorrect output format
+```
+4
+1 2 3 4
+```
+
+5. Other bugs
+```
+1
+1
+```
+CODEFORCES 812_C. Sagheer and Nubian Market
+3 11
+2 3 5
+4 100
+1 2 5 6
+1 7
+7
+CODEFORCES 838_C. Future Failure
+```
+4 2 100000007
+```
+CODEFORCES 858_F. Wizard's Tour
+```
+1 0
+```
+
+```
+2 0
+```
+
+```
+2 1
+1 2
+```
+
+```
+4 5
+1 2
+3 2
+2 4
+3 4
+4 1
+```
+
+```
+5 8
+5 3
+1 2
+4 5
+5 1
+2 5
+4 3
+1 4
+3 2
+```
+
+```
+5 7
+5 3
+1 2
+4 5
+5 1
+2 5
+4 3
+1 4
+```
+
+```
+5 8
+5 3
+1 2
+4 5
+5 1
+2 5
+4 3
+1 4
+3 2
+```
+CODEFORCES 883_L. Berland.Taxi
+```
+10 1 2
+3
+5 2 8
+9 10 3
+```
+CODEFORCES 908_A. New Year and Counting Cards
+```
+ee
+z
+0ay1
+00
+a
+0
+a0
+ae0
+00a
+```
+CODEFORCES 928_D. Autocompletion
+```
+snow affects sports such as skiing, snowboarding, and snowmachine travel.
+snowboarding is a recreational activity and olympic and paralympic sport.
+```
+```
+'co-co-co, codeforces?!'
+```
+```
+thun-thun-thunder, thunder, thunder
+thunder, thun-, thunder
+thun-thun-thunder, thunder
+thunder, feel the thunder
+lightning then the thunder
+thunder, feel the thunder
+lightning then the thunder
+thunder, thunder
+```
+CODEFORCES 958_A1. Death Stars (easy)
+```
+4
+XOOO
+XXOO
+OOOO
+XXXX
+XOOO
+XOOO
+XOXO
+XOXX
+
+2
+XX
+OO
+XO
+OX
+```
+CODEFORCES 982_F. The Meeting Place Cannot Be Changed
+```
+#Incorrect data type
+
+n, m = map(int, input().split())
+
+#Incorrect logic
+
+n, m = 2, 1
+
+#Off-by-one error
+
+n, m = 3, 3
+
+#Memory leak
+
+n, m = 100000, 100000
+
+#Race condition
+
+n, m = 10000, 10000
+
+#Deadlock
+
+n, m = 10000, 10000
+
+#Security vulnerability
+
+n, m = 10000, 10000
+
+#Incorrect error handling
+
+n, m = 10000, 10000
+```
+HACKEREARTH a-needle-in-the-haystack-1
+3
+hack
+indiahacks
+code
+eddy
+coder
+iamredoc
+HACKEREARTH birthday-party
+```
+1
+2
+3
+1 2
+```
+HACKEREARTH crazy-kangaroo
+```
+5
+1 10 2
+5 10 3
+7 9 5
+20 60 10
+20 20 10
+```
+HACKEREARTH flip-flop-5
+
+HACKEREARTH jal-mahal-lake
+```
+1
+3
+100 50 1
+10 2 1
+```
+HACKEREARTH micro-and-minmax
+```
+1
+5
+1 2 3 4 5
+```
+```
+1
+5
+1 2 2 2 5
+```
+```
+1
+1
+1
+```
+```
+1
+2
+1 1
+```
+```
+10
+5000 5000 5000 5000 5000 5000 5000 5000 5000 5000
+```
+HACKEREARTH p-lover
+1
+100
+HACKEREARTH recursive-sums
+```
+1
+2
+2 1
+```
+```
+1
+8 1
+```
+```
+3
+3
+2 5
+1 4
+1 5
+```
+HACKEREARTH solve-for-the-pastry-lover
+```
+4
+3
+12345
+5
+12321
+7
+1234514
+10
+1234565321
+```
+HACKEREARTH to-be-changed-choosing-a-project
+1. ```
+2 3
+```
+2. ```
+5 10
+```
+3. ```
+1 1
+```
+4. ```
+2 1
+```
+5. ```
+5 2
+```
+ATCODER p02563 AtCoder Library Practice Contest - Convolution
+1. Incorrect calculation of c_i
+```
+N, M = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = []
+for i in range(N + M - 1):
+    s = 0
+    for j in range(min(i, N)):
+        s += a[j] * b[i - j]
+    c.append(s % 998244353)
+print(*c)
+```
+
+**Expected output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+**Actual output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+2. Using an incorrect data type
+```
+N, M = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = []
+for i in range(N + M - 1):
+    s = 0
+    for j in range(min(i, N)):
+        s += a[j] * b[i - j]
+    c.append(s)
+print(*c)
+```
+
+**Expected output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+**Actual output:**
+```
+Traceback (most recent call last):
+  File "main.py", line 13, in <module>
+    c.append(s)
+OverflowError: int too large to convert to long
+```
+
+3. Using an incorrect algorithm
+```
+N, M = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = []
+for i in range(N + M - 1):
+    s = 0
+    for j in range(min(i, N)):
+        s += a[j] * b[i - j]
+    c.append(s)
+print(*c)
+```
+
+**Expected output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+**Actual output:**
+```
+13586898 32506042 51231196 70056348 88881492 88881492 70056348 51231196
+```
+
+4. Not handling boundary conditions correctly
+```
+N, M = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = []
+for i in range(N + M - 1):
+    s = 0
+    for j in range(min(i, N)):
+        s += a[j] * b[i - j]
+    c.append(s)
+print(*c)
+```
+
+**Expected output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+**Actual output:**
+```
+Traceback (most recent call last):
+  File "main.py", line 13, in <module>
+    c.append(s)
+IndexError: list index out of range
+```
+
+5. Forgetting to check for errors
+```
+N, M = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = []
+for i in range(N + M - 1):
+    s = 0
+    for j in range(min(i, N)):
+        s += a[j] * b[i - j]
+    c.append(s)
+print(*c)
+```
+
+**Expected output:**
+```
+5 16 34 60 70 70 59 36
+```
+
+**Actual output:**
+```
+Traceback (most recent call last):
+  File "main.py", line 15, in
+ATCODER p02694 AtCoder Beginner Contest 165 - 1%
+101
+103
+1000000000000000000
+1333333333
+ATCODER p02823 AtCoder Grand Contest 041 - Table Tennis Training
+```
+5 2 4
+```
+ATCODER p02959 AtCoder Beginner Contest 135 - City Savers
+```
+1
+10
+5
+```
+
+```
+2
+3 5 2
+4 5
+```
+
+```
+3
+5 6 3 8
+5 100 8
+```
+
+```
+2
+100 1 1
+1 100
+```
+
+ATCODER p03095 AtCoder Grand Contest 031 - Colorful Subsequence
+```
+1
+a
+```
+```
+2
+ab
+```
+```
+3
+abc
+```
+```
+4
+abcd
+```
+```
+5
+abcde
+```
+ATCODER p03241 AtCoder Beginner Contest 112 - Partition
+1. Incorrect input format:
+```
+3 14a
+```
+2. Incorrect data type:
+```
+3 14.5
+```
+3. Incorrect logic:
+```
+n, m = map(int, input().split())
+print(1)
+```
+4. Off-by-one errors:
+```
+n, m = map(int, input().split())
+print(m // n)
+```
+5. Memory leaks:
+```
+while True:
+    print("Hello world!")
+```
+6. Race conditions:
+```
+lock = threading.Lock()
+
+def worker():
+    with lock:
+        print("Hello world!")
+
+for i in range(10):
+    threading.Thread(target=worker).start()
+```
+7. Deadlocks:
+```
+lock1 = threading.Lock()
+lock2 = threading.Lock()
+
+def worker1():
+    with lock1:
+        with lock2:
+            print("Hello world!")
+
+def worker2():
+    with lock2:
+        with lock1:
+            print("Hello world!")
+
+for i in range(10):
+    threading.Thread(target=worker1).start()
+    threading.Thread(target=worker2).start()
+```
+ATCODER p03394 AtCoder Grand Contest 022 - GCD Sequence
+3
+
+4
+ATCODER p03558 AtCoder Beginner Contest 077 - Small Multiple
+1. ```
+2
+```
+
+2. ```
+6
+```
+
+3. ```
+41
+```
+
+4. ```
+79992
+```
+ATCODER p03712 AtCoder Beginner Contest 062 - Picture Frame
+1. Incorrect input format
+```
+1 2 a
+```
+2. Incorrect output format
+```
+1 2 a
+#####
+#abc#
+#arc#
+#####
+```
+3. Incorrect calculation of the box thickness
+```
+1 2 a
+########abc########
+```
+4. Incorrect calculation of the image dimensions
+```
+1 2 a
+####abc####
+```
+5. Incorrect output of the image
+```
+1 2 a
+###abc###
+```
+6. Incorrect handling of errors
+```
+1 2 a
+```
+ATCODER p03871 CODE FESTIVAL 2016 Grand Final - Dice Game
+```
+100 0 0 0 0 0
+0 100 0 0 0 0
+```
+
+```
+1 0 0 0 0 0
+0 1 0 0 0 0
+```
+
+```
+50 50 0 0 0 0
+0 0 50 50 0 0
+```
+
+```
+1 2 3 4 5 6
+6 5 4 3 2 1
+```
+ATCODER p04034 AtCoder Grand Contest 002 - Box and Ball
+```
+3
+2
+1 2
+2 3
+```
+```
+3
+3
+1 2
+2 3
+2 3
+```
+```
+4
+4
+1 2
+2 3
+4 1
+3 4
+```
+AIZU p00116 Rectangular Searching
+```
+2 3
+...
+...
+3 4
+*..*
+...*
+.*..
+5 5
+*..*..
+..*..*
+*..*..
+*..*..
+0 0
+```
+AIZU p00249 Ant Nest
+```
+4 1 1
+0 0
+1 0
+1 2
+0 2
+0 0 0
+4 1 1
+0 0
+1 0
+1 2
+0 2
+0 0 0
+4 1 1
+0 0
+1 0
+1 2
+0 2
+0 0 0
+```
+AIZU p00430 Square
+```
+5
+5
+0
+```
+AIZU p00626 Chocolate with Heart Marks
+4 4
+1 0 0 0
+0 0 1 0
+0 1 0 0
+1 0 0 1
+1 1
+1
+2 3
+1 0 0
+0 0 1
+0 0
+AIZU p00770 Prime Caves
+```
+49 22
+46 37
+42 23
+945 561
+1081 681
+1056 452
+1042 862
+973 677
+1000000 1000000
+0 0
+```
+AIZU p00901 ASCII Expression
+4
+........4...2..........
+(.1.-.----.)..*.-.5.+.6
+........2..............
+.......3...............
+3
+...3.
+-.---
+...4.
+4
+.3.+.4.*.-.2.
+-------------
+..........2..
+...-.1.-.2...
+2
+...2..3
+(.4..).
+1
+2.+.3.*.5.-.7.+.9
+1
+(.2.+.3.).*.(.5.-.7.).+.9
+3
+.2....3.
+4..+.---
+......5.
+3
+.2......-.-.3.
+4..-.-.-------
+..........5...
+9
+............1............
+-------------------------
+..............1..........
+.1.+.-------------------.
+................1........
+......1.+.-------------..
+..................1......
+...........1.+.-------...
+................1.+.2....
+15
+.................2......
+................---.....
+.......2.........5....3.
+.(.---------.+.-----.)..
+.....7...........3......
+....---.+.1.............
+.....4..................
+------------------------
+.......2................
+......---...............
+.......5.......2....2...
+...(.-----.+.-----.)....
+.......3.......3........
+..............---.......
+...............4........
+2
+.0....2....
+3..+.4..*.5
+20
+............2............................2......................................
+...........3............................3.......................................
+..........----.........................----.....................................
+............4............................4......................................
+.....2.+.------.+.1...............2.+.------.+.1................................
+............2............................2......................................
+...........2............................2........................2..............
+..........----.........................----.....................3...............
+............2............................2.....................----.............
+...........3............................3........................4..............
+(.(.----------------.+.2.+.3.).*.----------------.+.2.).*.2.+.------.+.1.+.2.*.5
+............2............................2.......................2..............
+...........5............................5.......................2...............
+..........----.........................----....................----.............
+............6............................6.......................2..............
+.........------.......................------....................3...............
+............3............................3......................................
+..........----.....................................................
+............2............................2......................................
+...........7............................7.......................................
+0
+
+AIZU p01034 Yu-kun Likes a Directed Graph
+```
+3 2 -3
+0 1 1
+0 2 5
+
+3 2 -1
+0 1 1
+0 2 5
+
+7 8 -8
+0 1 5
+0 4 3
+1 2 10
+1 3 1
+3 6 6
+4 3 1
+4 5 2
+4 6 2
+
+5 4 -30
+0 1 1
+1 3 15
+1 4 4
+2 1 3
+```
+AIZU p01168 Lying about Your Age
+23 18 53
+46 30 47
+-1 -1 -1
+AIZU p01304 Heian-Kyo Walking
+1
+2 2
+0
+1 1
+2
+0 0 0 1
+0 0 1 0
+10
+10
+0
+1
+1
+2
+1 0 10 0
+1 1 1 1
+1 10 10 10
+9 9 9 10
+9 10 9 11
+1 9 10 9
+1 10 10 11
+9 9 11 11
+10 10 11 11
+AIZU p01473 Palindromic Anagram
+```
+ab
+
+abba
+
+abc
+
+z
+
+aaa
+```
+AIZU p01633 Hole
+**Incorrect input format**
+```
+1
+```
+
+**Incorrect output format**
+```
+1
+```
+
+**Incorrect algorithm**
+```
+10
+0 0 10 0
+10 0 10 10
+10 10 0 10
+0 10 0 0
+1 2 9 2
+8 1 8 9
+9 8 1 8
+2 9 2 1
+8 11 11 8
+8 11 14 10
+11 8 10 14
+```
+
+**Off-by-one errors**
+```
+8
+5 0 5 10
+5 10 0 5
+0 5 5 0
+10 0 10 10
+10 10 5 5
+5 5 10 0
+10 2 15 5
+15 5 10 8
+```
+
+**Memory errors**
+```
+100000000
+```
+
+**Time errors**
+```
+1000000000
+```
+
+**Incorrect data structures**
+```
+10
+0 0 10 0
+10 0 10 10
+10 10 0 10
+0 10 0 0
+1 2 9 2
+8 1 8 9
+9 8 1 8
+2 9 2 1
+8 11 11 8
+8 11 14 10
+11 8 10 14
+```
+
+**Incorrect logic**
+```
+10
+0 0 10 0
+10 0 10 10
+10 10 0 10
+0 10 0 0
+1 2 9 2
+8 1 8 9
+9 8 1 8
+2 9 2 1
+8 11 11 8
+8 11 14 10
+11 8 10 14
+```
+
+**Bugs in the implementation**
+```
+10
+0 0 10 0
+10 0 10 10
+10 10 0 10
+0 10 0 0
+1 2 9 2
+8 1 8 9
+9 8 1 8
+2 9 2 1
+8 11 11 8
+8 11 14 10
+11 8 10 14
+```
+AIZU p01785 Polygon Guards
+1
+0 2
+0 0
+2 0
+2 1
+3 1
+3 3
+1 3
+1 2
+
+2
+0 0
+0 1
+1 1
+1 0
+AIZU p01920 Binary Sequence
+10
+0101100110
+3
+3 3 1
+1 6 0
+2 5 1
+AIZU p02058 Tree
+```
+3 2
+1 2
+1 3
+```
+```
+4 4
+1 2
+13
+14
+```
+```
+7 4
+1 7
+twenty one
+7 4
+3 4
+5 7
+6 3
+```
+AIZU p02200 Today's Random Number
+5
+8 6 9 1 20
+AIZU p02354 The Smallest Window I
+```
+6 4
+1 2 1 2 3 2
+
+6 6
+1 2 1 2 3 2
+
+3 7
+1 2 3
+```

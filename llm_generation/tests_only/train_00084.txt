@@ -1,0 +1,2626 @@
+CODECHEF c4
+```
+1
+2 1 1
+ab
+1
+```
+CODECHEF coop5
+```
+5
+
+0 0
+
+4 1
+1 5 3 2
+
+5 3
+10 23 47 3 17
+
+10 4
+87 45 99 27 58 100 38 50 31 62
+
+10 6
+1 5 3 2 7 1000
+```
+CODECHEF goc202
+```
+1
+1000000000
+```
+CODECHEF marcha2
+```
+2
+3
+0 1 2
+3
+0 0 3
+```
+CODECHEF quest
+```
+aa
+```
+CODECHEF tomjer
+3
+1
+5
+10
+CODEFORCES 1015_B. Obtaining the String
+```
+6
+abcdef
+abdfec
+
+
+4
+abcd
+accd
+
+
+3
+abc
+cba
+
+
+1
+aaa
+
+
+10
+abcabcabcabc
+abcabcabccba
+
+
+11
+abcdefg
+efgabcda
+
+
+10
+abcabcdabcd
+abcdcabcdab
+
+
+10
+a
+aa
+
+
+5
+zxcvb
+vcbxz
+
+
+1
+z
+```
+CODEFORCES 1038_F. Wrap Around
+```
+1
+0
+
+2
+1
+
+3
+10
+
+4
+1010
+
+5
+10101
+
+6
+101010
+
+7
+1010101
+
+8
+10101010
+
+9
+101010101
+
+10
+1010101010
+
+11
+10101010101
+
+12
+101010101010
+
+13
+1010101010101
+
+14
+10101010101010
+
+15
+101010101010101
+
+16
+1010101010101010
+
+17
+10101010101010101
+
+18
+101010101010101010
+
+19
+1010101010101010101
+
+20
+10101010101010101010
+CODEFORCES 1061_B. Views Matter
+```
+1 1000
+548
+```
+```
+3 5
+1 2 4
+```
+```
+5 5
+2 3 1 4 4
+```
+```
+1 1000
+1
+```
+```
+3 3
+3 1 1
+```
+CODEFORCES 1083_A. The Fair Nut and the Best Path
+```
+1
+1
+```
+
+```
+2
+1 2
+1 2 1
+```
+
+```
+3
+1 2 3
+1 2 2
+1 3 2
+```
+
+```
+4
+1 2 3 4
+1 2 1
+2 3 2
+1 4 3
+```
+
+```
+5
+6 3 2 5 0
+1 2 10
+2 3 3
+2 4 1
+1 5 1
+```
+
+```
+6
+5 1 2 4 1 5
+1 2 10
+2 3 3
+2 4 1
+1 5 1
+5 6 10
+```
+CODEFORCES 1102_C. Doors Breaking and Repairing
+```
+6 3 2
+2 3 1 3 4 2
+
+5 3 3
+1 2 4 2 3
+
+5 5 6
+1 2 6 10 3
+```
+CODEFORCES 1130_C. Connect
+```
+5
+1 1
+5 5
+00001
+11111
+00111
+00110
+00110
+
+
+3
+1 3
+3 1
+010
+101
+010
+
+
+5
+1 1
+5 5
+00001
+11111
+00111
+00110
+00110
+
+
+5
+5 5
+1 1
+00001
+11111
+00111
+00110
+00110
+
+
+5
+3 1
+3 5
+010
+101
+010
+010
+010
+
+
+5
+1 1
+4 5
+00001
+11111
+00111
+00110
+00110
+
+
+5
+2 2
+5 5
+00001
+11111
+00111
+00110
+00110
+
+
+5
+1 1
+5 1
+00001
+11111
+00111
+00110
+00110
+
+
+5
+4 4
+1 1
+00001
+11111
+00111
+00110
+00110
+
+
+5
+4 1
+1 1
+00001
+11111
+00111
+00110
+00110
+
+
+5
+3 1
+1 3
+010
+101
+010
+010
+010
+```
+CODEFORCES 1150_D. Three Religions
+```
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    string s;
+    cin >> s;
+
+    vector<vector<int>> d(n, vector<int>(3));
+    for (int i = 0; i < n; i++) {
+        d[i][0] = (s[i] == 'a');
+        d[i][1] = (s[i] == 'b');
+        d[i][2] = (s[i] == 'c');
+    }
+
+    for (int i = 0; i < q; i++) {
+        int op;
+        cin >> op;
+
+        if (op == 1) {
+            int c;
+            cin >> c;
+
+            d[n - 1][c - 1] = 1;
+        } else if (op == 2) {
+            int c;
+            cin >> c;
+
+            d[n - 1][c - 1] = 0;
+        }
+
+        bool can_coexist = true;
+        for (int i = 0; i < 3; i++) {
+            int j = 0;
+            while (j < n && d[j][i] == 1) {
+                j++;
+            }
+
+            if (j == n) {
+                can_coexist = false;
+                break;
+            }
+
+            for (int k = j + 1; k < n; k++) {
+                if (d[k][i] == 1) {
+                    can_coexist = false;
+                    break;
+                }
+            }
+        }
+
+        if (can_coexist) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}
+```
+CODEFORCES 1172_D. Nauuo and Portals
+```
+3
+1 3 2
+3 1 2
+
+5
+3 1 5 4 2
+4 2 1 3 5
+```
+CODEFORCES 1190_A. Tokitsukaze and Discard Items
+```
+10 4 5
+3 5 7 10
+```
+
+```
+100 10 10
+1 2 3 4 5 6 7 8 9 10
+```
+
+```
+1000000000 10 1000000000
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 1209_E1. Rotate Columns (easy version)
+```
+1
+2 4
+1 2 3 4
+1 2 3 4
+```
+CODEFORCES 1228_D. Complete Tripartite
+```
+# 3
+# 1 2
+# 1 3
+# 1 4
+# 1 5
+# 1 6
+# 2 4
+# 2 5
+# 2 6
+# 3 4
+# 3 5
+# 3 6
+1 2 2 3 3 3
+
+# 4
+# 1 2
+# 1 3
+# 1 4
+# 2 3
+# 2 4
+# 3 4
+-1
+```
+CODEFORCES 1250_K. Projectors
+1
+1 1 1 0
+1 1000000
+CODEFORCES 1270_D. Strange Device
+1. ```
+5 3
+1 2
+1 2 3
+1 2 4
+1 2 5
+! 2
+```
+
+2. ```
+5 3
+1 2
+1 2 3
+1 2 4
+1 2 5
+! 1
+```
+
+3. ```
+5 3
+1 2
+1 2 3
+1 2 4
+1 2 5
+! 3
+```
+
+4. ```
+5 3
+1 2
+1 2 3
+1 2 4
+1 2 5
+! 4
+```
+
+5. ```
+5 3
+1 2
+1 2 3
+1 2 4
+1 2 5
+! 5
+```
+CODEFORCES 1293_B. JOE is on TV!
+1
+2
+3
+4
+5
+10
+100
+1000
+10000
+100000
+1000000
+10000000
+CODEFORCES 1313_B. Different Rules
+```
+1
+5 1 3
+```
+CODEFORCES 1335_E2. Three Blocks Palindrome (hard version)
+1. ```
+1
+5
+1 2 1 2 1
+```
+2. ```
+1
+5
+1 1 1 1 1
+```
+3. ```
+1
+5
+1 2 1 1 1
+```
+4. ```
+1
+5
+2 1 2 1 1
+```
+5. ```
+1
+5
+1 1 2 1 1
+```
+6. ```
+1
+5
+1 2 1 2 1
+```
+7. ```
+1
+5
+2 2 1 2 1
+```
+8. ```
+1
+5
+2 1 2 2 1
+```
+9. ```
+1
+5
+1 1 1 2 1
+```
+10. ```
+1
+5
+1 1 1 1 1
+```
+CODEFORCES 1358_B. Maria Breaks the Self-isolation
+```
+1
+5
+1 1 2 2 1
+```
+
+```
+6
+2 3 4 5 6 7
+```
+
+```
+6
+1 5 4 5 1 9
+```
+
+```
+5
+1 2 3 5 6
+```
+CODEFORCES 1375_G. Tree Modification
+```
+# Python3 program to find the minimum
+# number of operations
+
+import sys
+
+
+def find_center(graph, N):
+
+	# Initialize a list of parents
+	parent = [-1] * N
+
+	# Perform DFS on the graph
+	dfs(graph, 0, parent)
+
+	# Find the vertex with degree N-1
+	for i in range(N):
+		if parent[i] == -1:
+			return i
+
+
+def dfs(graph, u, parent):
+
+	# Mark the current vertex as visited
+	visited[u] = True
+
+	# Iterate over all adjacent vertices
+	for v in graph[u]:
+
+		# If the adjacent vertex is not visited
+		if not visited[v]:
+
+			# Mark the adjacent vertex as visited
+			visited[v] = True
+
+			# Update the parent of the adjacent vertex
+			parent[v] = u
+
+			# Recursively call DFS on the adjacent vertex
+			dfs(graph, v, parent)
+
+
+# Function to find the minimum number
+# of operations
+def find_min_operations(graph, N):
+
+	# Find the center of the tree
+	center = find_center(graph, N)
+
+	# Initialize the number of operations
+	ops = 0
+
+	# Iterate over all vertices of the tree
+	for u in range(N):
+
+		# If the current vertex is not the center
+		if u != center:
+
+			# Find the path from the current
+			# vertex to the center
+			path = []
+			while u != center:
+				path.append(u)
+				u = parent[u]
+
+			# Iterate over the path in reverse
+			for i in range(len(path) - 1, -1, -1):
+
+				# Remove the edge between
+				# the current vertex and its parent
+				graph[path[i]].remove(path[i - 1])
+				graph[path[i - 1]].remove(path[i])
+
+				# Add an edge between the current
+				# vertex and the center
+				graph[path[i]].append(center)
+				graph[center].append(path[i])
+
+			# Increment the number of operations
+			ops += 1
+
+	# Return the number of operations
+	return ops
+
+
+# Driver code
+if __name__ == "__main__":
+
+	# Read the number of vertices
+	N = int(input())
+
+	# Read the edges of the graph
+	graph = [[] for _ in range(N)]
+	for _ in range(N - 1):
+		u, v = map(int, input().split())
+		graph[u - 1].append(v - 1)
+		graph[v - 1].append(u - 1)
+
+	# Find the minimum number of operations
+	ops = find_min_operations(graph, N)
+
+	# Print the minimum number of operations
+	print(ops)
+```
+CODEFORCES 1399_C. Boats Competition
+```
+# Test case 1
+
+t = 1
+n = 5
+w = [1, 2, 3, 4, 5]
+
+# Test case 2
+
+t = 1
+n = 8
+w = [6, 6, 6, 6, 6, 6, 8, 8]
+
+# Test case 3
+
+t = 1
+n = 8
+w = [1, 2, 2, 1, 2, 1, 1, 2]
+
+# Test case 4
+
+t = 1
+n = 3
+w = [1, 3, 3]
+
+# Test case 5
+
+t = 1
+n = 6
+w = [1, 1, 3, 4, 2, 2]
+```
+CODEFORCES 1422_F. Boring Queries
+```
+3
+2 3 5
+4
+1 3
+3 3
+2 3
+2 3
+```
+CODEFORCES 1440_D. Graph Subset Problem
+```
+1
+5 9 4
+1 2
+1 3
+1 4
+1 5
+2 3
+2 4
+2 5
+3 4
+3 5
+```
+CODEFORCES 1468_A. LaIS
+1. ```
+1
+3
+1 2 3
+```
+2. ```
+1
+1
+```
+3. ```
+1
+4
+1 5 2 6 3 7
+```
+4. ```
+2
+2 1
+2 2
+```
+5. ```
+3
+10
+1 2 7 3 2 1 2 3 4 5
+2
+2 1
+7
+4 1 5 2 6 3 7
+```
+6. ```
+4
+5
+1 2 3 4 5
+5
+1 2 3 4 5
+5
+1 2 3 4 5
+5
+1 2 3 4 5
+```
+7. ```
+5
+100000
+1 2 3 4 5 6 7 8 9 10
+100000
+100000 100000
+100000
+100000 100000
+100000
+100000 100000
+```
+8. ```
+10
+100000
+1 2 3 4 5 6 7 8 9 10
+100000
+100000 100000
+100000
+100000 100000
+100000
+100000 100000
+100000
+100000 100000
+100000
+100000 100000
+100000
+100000 100000
+```
+CODEFORCES 1491_I. Ruler Of The Zoo
+```
+4
+5 1 2
+10 8 11
+9 0 3
+7 4 6
+
+4
+11 7 12
+8 6 14
+2 1 10
+13 0 9
+5 3 4
+
+4
+10 1 3
+7 2 6
+9 4 5
+8 6 7
+
+5
+9 4 7
+1 2 8
+7 5 10
+11 6 12
+3 0 9
+
+5
+12 11 10
+13 9 8
+7 6 5
+4 3 2
+1 0 14
+```
+CODEFORCES 1515_A. Phoenix and Gold
+```
+1
+1 1
+1
+```
+```
+1
+5 1
+1 5
+```
+```
+3
+1 0
+1
+```
+```
+1
+10 1
+10
+```
+```
+2
+3 2
+3 2 1
+5 3
+1 2 3 4 8
+```
+```
+2
+1 5
+5
+1 5
+5
+```
+CODEFORCES 1541_E2. Converging Array (Hard Version)
+```
+3
+2 3 4
+2 1
+5
+-1 0 1 -100000 100000
+```
+CODEFORCES 169_E. Conveyor
+### Incorrect input format
+
+```
+1 2 3 4
+```
+
+### Incorrect output format
+
+```
+[0.5, 0.5]
+```
+
+### Incorrect calculation of probabilities
+
+```
+n = int(input())
+l = int(input())
+v1 = int(input())
+v2 = int(input())
+chocolates = list(map(int, input().split()))
+
+probabilities = []
+for i in range(n + 1):
+    probabilities.append(0)
+
+for i in range(n):
+    probabilities[i + 1] = probabilities[i] + (chocolates[i] / l)
+
+print(*probabilities)
+```
+
+### Floating point errors
+
+```
+n = int(input())
+l = int(input())
+v1 = int(input())
+v2 = int(input())
+chocolates = list(map(int, input().split()))
+
+probabilities = []
+for i in range(n + 1):
+    probabilities.append(0)
+
+for i in range(n):
+    probabilities[i + 1] = probabilities[i] + (chocolates[i] / l)
+
+print(*probabilities)
+```
+
+### Undefined behavior
+
+```
+n = int(input())
+l = int(input())
+v1 = int(input())
+v2 = int(input())
+chocolates = list(map(int, input().split()))
+
+probabilities = []
+for i in range(n + 1):
+    probabilities.append(0)
+
+for i in range(n):
+    probabilities[i + 1] = probabilities[i] + (chocolates[i] / l)
+
+print(*probabilities)
+```
+
+### Memory leaks
+
+```
+n = int(input())
+l = int(input())
+v1 = int(input())
+v2 = int(input())
+chocolates = list(map(int, input().split()))
+
+probabilities = []
+for i in range(n + 1):
+    probabilities.append(0)
+
+for i in range(n):
+    probabilities[i + 1] = probabilities[i] + (chocolates[i] / l)
+
+print(*probabilities)
+```
+
+### Security vulnerabilities
+
+```
+n = int(input())
+l = int(input())
+v1 = int(input())
+v2 = int(input())
+chocolates = list(map(int, input().split()))
+
+probabilities = []
+for i in range(n + 1):
+    probabilities.append(0)
+
+for i in range(n):
+    probabilities[i + 1] = probabilities[i] + (chocolates[i] / l)
+
+print(*probabilities)
+```
+CODEFORCES 18_C. Stripe
+1. **Incorrect input format**
+
+```
+3
+1 1 1
+```
+
+2. **Incorrect output format**
+
+```
+9
+1 5 -6 7 9 -16 0 -2 2
+```
+
+3. **Incorrect calculation of the number of ways to cut the stripe**
+
+```
+9
+1 5 -6 7 9 -16 0 -2 2
+```
+
+4. **Incorrect handling of edge cases**
+
+```
+0
+```
+
+5. **Other bugs**
+
+```
+9
+1 5 -6 7 9 -16 0 -2 2
+```
+CODEFORCES 213_C. Relay Race
+1. ```
+1
+5
+```
+2. ```
+2
+11 14
+16 12
+```
+3. ```
+3
+25 16 25
+12 18 19
+11 13 8
+```
+4. ```
+4
+10 10 10 10
+10 10 10 10
+10 10 10 10
+10 10 10 10
+```
+5. ```
+5
+5 10 10 10 10
+10 5 10 10 10
+10 10 5 10 10
+10 10 10 5 10
+10 10 10 10 5
+```
+6. ```
+6
+10 10 10 10 10 10
+10 10 10 10 10 10
+10 10 10 10 10 10
+10 10 10 10 10 10
+10 10 10 10 10 10
+10 10 10 10 10 10
+```
+7. ```
+7
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+10 10 10 10 10 10 10
+```
+CODEFORCES 237_C. Primes on Interval
+```
+2 4 2
+```
+
+```
+6 13 1
+```
+
+```
+1 4 3
+```
+CODEFORCES 262_A. Roma and Lucky Numbers
+```
+10 1
+47777477477477
+```
+CODEFORCES 286_A. Lucky Permutation
+1
+2
+4
+5
+10
+100
+1000
+10000
+100000
+1000000
+CODEFORCES 311_A. The Closest Pair
+2 1000000000
+CODEFORCES 333_D. Characteristics of Rectangles
+```
+2 2
+1 2
+3 4
+```
+
+```
+3 3
+1 0 0
+0 1 1
+1 0 0
+```
+
+```
+1 1
+1
+```
+
+```
+1000 1000
+1000 1000
+1000 1000
+1000 1000
+```
+
+```
+10 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+```
+CODEFORCES 356_D. Bags and Coins
+**Incorrect input format**
+
+```
+1 2
+1
+```
+
+**Incorrect output format**
+
+```
+1 0
+1 0
+```
+
+**Incorrect solution**
+
+```
+3 3
+1 3 1
+```
+
+**Runtime error**
+
+```
+8 10
+2 7 3 4 1 3 1 2
+```
+
+**Memory error**
+
+```
+8 10
+2 7 3 4 1 3 1 2
+```
+
+**Time limit exceeded**
+
+```
+8 10
+2 7 3 4 1 3 1 2
+```
+CODEFORCES 37_C. Old Berland Language
+1. ```
+3
+1 2 3
+```
+
+2. ```
+1
+1
+```
+
+3. ```
+3
+1 1 1
+```
+
+4. ```
+10
+1 1 1 1 1 1 1 1 1 1
+```
+
+5. ```
+1000
+1 2 3 4 5 6 7 8 9 10 ... 999 1000
+```
+CODEFORCES 400_B. Inna and New Matrix of Candies
+1. Incorrect input format:
+```
+3 4
+*G*S
+G**S
+*G*S
+```
+
+2. Incorrect output format:
+```
+3 4
+*G*S
+G**S
+*G*S
+
+3
+```
+
+3. Incorrect logic:
+```
+3 4
+*G*S
+G**S
+*G*S
+
+0
+```
+
+4. Memory leaks:
+```
+3 4
+*G*S
+G**S
+*G*S
+```
+
+5. Synchronization issues:
+```
+3 4
+*G*S
+G**S
+*G*S
+```
+
+6. Security vulnerabilities:
+```
+3 4
+*G*S
+G**S
+*G*S
+```
+CODEFORCES 427_C. Checkposts
+1. ```
+3
+1 2 3
+3
+1 2
+2 3
+3 2
+```
+
+2. ```
+5
+2 8 0 6 0
+6
+1 4
+1 3
+2 4
+3 4
+4 5
+5 1
+```
+
+3. ```
+10
+1 3 2 2 1 3 1 4 10 10
+12
+1 2
+2 3
+3 1
+3 4
+4 5
+5 6
+5 7
+6 4
+7 3
+8 9
+9 10
+10 9
+```
+
+4. ```
+2
+7 91
+2
+1 2
+2 1
+```
+CODEFORCES 450_A. Jzzhu and Children
+```
+5,2
+1,3,1,4,2
+```
+
+```
+6,4
+1,1,2,2,3,3
+```
+
+```
+1,1
+```
+
+```
+5,1
+1,2,3,4,5
+```
+
+```
+100,100
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100
+```
+CODEFORCES 472_B. Design Tutorial: Learn from Life
+```
+# 1. The input format is not correct.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+```
+
+```
+# 2. The program does not handle the case where there are more people than the capacity of the elevator.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+
+if n > k:
+    print("Error: There are more people than the capacity of the elevator.")
+```
+
+```
+# 3. The program does not handle the case where the people are not sorted by their target floors.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+
+f.sort()
+```
+
+```
+# 4. The program does not handle the case where the people's target floors are not distinct.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+
+f.sort()
+
+for i in range(n - 1):
+    if f[i] == f[i + 1]:
+        print("Error: The people's target floors are not distinct.")
+```
+
+```
+# 5. The program does not handle the case where the elevator needs more than 2000 seconds to move between floors.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+
+f.sort()
+
+for i in range(n - 1):
+    if abs(f[i] - f[i + 1]) > 2000:
+        print("Error: The elevator needs more than 2000 seconds to move between floors.")
+```
+
+```
+# 6. The program does not handle the case where the input is malformed.
+
+n, k = map(int, input().split())
+f = list(map(int, input().split()))
+
+if n < 1 or n > 2000 or k < 1 or k > 2000:
+    print("Error: The input is malformed.")
+```
+CODEFORCES 496_C. Removing Columns
+1. ```
+3 3
+abd
+dce
+gdf
+```
+2. ```
+4 4
+case
+care
+test
+code
+```
+3. ```
+5 4
+code
+forc
+esco
+defo
+rces
+```
+4. ```
+5 4
+code
+foc
+de
+rfe
+cde
+```
+5. ```
+1 10
+codeforces
+```
+6. ```
+2 100
+a
+a
+```
+7. ```
+100 1
+a
+```
+8. ```
+100 100
+z
+```
+9. ```
+100 100
+abcdefghijklmnopqrstuvwxyz
+```
+10. ```
+100 100
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+```
+CODEFORCES 51_F. Caterpillar
+```
+4 4
+1 2
+2 3
+3 4
+4 2
+
+6 3
+1 2
+3 4
+5 6
+
+7 6
+1 2
+2 3
+1 4
+4 5
+1 6
+6 7
+```
+CODEFORCES 547_B. Mike and Feet
+```
+1
+1
+```
+```
+10
+1 2 3 4 5 4 3 2 1 6
+```
+```
+10
+10 10 10 10 10 10 10 10 10 10
+```
+```
+10
+1 1 1 1 1 1 1 1 1 1
+```
+CODEFORCES 573_D. Bear and Cavalry
+```
+5 2
+1 10 100 1000 10000
+3 7 2 5 1
+2 4
+ ```
+```
+3 3
+7 11 5
+3 2 1
+1 2
+1 3
+2 3
+ ```
+```
+7 4
+1 2 4 8 16 32 64
+87 40 77 29 50 11 18
+1 5
+2 7
+6 2
+5 6
+ ```
+CODEFORCES 595_B. Pasha and Phone
+```
+6 2
+38 56 49
+7 3 4
+
+8 2
+1 22 3 44
+5 4 3 2
+```
+CODEFORCES 616_E. Sum of Remainders
+```
+3 4
+4 4
+1 1
+-10 3
+```
+CODEFORCES 635_F. Preorder Test
+5 3
+3 6 1 4 2
+1 2
+2 4
+2 5
+1 3
+
+5 2
+1 5 5 5 5
+1 2
+1 3
+1 4
+CODEFORCES 664_E. To Hack or not to Hack
+```
+# 1. Incorrect input format
+
+1
+0 0 0
+
+# 2. Incorrect calculation of maximum score
+
+3
+0 0 0
+0 0 0
+0 0 0
+
+# 3. Incorrect calculation of overall score
+
+3
+0 0 0
+0 0 0
+0 0 0
+
+# 4. Incorrect calculation of the best place
+
+3
+0 0 0
+0 0 0
+0 0 0
+
+# 5. Incorrect handling of hacked solutions
+
+3
+0 0 0
+0 0 0
+0 0 0
+
+# 6. Incorrect handling of multiple hacks
+
+3
+0 0 0
+0 0 0
+0 0 0
+```
+CODEFORCES 689_C. Mike and Chocolate Thieves
+1. ```
+1
+```
+2. ```
+8
+```
+3. ```
+10
+```
+CODEFORCES 711_A. Bus to Udayland
+1. **Incorrect input format**
+
+```
+1
+XX|XX
+```
+
+2. **Incorrect output format**
+
+```
+1
+XX|XX
+```
+
+3. **Incorrect logic**
+
+```
+1
+XX|XX
+```
+
+4. **Incorrect implementation**
+
+```
+1
+XX|XX
+```
+
+5. **Incorrect testing**
+
+```
+1
+XX|XX
+```
+
+6. **Incorrect debugging**
+
+```
+1
+XX|XX
+```
+CODEFORCES 732_A. Buy a Shovel
+1. ```
+117 3
+```
+2. ```
+237 7
+```
+3. ```
+15 2
+```
+CODEFORCES 756_B. Travel Card
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    int n;
+    scanf(" %d ", &n);
+    int dp[n + 1];
+    dp[0] = 0;
+    dp[1] = 20;
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + 20;
+        if (i >= 3) {
+            dp[i] = min(dp[i], dp[i - 3] + 50);
+        }
+        if (i >= 7) {
+            dp[i] = min(dp[i], dp[i - 7] + 120);
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        printf(" %d ", dp[i]);
+    }
+    return 0;
+}
+```
+CODEFORCES 777_C. Alyona and Spreadsheet
+```
+5 4
+1 2 3 5
+3 1 3 2
+4 5 2 3
+5 5 3 2
+4 4 3 4
+6
+1 1
+2 5
+4 5
+3 5
+1 3
+1 5
+```
+CODEFORCES 802_A. Heidi and Library (easy)
+```
+4 80
+1 2 2 1
+```
+```
+4 1
+1 2 2 1
+```
+```
+4 2
+1 2 3 1
+```
+CODEFORCES 822_C. Hacker, pack your bags!
+```
+# 4 5
+# 1 3 4
+# 1 2 5
+# 5 6 1
+# 1 2 4
+
+# 3 2
+# 4 6 3
+# 2 4 1
+# 3 5 4
+```
+CODEFORCES 847_H. Load Testing
+```
+5
+1 4 3 2 5
+```
+```
+5
+1 2 2 2 1
+```
+```
+7
+10 20 40 50 70 90 30
+```
+```
+5
+10 10 10 10 10
+```
+```
+5
+2 2 2 2 2
+```
+```
+5
+1 2 3 4 5
+```
+```
+0
+```
+CODEFORCES 869_C. The Intriguing Obsession
+```
+1 1 1
+
+1 2 2
+
+1 3 5
+
+6 2 9
+
+1000 1000 1000
+```
+CODEFORCES 895_B. XK Segments
+```
+4 2 1
+1 3 5 7
+
+4 2 0
+5 3 1 7
+
+5 3 1
+3 3 3 3 3
+```
+CODEFORCES 916_C. Jamie and Interesting Graph
+```
+# 4 4
+# 7 7
+# 1 2 3
+# 2 3 2
+# 3 4 2
+# 2 4 4
+
+# 5 4
+# 7 13
+# 1 2 2
+# 1 3 4
+# 1 4 3
+# 4 5 4
+```
+CODEFORCES 939_D. Love Rescue
+```
+3
+abb
+dad
+```
+```
+4
+a d
+b a
+b d
+a b
+```
+CODEFORCES 965_A. Paper Airplanes
+1. Incorrect input format
+```
+a b c d
+```
+2. Incorrect output format
+```
+5
+a
+```
+3. Incorrect calculation of the minimum number of packs
+```
+1 1 1 1
+```
+4. Off-by-one error
+```
+1 1 1 2
+```
+5. Arithmetic error
+```
+1 1 1 3
+```
+6. Logic error
+```
+1 1 1 1000000000
+```
+CODEFORCES 992_A. Nastya and an Array
+1. ```
+10
+-5 1 -5 2 -3 -6 2 0 -1 4
+```
+
+2. ```
+1
+0
+```
+
+3. ```
+2
+1 2
+```
+
+4. ```
+5
+1 2 3 4 5
+```
+HACKEREARTH arrow-and-the-echelon-2
+1
+1
+3
+5
+11
+HACKEREARTH check-it
+1
+4 4
+1 2
+1 3
+2 3
+1 4
+1 2 3
+
+HACKEREARTH dont-jump
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+4 3 2 1
+2 1 4 3
+2 1 4 3 2 1
+10
+1 2 3 4 5 6 7 8 9 10
+-1
+10
+10
+2 1 4 3 2 1
+10
+1 2 3 4 5 6 7 8 9 10
+2 1 4 3 2 1
+10
+10
+2 1 4 3 2 1
+100000
+2 1 4 3 2 1
+HACKEREARTH grab-the-laddu
+```
+1
+1 2
+```
+HACKEREARTH little-jhool-and-his-punishment
+1. ```
+2
+4
+3 1
+3
+2 1
+```
+2. ```
+1
+5
+3 2
+```
+3. ```
+1
+6
+1 5
+```
+4. ```
+1
+2
+1 1
+```
+5. ```
+1
+7
+5 2
+```
+HACKEREARTH mst-and-idc
+1
+6
+45 66 52 81 99 32
+1
+2
+99 99
+HACKEREARTH pravin-saddam-and-their-aptitude-question
+1
+1 2
+2
+3 5
+HACKEREARTH samu-and-shooting-game
+```
+1
+2 3 2 5 50 25
+2
+1 2 2 3 50 25
+3
+4 5 4 8 50 50
+4
+5 6 4 9 50 50
+5
+1 2 5 9 50 50
+6
+1 2 3 4 50 50
+7
+1 1 100 100 50 50
+8
+10 10 100 100 50 50
+9
+1 1 100 100 100 100
+10
+1 1 1 1 100 100
+```
+HACKEREARTH sunny-arpit-and-kunal
+```
+1
+1 1 2
+```
+HACKEREARTH what-is-the-maximum-distance-that-you-can-cover-505
+1. ```
+6
+250 240 230 220 210 211
+5000 4500 4000 3500 3000 3000
+50000
+```
+
+2. ```
+6
+250 240 230 220 210 211
+5000 4500 4000 3500 3000 3001
+50000
+```
+
+3. ```
+6
+250 240 230 220 210 211
+5000 4500 4000 3500 3000 3000
+10000
+```
+
+4. ```
+6
+250 240 230 220 210 211
+5000 4500 4000 3500 3000 3000
+50001
+```
+
+5. ```
+6
+250 240 230 220 210 211
+5000 4500 4000 3500 3000 3000
+50000.0000001
+```
+ATCODER p02622 AtCoder Beginner Contest 172 - Minor Change
+```
+cupofcoffee
+cupofhottea
+
+abcde
+bcdea
+
+apple
+apple
+```
+ATCODER p02753 AtCoder Beginner Contest 158 - Station and Bus
+```
+ABA
+BBA
+BBB
+```
+ATCODER p02888 AtCoder Beginner Contest 143 - Triangles
+```
+3
+1 1 1
+```
+
+```
+3
+1 1000 1
+```
+
+```
+5
+10 30 40 50 60
+```
+
+```
+7
+218 786 704 233 645 728 389
+```
+ATCODER p03023 M-SOLUTIONS Programming Contest - Sum of Interior Angles
+3
+100
+101
+ATCODER p03164 Educational DP Contest - Knapsack 2
+```
+3 8
+3 30
+4 50
+5 60
+```
+
+```
+1 1000000000
+1000000000 10
+```
+
+```
+6 15
+6 5
+5 6
+6 4
+6 6
+3 5
+7 2
+```
+ATCODER p03306 SoundHound Inc. Programming Contest 2018 -Masters Tournament- - + Graph
+```
+3 3
+1 2 3
+2 3 5
+1 3 4
+```
+```
+4 3
+1 2 6
+2 3 7
+3 4 5
+```
+```
+8 7
+1 2 1000000000
+2 3 2
+3 4 1000000000
+4 5 2
+5 6 1000000000
+6 7 2
+7 8 1000000000
+```
+ATCODER p03466 AtCoder Grand Contest 020 - Min Max Repetition
+```
+5
+2 3 1 5
+6 4 1 10
+2 3 4 4
+6 4 3 7
+8 10 5 8
+```
+ATCODER p03626 AtCoder Beginner Contest 071 - Coloring Dominoes
+3
+aab
+ccb
+
+1
+Z
+Z
+
+52
+RvvttdWIyyPPQFFZZssffEEkkaSSDKqcibbeYrhAljCCGGJppHHn
+RLLwwdWIxxNNQUUXXVVMMooBBaggDKqcimmeYrhAljOOTTJuuzzn
+ATCODER p03786 AtCoder Grand Contest 011 - Colorful Creatures
+```
+3
+3 1 4
+```
+ATCODER p03954 AtCoder Grand Contest 006 - Median Pyramid Hard
+```
+2
+1 2 3
+```
+```
+3
+1 6 3 7 4 5 2
+```
+```
+4
+1 1 1 2 3 4 5
+```
+```
+5
+1 1 1 1 1 2 3 4 5
+```
+```
+6
+1 1 1 1 1 1 1 2 3 4 5
+```
+AIZU p00044 Prime Number II
+1. 3
+2. 19
+3. 10
+4. 50000
+5. 50001
+6. 1000000000
+AIZU p00176 What Color?
+```
+#ffe085
+#787878
+#decade
+#ff55ff
+0
+```
+AIZU p00332 Japanese Calendar
+0 2015
+0 1912
+2 1
+4 28
+AIZU p00513 Available Areas
+```
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+10
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+None
+
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+AIZU p00690 A Long Ride on a Railway
+6 5
+ 1  3  10
+ 2  3  12
+ 3  4   2
+ 4  5  13
+ 4  6  11
+ 10 10
+ 1  2  11
+ 2  3  25
+ 2  5  81
+ 2  6  82
+ 4  5  58
+ 5  9  68
+ 6  7  80
+ 6  9  67
+ 8  9  44
+ 9 10  21
+ 0  0
+AIZU p00831 Confusing Login Names
+```
+8
+2
+omura
+toshio
+raku
+tanaka
+imura
+yoshoi
+hayashi
+miura
+3
+1
+tasaka
+nakata
+tanaka
+1
+1
+foo
+5
+2
+psqt
+abcdef
+abzdefa
+pqrst
+abdxcef
+0
+```
+AIZU p00962 Pizza Delivery
+```
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+
+  vector<vector<int>> edges(n, vector<int>());
+  for (int i = 0; i < m; i++) {
+    int a, b, c;
+    cin >> a >> b >> c;
+    edges[a - 1].push_back(b - 1);
+  }
+
+  vector<int> distance(n, INT_MAX);
+  distance[0] = 0;
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      for (int k = 0; k < edges[j].size(); k++) {
+        if (distance[j] + edges[j][k] < distance[edges[j][k]]) {
+          distance[edges[j][k]] = distance[j] + edges[j][k];
+        }
+      }
+    }
+  }
+
+  for (int i = 0; i < m; i++) {
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    int new_distance = distance[a - 1] + c;
+    if (b - 1 == 0) {
+      new_distance -= c;
+    }
+
+    if (new_distance < distance[b - 1]) {
+      cout << "HAPPY" << endl;
+    } else if (new_distance == distance[b - 1]) {
+      cout << "SOSO" << endl;
+    } else {
+      cout << "SAD" << endl;
+    }
+  }
+
+  return 0;
+}
+```
+AIZU p01095 Bamboo Blossoms
+3 1
+3 4
+10 20
+100 50
+2 500000
+0 0
+AIZU p01231 Aaron and Bruce
+5
+7
+0 1 1 1 0 0 0
+1 0 0 1 0 1 0
+1 0 0 0 1 0 1
+1 1 0 0 0 0 0
+0 1 1 0 0 0 0
+0 0 1 0 0 0 1
+0 0 0 0 1 1 0
+1 0 0 0 1 0 0
+4 2
+
+AIZU p01365 Camera Control
+3
+0 0
+1
+0 0 0
+1
+0 10
+1
+0 0
+1
+0 0
+AIZU p01547 Final Defense Line
+3
+4
+0 1
+1 2
+2 3
+3 4
+4
+0 0
+10 0
+10 10
+0 10
+1
+15 5 5 5
+
+2
+4
+0 0
+10 0
+10 10
+0 10
+4
+0 0
+10 0
+10 10
+0 10
+1
+15 5 5 5
+
+2
+3
+0 0
+10 0
+5 10
+3
+5 0
+15 0
+10 10
+1
+5 5 10 5
+
+2
+3
+0 0
+10 0
+5 10
+3
+5 0
+15 0
+10 10
+1
+5 5 10 5
+AIZU p01703 Speedrun
+2
+0.50 0.40
+2
+0.70 0.60
+4
+0.99 1.00 1.00 0.01
+0
+AIZU p01847 Curtain
+```
+4
+0 0
+10 0
+10 10
+0 10
+0 0
+5 0
+5 10
+0 10
+6
+0 0
+10 0
+10 5
+5 5
+5 10
+0 10
+2 0
+8 0
+8 10
+2 10
+12
+1 1
+1 3
+-1 3
+-1 1
+-3 1
+-3 -1
+-1 -1
+-1 -3
+1 -3
+1 -1
+3 -1
+3 1
+2 2
+-2 2
+-2 -2
+2 -2
+4
+20000 20000
+-20000 20000
+-20000 -20000
+20000 -20000
+1000 1000
+-1000 1000
+-1000 -1000
+1000 -1000
+4
+1000 1000
+-1000 1000
+-1000 -1000
+1000 -1000
+20000 20000
+-20000 20000
+-20000 -20000
+20000 -20000
+4
+0 0
+10 0
+10 10
+0 10
+20 0
+30 0
+30 10
+20 10
+0
+```
+AIZU p01983 Proof of Knowledge
+```
+[+ c [+ a [^ bd]]]
+0404
+[* b [* [* cd] a]]
+7777
+[^ [^ ab] [^ cd]]
+1295
+a
+9876
+[^ dd]
+9090
+..
+AIZU p02129 Ghost Legs
+```
+1
+1 0
+```
+```
+2
+1 1
+1 0
+```
+```
+3
+1 0
+1 1
+1 0
+```
+```
+4
+1 1
+2 1 0
+1 0
+1 1
+```
+```
+5
+3 1 0 0
+1 1
+1 0
+1 1
+```
+```
+6
+3 0 0 0
+1 1
+5 1 0 0 1 0
+3 1 0 0
+```
+```
+7
+5 0 0 0 0
+1 1
+3 1 0 0
+1 1
+5 1 0 0 1 0
+3 1 0 0
+```
+AIZU p02270 Allocation
+```
+#Incorrect input format
+1 2
+
+#Incorrect data type
+1 2 a
+
+#Incorrect range
+100001 2
+
+#Incorrect solution
+1 2
+1
+
+#Memory leak
+1 2
+1
+while True:
+    pass
+
+#Time complexity
+100000 100000
+1 2 3 4 5 6 7 8 9 10
+
+#Incorrect output format
+1 2
+1
+2
+
+#Other bugs
+5 3
+8
+1
+7
+3
+9
+```
+AIZU p02417 Counting Characters
+```
+This is a pen.
+```

@@ -1,0 +1,4367 @@
+
+Title:
+CODECHEF cb01
+
+Pain points:
+1. **Incorrect modulo operator.** The modulo operator (%) should be used to perform modular arithmetic. For example, `5 % 3` returns 2.
+2. **Incorrect use of factorials.** The factorial of a number is the product of all the positive integers less than or equal to that number. For example, `5!` is equal to `120`.
+3. **Incorrect use of the binomial coefficient formula.** The binomial coefficient `C(n, k)` is equal to `n! / (k!(n - k)!)`.
+4. **Incorrect use of the BigInteger class.** The BigInteger class can be used to represent very large integers. For example, `BigInteger.valueOf(1000000000000000)` represents the number 1000000000000000.
+5. **Incorrect use of the Math class.** The Math class contains a number of useful mathematical functions, such as `Math.pow()` and `Math.log()`.
+6. **Incorrect use of the System.out class.** The System.out class can be used to print output to the console. For example, `System.out.println("Hello World!");` prints the string "Hello World!" to the console.
+7. **Incorrect use of the Scanner class.** The Scanner class can be used to read input from the console. For example, `Scanner scanner = new Scanner(System.in);` creates a new Scanner object that reads input from the console.
+Test inputs:
+3
+3 1
+5 2
+10 3
+Title:
+CODECHEF crancrd
+
+Pain points:
+1. **Incorrect calculation of distance between two points.** The distance between two points $(x_1, y_1)$ and $(x_2, y_2)$ is not calculated correctly as `|x_1 - x_2| + |y_1 - y_2|`. The correct formula is `√((x_1 - x_2)^2 + (y_1 - y_2)^2)`.
+2. **Incorrect calculation of area of a circle.** The area of a circle of radius $R$ is not calculated correctly as `πR^2`. The correct formula is `πr^2`.
+3. **Incorrect typecasting of the area of the circle.** The area of the circle is calculated as a floating-point number, but it is then typecasted to an integer. This can lead to rounding errors.
+4. **Incorrect output of the area of the circle.** The area of the circle is output as a single integer, but it should be output as a floating-point number with at least 3 decimal places.
+5. **Incorrect handling of boundary cases.** The radius of the circle can be 0, in which case the area of the circle is 0. The radius of the circle can also be negative, in which case the area of the circle is undefined.
+Test inputs:
+1
+10
+2
+10000
+100000
+Title:
+CODECHEF gshuff
+
+Pain points:
+* **Incorrect variable type**. The input is a series of numbers, but the code is expecting strings. This can be fixed by changing the `input()` function to `int(input())`.
+* **Off-by-one error**. The code is calculating the number of good shuffles by subtracting the number of cards from the factorial of the number of cards. This is incorrect, because the factorial of `n` includes the number `n` itself. The correct calculation is `n! / (n - k)!`.
+* **Infinite loop**. The code is using a recursive function to calculate the number of good shuffles. This can lead to an infinite loop if the number of cards is large. The problem can be fixed by adding a base case to the function.
+* **Incorrect output format**. The code is outputting the number of good shuffles as a string. This can be fixed by changing the `print()` function to `print(int(n))`.
+
+Here is a corrected version of the code:
+
+```python
+def good_shuffles(n):
+  """Calculates the number of good shuffles for a deck of cards with n cards."""
+  if n == 1:
+    return 1
+  return n * good_shuffles(n - 1) // (n - 1)
+
+
+n = int(input())
+for _ in range(n):
+  k = int(input())
+  print(good_shuffles(k))
+```
+Test inputs:
+```
+2
+2
+4
+```
+Title:
+CODECHEF mdosa
+
+Pain points:
+1. The input format is not specified. It is not clear whether the input is a single integer or a list of integers.
+2. The output format is not specified. It is not clear whether the output should be a single string or a list of strings.
+3. The problem statement does not specify what happens if the number of dosas is not even.
+4. The problem statement does not specify what happens if the number of dosas is less than 2.
+5. The problem statement does not specify what happens if the number of dosas is greater than 10^18.
+Test inputs:
+```
+1
+16
+```
+Title:
+CODECHEF reciibks
+
+Pain points:
+1. **Incorrect input format.** The input format is not strictly followed, which may cause the program to crash. For example, if the input is "5 3\n2 4\n1 3\n3 5\nA", the program will crash because the last line is not in the correct format.
+2. **Incorrect data type.** The input data may be of the wrong data type, which may cause the program to crash. For example, if the input is "5 3\n2 4\n1 3\n3 5\na", the program will crash because the last line is not a number.
+3. **Off-by-one error.** The program may calculate the median incorrectly, resulting in an incorrect answer. For example, if the input is "5 3\n2 4\n1 3\n3 5", the program may calculate the median as 3, which is incorrect. The correct answer is 2.
+4. **Infinite loop.** The program may enter an infinite loop, which will prevent it from terminating. For example, if the input is "5 3\n2 4\n1 3\n3 5\n2 4", the program will enter an infinite loop because the first two lines of the input are identical.
+5. **Memory leak.** The program may not properly release memory, which may eventually cause the system to run out of memory. For example, if the program creates a large number of objects, it may eventually run out of memory.
+Test inputs:
+```
+5 3
+2 4
+1 3
+3 5
+```
+Title:
+CODECHEF tr004
+
+Pain points:
+1. **Incorrect modulo operator**. The modulo operator (%) should be used with two integers, and the result should be an integer. In this problem, the input TL and N are both integers, but the output should be a modulo of two integers. So the modulo operator should be used with TL and N.
+2. **Incorrect use of the pow() function**. The pow() function takes two arguments: the base and the exponent. In this problem, the base is TL and the exponent is N. So the pow() function should be used with TL and N.
+3. **Incorrect use of the 10^9+7**. The 10^9+7 is a constant that is used to ensure that the output is always an integer. In this problem, the output should be a modulo of two integers, so the 10^9+7 should not be used.
+4. **Incorrect use of the t**. The t is the number of test cases. In this problem, the output should be a modulo of two integers, so the t should not be used.
+5. **Incorrect use of the print() function**. The print() function prints the output to the console. In this problem, the output should be a modulo of two integers, so the print() function should not be used.
+Test inputs:
+```
+3
+1 1
+2 2
+123123123123 2
+```
+Title:
+CODEFORCES 1016_B. Segment Occurrences
+
+Pain points:
+**1. Incorrect input format**
+
+The input format for this problem is very specific. It is important to make sure that you are reading the input correctly, and that you are handling any errors that may occur. For example, if the input file does not have the correct number of lines, or if the lines are not in the correct format, your program will not be able to solve the problem correctly.
+
+**2. Incorrect use of data structures**
+
+The problem requires you to use data structures to store the strings and the queries. It is important to make sure that you are using the correct data structures for the job, and that you are using them correctly. For example, if you are using a hash table to store the strings, you need to make sure that you are using the correct hash function and that you are handling collisions correctly.
+
+**3. Incorrect algorithm**
+
+The algorithm that you use to solve the problem is also very important. It is important to make sure that your algorithm is correct, and that it is efficient. For example, if you are using a brute-force algorithm to solve the problem, your algorithm will not be very efficient.
+
+**4. Incorrect implementation**
+
+Finally, it is important to make sure that your implementation of the algorithm is correct. This includes making sure that you are using the correct data types, that you are handling errors correctly, and that you are not making any logical errors. For example, if you are using a loop to iterate over the strings, you need to make sure that you are not going out of bounds.
+
+By following these tips, you can avoid many of the common problems and bugs that developers encounter when solving this problem.
+Test inputs:
+```
+10 3 4
+codeforces
+for
+1 3
+3 10
+5 6
+5 7
+```
+```
+15 2 3
+abacabadabacaba
+ba
+1 15
+3 4
+2 14
+```
+```
+3 5 2
+aaa
+baaab
+1 3
+1 1
+```
+Title:
+CODEFORCES 103_B. Cthulhu
+
+Pain points:
+1. **Incorrect input format**. The input format of the problem is not strictly followed. For example, the number of vertices and edges may not be separated by a space, or the edges may not be in the format of `(u, v)`.
+2. **Incorrect data type**. The input data may not be in the correct data type. For example, the number of vertices or edges may be a string instead of an integer.
+3. **Incorrect logic**. The logic of the program may be incorrect. For example, the program may not correctly identify whether the graph is Cthulhu or not.
+4. **Runtime error**. The program may not run correctly due to a runtime error. For example, the program may run out of memory or segmentation fault.
+5. **Memory leak**. The program may leak memory, which can lead to performance issues or even a system crash.
+6. **Security vulnerability**. The program may have a security vulnerability, which can be exploited by attackers to gain unauthorized access to the system.
+
+To avoid these problems, it is important to carefully read the problem statement and understand the input and output formats. It is also important to test the program thoroughly to ensure that it is correct and does not have any bugs.
+Test inputs:
+```
+# Problem: CODEFORCES 103_B. Cthulhu
+
+# Input
+
+6 6
+6 3
+6 4
+5 1
+2 5
+1 4
+5 4
+
+# Output
+
+FHTAGN!
+```
+
+```
+# Problem: CODEFORCES 103_B. Cthulhu
+
+# Input
+
+6 5
+5 6
+4 6
+3 1
+5 1
+1 2
+
+# Output
+
+NO
+```
+
+```
+# Problem: CODEFORCES 103_B. Cthulhu
+
+# Input
+
+6 1
+1 2
+
+# Output
+
+NO
+```
+
+```
+# Problem: CODEFORCES 103_B. Cthulhu
+
+# Input
+
+6 0
+
+# Output
+
+NO
+```
+
+```
+# Problem: CODEFORCES 103_B. Cthulhu
+
+# Input
+
+1 0
+
+# Output
+
+NO
+```
+Title:
+CODEFORCES 1062_C. Banh-mi
+
+Pain points:
+1. **Incorrect data type**. The input data is a string, but the code is expecting an integer. This can be fixed by converting the string to an integer using the `int()` function.
+2. **Off-by-one error**. The code is iterating over the list of queries one index too far. This can be fixed by decrementing the `i` variable by one in the `for` loop.
+3. **Incorrect calculation**. The code is calculating the sum of the deliciousness of the parts in the wrong order. This can be fixed by iterating over the list of parts in reverse order.
+4. **Mathematical error**. The code is using the wrong modulo operator. The correct modulo operator is `%`, not `mod()`.
+5. **Off-by-one error**. The code is printing the output one index too far. This can be fixed by decrementing the `i` variable by one in the `for` loop.
+
+Here are some tips for debugging your code:
+
+* Use a debugger to step through your code and identify the line where the error is occurring.
+* Use the `print()` function to print out the values of your variables at different points in your code. This can help you identify where the error is occurring.
+* Use the `assert()` function to check for errors in your code. This can help you identify logical errors.
+* Read the [C++ documentation](https://en.cppreference.com/w/cpp) for more information on the language and its features.
+Test inputs:
+```
+4 2
+1011
+1 4
+3 4
+```
+Title:
+CODEFORCES 1084_B. Kvass and the Fair Nut
+
+Pain points:
+1. The input format is not specified. Does it have to be two integers on the first line, followed by a list of integers on the second line?
+2. The output format is not specified. Does it have to be a single integer?
+3. The problem statement does not specify what to do if the total amount of kvass in the kegs is less than s. Does the Fair Nut just get as much as he can?
+4. The problem statement does not specify what to do if s is negative. Does the Fair Nut just get nothing?
+5. The problem statement does not specify what to do if there are no kegs. Does the Fair Nut just get nothing?
+6. The problem statement does not specify what to do if all of the kegs are empty. Does the Fair Nut just get nothing?
+Test inputs:
+```
+3 3
+4 3 5
+
+3 4
+5 3 4
+
+3 7
+1 2 3
+
+0 1000000000
+
+0 0
+
+1 0
+```
+Title:
+CODEFORCES 1103_D. Professional layer
+
+Pain points:
+**1. The input format is not specified**.
+
+The input format is not specified in the problem statement. This could lead to confusion and errors when implementing the solution.
+
+**2. The output format is not specified**.
+
+The output format is not specified in the problem statement. This could lead to confusion and errors when implementing the solution.
+
+**3. The problem is not well-defined**.
+
+The problem is not well-defined. For example, it is not clear what happens if the GCD of all indicators is not equal to 1. This could lead to incorrect solutions.
+
+**4. The problem is too difficult**.
+
+The problem is too difficult for most programmers to solve. This could lead to frustration and discouragement.
+
+**5. The problem is not interesting**.
+
+The problem is not interesting. This could lead to boredom and a lack of motivation to solve the problem.
+
+**6. The problem is not relevant**.
+
+The problem is not relevant to the real world. This could lead to a lack of engagement and motivation to solve the problem.
+Test inputs:
+```
+3 6
+30 30 30
+100 4 5
+
+1 1000000
+1
+100
+
+3 5
+7 7 7
+1 1 1
+```
+Title:
+CODEFORCES 1131_D. Gourmet choice
+
+Pain points:
+**1. The input format is not clear.**
+
+The input format is not clear. It is not clear how many dishes are there in each set, and how the input is represented.
+
+**2. The output format is not clear.**
+
+The output format is not clear. It is not clear how the output should be formatted.
+
+**3. The problem is not well-defined.**
+
+The problem is not well-defined. It is not clear what is meant by "fair" and "consistent with his feelings".
+
+**4. The problem is too hard.**
+
+The problem is too hard. It is not clear how to solve it.
+
+**5. The problem is not interesting.**
+
+The problem is not interesting. It is not clear why anyone would want to solve it.
+Test inputs:
+1. 3 4
+>>>>
+>>>>
+>>>>
+
+2. 3 3
+>>>>
+<<<<
+>>>>
+
+3. 3 2
+==
+=<
+==
+Title:
+CODEFORCES 1151_F. Sonya and Informatics
+
+Pain points:
+1. **Incorrect input format.** The input format for this problem is very specific. Make sure that you are reading the input correctly and that your code is handling all possible input cases.
+2. **Off-by-one errors.** When swapping two elements in an array, it is easy to make a mistake and swap the wrong elements. Be careful to check that you are swapping the correct elements in the correct order.
+3. **Incorrect modulo arithmetic.** When working with modulo arithmetic, it is important to be careful about the order of operations. For example, `(a + b) % n` is not the same as `a % n + b % n`. Make sure that you are using the correct modulo operator and that you are following the correct order of operations.
+4. **Incorrect factorials.** When computing factorials, it is important to be careful about overflow. The factorial of a large number can quickly become too large to fit into a computer's memory. Make sure that you are using a large enough data type to store the factorial.
+5. **Incorrect dynamic programming.** Dynamic programming is a powerful technique for solving problems that involve overlapping subproblems. However, it is important to be careful when implementing dynamic programming algorithms. Make sure that you are correctly defining the subproblems and that you are using the correct recurrence relations.
+6. **Incorrect memoization.** Memoization is a technique for speeding up recursive algorithms. However, it is important to be careful when implementing memoization algorithms. Make sure that you are correctly defining the memoization table and that you are correctly updating the memoization table after each recursive call.
+7. **Incorrect big-O analysis.** When analyzing the time complexity of an algorithm, it is important to be careful about the big-O notation. Make sure that you are correctly identifying the dominant term in the running time of the algorithm.
+8. **Incorrect code style.** When writing code, it is important to follow a consistent code style. This makes your code more readable and easier to maintain.
+9. **Incorrect error handling.** It is important to handle errors correctly in your code. This includes checking for errors in the input, handling exceptions, and gracefully exiting the program if an error occurs.
+10. **Incorrect unit testing.** Unit testing is an important part of the development process. It helps to ensure that your code is working correctly and that it is free of bugs. Make sure that you are writing unit tests for your code and that you are running the unit tests regularly.
+Test inputs:
+```
+3 2
+0 1 0
+
+5 1
+1 1 1 0 0
+
+6 4
+1 0 0 1 1 0
+```
+Title:
+CODEFORCES 1173_E1. Nauuo and Pictures (easy version)
+
+Pain points:
+**1. Using incorrect data types**
+
+The input data is given as integers, so it is important to use the correct data types to store the values. For example, if you try to store a value that is larger than the maximum value that can be represented by an integer, you will get an overflow error.
+
+**2. Using incorrect mathematical operations**
+
+The problem requires you to find the expected weight of each picture modulo 998244353. This means that you need to perform all of your mathematical operations modulo 998244353. For example, if you try to divide two numbers that are not relatively prime, you will get an incorrect answer.
+
+**3. Using incorrect algorithms**
+
+The problem can be solved using a variety of algorithms. However, some algorithms are more efficient than others. It is important to choose an algorithm that is well-suited to the problem at hand.
+
+**4. Not handling special cases correctly**
+
+The problem may have special cases that you need to handle correctly. For example, if the input data is invalid, you need to return an error.
+
+**5. Not testing your code**
+
+It is important to test your code thoroughly before submitting it. This will help you to identify any bugs that you may have missed.
+Test inputs:
+```
+1 1
+0
+1
+```
+Title:
+CODEFORCES 1191_B. Tokitsukaze and Mahjong
+
+Pain points:
+**Most important possible problems and bugs that a developer may encounter when solving this problem:**
+
+1. **Incorrectly identifying the input format.** The input format is three strings, each string representing a tile. Each string has two characters, the first character is a digit ranged from 1 to 9 and the second character is m, p or s. A developer may incorrectly identify the input format as three integers, each integer representing a tile. This would lead to incorrect results.
+2. **Incorrectly checking for koutsu and shuntsu.** A koutsu is made of three identical tiles, such as [1m, 1m, 1m]. A shuntsu is made of three sequential numbered tiles in the same suit, such as [1m, 2m, 3m]. A developer may incorrectly check for koutsu and shuntsu by comparing the tiles lexicographically. This would lead to incorrect results.
+3. **Incorrectly counting the number of extra tiles needed.** The number of extra tiles needed is the minimum number of tiles that need to be drawn to form a koutsu or shuntsu. A developer may incorrectly count the number of extra tiles needed by adding the number of tiles needed for each koutsu and shuntsu. This would lead to incorrect results.
+4. **Incorrectly handling the case where no koutsu or shuntsu can be formed.** If no koutsu or shuntsu can be formed, the number of extra tiles needed is infinite. A developer may incorrectly return a non-infinite number in this case. This would lead to incorrect results.
+
+**Here are some tips for avoiding these problems:**
+
+1. Carefully read the problem statement and make sure you understand the input format.
+2. Use the correct algorithm to check for koutsu and shuntsu.
+3. Carefully count the number of extra tiles needed.
+4. Handle the case where no koutsu or shuntsu can be formed correctly.
+Test inputs:
+```
+1s 2s 3s
+9m 9m 9m
+3p 9m 2p
+1s 1s 3s
+5p 5s 4p
+5p 4p 1s
+5p 1s 5s
+```
+Title:
+CODEFORCES 120_B. Quiz League
+
+Pain points:
+**1. Incorrect input format**
+
+The input format is not strictly defined, so it is possible that the user will enter incorrect data. For example, the user may enter a negative number for the number of sectors or a number greater than 1000. The developer should check the input format and handle incorrect input gracefully.
+
+**2. Incorrect output format**
+
+The output format is also not strictly defined, so it is possible that the user will output incorrect data. For example, the user may output a number that is not an integer. The developer should check the output format and handle incorrect output gracefully.
+
+**3. Off-by-one errors**
+
+When looping through the array of questions, it is easy to make an off-by-one error and skip a question or count a question twice. The developer should be careful to check the indices of the array and make sure that they are correct.
+
+**4. ArrayIndexOutOfBoundsException**
+
+If the user enters a number of sectors that is greater than the size of the array, the developer may get an ArrayIndexOutOfBoundsException. The developer should check the size of the array and make sure that it is large enough to hold all of the questions.
+
+**5. ConcurrentModificationException**
+
+If the developer is using an array to store the questions, it is possible that another thread could modify the array while the developer is iterating over it. This could cause a ConcurrentModificationException. The developer should use a synchronized block or another thread-safe data structure to avoid this problem.
+Test inputs:
+```
+1 1
+1
+
+2 1
+1 1
+
+4 4
+1 1 1 1
+
+5 5
+0 1 0 1 0
+
+2 2
+1 0
+```
+Title:
+CODEFORCES 122_E. Lucky Permutation
+
+Pain points:
+1. **Incorrect input format**. The input format is not correct. For example, the input may contain a string instead of an integer.
+2. **Incorrect output format**. The output format is not correct. For example, the output may contain a float instead of an integer.
+3. **Incorrect logic**. The logic of the program is incorrect. For example, the program may not find the lexicographically k-th permutation or it may count the lucky numbers incorrectly.
+4. **Memory leaks**. The program may not release the memory that it allocated. This can lead to a system crash.
+5. **Race conditions**. The program may not be thread-safe. This can lead to incorrect results if multiple threads are accessing the same data simultaneously.
+6. **Security vulnerabilities**. The program may be vulnerable to attacks such as buffer overflows or SQL injection. This can allow attackers to gain access to sensitive data or to execute arbitrary code on the system.
+
+To avoid these problems, it is important to carefully design and test your code. You should also use a debugger to find and fix any errors.
+Test inputs:
+```
+1 1
+```
+
+```
+4 1
+```
+
+```
+4 4
+```
+
+```
+7 3
+```
+Title:
+CODEFORCES 1251_D. Salary Changing
+
+Pain points:
+**1. Incorrect input format**
+
+The input format for this problem is not very clear. It is not immediately obvious what the meaning of the `n` and `s` variables are. It is also not clear what the meaning of the `l_i` and `r_i` variables are. This can lead to errors in the code if the developer does not understand the input format correctly.
+
+**2. Incorrect output format**
+
+The output format for this problem is also not very clear. It is not immediately obvious what the meaning of the `median salary` is. This can lead to errors in the code if the developer does not understand the output format correctly.
+
+**3. Incorrect calculation of the median salary**
+
+The median salary is the middle value in a sorted list of numbers. However, the list of salaries in this problem is not necessarily sorted. This means that the developer must be careful when calculating the median salary.
+
+**4. Incorrect use of the `s` variable**
+
+The `s` variable represents the amount of money that the developer has to spend on salaries. The developer must be careful not to spend more money than they have.
+
+**5. Incorrect use of the `l_i` and `r_i` variables**
+
+The `l_i` and `r_i` variables represent the minimum and maximum salary that the developer can pay to the `i`th employee. The developer must be careful not to pay more than the maximum salary or less than the minimum salary.
+
+**6. Incorrect use of the `n` variable**
+
+The `n` variable represents the number of employees. The developer must be careful not to exceed the number of employees.
+
+**7. Incorrect use of the `median` function**
+
+The `median` function returns the middle value in a sorted list of numbers. The developer must be careful to use the correct version of the `median` function.
+
+**8. Incorrect use of the `sort` function**
+
+The `sort` function sorts a list of numbers in ascending order. The developer must be careful to use the correct version of the `sort` function.
+
+**9. Incorrect use of the `min` function**
+
+The `min` function returns the smallest value in a list of numbers. The developer must be careful to use the correct version of the `min` function.
+
+**10. Incorrect use of the `max` function**
+
+The `max` function returns the largest value in a list of numbers. The developer must be careful to use the correct version of the `max` function.
+Test inputs:
+```
+3
+3 26
+10 12
+1 4
+10 11
+1 1337
+1 1000000000
+5 26
+4 4
+2 4
+6 8
+5 6
+2 7
+```
+Title:
+CODEFORCES 1271_B. Blocks
+
+Pain points:
+1. **Incorrect input format.** The input format is not as expected. For example, the input may not have the correct number of lines, or the input may contain invalid characters.
+2. **Incorrect output format.** The output format is not as expected. For example, the output may not have the correct number of lines, or the output may contain invalid characters.
+3. **Incorrect logic.** The solution may not be correct. For example, the solution may not find a valid sequence of operations that make all the blocks having the same color, or the solution may find a sequence of operations that exceeds the maximum number of operations allowed.
+4. **Runtime error.** The solution may not run correctly due to a runtime error. For example, the solution may run out of memory, or the solution may cause a segmentation fault.
+5. **Time complexity.** The solution may have a time complexity that is too high. For example, the solution may take exponential time to run.
+6. **Space complexity.** The solution may have a space complexity that is too high. For example, the solution may use a large amount of memory.
+Test inputs:
+```
+2
+WW
+
+2
+BB
+
+5
+WWWWW
+
+8
+BWWWWWWB
+
+4
+BWBB
+
+3
+BWB
+
+```
+Title:
+CODEFORCES 1294_C. Product of Three Numbers
+
+Pain points:
+1. **Incorrect input format**. The input format is not correct. For example, the input may contain a negative number, a number that is not an integer, or a number that is too large.
+2. **Incorrect output format**. The output format is not correct. For example, the output may contain a number that is not an integer, or a number that is too large.
+3. **Incorrect logic**. The logic of the program is incorrect. For example, the program may not find all possible solutions to the problem, or it may find incorrect solutions.
+4. **Memory errors**. The program may run out of memory while running.
+5. **Time errors**. The program may take too long to run.
+
+To avoid these problems, it is important to carefully check the input format, the output format, and the logic of the program. It is also important to use efficient algorithms and data structures to minimize the amount of memory and time used by the program.
+Test inputs:
+```
+1
+12345
+```
+Title:
+CODEFORCES 1315_C. Restoring Permutation
+
+Pain points:
+1. The input may contain invalid values. For example, n may be negative or greater than 100.
+2. The input may contain duplicate values. For example, b_1 and b_2 may be equal.
+3. The output may not be lexicographically minimal. For example, a_1 and a_2 may be equal.
+4. The output may not be a permutation of the numbers from 1 to 2n. For example, a_1 may be greater than 2n.
+5. The output may not be correct. For example, b_i may not equal min(a_{2i-1}, a_{2i}).
+
+To avoid these problems, the developer should carefully check the input and output for validity. The developer should also use a lexicographically minimal sorting algorithm to ensure that the output is correct.
+Test inputs:
+1
+1
+1
+2
+4 1
+3
+4 1 3
+4
+2 3 4 5
+5
+1 5 7 2 8
+Title:
+CODEFORCES 1336_E2. Chiori and Doll Picking (hard version)
+
+Pain points:
+**1. Using incorrect data types**
+
+The input data contains a lot of integers, so it is important to use the correct data types to avoid overflows. For example, if you try to store the number of dolls in an integer variable, you may get an incorrect answer when the number of dolls is too large.
+
+**2. Using incorrect algorithms**
+
+The problem can be solved using dynamic programming. However, if you use an incorrect algorithm, you may get an incorrect answer. For example, if you try to use a bottom-up dynamic programming approach, you may get an incorrect answer if the number of dolls is large.
+
+**3. Using incorrect modulo arithmetic**
+
+The output of the problem must be modulo 998244353. If you do not use the correct modulo arithmetic, you may get an incorrect answer. For example, if you try to use the % operator to perform modulo arithmetic, you may get an incorrect answer if the number is too large.
+
+**4. Not handling corner cases**
+
+The problem statement contains some corner cases that you need to handle. For example, the problem statement states that the number of dolls must be at least 1 and the maximum value of the picking way must be at most 53. If you do not handle these corner cases, you may get an incorrect answer.
+
+**5. Not testing your code**
+
+It is important to test your code thoroughly before submitting it to the judge. This will help you to catch any bugs in your code and ensure that you get the correct answer.
+Test inputs:
+```
+1 1
+1
+```
+```
+2 1
+1 1
+```
+```
+10 3
+1 3 5 7 9 11 13 15 17 19
+```
+```
+30 7
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+```
+Title:
+CODEFORCES 1359_C. Mixing Water
+
+Pain points:
+1. **Incorrect implementation of the algorithm.** The developer may make a mistake in the implementation of the algorithm, which will lead to incorrect results. For example, the developer may forget to update the state of the water in the barrel after each iteration, or may use the wrong formula to calculate the temperature.
+2. **Incorrect input handling.** The developer may not handle the input correctly, which can lead to errors such as accessing invalid memory or dividing by zero. For example, the developer may not check that the input is valid, or may not handle the case where the number of test cases is zero.
+3. **Incorrect output formatting.** The developer may not format the output correctly, which can make it difficult for the user to understand the results. For example, the developer may not print the output in the correct format, or may not use the correct units.
+4. **Memory leaks.** The developer may not release memory that is no longer needed, which can lead to a memory leak. For example, the developer may not delete objects that are no longer used, or may not close files that are no longer needed.
+5. **Race conditions.** The developer may not handle race conditions correctly, which can lead to incorrect results or even crashes. For example, the developer may access a shared resource without locking it, or may not use the correct synchronization primitives.
+6. **Deadlocks.** The developer may create deadlocks in their code, which can prevent the program from making progress. For example, the developer may have two threads that are waiting for each other to release a lock.
+7. **Security vulnerabilities.** The developer may introduce security vulnerabilities in their code, which can allow attackers to gain unauthorized access to the system. For example, the developer may not properly validate input, or may use insecure cryptographic algorithms.
+Test inputs:
+1. ```
+10
+1 1 1
+2 1 1
+3 2 2
+4 3 3
+5 4 4
+6 5 5
+7 6 6
+8 7 7
+9 8 8
+10 9 9
+```
+
+2. ```
+1
+1 2 3
+```
+
+3. ```
+1
+1 1 1
+```
+
+4. ```
+2
+1000000000 1 1000000000
+1000000000 1000000000 1000000000
+```
+
+5. ```
+1
+10 10 10
+```
+
+6. ```
+1
+1000000000 999999999 1000000000
+```
+
+7. ```
+1
+1000000000 1000000000 1000000000
+```
+Title:
+CODEFORCES 1379_E. Inverse Genealogy
+
+Pain points:
+**1. Incorrect input format**
+
+The input format is not strictly specified, so it is easy to make a mistake when reading the input. For example, if the input contains a space between two integers, the program may misinterpret the input and crash.
+
+**2. Incorrect calculation of the number of imbalanced people**
+
+The problem statement states that a person is imbalanced if the total number of ancestors of one of their parents is at least double the other. However, it is easy to make a mistake when calculating this number. For example, if a person has two parents with the same number of ancestors, the person may be incorrectly classified as imbalanced.
+
+**3. Incorrect construction of the genealogy tree**
+
+The output of the program should be a genealogy tree with n people and k imbalanced people. However, it is easy to make a mistake when constructing the tree. For example, if the tree does not have a unique root node, the program may crash.
+
+**4. Incorrect output format**
+
+The output format is not strictly specified, so it is easy to make a mistake when writing the output. For example, if the output contains a space between two integers, the program may misinterpret the output and crash.
+
+**5. Other bugs**
+
+There are many other possible bugs that a developer may encounter when solving this problem. For example, the program may crash due to a memory leak, or it may not terminate correctly. It is important to carefully test the program to ensure that it is free of bugs.
+Test inputs:
+1. Incorrect input format
+```
+3 1
+```
+
+2. Incorrect calculation of the number of imbalanced people
+```
+3 2
+```
+
+3. Incorrect construction of the genealogy tree
+```
+4 2
+```
+
+4. Incorrect output format
+```
+3 1
+0 1 1
+```
+
+5. Other bugs
+```
+3 0
+```
+Title:
+CODEFORCES 139_C. Literature Lesson
+
+Pain points:
+1. **Incorrect input format**. The input format is not always correctly followed. For example, the input may contain extra spaces, or the numbers may be separated by different characters. The developer should check the input format and handle invalid inputs gracefully.
+2. **Incorrect output format**. The output format is also not always correctly followed. For example, the output may contain extra spaces, or the letters may be capitalized incorrectly. The developer should check the output format and make sure that it is correct.
+3. **Incorrect logic**. The developer may make mistakes in the logic of the program. For example, the program may not correctly find the rhyme scheme of the poem, or it may output the wrong answer. The developer should carefully check the logic of the program and make sure that it is correct.
+4. **Memory leaks**. The program may allocate memory that it does not need, or it may not free memory that it has allocated. This can lead to the program running out of memory and crashing. The developer should carefully manage memory usage and make sure that there are no memory leaks.
+5. **Synchronization issues**. The program may access shared data without the correct synchronization. This can lead to data corruption and incorrect results. The developer should use the correct synchronization primitives to ensure that shared data is accessed correctly.
+6. **Race conditions**. The program may execute multiple threads at the same time and access shared data without the correct synchronization. This can lead to data corruption and incorrect results. The developer should use the correct synchronization primitives to ensure that shared data is accessed correctly.
+7. **Deadlocks**. The program may create a situation where two or more threads are waiting for each other to release a lock. This can lead to the program deadlocking and not making any progress. The developer should avoid deadlocks by using the correct synchronization primitives.
+8. **Unhandled exceptions**. The program may throw an exception that is not handled. This can lead to the program crashing. The developer should handle all exceptions that can be anticipated.
+9. **Security vulnerabilities**. The program may contain security vulnerabilities that allow attackers to gain unauthorized access to the system. The developer should carefully review the program for security vulnerabilities and fix any that are found.
+10. **Performance issues**. The program may run slowly or use too much memory. The developer should optimize the program to improve its performance.
+Test inputs:
+1. ```
+1 1
+a
+```
+
+2. ```
+1 1
+day
+```
+
+3. ```
+2 1
+a
+a
+a
+a
+a
+a
+```
+
+4. ```
+2 1
+day
+may
+sun
+fun
+test
+hill
+fest
+thrill
+```
+
+5. ```
+4 1
+a
+a
+a
+a
+a
+a
+e
+e
+a
+a
+a
+a
+a
+a
+e
+e
+```
+Title:
+CODEFORCES 1423_G. Growing flowers
+
+Pain points:
+The most important possible problems and bugs that a developer may encounter when solving this problem are as follows:
+
+* **Incorrect implementation of the algorithm.** This is the most common problem, and it can occur for a variety of reasons. For example, the developer may make a mistake in the logic of the algorithm, or they may use incorrect data types.
+* **Incorrect input data.** The input data may be incorrect for a variety of reasons. For example, the data may be missing, it may be corrupted, or it may not be in the correct format.
+* **Incorrect output data.** The output data may be incorrect for a variety of reasons. For example, the output data may be missing, it may be corrupted, or it may not be in the correct format.
+* **Runtime errors.** Runtime errors can occur for a variety of reasons. For example, the program may run out of memory, it may encounter a divide-by-zero error, or it may throw an exception.
+* **Logic errors.** Logic errors can occur for a variety of reasons. For example, the program may not handle all possible cases, it may make assumptions about the input data that are not correct, or it may not be efficient.
+
+To avoid these problems, it is important to carefully design and implement the algorithm, to test the program with correct and incorrect input data, and to carefully check the output data.
+Test inputs:
+```
+10 5
+5 5 5 5 5 5 5 5 5 5
+1 5 7
+1 9 7
+2 10
+2 4
+```
+Title:
+CODEFORCES 1442_F. Differentiating Games
+
+Pain points:
+1. **Incorrect graph input format**. The first line of the input should contain three integers `N`, `M`, and `T`, representing the number of vertices, edges, and guessing phases, respectively. The next `M` lines should contain pairs of vertices `a_i` and `b_i`, representing the endpoints of an edge. If `M` is 0, the graph is empty.
+2. **Incorrect number of edges to change**. The solution should print an integer `K` representing the number of edges to change. If `K` is negative or greater than `4242`, the solution will receive a `Wrong Answer` verdict.
+3. **Incorrect edge change format**. The next `K` lines should contain either `+ a_i b_i` or `- a_i b_i`, representing the beginning and end of an edge that Ginny has to add or remove accordingly. If `K` is 0, the solution should not print any lines.
+4. **Incorrect query format**. The solution should print a query in the format `? |S|~S_1~S_2~...~S_{|S|}`, where `|S|` is the size of the multiset `S`, and `S_1`, `S_2`, ..., `S_{|S|}` are the elements of the multiset. If the query format is incorrect, the solution will receive a `Wrong Answer` verdict.
+5. **Too many queries**. The solution can make at most 20 queries in each guessing phase. If the solution makes more than 20 queries, it will receive a `Wrong Answer` verdict.
+6. **Incorrect guess**. The solution should print the guessed vertex in the format `! v`, where `v` is the guessed vertex. If the guessed vertex is incorrect, the solution will receive a `Wrong Answer` verdict.
+7. **Incorrect hack format**. The hack test format is different from the regular input format. The first line of the input should contain three integers `N`, `M`, and `1`, representing the number of vertices, edges, and guessing phases, respectively. The next `M` lines on input should contain edge description in the same format as in the input. The next line should contain a single integer `v`, representing the number of the chosen vertex. If the hack format is incorrect, the solution will receive a `Wrong Answer` verdict.
+8. **Incorrect hack solution**. The hack solution should guess the correct vertex and print `! v`, where `v` is the guessed vertex. If the hack solution does not guess the correct vertex, it will receive a `Wrong Answer` verdict.
+9. **Incorrect hack vertex**. The hack solution should guess a single vertex. If the hack solution guesses multiple vertices, it will receive a `Wrong Answer` verdict.
+
+Here are some tips for avoiding these problems:
+
+* Make sure that you understand the problem statement and the input format carefully.
+* Check your code for errors before submitting it.
+* Use a debugger to help you find errors in your code.
+* Ask for help from a friend or tutor if you are stuck.
+Test inputs:
+```
+10 9 1
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+8 9
+9 10
+1
+```
+Title:
+CODEFORCES 1468_H. K and Medians
+
+Pain points:
+1. **Incorrect input format**. The input format is not correct. For example, the input may contain a non-integer number, or the number of elements in the input may not match the number of elements in the output.
+2. **Incorrect output format**. The output format is not correct. For example, the output may contain a non-boolean value, or the output may not be in the format "YES" or "NO".
+3. **Incorrect algorithm**. The algorithm may not be correct. For example, the algorithm may not always find the correct answer, or the algorithm may take too long to run.
+4. **Incorrect data**. The data may be incorrect. For example, the data may contain duplicate values, or the data may not be in the correct format.
+5. **Incorrect assumptions**. The algorithm may make incorrect assumptions about the data. For example, the algorithm may assume that the data is always sorted, or the algorithm may assume that the data is always unique.
+6. **Incorrect implementation**. The algorithm may be implemented incorrectly. For example, the algorithm may have a bug that causes it to crash, or the algorithm may not be efficient enough.
+Test inputs:
+```
+4
+3 3 1
+1
+7 3 3
+1 5 7
+10 5 3
+4 5 6
+13 7 7
+1 3 5 7 9 11 12
+```
+Title:
+CODEFORCES 1493_B. Planet Lapituletti
+
+Pain points:
+1. **Incorrect input format**. The input format is not always followed correctly. For example, the input may contain a non-integer number, or a number that is too large. The developer should check the input format and raise an error if it is incorrect.
+2. **Incorrect output format**. The output format is not always followed correctly. For example, the output may contain a non-integer number, or a number that is too large. The developer should check the output format and raise an error if it is incorrect.
+3. **Incorrect calculation**. The developer may make a mistake in the calculation of the reflected time. For example, the developer may forget to take into account the fact that the day lasts h hours, or that each hour lasts m minutes. The developer should carefully check the calculation and make sure that it is correct.
+4. **Off-by-one errors**. The developer may make a mistake in the calculation of the reflected time, and the reflected time may be one hour or one minute off. The developer should carefully check the calculation and make sure that it is correct.
+5. **Memory leaks**. The developer may not free up memory that is no longer needed. This can lead to a memory leak, which can eventually cause the program to crash. The developer should make sure to free up memory that is no longer needed.
+6. **Synchronization issues**. The developer may not synchronize access to shared resources correctly. This can lead to race conditions, which can cause the program to produce incorrect results or to crash. The developer should make sure to synchronize access to shared resources correctly.
+Test inputs:
+```
+1
+24 60
+12:21
+```
+
+```
+1
+24 60
+23:59
+```
+
+```
+1
+90 80
+52:26
+```
+
+```
+1
+1 100
+00:01
+```
+
+```
+1
+10 10
+04:04
+```
+
+```
+2
+24 60
+12:21
+24 60
+23:59
+```
+
+```
+2
+90 80
+52:26
+90 80
+52:28
+```
+
+```
+2
+1 100
+00:01
+1 100
+00:00
+```
+
+```
+2
+10 10
+04:04
+10 10
+04:05
+```
+
+```
+3
+24 60
+12:21
+24 60
+23:59
+90 80
+52:26
+```
+
+```
+3
+1 100
+00:01
+1 100
+00:00
+10 10
+04:04
+```
+
+```
+4
+24 60
+12:21
+24 60
+23:59
+90 80
+52:26
+1 100
+00:01
+10 10
+04:04
+```
+Title:
+CODEFORCES 1515_H. Phoenix and Bits
+
+Pain points:
+ 1. **Incorrect use of bitmasks.** Bitmasks are a powerful tool, but they can be easy to misuse. One common mistake is to use a bitmask to represent a set of values when you actually need to represent a range of values. For example, if you want to represent the set of integers from 0 to 15, you could use a bitmask with all 16 bits set to 1. However, this would also include the values 16, 17, and so on. To represent a range of values, you need to use a different bitmask for each value in the range.
+2. **Off-by-one errors.** Off-by-one errors are a common type of bug that occurs when you forget to account for the first or last element in a range. For example, if you're iterating over a list of integers, you might accidentally start at index 1 instead of index 0. This can lead to incorrect results.
+3. **Incorrect use of bitwise operators.** Bitwise operators can be tricky to use correctly. One common mistake is to forget to use the parentheses. For example, the expression `a & b` means "a AND b", but the expression `a & b` means "a AND (b OR c)".
+4. **Using the wrong data type.** When working with bitmasks, it's important to use the right data type. For example, if you're working with integers, you should use a `uint32` or `uint64` instead of a `int32` or `int64`. This is because the `int` data types can only store signed integers, which means that they can't represent all possible bitmasks.
+5. **Not using bitmasks when appropriate.** Bitmasks are a powerful tool, but they're not always the best choice. Sometimes, it's more efficient to use a different data structure, such as a set or a map.
+
+Here are some tips for avoiding these problems:
+
+1. **Use bitmasks correctly.** Make sure you understand how bitmasks work before you use them. Be careful not to use a bitmask to represent a set of values when you actually need to represent a range of values.
+2. **Check for off-by-one errors.** When you're iterating over a list of integers, make sure you start at index 0 and end at the last index.
+3. **Use bitwise operators correctly.** Make sure you use parentheses to clearly indicate the order of operations.
+4. **Use the right data type.** When working with bitmasks, use a `uint32` or `uint64` instead of a `int32` or `int64`.
+5. **Use bitmasks when appropriate.** Bitmasks are a powerful tool, but they're not always the best choice. Sometimes, it's more efficient to use a different data structure, such as a set or a map.
+Test inputs:
+```
+5 6
+5 4 3 2 1
+1 2 3 2
+4 2 5
+3 2 5 3
+4 1 6
+2 1 1 8
+4 8 10
+```
+```
+6 7
+6 0 2 3 2 7
+1 0 4 3
+2 6 8 4
+4 0 7
+3 2 5 3
+1 0 1 2
+4 0 3
+4 2 7
+```
+Title:
+CODEFORCES 1543_A. Exciting Bets
+
+Pain points:
+### Possible problems and bugs
+
+1. **Incorrect use of `gcd` function:** The `gcd` function returns the greatest common divisor of two integers. However, in this problem, we need to find the maximum excitement that the fans can get. This is not the same as the greatest common divisor of `a` and `b`.
+2. **Incorrect use of `min` and `max` functions:** The `min` and `max` functions return the minimum and maximum values of a given iterable. However, in this problem, we need to find the minimum number of moves required to achieve the maximum excitement.
+3. **Incorrect use of `while` loop:** The `while` loop iterates over a block of code as long as a certain condition is true. However, in this problem, we need to iterate over the block of code until a certain condition is met.
+4. **Incorrect use of `if` statement:** The `if` statement executes a block of code if a certain condition is true. However, in this problem, we need to execute a block of code if a certain condition is not true.
+5. **Incorrect use of `else` statement:** The `else` statement executes a block of code if the `if` statement is not executed. However, in this problem, we need to execute a block of code if the `if` statement is executed.
+
+### How to avoid these problems and bugs
+
+1. To avoid incorrect use of the `gcd` function, make sure that you are using the function correctly. In this problem, we need to find the maximum excitement that the fans can get. This is not the same as the greatest common divisor of `a` and `b`.
+2. To avoid incorrect use of the `min` and `max` functions, make sure that you are using the functions correctly. In this problem, we need to find the minimum number of moves required to achieve the maximum excitement.
+3. To avoid incorrect use of the `while` loop, make sure that you are using the loop correctly. In this problem, we need to iterate over the block of code until a certain condition is met.
+4. To avoid incorrect use of the `if` statement, make sure that you are using the statement correctly. In this problem, we need to execute a block of code if a certain condition is not true.
+5. To avoid incorrect use of the `else` statement, make sure that you are using the statement correctly. In this problem, we need to execute a block of code if the `if` statement is executed.
+Test inputs:
+```
+1
+8 5
+```
+```
+3 1
+```
+```
+2
+1 2
+4 4
+```
+```
+1 0
+0 0
+```
+```
+4
+3 9
+```
+```
+6 3
+```
+Title:
+CODEFORCES 171_B. Star
+
+Pain points:
+1. **Incorrect input format:** The input format is not correct. For example, the input may contain a string instead of an integer.
+2. **Incorrect output format:** The output format is not correct. For example, the output may contain a float instead of an integer.
+3. **Off-by-one error:** The developer may forget to add or subtract 1 when calculating the output.
+4. **Arithmetic overflow:** The developer may calculate an integer that is too large for the data type.
+5. **Memory leak:** The developer may allocate memory that is not freed after it is used.
+6. **Race condition:** The developer may access shared data without synchronization, which can lead to incorrect results.
+7. **Null pointer dereference:** The developer may attempt to dereference a null pointer, which will cause a program crash.
+8. **Stack overflow:** The developer may create a recursive function that calls itself too many times, which will cause the stack to overflow and the program to crash.
+9. **Buffer overflow:** The developer may write data to a buffer that is not large enough, which will overwrite adjacent memory and cause incorrect results.
+10. **Format string vulnerability:** The developer may use a format string that is not properly escaped, which can allow an attacker to execute arbitrary code.
+Test inputs:
+```
+1
+```
+```
+18258
+```
+```
+0
+```
+```
+-1
+```
+```
+1234567890123456789
+```
+```
+1.1
+```
+```
+'abc'
+```
+```
+a
+```
+```
+```
+Title:
+CODEFORCES 190_E. Counter Attack
+
+Pain points:
+**1. Using incorrect data type**
+
+The input contains two integers n and m, which represent the number of cities and the number of roads, respectively. If we use an integer data type to store these values, we may get an overflow error when n or m is large. To avoid this, we can use a long long data type to store these values.
+
+**2. Using incorrect algorithm**
+
+The problem asks us to find all such groups of flatland cities, that in each group of cities you can get from any city to any other one, moving along the actual roads. Also the cities from different groups are unreachable from each other, moving along the actual roads. To solve this problem, we can use a depth-first search (DFS) algorithm. We start by picking a city and exploring all the cities that are reachable from it. We then repeat this process for each of the cities that we have not yet explored. If we reach a city that we have already explored, then we know that we have found a group of cities that are all reachable from each other. We can then add this group of cities to our answer.
+
+**3. Not handling corner cases**
+
+The problem statement mentions that "It is guaranteed that each pair of cities occurs in the input no more than once". We need to make sure that our algorithm handles this corner case correctly.
+
+**4. Incorrect output format**
+
+The problem statement specifies that the output should be a list of groups of cities, where each group is represented by a list of the cities in that group. We need to make sure that our output format matches the expected format.
+Test inputs:
+```
+4 4
+1 2
+1 3
+4 2
+4 3
+```
+
+```
+3 1
+2 1 4
+3 2 3
+```
+Title:
+CODEFORCES 214_E. Relay Race
+
+Pain points:
+1. **Incorrect input format**. The input format is not specified in the problem statement. Make sure that you are reading the input correctly.
+2. **Incorrect output format**. The output format is not specified in the problem statement. Make sure that you are printing the output correctly.
+3. **Off-by-one errors**. When iterating over an array, it is easy to make a mistake and miss one element or count one element twice. Be careful when using iterators.
+4. **Array bounds errors**. When accessing elements of an array, it is easy to go out of bounds. Make sure that you check the bounds of your arrays before accessing them.
+5. **Arithmetic errors**. When performing arithmetic operations, it is easy to make a mistake and get the wrong answer. Be careful when performing calculations.
+6. **Logical errors**. When making decisions, it is easy to make a mistake and choose the wrong path. Be careful when making logical decisions.
+7. **Memory errors**. When allocating memory, it is easy to make a mistake and allocate too much or too little memory. Make sure that you are allocating the correct amount of memory for your program.
+8. **Synchronization errors**. When multiple threads are accessing shared data, it is easy to make a mistake and cause a race condition. Make sure that you are properly synchronizing your threads.
+9. **Exception handling errors**. When handling exceptions, it is easy to make a mistake and not handle the exception correctly. Make sure that you are handling all exceptions that your program can throw.
+10. **Security errors**. When writing secure code, it is easy to make a mistake and allow an attacker to exploit your program. Make sure that you are writing secure code.
+Test inputs:
+1. ```
+1
+5
+```
+2. ```
+2
+11 14
+16 12
+```
+3. ```
+3
+25 16 25
+12 18 19
+11 13 8
+```
+4. ```
+4
+1 2 3 4
+5 6 7 8
+9 10 11 12
+13 14 15 16
+```
+5. ```
+5
+1 2 3 4 5
+6 7 8 9 10
+11 12 13 14 15
+16 17 18 19 20
+21 22 23 24 25
+```
+6. ```
+6
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17 18
+19 20 21 22 23 24
+25 26 27 28 29 30
+31 32 33 34 35 36
+```
+Title:
+CODEFORCES 238_E. Meeting Her
+
+Pain points:
+1. **Incorrect input format**. The input format is not always correctly followed. For example, the input may contain a wrong number of elements, or the elements may not be in the correct format. This can cause the program to crash or to produce incorrect output.
+2. **Incorrect data**. The data that is input into the program may be incorrect. For example, the data may contain invalid values, or it may not be consistent with the problem statement. This can cause the program to crash or to produce incorrect output.
+3. **Incorrect logic**. The logic of the program may be incorrect. For example, the program may not correctly implement the algorithm that it is supposed to implement, or it may contain logical errors. This can cause the program to crash or to produce incorrect output.
+4. **Incorrect implementation**. The program may be incorrectly implemented. For example, the program may not use the correct data structures or algorithms, or it may have bugs in its code. This can cause the program to crash or to produce incorrect output.
+5. **Incorrect testing**. The program may not be tested correctly. For example, the tests may not cover all of the possible inputs, or they may not be comprehensive enough. This can cause the program to crash or to produce incorrect output.
+
+To avoid these problems, it is important to carefully follow the input format, to check the data for correctness, to use correct logic, to implement the program correctly, and to test the program thoroughly.
+Test inputs:
+```
+7 8 1 7
+1 2
+1 3
+2 4
+3 4
+4 6
+4 5
+6 7
+5 7
+3
+2 7
+1 4
+5 7
+```
+Title:
+CODEFORCES 263_C. Circle of Numbers
+
+Pain points:
+**Most important possible problems and bugs that a developer may encounter when solving this problem:**
+
+* **Incorrect input format:** The input format is not correct. For example, the input may contain a number that is not an integer, or the number of pairs of integers may not be equal to 2 * n.
+* **Incorrect output format:** The output format is not correct. For example, the output may not contain a sequence of n distinct integers from 1 to n, or the numbers in the sequence may not be in the correct order.
+* **Incorrect solution:** The solution may not be correct. For example, the solution may not satisfy the constraints of the problem, or it may not be a valid sequence of n distinct integers from 1 to n.
+* **Memory leaks:** The solution may cause memory leaks. For example, the solution may not properly free memory that is allocated during execution.
+* **Time complexity:** The solution may have a time complexity that is too high. For example, the solution may take exponential time to run.
+* **Space complexity:** The solution may have a space complexity that is too high. For example, the solution may use an amount of space that is proportional to n^2.
+Test inputs:
+```
+5
+1 2
+2 3
+3 4
+4 5
+5 1
+1 3
+2 4
+3 5
+4 1
+5 2
+```
+```
+6
+1 2
+2 3
+3 4
+4 5
+5 6
+6 1
+1 3
+2 4
+3 5
+4 6
+5 1
+6 2
+```
+Title:
+CODEFORCES 287_C. Lucky Permutation
+
+Pain points:
+**1. Using incorrect data type**
+
+The input is an integer, so it should be stored in an integer variable. If you use a floating-point variable, you may get unexpected results.
+
+**2. Off-by-one error**
+
+When computing the value of `ppi`, you need to subtract `i` from `n`, not `i - 1`.
+
+**3. Missing corner cases**
+
+Your solution should handle the case where `n` is 1 or 2.
+
+**4. Incorrect logic**
+
+Your solution should check that the permutation is indeed lucky.
+
+**5. Undefined behavior**
+
+Your solution should not cause any undefined behavior. For example, you should not divide by zero.
+Test inputs:
+1
+2
+4
+5
+3
+Title:
+CODEFORCES 312_C. The Closest Pair
+
+Pain points:
+1. **Incorrect algorithm**. The given algorithm is incorrect. It does not find the closest pair of points. For example, if the input is `[(0, 0), (1, 1)]`, the algorithm will return `1` instead of `0`.
+2. **Incorrect implementation**. The given implementation is incorrect. It does not use the correct data structures. For example, it uses an array to store the points, but an array is not a good data structure for storing points.
+3. **Incorrect input**. The given input is incorrect. It does not meet the requirements of the problem. For example, it contains a point with a negative x-coordinate.
+4. **Incorrect output**. The given output is incorrect. It does not meet the requirements of the problem. For example, it does not print the coordinates of the closest pair of points.
+5. **Time complexity**. The given algorithm has a time complexity of O(n^2), which is too high for the problem. The problem requires a time complexity of O(n log n).
+
+To avoid these problems, you should:
+
+1. Use the correct algorithm. The correct algorithm for finding the closest pair of points is the [divide and conquer algorithm](https://en.wikipedia.org/wiki/Closest_pair_of_points_problem#Divide_and_conquer_algorithm).
+2. Use the correct implementation. The correct implementation uses a [priority queue](https://en.wikipedia.org/wiki/Priority_queue) to store the points.
+3. Check the input for correctness. Make sure that the input meets the requirements of the problem.
+4. Check the output for correctness. Make sure that the output meets the requirements of the problem.
+5. Optimize the algorithm. Try to reduce the time complexity of the algorithm.
+Test inputs:
+```
+50000 1000000000
+```
+Title:
+CODEFORCES 335_A. Banana
+
+Pain points:
+1. **Incorrect input format**. The input format is not correctly followed, which may cause the program to crash. For example, if the input string contains a character that is not a lowercase English letter, the program will not be able to process it correctly.
+2. **Incorrect output format**. The output format is not correctly followed, which may cause the program to output incorrect results. For example, if the output string does not contain exactly n lowercase English letters, the program will not be able to form the correct sheet of stickers.
+3. **Incorrect calculation of the minimum number of sheets**. The minimum number of sheets required to form the string s may not be correctly calculated. For example, if the string s contains repeated characters, the program may not take this into account when calculating the minimum number of sheets.
+4. **Incorrect selection of the sheet of stickers**. The sheet of stickers that is selected may not be the optimal one. For example, the sheet of stickers may not contain all of the characters in the string s.
+5. **Other bugs**. There may be other bugs in the program that are not listed here. These bugs could cause the program to crash or output incorrect results.
+Test inputs:
+**Incorrect input format**
+
+```
+banana
+3
+```
+
+**Incorrect output format**
+
+```
+banana
+4
+
+1
+naaa
+```
+
+**Incorrect calculation of the minimum number of sheets**
+
+```
+banana
+2
+```
+
+**Incorrect selection of the sheet of stickers**
+
+```
+banana
+3
+
+1
+nnaa
+```
+
+**Other bugs**
+
+```
+banana
+3
+
+1
+naaa
+```
+Title:
+CODEFORCES 358_A. Dima and Continuous Line
+
+Pain points:
+1. **Incorrect input format.** The input format specifies that the first line should contain a single integer n, and the second line should contain n distinct integers x1, x2, ..., xn. However, a developer may accidentally input something else, such as a string or a list of numbers that are not distinct. This could cause the program to crash or produce incorrect output.
+2. **Incorrect calculation of the intersections.** The problem statement states that the line has self-intersections if any two of the points are connected by a semi-circle that passes above the abscissa axis with the diameter that coincides with the segment between points. A developer may incorrectly calculate the intersections, for example, by using the wrong formula or by not taking into account the order in which the points are connected. This could cause the program to produce incorrect output.
+3. **Incorrect output format.** The problem statement specifies that the output should be a single line that contains the string "yes" if the line has self-intersections, or the string "no" if it does not. A developer may accidentally output something else, such as a number or a list of strings. This could cause the program to be marked incorrect by the judge.
+4. **Other bugs.** There are a number of other possible bugs that a developer may encounter when solving this problem, such as using incorrect data types, making off-by-one errors, or using incorrect logic. These bugs could cause the program to crash or produce incorrect output.
+Test inputs:
+**Incorrect input format:**
+
+```
+1
+a
+```
+
+**Incorrect calculation of the intersections:**
+
+```
+4
+0 10 5 15
+```
+
+**Incorrect output format:**
+
+```
+no
+```
+
+**Other bugs:**
+
+```
+4
+0 10 5 15
+```
+Title:
+CODEFORCES 380_E. Sereja and Dividing
+
+Pain points:
+1. Incorrect implementation of the algorithm.
+2. Using an incorrect data type for intermediate calculations.
+3. Using an incorrect data type for the final answer.
+4. Floating-point arithmetic errors.
+5. Overflow errors.
+6. Indexing errors.
+7. Off-by-one errors.
+8. Logical errors.
+9. Syntax errors.
+10. Runtime errors.
+Test inputs:
+1. ```
+10
+1 1 1 1 1 1 1 1 1 1
+```
+2. ```
+10
+10 10 10 10 10 10 10 10 10 10
+```
+3. ```
+10
+999999999 999999998 999999997 999999996 999999995 999999994 999999993 999999992 999999991 999999990
+```
+4. ```
+10
+1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10
+```
+5. ```
+10
+1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000
+```
+6. ```
+10
+10 11 12 13 14 15 16 17 18 19
+```
+7. ```
+10
+1 2 3 4 5 6 7 8 9 10
+```
+8. ```
+10
+10 9 8 7 6 5 4 3 2 1
+```
+9. ```
+10
+100 100 100 100 100 100 100 100 100 100
+```
+10. ```
+10
+1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000
+```
+Title:
+CODEFORCES 401_D. Roman and Numbers
+
+Pain points:
+**1. Using the wrong data type**
+
+The input data is very large, so it is important to use the correct data type to store it. For example, if you use an integer to store n, you may get an overflow error when n is very large.
+
+**2. Not handling the special cases correctly**
+
+The problem states that "Number x is considered close to number n modulo m, if:
+
+  * it can be obtained by rearranging the digits of number n, 
+  * it doesn't have any leading zeroes, 
+  * the remainder after dividing number x by m equals 0".
+
+So, we need to make sure that we handle these special cases correctly. For example, if n is a multiple of m, then there will be no numbers that are close to n modulo m.
+
+**3. Using an incorrect algorithm**
+
+The problem can be solved using a simple algorithm. However, if you use an incorrect algorithm, you may get the wrong answer.
+
+**4. Not testing your code**
+
+It is important to test your code before submitting it. This will help you to catch any bugs in your code.
+
+Here are some tips for testing your code:
+
+* Use a variety of test cases, including small cases, large cases, and edge cases.
+* Make sure that your code handles all of the special cases correctly.
+* Run your code on a variety of compilers and operating systems.
+* Have someone else review your code.
+Test inputs:
+```
+104 2
+223 4
+7067678 8
+1000000000000000000 100
+```
+Title:
+CODEFORCES 429_E. Points and Segments
+
+Pain points:
+1. **Incorrect input format**. The input format is not as described in the problem statement. For example, the input may contain a negative number or a number that is too large.
+2. **Incorrect output format**. The output format is not as described in the problem statement. For example, the output may contain a number that is not 0 or 1, or the output may not have the same length as the number of segments.
+3. **Incorrect solution**. The solution may not find a good drawing for all test cases. For example, the solution may find a drawing that violates the requirement that |rx - bx| ≤ 1 for all points x.
+4. **Memory limit exceeded**. The solution may use too much memory. For example, the solution may create a large array to store the segments.
+5. **Time limit exceeded**. The solution may run too long. For example, the solution may use a recursive algorithm to find a good drawing.
+6. **Compilation error**. The solution may not compile due to syntax errors or other problems.
+7. **Runtime error**. The solution may crash due to a logic error or other problem.
+
+To avoid these problems, it is important to carefully read the problem statement and understand the requirements. It is also important to test your solution thoroughly with a variety of test cases.
+Test inputs:
+```
+1
+1 1
+```
+
+```
+5
+1 3
+2 5
+6 8
+9 11
+12 13
+```
+
+```
+2
+0 1
+2 3
+```
+
+```
+6
+1 5
+1 3
+3 5
+2 10
+11 11
+12 12
+```
+
+```
+4
+1 2
+3 4
+5 6
+7 8
+```
+
+```
+5
+1 2
+2 5
+4 6
+6 8
+9 10
+```
+
+```
+10
+1 2
+2 4
+3 6
+4 8
+5 10
+6 12
+7 14
+8 16
+9 18
+10 20
+```
+
+```
+10
+1 2
+2 4
+3 6
+4 8
+5 10
+6 12
+7 14
+8 16
+9 18
+10 20
+```
+Title:
+CODEFORCES 451_C. Predict Outcome of the Game
+
+Pain points:
+1. **Incorrect input format**. The input format is not always correctly followed, which can lead to errors in the program. For example, if the input contains a number that is not an integer, the program will crash.
+2. **Incorrect variable types**. The program may not be able to correctly handle variables of the wrong type. For example, if a variable is declared as an integer but is assigned a string value, the program will crash.
+3. **Incorrect logic**. The program may contain errors in its logic, which can lead to incorrect results. For example, if the program does not correctly account for all possible cases, it may produce incorrect results.
+4. **Off-by-one errors**. Off-by-one errors occur when the program skips or repeats a step in its logic. This can lead to incorrect results.
+5. **Memory leaks**. Memory leaks occur when the program fails to free up memory that it has allocated. This can lead to the program running out of memory and crashing.
+6. **Race conditions**. Race conditions occur when two or more parts of the program access the same data at the same time. This can lead to incorrect results or the program crashing.
+7. **Deadlocks**. Deadlocks occur when two or more parts of the program are waiting for each other to finish, but neither one can finish because it is waiting for the other. This can lead to the program running indefinitely or crashing.
+8. **Security vulnerabilities**. Security vulnerabilities can occur when the program does not properly protect its data from unauthorized access. This can allow attackers to gain access to sensitive data or to take control of the program.
+9. **Performance issues**. The program may not run as efficiently as possible, which can lead to slow performance or even a denial-of-service attack.
+10. **Usability issues**. The program may be difficult to use or understand, which can lead to users making mistakes or not using the program at all.
+Test inputs:
+```
+3
+3 0 0 0
+3 3 0 0
+6 4 1 0
+```
+Title:
+CODEFORCES 474_B. Worms
+
+Pain points:
+ * The worms with labels 1 and 25 are in the first pile. 
+  * The worm with label 11 is in the third pile.
+ 1. **Incorrect variable type.** The input and output variables are not declared with the correct type. For example, the input `n` should be declared as an integer, but it is declared as a string.
+2. **Off-by-one error.** The code may be incorrect because it is off by one. For example, the code may be looking for the index of the last element in the array, but it is actually looking for the index of the next-to-last element.
+3. **Incorrect logic.** The code may be incorrect because the logic is wrong. For example, the code may be adding two numbers instead of subtracting them.
+4. **Memory leak.** The code may be leaking memory. This can happen when the code allocates memory but does not free it when it is finished using it.
+5. **Security vulnerability.** The code may have a security vulnerability. This can happen when the code allows an attacker to access sensitive data or execute arbitrary code.
+6. **Incorrect data type.** The code may be using the incorrect data type. For example, the code may be using a string to store an integer value.
+7. **Incorrect format.** The code may be incorrect because it is not following the correct format. For example, the code may be using a tab character instead of a newline character to separate lines of output.
+8. **Incorrect indentation.** The code may be incorrect because it is not properly indented. This can make the code difficult to read and understand.
+9. **Incorrect comments.** The code may be incorrect because the comments are not providing enough information. This can make it difficult to understand the code.
+10. **Incorrect variable names.** The code may be incorrect because the variable names are not descriptive enough. This can make it difficult to understand the code.
+Test inputs:
+```
+5
+2 7 3 4 9
+3
+1 25 11
+```
+Title:
+CODEFORCES 498_A. Crazy Town
+
+Pain points:
+### Possible problems and bugs
+
+1. **Incorrect input format**. The input format is not strictly followed, which may lead to errors in the program. For example, if the coordinates of the home or university are not separated by a space, the program may not be able to correctly parse the input and produce an incorrect output.
+2. **Incorrect data type**. The data type of the input values may not be correctly specified, which may lead to errors in the program. For example, if the coordinates of the home or university are specified as strings, the program may not be able to correctly parse the input and produce an incorrect output.
+3. **Incorrect logic**. The logic of the program may be incorrect, which may lead to errors in the output. For example, if the program does not correctly account for the fact that the roads are infinite, it may produce an incorrect output.
+4. **Off-by-one errors**. Off-by-one errors can occur when the program does not correctly account for the fact that the indices of the elements in an array start at 0. For example, if the program tries to access the element at index 1 of an array that only has 0 elements, it will produce an error.
+5. **Memory leaks**. Memory leaks can occur when the program does not correctly free up the memory that it has allocated. This can lead to the program running out of memory and crashing.
+6. **Race conditions**. Race conditions can occur when two or more parts of the program try to access the same data at the same time. This can lead to the program producing incorrect results or crashing.
+7. **Deadlocks**. Deadlocks can occur when two or more parts of the program are waiting for each other to finish, but neither one can finish without the other. This can lead to the program running indefinitely or crashing.
+8. **Security vulnerabilities**. Security vulnerabilities can occur when the program does not correctly protect its data from unauthorized access. This can allow attackers to gain access to sensitive data or to modify the program's behavior.
+
+## How to avoid these problems and bugs
+
+1. **Use a strictly defined input format**. The input format should be clearly defined and documented, so that developers can easily understand how to correctly format their input.
+2. **Use the correct data types**. The data types of the input values should be correctly specified, so that the program can correctly parse the input.
+3. **Use correct logic**. The logic of the program should be carefully reviewed to ensure that it is correct.
+4. **Check for off-by-one errors**. Off-by-one errors can be avoided by carefully checking the indices of the elements in an array.
+5. **Avoid memory leaks**. Memory leaks can be avoided by correctly freeing up the memory that the program has allocated.
+6. **Prevent race conditions**. Race conditions can be prevented by ensuring that only one part of the program can access the same data at the same time.
+7. **Avoid deadlocks**. Deadlocks can be avoided by ensuring that no two parts of the program are waiting for each other to finish.
+8. **Secure your program**. The program should be secured to protect its data from unauthorized access. This can be done by using encryption, access control, and other security measures.
+Test inputs:
+```
+1 1
+-1 -1
+2
+0 1 0
+1 0 0
+```
+
+```
+1 1
+-1 -1
+3
+1 0 0
+0 1 0
+1 1 -3
+```
+
+```
+1 1
+-1 -1
+4
+1 0 0
+1 1 0
+0 1 1
+1 0 -1
+```
+
+```
+1 1
+-1 -1
+5
+1 0 0
+0 1 0
+1 1 0
+0 0 1
+0 0 -1
+```
+Title:
+CODEFORCES 521_B. Cubes
+
+Pain points:
+```
+# Problem: CODEFORCES 521_B. Cubes
+# Solution: https://codeforces.com/contest/521/problem/B
+
+import sys
+
+# input
+m = int(sys.stdin.readline())
+
+# process
+coord = []
+for i in range(m):
+    x, y = map(int, sys.stdin.readline().split())
+    coord.append((x, y))
+
+# sort
+coord.sort()
+
+# answer
+ans = 1
+for i in range(1, m):
+    if coord[i][1] > coord[i - 1][1]:
+        ans *= coord[i - 1][0]
+        ans %= 1000000007
+
+print(ans)
+```
+
+## Most important possible problems and bugs that a developer may encounter when solving this problem:
+
+1. **Incorrect input format:** The input format is not correctly parsed, which can lead to incorrect results. For example, if the input is `1` instead of `2`, the program will crash.
+2. **Incorrect data type:** The data type of the input values is not correctly specified, which can lead to incorrect results. For example, if the input values are integers but the program treats them as strings, the results will be incorrect.
+3. **Off-by-one errors:** Off-by-one errors occur when the programmer forgets to increment or decrement a variable by one. For example, if the program is supposed to print the first 10 numbers of a sequence, but the programmer only prints the first 9 numbers, the results will be incorrect.
+4. **Incorrect logic:** The program may contain incorrect logic, which can lead to incorrect results. For example, if the program is supposed to find the maximum value in an array, but the programmer accidentally finds the minimum value instead, the results will be incorrect.
+5. **Memory leaks:** Memory leaks occur when the program allocates memory but does not free it up when it is no longer needed. This can lead to the program running out of memory and crashing.
+6. **Race conditions:** Race conditions occur when two or more threads try to access the same data at the same time. This can lead to incorrect results or the program crashing.
+7. **Deadlocks:** Deadlocks occur when two or more threads are waiting for each other to release a resource, but neither thread can do so. This can lead to the program running indefinitely or crashing.
+8. **Security vulnerabilities:** Security vulnerabilities can occur when the program is not properly protected from malicious attacks. This can lead to the program being exploited by attackers, which can have a variety of negative consequences.
+
+By following good coding practices and testing the program thoroughly, you can help to minimize the risk of these problems occurring.
+Test inputs:
+### Incorrect input format
+```
+1
+```
+
+### Incorrect data type
+```
+10
+0 0
+0 1
+```
+
+### Off-by-one errors
+```
+3
+2 1
+1 0
+0 1
+```
+
+### Incorrect logic
+```
+3
+2 1
+1 0
+0 0
+```
+
+### Memory leaks
+```
+1000000000
+```
+
+### Race conditions
+```
+10
+0 0
+0 1
+0 2
+```
+
+### Deadlocks
+```
+10
+0 0
+0 1
+0 2
+```
+
+### Security vulnerabilities
+```
+10
+0 0
+0 1
+0 2
+```
+Title:
+CODEFORCES 548_D. Mike and Feet
+
+Pain points:
+1. **Incorrect input format**. The input format is not strictly followed. For example, the input may contain a number that is too large or too small.
+2. **Incorrect output format**. The output format is not strictly followed. For example, the output may contain a number that is too large or too small.
+3. **Incorrect logic**. The logic of the program may be incorrect. For example, the program may not find the maximum strength of a group of bears.
+4. **Memory leaks**. The program may not release memory that is no longer needed. This can lead to a system crash or other problems.
+5. **Race conditions**. The program may not be thread-safe. This can lead to incorrect results or even a system crash.
+6. **Security vulnerabilities**. The program may be vulnerable to attacks such as buffer overflows or SQL injection. This can allow attackers to gain unauthorized access to the system.
+
+To avoid these problems, it is important to carefully design and test your program. You should also use a code review tool to identify potential problems.
+Test inputs:
+```
+1
+1
+```
+```
+10
+1 2 3 4 5 4 3 2 1 6
+```
+```
+1000000000
+1000000000
+```
+Title:
+CODEFORCES 575_A. Fibonotci
+
+Pain points:
+1. **Incorrect input format**. The input format may not be as expected. For example, the input may contain extra spaces, or the numbers may not be separated by spaces.
+2. **Incorrect output format**. The output format may not be as expected. For example, the output may not be a single integer.
+3. **Incorrect calculation**. The developer may make a mistake in the calculation of the Fibonacci numbers. For example, the developer may forget to carry over the carry bit when adding two Fibonacci numbers.
+4. **Incorrect use of variables**. The developer may use variables incorrectly. For example, the developer may use a variable to store a value that is not needed, or the developer may use a variable to store a value that is already stored in another variable.
+5. **Incorrect logic**. The developer may make a mistake in the logic of the program. For example, the developer may not consider all possible cases, or the developer may make an incorrect assumption.
+6. **Incorrect implementation**. The developer may implement the program incorrectly. For example, the developer may use the wrong data structure, or the developer may not use the correct algorithm.
+7. **Incorrect testing**. The developer may not test the program correctly. For example, the developer may not test the program with all possible inputs, or the developer may not test the program with inputs that are likely to cause errors.
+
+To avoid these problems, it is important to carefully read the problem statement and understand the input and output formats. It is also important to carefully design the program and to test the program thoroughly.
+Test inputs:
+```
+10 8
+3
+1 2 1
+2
+7 3
+5 4
+```
+Title:
+CODEFORCES 596_D. Wilbur and Trees
+
+Pain points:
+### Possible Problems
+
+1. **Incorrect input format**. The input format is very specific, and it's easy to make a mistake when reading the input. For example, you might accidentally read the number of trees as a float instead of an integer, or you might forget to read the probability.
+2. **Incorrect calculation of the expected value**. The expected value of the total length of the ground covered by trees is a complicated function of the positions of the trees and the probability of each tree falling left or right. It's easy to make a mistake when calculating this function.
+3. **Incorrect rounding of the answer**. The answer to this problem must be rounded to an absolute or relative error of 10^-6. This is a very small error, and it's easy to make a mistake when rounding the answer.
+4. **Incorrect output format**. The output format for this problem is very specific. You must print a single real number, and the number must be rounded to an absolute or relative error of 10^-6.
+
+### Possible Bugs
+
+1. **Off-by-one errors**. The input format for this problem is very specific, and it's easy to make a mistake when reading the input. For example, you might accidentally read the number of trees as one less than it actually is, or you might forget to read the probability.
+2. **Indexing errors**. The trees are indexed from 1 to n, but it's easy to accidentally index them from 0 to n-1. This can lead to incorrect results.
+3. **Arithmetic errors**. The expected value of the total length of the ground covered by trees is a complicated function of the positions of the trees and the probability of each tree falling left or right. It's easy to make a mistake when calculating this function.
+4. **Rounding errors**. The answer to this problem must be rounded to an absolute or relative error of 10^-6. This is a very small error, and it's easy to make a mistake when rounding the answer.
+5. **Floating-point errors**. Floating-point numbers are not exact, and they can lead to incorrect results if they are not handled correctly.
+
+### How to Avoid These Problems
+
+To avoid these problems, you should carefully read the problem statement and make sure you understand the input format and the expected output format. You should also carefully write your code and test it thoroughly. Here are some specific tips:
+
+* Use a unit test framework to test your code.
+* Use a debugger to help you find bugs in your code.
+* Use a floating-point library to help you avoid floating-point errors.
+Test inputs:
+```
+1 2 0.5
+```
+
+```
+2 2 0.500000
+1 2
+```
+
+```
+4 3 0.4
+4 3 1 2
+```
+
+```
+5 4 0.4
+2 4 1 5
+```
+
+```
+5 4 0.4
+2 6 1 5
+```
+
+```
+5 4 0.4
+1 7 2 5
+```
+
+```
+5 4 0.4
+8 7 2 5
+```
+
+```
+5 4 0.4
+7 8 2 5
+```
+
+```
+5 4 0.4
+7 8 5 2
+```
+
+```
+5 4 0.4
+5 8 7 2
+```
+
+```
+5 4 0.4
+7 5 8 2
+```
+Title:
+CODEFORCES 618_A. Slime Combining
+
+Pain points:
+1. **Incorrect input format**. The input should be a single integer, n (1 ≤ n ≤ 100 000). If the input is not in the correct format, the program will crash.
+2. **Incorrect output format**. The output should be a single line with k integers, where k is the number of slimes in the row after you've finished the procedure described in the problem statement. The i-th of these numbers should be the value of the i-th slime from the left. If the output is not in the correct format, the program will not produce the correct answer.
+3. **Incorrect logic**. The program should iterate through the input, adding each slime to the row and combining any two slimes with the same value. If the program does not correctly implement this logic, it will not produce the correct answer.
+4. **Memory leaks**. The program should not allocate any memory that it does not need. If the program does allocate memory that it does not need, it will eventually run out of memory and crash.
+5. **Race conditions**. The program should not be modified by multiple threads at the same time. If the program is modified by multiple threads at the same time, it may produce incorrect results.
+6. **Deadlocks**. The program should not be in a state where it cannot continue execution. If the program is in a deadlock, it will not produce any output.
+7. **Buffer overflows**. The program should not write more data to a buffer than the buffer can hold. If the program writes more data to a buffer than the buffer can hold, it will overwrite other data in memory and may cause the program to crash.
+8. **Security vulnerabilities**. The program should not be vulnerable to any security attacks. If the program is vulnerable to a security attack, it may allow an attacker to gain unauthorized access to the system.
+Test inputs:
+1. 1
+2. 2
+3. 3
+4. 4
+5. 5
+6. 6
+7. 7
+8. 8
+9. 9
+10. 10
+11. 11
+12. 12
+13. 13
+14. 14
+15. 15
+16. 16
+17. 17
+18. 18
+19. 19
+20. 20
+Title:
+CODEFORCES 638_C. Road Improvement
+
+Pain points:
+1. **Incorrect input format**. The input format is not as described in the problem statement. For example, the input may contain a negative number, a number that is too large, or a string instead of an integer.
+2. **Incorrect output format**. The output format is not as described in the problem statement. For example, the output may contain a number that is not an integer, or a string instead of a list of integers.
+3. **Incorrect algorithm**. The algorithm may not be correct. For example, the algorithm may not find the minimum number of days needed to repair all the roads, or it may find a solution that is not optimal.
+4. **Memory limit exceeded**. The algorithm may use too much memory. For example, the algorithm may create a graph with too many vertices or edges.
+5. **Time limit exceeded**. The algorithm may run too long. For example, the algorithm may iterate over all possible solutions to the problem.
+
+To avoid these problems, you should carefully read the problem statement and make sure that your input and output are in the correct format. You should also carefully design your algorithm and make sure that it is correct and efficient. Finally, you should test your code to make sure that it runs within the time limit.
+Test inputs:
+```
+1
+```
+```
+2
+1 2
+```
+```
+4
+1 2
+3 4
+3 2
+```
+```
+6
+3 4
+5 4
+3 2
+1 3
+4 6
+```
+```
+7
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+```
+```
+8
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+```
+Title:
+CODEFORCES 666_A. Reberland Linguistics
+
+Pain points:
+**1. Incorrect input format**
+
+The input format for this problem is a single string of lowercase English letters. If the input is not in this format, the program will not be able to correctly parse the input and will likely produce an incorrect output.
+
+**2. Incorrect output format**
+
+The output for this problem should be a single line containing the number of distinct possible suffixes, followed by a newline. Each of the following lines should contain one of the possible suffixes, in lexicographical order. If the output is not in this format, the program will not be accepted.
+
+**3. Undefined behavior**
+
+The program may exhibit undefined behavior if it is passed an invalid input. For example, if the input string is empty, the program may crash or produce an incorrect output. It is important to test the program with a variety of inputs to ensure that it does not exhibit undefined behavior.
+
+**4. Memory leaks**
+
+The program may leak memory if it does not properly free the memory that it allocates. This can lead to a decrease in performance and may even cause the program to crash. It is important to use the `free()` function to free any memory that is allocated by the program.
+
+**5. Race conditions**
+
+The program may exhibit race conditions if it is not thread-safe. This can lead to incorrect results or even a crash. It is important to make sure that the program is thread-safe by using locks or other synchronization mechanisms.
+
+**6. Security vulnerabilities**
+
+The program may be vulnerable to security vulnerabilities if it is not properly secured. For example, the program may allow a malicious user to execute arbitrary code or access sensitive data. It is important to make sure that the program is properly secured by using appropriate security measures.
+Test inputs:
+```
+abacabaca
+
+abaca
+```
+Title:
+CODEFORCES 68_E. Contact
+
+Pain points:
+1. **Incorrect input format**. The input format specifies that each line should contain 6 integers. If the input format is not correct, the program will crash.
+2. **Incorrect output format**. The output format specifies that the output should be a single integer. If the output format is not correct, the program will not compile.
+3. **Incorrect logic**. The program should find the minimum number of columns that are needed to land all ships. If the logic is incorrect, the program will output the wrong answer.
+4. **Memory leaks**. The program should not allocate any memory that it does not need. If there are memory leaks, the program will eventually run out of memory and crash.
+5. **Race conditions**. The program should not be using any shared resources in a way that could lead to a race condition. If there is a race condition, the program's behavior could be unpredictable.
+6. **Deadlocks**. The program should not be using any locks in a way that could lead to a deadlock. If there is a deadlock, the program will stop responding.
+Test inputs:
+```
+0 0 1 0 1 2
+0 0 0 2 2 2
+0 0 3 0 1 2
+0 0 3 0 2 2
+
+0 0 0 1 1 1
+0 0 0 2 2 2
+0 0 0 5 5 5
+0 0 0 17 17 17
+
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+Title:
+CODEFORCES 712_C. Memory and De-Evolution
+
+Pain points:
+1. **Incorrect input format**. The input format is not correctly parsed, which may cause the program to crash or output incorrect results. For example, if the input is "6 3 a", the program will crash because it cannot parse the character "a".
+2. **Incorrect algorithm**. The algorithm used to solve the problem may be incorrect, which may cause the program to output incorrect results. For example, if the algorithm assumes that all triangles are isosceles, it will not be able to solve the problem for triangles that are not isosceles.
+3. **Incorrect implementation**. The program may be incorrectly implemented, which may cause it to crash or output incorrect results. For example, if the program uses the wrong variable names or data types, it may not be able to correctly track the state of the problem.
+4. **Runtime errors**. The program may run into runtime errors, such as out-of-memory errors or segmentation faults. These errors can occur for a variety of reasons, such as allocating too much memory or accessing invalid memory addresses.
+5. **Logic errors**. The program may contain logic errors, which can cause it to output incorrect results. For example, if the program does not correctly account for all possible cases, it may output incorrect results for some inputs.
+
+To avoid these problems, it is important to carefully design and implement the program. The input format should be correctly parsed, the algorithm should be correct, the implementation should be correct, and the program should be tested thoroughly to catch any runtime errors or logic errors.
+Test inputs:
+```
+6 3
+8 5
+22 4
+```
+Title:
+CODEFORCES 733_B. Parade
+
+Pain points:
+1. The input format is not specified. Is it one integer per line? A list of lists? A list of tuples?
+2. The output format is not specified. Is it one integer? A list of integers?
+3. The problem statement does not specify what to do if there is no column that can be switched to increase the beauty. Should the output be 0 or -1?
+4. The problem statement does not specify what to do if the beauty is already maximized. Should the output be 0 or -1?
+5. The problem statement does not specify what to do if the input is invalid. Should the output be an error message? A default value?
+6. The problem statement does not specify what to do if the input is empty. Should the output be an error message? A default value?
+7. The problem statement does not specify what to do if the input is malformed. Should the output be an error message? A default value?
+8. The problem statement does not specify what to do if the input is inconsistent. Should the output be an error message? A default value?
+9. The problem statement does not specify what to do if the input is ambiguous. Should the output be an error message? A default value?
+Test inputs:
+```
+3
+5 6
+8 9
+10 3
+```
+Title:
+CODEFORCES 757_C. Felicity is Coming!
+
+Pain points:
+
+ In the fifth case, there are 24 possible plans: 
+
+<image>
+
+1. **Incorrect input format**. The input format is not strictly followed, which may lead to incorrect results. For example, if the input contains an integer that is not within the specified range, the program may crash or produce incorrect results.
+2. **Incorrect logic**. The logic of the program may be incorrect, which may lead to incorrect results. For example, if the program does not take into account all of the constraints, the results may be incorrect.
+3. **Incorrect implementation**. The program may be implemented incorrectly, which may lead to incorrect results. For example, if the program uses incorrect data structures or algorithms, the results may be incorrect.
+4. **Incorrect testing**. The program may not be tested thoroughly, which may lead to incorrect results. For example, if the program is not tested with a variety of input data, the results may be incorrect.
+5. **Incorrect debugging**. The program may not be debugged correctly, which may lead to incorrect results. For example, if the program is not debugged with a variety of input data, the results may be incorrect.
+
+To avoid these problems, it is important to carefully follow the input format, use correct logic, implement the program correctly, test the program thoroughly, and debug the program correctly.
+Test inputs:
+```
+2 3
+2 1 2
+2 2 3
+```
+```
+1 3
+3 1 2 3
+```
+```
+2 4
+2 1 2
+3 2 3 4
+```
+```
+2 2
+3 2 2 1
+2 1 2
+```
+```
+3 7
+2 1 2
+2 3 4
+3 5 6 7
+```
+Title:
+CODEFORCES 778_E. Selling Numbers
+
+Pain points:
+1. **Incorrect input format.** The input format of the problem is very specific. Make sure that you parse the input correctly.
+2. **Incorrect output format.** The output format of the problem is also very specific. Make sure that you format your output correctly.
+3. **Incorrect algorithm.** The algorithm you use to solve the problem may be incorrect. Make sure that your algorithm is correct and that it runs in time.
+4. **Incorrect data.** The data given in the problem may be incorrect. Make sure that you check the data for correctness before using it.
+5. **Incorrect implementation.** Your implementation of the algorithm may be incorrect. Make sure that your implementation is correct and that it runs in time.
+6. **Runtime errors.** Your code may run into runtime errors. Make sure that your code is free of runtime errors.
+7. **Memory errors.** Your code may run out of memory. Make sure that your code is free of memory errors.
+8. **Security vulnerabilities.** Your code may have security vulnerabilities. Make sure that your code is free of security vulnerabilities.
+Test inputs:
+1. Incorrect input format
+
+```
+0
+0
+```
+
+2. Incorrect output format
+
+```
+100
+```
+
+3. Incorrect algorithm
+
+```
+0
+0
+1 2 3 4 5 6 7 8 9
+```
+
+4. Incorrect data
+
+```
+0
+0
+1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000
+```
+
+5. Incorrect implementation
+
+```
+42
+0
+```
+
+6. Runtime errors
+
+```
+??
+0
+1 2 3 4 5 6 7 8 9
+```
+
+7. Memory errors
+
+```
+999999999
+0
+```
+
+8. Security vulnerabilities
+
+```
+123456789
+0
+```
+Title:
+CODEFORCES 802_H. Fake News (medium)
+
+Pain points:
+**1. The input may not be a valid integer.** This can be checked by using the `int()` function to convert the input to an integer. If the conversion fails, an error will be raised.
+2. The input may be too large. The input is limited to 10^6, but it is possible for a user to enter a larger number by mistake. This can be checked by using the `int()` function to convert the input to an integer. If the conversion succeeds, but the resulting integer is greater than 10^6, an error will be raised.
+3. The output may not be valid. The output should be two strings separated by a single space. Each string should be composed of letters (a-z and A-Z) and have a length of at most 200. The number of occurrences of the second string in the first string should be exactly `n`. If the output does not meet these criteria, an error will be raised.
+4. The solution may not be unique. There are many possible solutions to this problem, and the output may not be the same as the one that Heidi intended. This is not a problem, as long as the output meets the criteria listed above.
+5. The solution may be inefficient. There are more efficient ways to solve this problem than the one presented here. However, the solution presented here is simple and easy to understand, which makes it a good choice for beginners.
+Test inputs:
+```
+1
+```
+Title:
+CODEFORCES 825_D. Suitable Replacement
+
+Pain points:
+1. **Incorrectly counting the number of occurrences of t in s.** This is a common mistake that can be made when trying to solve this problem. One way to avoid this mistake is to use a hash table to store the occurrences of t in s. Another way is to use a dynamic programming approach.
+2. **Not considering all possible swaps of letters in s.** When trying to maximize the number of occurrences of t in s, it is important to consider all possible swaps of letters in s. One way to do this is to use a backtracking algorithm. Another way is to use a branch and bound algorithm.
+3. **Not using the fact that the suitability of s is maximized when all occurrences of t in s are non-intersecting.** This fact can be used to simplify the problem significantly. One way to do this is to use a greedy algorithm. Another way is to use a dynamic programming approach.
+4. **Not handling the case where there are multiple strings with maximal suitability.** This case can be handled by simply printing any one of the strings with maximal suitability. Alternatively, you can print all of the strings with maximal suitability.
+Test inputs:
+```
+?aa?
+ab
+
+??b?
+za
+
+abcd
+abacaba
+```
+Title:
+CODEFORCES 848_B. Rooter's Song
+
+Pain points:
+**Most Important Possible Problems and Bugs:**
+
+* **Incorrect understanding of the problem.** The problem statement is quite long and detailed, so it is important to read it carefully and make sure that you understand all of the requirements. One common mistake is to assume that the dancers are all moving at the same speed. This is not the case, as the dancers in the vertical group move at a speed of 1 unit per millisecond, while the dancers in the horizontal group move at a speed of 1 unit per millisecond. Another common mistake is to forget that the dancers stop when they reach a border of the stage.
+* **Incorrect implementation of the solution.** The solution to this problem involves a lot of bookkeeping, so it is important to make sure that your implementation is correct. One common mistake is to forget to update the dancer's position after each time step. Another common mistake is to forget to check if the dancer has collided with another dancer.
+* **Incorrect test cases.** It is important to test your solution on a variety of test cases, including cases where the dancers collide with each other and cases where the dancers reach a border of the stage. One common mistake is to only test your solution on cases where the dancers do not collide with each other. Another common mistake is to only test your solution on cases where the dancers do not reach a border of the stage.
+
+Here are some specific examples of problems and bugs that you may encounter when solving this problem:
+
+* **Incorrect understanding of the problem:** You may think that the dancers are all moving at the same speed, when in reality they are not. This can lead to incorrect results.
+* **Incorrect implementation of the solution:** You may forget to update the dancer's position after each time step, or you may forget to check if the dancer has collided with another dancer. This can lead to incorrect results.
+* **Incorrect test cases:** You may only test your solution on cases where the dancers do not collide with each other, or you may only test your solution on cases where the dancers do not reach a border of the stage. This can lead to incorrect results.
+Test inputs:
+```
+# 848_B. Rooter's Song
+
+def main():
+    n, w, h = map(int, input().split())
+
+    dancers = []
+    for _ in range(n):
+        group, p, t = map(int, input().split())
+        dancers.append((group, p, t))
+
+    dancers.sort(key=lambda x: (x[1], x[2]))
+
+    times = [0] * (w + h)
+
+    for d in dancers:
+        group, p, t = d
+        if group == 1:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+        else:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+
+    ans = []
+    for i in range(w):
+        for j in range(h):
+            if times[i] == 1 and times[j] == 1:
+                ans.append([i+1, j+1])
+
+    print(*ans, sep="\n")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Incorrect understanding of the problem:**
+
+```
+# 848_B. Rooter's Song
+
+def main():
+    n, w, h = map(int, input().split())
+
+    dancers = []
+    for _ in range(n):
+        group, p, t = map(int, input().split())
+        dancers.append((group, p, t))
+
+    dancers.sort(key=lambda x: (x[1], x[2]))
+
+    times = [0] * (w + h)
+
+    for d in dancers:
+        group, p, t = d
+        if group == 1:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+        else:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+
+    ans = []
+    for i in range(w):
+        for j in range(h):
+            if times[i] == 1 and times[j] == 1:
+                ans.append([i+1, j+1])
+
+    print(*ans, sep="\n")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+This code will not work because it does not correctly implement the collision logic. The correct logic is as follows:
+
+* When two dancers collide, they immediately exchange their moving directions and go on.
+
+This code does not do this, so it will not produce the correct output.
+
+**Incorrect implementation of the solution:**
+
+```
+# 848_B. Rooter's Song
+
+def main():
+    n, w, h = map(int, input().split())
+
+    dancers = []
+    for _ in range(n):
+        group, p, t = map(int, input().split())
+        dancers.append((group, p, t))
+
+    dancers.sort(key=lambda x: (x[1], x[2]))
+
+    times = [0] * (w + h)
+
+    for d in dancers:
+        group, p, t = d
+        if group == 1:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+        else:
+            for i in range(t):
+                times[p] += 1
+                if times[p] == 2:
+                    times[p] = 0
+                    p += 1
+
+Title:
+CODEFORCES 86_E. Long sequence
+
+Pain points:
+1. **Incorrect input format**. The input format is specified in the problem statement. Make sure that you are reading the input correctly.
+2. **Off-by-one errors**. When computing the indices of elements in the sequence, it is easy to make a mistake and get the wrong index. Be careful when doing this kind of calculation.
+3. **Incorrect logic**. The logic of the algorithm you are using may be incorrect. Make sure that you understand the problem statement and that your algorithm is correct.
+4. **Memory errors**. If your algorithm is too complex, it may run out of memory. Be careful not to allocate too much memory, and make sure to free up memory that you no longer need.
+5. **Timeout errors**. If your algorithm takes too long to run, it will time out. Make sure that your algorithm is efficient and that it does not take too long to run.
+
+Here are some specific examples of bugs that you may encounter when solving this problem:
+
+* You may incorrectly read the input format and end up with an incorrect sequence of coefficients.
+* You may incorrectly compute the indices of elements in the sequence and end up with an incorrect sequence of elements.
+* You may incorrectly implement the logic of the algorithm and end up with an incorrect sequence.
+* You may allocate too much memory and end up with a memory error.
+* You may not free up memory that you no longer need and end up with a memory leak.
+* Your algorithm may take too long to run and end up with a timeout error.
+Test inputs:
+```
+2
+```
+```
+3
+```
+```
+4
+```
+```
+5
+```
+```
+6
+```
+Title:
+CODEFORCES 896_D. Nephren Runs a Cinema
+
+Pain points:
+**1. Incorrect implementation of the dynamic programming algorithm.** The most common mistake is to forget to update the dp table when the number of customers changes. For example, in the following code, the dp table is only updated when the number of customers is 1, but it should be updated every time the number of customers changes.
+
+```
+dp[0][0] = 1
+for i in range(1, n + 1):
+    for j in range(l, r + 1):
+        if j >= i:
+            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - i]) % p
+```
+
+**2. Incorrect handling of the boundary cases.** Another common mistake is to forget to handle the boundary cases. For example, in the following code, the dp table is not initialized properly, which will lead to incorrect results.
+
+```
+dp[0][0] = 1
+for i in range(1, n + 1):
+    for j in range(l, r + 1):
+        if j >= i:
+            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - i]) % p
+```
+
+**3. Incorrect use of modulo arithmetic.** Modulo arithmetic is a powerful tool, but it can also be tricky. One common mistake is to forget to reduce the result modulo p when the result is greater than p. For example, in the following code, the answer is incorrect because the modulo operation is performed after the addition.
+
+```
+dp[0][0] = 1
+for i in range(1, n + 1):
+    for j in range(l, r + 1):
+        if j >= i:
+            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - i])
+```
+
+**4. Incorrect use of the binomial coefficient.** The binomial coefficient is a common mathematical function that is used in many dynamic programming problems. One common mistake is to use the wrong formula for the binomial coefficient. For example, in the following code, the binomial coefficient is calculated incorrectly.
+
+```
+dp[0][0] = 1
+for i in range(1, n + 1):
+    for j in range(l, r + 1):
+        if j >= i:
+            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - i]) // (i - j + 1)
+```
+
+**5. Incorrect use of the Catalan number.** The Catalan number is a special type of binomial coefficient that is used in many dynamic programming problems. One common mistake is to use the wrong formula for the Catalan number. For example, in the following code, the Catalan number is calculated incorrectly.
+
+```
+dp[0][0] = 1
+for i in range(1, n + 1):
+    for j in range(l, r + 1):
+        if j >= i:
+            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - i]) // Catalan(i - j + 1)
+```
+Test inputs:
+```
+4 97 2 3
+
+4 100 0 4
+```
+Title:
+CODEFORCES 917_E. Upside Down
+
+Pain points:
+```
+Possible problems and bugs that a developer may encounter when solving this problem:
+
+* **Incorrect input format:** The input format is not correctly specified. For example, the input may not contain three integers, or the integers may not be in the correct range.
+* **Incorrect output format:** The output format is not correctly specified. For example, the output may not contain a single integer, or the integer may not be in the correct range.
+* **Incorrect data:** The input data may be incorrect. For example, the graph may not be a tree, or the special words may not be of the correct length.
+* **Incorrect algorithm:** The algorithm used to solve the problem may be incorrect. For example, the algorithm may not correctly find the shortest path from one vertex to another, or it may not correctly count the number of occurrences of a substring in a string.
+* **Incorrect implementation:** The code may be incorrectly implemented. For example, the code may contain syntax errors, or it may not correctly handle all possible cases.
+
+Here are some tips to help avoid these problems and bugs:
+
+* **Be careful when reading the input format.** Make sure that you understand the format of the input data and that you are correctly parsing the input.
+* **Be careful when writing the output format.** Make sure that your output is in the correct format and that it contains the correct information.
+* **Validate the input data.** Check to make sure that the input data is correct before you start solving the problem. This will help you avoid errors later on.
+* **Choose the right algorithm for the problem.** There are many different algorithms that can be used to solve this problem. Choose the algorithm that is most efficient for the given data set.
+* **Test your code thoroughly.** Make sure that you test your code with a variety of input data sets. This will help you catch any errors in your code before you submit it.
+Test inputs:
+```
+# 917_E. Upside Down
+
+n, m, q = map(int, input().split())
+edges = []
+for _ in range(n - 1):
+    a, b, c = map(int, input().split())
+    edges.append((a, b, c))
+
+specials = []
+for _ in range(m):
+    s = input()
+    specials.append(s)
+
+monsters = []
+for _ in range(q):
+    i, j, k = map(int, input().split())
+    monsters.append((i, j, k))
+
+
+def dfs(graph, start, end):
+    path = []
+    visited = [False] * (n + 1)
+
+    def _dfs(graph, start, end, path):
+        visited[start] = True
+        path.append(start)
+        if start == end:
+            return path
+        for node, edge in graph[start]:
+            if not visited[node]:
+                return _dfs(graph, node, end, path)
+        return path
+
+    return _dfs(graph, start, end, path)
+
+
+def solve(graph, specials, monsters):
+    powers = []
+    for i, j, k in monsters:
+        path = dfs(graph, i, j)
+        result = 0
+        for s in specials[k]:
+            count = 0
+            for node in path:
+                if s in graph[node]:
+                    count += 1
+            result = max(result, count)
+        powers.append(result)
+    return powers
+
+
+graph = {node: [] for node in range(1, n + 1)}
+for a, b, c in edges:
+    graph[a].append((b, c))
+    graph[b].append((a, c))
+
+powers = solve(graph, specials, monsters)
+print(*powers)
+```
+Title:
+CODEFORCES 93_E. Lostborn
+
+Pain points:
+**1. Using incorrect data types**
+
+The input data specifies that the hero's strength and the number of hit indicators can be up to 1013 and 100, respectively. However, the code below uses `int` data types for these values, which can only store numbers up to 2147483647. This will cause an overflow error if the input data is large enough.
+
+```c++
+int n, k;
+cin >> n >> k;
+```
+
+To fix this, we can use `long long` data types for the hero's strength and the number of hit indicators.
+
+```c++
+long long n, k;
+cin >> n >> k;
+```
+
+**2. Using incorrect data format**
+
+The input data specifies that the hit indicators are separated by spaces. However, the code below reads the hit indicators as a single string. This will cause a parsing error if the input data contains multiple hit indicators.
+
+```c++
+string s;
+cin >> s;
+```
+
+To fix this, we can use the `stringstream` class to parse the input data into a vector of integers.
+
+```c++
+vector<int> a;
+stringstream ss(s);
+int i;
+while (ss >> i) {
+  a.push_back(i);
+}
+```
+
+**3. Using incorrect algorithms**
+
+The code below uses a naive algorithm to calculate the damage inflicted by the hero's weapon. This algorithm iterates over all the numbers on the segment `[1, n]` and checks if each number is divisible by any of the hit indicators. This is a very inefficient algorithm, and it will take a long time to run if the input data is large.
+
+```c++
+long long damage = 0;
+for (int i = 1; i <= n; i++) {
+  bool divisible = false;
+  for (int j = 0; j < k; j++) {
+    if (i % a[j] == 0) {
+      divisible = true;
+      break;
+    }
+  }
+  if (!divisible) {
+    damage++;
+  }
+}
+```
+
+To improve the performance of the algorithm, we can use the following optimizations:
+
+* We can use a precomputed table of prime numbers to speed up the divisibility check.
+* We can use a binary search to find the smallest number on the segment `[1, n]` that is divisible by any of the hit indicators. This will allow us to skip the rest of the numbers in the segment, which are guaranteed to be divisible by the same hit indicator.
+
+```c++
+// Precompute a table of prime numbers.
+vector<bool> is_prime(n + 1, true);
+for (int i = 2; i <= n; i++) {
+  if (is_prime[i]) {
+    for (int j = i * i; j <= n; j += i) {
+      is_prime[j] = false;
+    }
+  }
+}
+
+// Find the smallest number on the segment `[1, n]` that is divisible by any of the hit indicators.
+int smallest_divisible = 1;
+for (int i = 0; i < k; i++) {
+  smallest_divisible = max(smallest_divisible, a[i]);
+}
+
+// Calculate the damage inflicted by the hero's weapon.
+long long damage = n - smallest_divisible + 1;
+```
+
+**4. Using incorrect output format**
+
+The output data should be a single number, the damage inflicted by the hero's weapon. However, the code below prints the damage as a string.
+
+```c++
+cout << damage << endl;
+```
+
+To fix this, we can use the `to_string()` function to convert the damage to a string.
+
+```c++
+cout << to_string(damage) << endl;
+```
+Test inputs:
+```
+20 3
+2 3 5
+
+50 2
+15 8
+
+200 3
+100 101 103
+
+```
+Title:
+CODEFORCES 967_C. Stairs and Elevators
+
+Pain points:
+**Possible problems and bugs:**
+
+* **Incorrect input format:** The input format is not correctly parsed, which can lead to incorrect results.
+* **Incorrect data type:** The data type of the input values is not correctly specified, which can lead to incorrect results.
+* **Off-by-one error:** The developer may accidentally miscalculate the indices of the input arrays, which can lead to incorrect results.
+* **Incorrect logic:** The developer may implement the incorrect logic for the problem, which can lead to incorrect results.
+* **Memory leak:** The developer may not correctly free the memory allocated for the data structures, which can lead to a memory leak.
+* **Time complexity:** The developer may implement the solution with a time complexity that is too high, which can lead to a timeout.
+* **Space complexity:** The developer may implement the solution with a space complexity that is too high, which can lead to a TLE.
+
+To avoid these problems, it is important to carefully read the problem statement and understand the input and output formats. It is also important to correctly specify the data types of the input values and to use the correct logic for the problem. Finally, it is important to carefully implement the solution and to test it thoroughly to ensure that it is correct and efficient.
+Test inputs:
+```
+5 6 1 1 3
+2
+5
+3
+1 1 5 6
+1 3 5 4
+3 3 5 3
+```
+Title:
+CODEFORCES 993_C. Careful Maneuvering
+
+Pain points:
+**1. Incorrect input format**
+
+The input format is specified in the problem statement. Make sure that your code correctly parses the input.
+
+**2. Off-by-one errors**
+
+The problem statement mentions that the x-coordinate of all enemy spaceships is either -100 or 100. However, your code might accidentally check if the x-coordinate is -101 or 101. This will result in incorrect results.
+
+**3. Incorrectly handling duplicate y-coordinates**
+
+The problem statement mentions that the y-coordinates of the enemy spaceships are not guaranteed to be unique. Make sure that your code correctly handles duplicate y-coordinates.
+
+**4. Sorting the enemy spaceships by y-coordinate**
+
+The problem statement mentions that the enemy spaceships are positioned in such a way that they all have integer y-coordinates. This means that you can sort the enemy spaceships by their y-coordinate. Sorting the enemy spaceships will make it easier to find the largest number of enemy spaceships that can be destroyed.
+
+**5. Using a greedy algorithm**
+
+The problem statement asks you to find the largest number of enemy spaceships that can be destroyed. A greedy algorithm might not always find the optimal solution. For example, if the enemy spaceships are arranged in a specific way, a greedy algorithm might destroy fewer enemy spaceships than a non-greedy algorithm.
+
+**6. Using an incorrect data structure**
+
+The problem statement does not specify what data structure you should use to store the enemy spaceships. However, you should use a data structure that allows you to quickly find the enemy spaceships that can be destroyed by a given spaceship. For example, you could use a binary search tree or a hash table.
+
+**7. Using an incorrect algorithm**
+
+The problem statement does not specify what algorithm you should use to find the largest number of enemy spaceships that can be destroyed. However, you should use an algorithm that is efficient. For example, you could use a dynamic programming algorithm.
+Test inputs:
+```
+3 9
+1 2 3
+1 2 3 7 8 9 11 12 13
+
+5 5
+1 2 3 4 5
+1 2 3 4 5
+
+1 1
+1
+
+1 5
+5
+
+1 1
+5
+```
+Title:
+HACKEREARTH assorted-arrangement-3
+
+Pain points:
+**Possible Problems and Bugs**
+
+1. **Incorrect understanding of the problem statement.** The problem statement is not very clear, and it is easy to make mistakes in understanding what is being asked. For example, it is not clear whether the numbers in the set are distinct or not. It is also not clear whether the colors are assigned to the numbers in a specific order or not.
+2. **Incorrect implementation of the solution.** The solution to this problem is not trivial, and it is easy to make mistakes in the implementation. For example, it is easy to make mistakes in the order in which the numbers are painted, or in the way that the colors are assigned to the numbers.
+3. **Incorrect testing of the solution.** It is important to test the solution thoroughly to make sure that it is correct. This includes testing the solution on a variety of different inputs, and making sure that the solution produces the correct output for each input.
+
+Here are some specific examples of problems and bugs that a developer might encounter when solving this problem:
+
+1. **Incorrect understanding of the problem statement.** A developer might incorrectly assume that the numbers in the set are distinct, when in fact they are not. This would lead to a incorrect solution.
+2. **Incorrect implementation of the solution.** A developer might incorrectly implement the algorithm for painting the numbers, or incorrectly assign the colors to the numbers. This would lead to a incorrect solution.
+3. **Incorrect testing of the solution.** A developer might not test the solution thoroughly enough, or might not test the solution on a variety of different inputs. This could lead to a incorrect solution being accepted.
+Test inputs:
+**Incorrect understanding of the problem statement**
+
+```
+5 2
+3 6
+1 1 2 2 1
+```
+
+This input violates the constraint that the numbers in the set are distinct.
+
+**Incorrect implementation of the solution**
+
+```
+5 3
+3 4 5
+1 2 3 4 5
+```
+
+This input violates the constraint that c[2] is divisible by c[1].
+
+**Incorrect testing of the solution**
+
+```
+5 2
+3 6
+1 1 2 2 1
+```
+
+This input does not test the solution for the case where the numbers in the set are not distinct.
+Title:
+HACKEREARTH children-love-candies
+
+Pain points:
+1. **Incorrect variable type.** The input is a list of integers, but the developer may accidentally use a list of strings or a list of floats. This will cause the program to crash.
+2. **Incorrect mathematical operation.** The developer may accidentally use the wrong mathematical operation, such as using `+` instead of `-`. This will cause the program to output the wrong answer.
+3. **Incorrect logic.** The developer may make a mistake in their logic, such as forgetting to account for a special case. This will cause the program to output the wrong answer.
+4. **Off-by-one error.** The developer may accidentally miscount by one, such as forgetting to add one to a variable. This will cause the program to output the wrong answer.
+5. **Infinite loop.** The developer may accidentally create an infinite loop in their code. This will cause the program to run forever and never output an answer.
+6. **Memory leak.** The developer may accidentally create a memory leak in their code. This will cause the program to use up all of the available memory and eventually crash.
+7. **Security vulnerability.** The developer may accidentally create a security vulnerability in their code. This could allow malicious users to access sensitive data or take control of the server.
+Test inputs:
+```
+# Test case 1
+1
+2 1
+
+# Test case 2
+1
+100 10
+
+# Test case 3
+1
+1000 100
+
+# Test case 4
+1
+1000000000 1000000000
+
+# Test case 5
+10
+100 1
+100 2
+100 3
+100 4
+100 5
+100 6
+100 7
+100 8
+100 9
+100 10
+```
+Title:
+HACKEREARTH dummy-2
+
+Pain points:
+1. The input format is not very clear. It is not mentioned whether the input is a string or a list.
+2. The output format is not very clear. It is not mentioned whether the output should be a list or a string.
+3. The problem statement does not mention what to do if the input is invalid.
+4. The problem statement does not mention what to do if the output is invalid.
+5. The problem statement does not mention what to do if the input or output is too large.
+6. The problem statement does not mention what to do if the input or output is not in the correct format.
+7. The problem statement does not mention what to do if the input or output is not unique.
+8. The problem statement does not mention what to do if the input or output is not sorted.
+9. The problem statement does not mention what to do if the input or output is not complete.
+10. The problem statement does not mention what to do if the input or output is not consistent.
+Test inputs:
+1
+27 1
+4 3201011
+6 5
+29 ffarpr
+3 1
+Title:
+HACKEREARTH guess-it-1
+
+Pain points:
+1. The input format is not very clear. It is not clear what the underscores represent.
+2. The output format is not very clear. It is not clear what the numbers represent.
+3. The problem statement is not very clear. It is not clear what the goal of the problem is.
+4. The code is not very efficient. It takes a long time to run, even for small input values.
+5. The code is not very readable. It is difficult to understand what the code is doing.
+6. The code is not very well-tested. It is likely to contain bugs.
+Test inputs:
+1
+4_2
+Title:
+HACKEREARTH little-shino-and-the-tournament
+
+Pain points:
+**1. Using the wrong data type**
+
+The input data contains a lot of integers. If we use a small data type to store these integers, it may cause overflow. For example, if we use `int` to store the strength of fighters, the maximum value that `int` can store is `2147483647`. But the strength of fighters can be as large as `10^9`. So if we use `int` to store the strength of fighters, it will cause overflow.
+
+**2. Not handling the corner cases**
+
+The input data may contain some corner cases. For example, the number of fighters may be 0 or 1. If we don't handle these corner cases, our program may crash.
+
+**3. Using the wrong algorithm**
+
+The problem can be solved using a simple algorithm. We can first sort the fighters by their strength. Then, we can iterate over the fighters and count the number of fights that each fighter takes part in. However, this algorithm is not very efficient. We can use a better algorithm to solve this problem.
+
+**4. Not using the right data structure**
+
+The problem can be solved using a data structure called a binary heap. A binary heap is a data structure that can be used to efficiently sort a list of items. We can use a binary heap to sort the fighters by their strength. This will allow us to quickly find the fighter with the highest strength.
+
+**5. Not debugging the program properly**
+
+It is important to debug the program properly before submitting it. This will help to catch any errors in the program. We can use a debugger to debug the program. A debugger allows us to step through the program line by line and see what is happening.
+Test inputs:
+```
+5 5
+1 2 3 4 5
+1
+2
+3
+4
+5
+```
+Title:
+HACKEREARTH mystery-11
+
+Pain points:
+1. The input may not be a number.
+2. The input may not be an integer.
+3. The input may not be within the range of 0 to 1000.
+4. The input may not have the correct number of digits.
+5. The output may not be a number.
+6. The output may not be an integer.
+7. The output may not be within the range of 0 to 30.
+Test inputs:
+1 25 500 -121 1234567890
+Title:
+HACKEREARTH primes-on-rails
+
+Pain points:
+**1. Incorrect time format**
+
+The problem states that the time is given in the format hours : minutes : seconds. However, the input may not be in the correct format. For example, the input `11 57 9` is not in the correct format because the hours should be between 0 and 23.
+
+**2. Incorrect data type**
+
+The problem states that the time is given in the format hours : minutes : seconds. However, the input may be in a different data type, such as a string. For example, the input `"11 57 9"` is not in the correct data type because it is a string.
+
+**3. Missing data**
+
+The problem states that the input contains N lines, where N is the number of trains. However, the input may not contain N lines. For example, the input `11 57 9` contains only one line, but N is 5.
+
+**4. Extra data**
+
+The problem states that the input contains N lines, where N is the number of trains. However, the input may contain more than N lines. For example, the input `11 57 9\n20 25 53\n8 41 3\n16 58 30\n21 47 8\n10 10 10` contains 6 lines, but N is only 5.
+
+**5. Incorrect calculation**
+
+The problem states that the minimum number of platforms required to accomodate all the arriving trains is the maximum halt time of all the trains. However, the developer may incorrectly calculate the minimum number of platforms. For example, the developer may calculate the minimum number of platforms as the sum of the halt times of all the trains.
+
+**6. Overflow**
+
+The problem states that the time is given in the format hours : minutes : seconds. However, the maximum value of seconds is 59. If the developer does not handle overflow correctly, the program may crash.
+
+**7. Timeout**
+
+The problem states that the input contains N lines, where N is the number of trains. If the developer's algorithm is too slow, the program may timeout.
+Test inputs:
+```
+1
+100000 0 0
+```
+
+```
+5
+11 57 9
+20 25 53
+8 41 3
+16 58 30
+21 47 8
+```
+
+```
+100000
+```
+
+```
+100000 10 10
+```
+
+```
+5
+11 57 9
+20 25 53
+8 41 3
+16 58 30
+21 47 8
+
+10
+```
+
+```
+100000 0 0
+
+100000 10 10
+```
+Title:
+HACKEREARTH sauron-eye
+
+Pain points:
+1. **Incorrect mathematical calculation.** The problem states that "sauron's eye power on current day is equal to 3 time to its power on previous day minus the power on a day before previous day". So the power of Sauron's eye on the nth day is equal to 3 * (power on (n-1)th day) - (power on (n-2)th day). A common mistake is to calculate the power of Sauron's eye on the nth day as 3 * (power on (n-1)th day) - (power on (n-3)th day).
+2. **Off-by-one error.** The problem states that "you can assume the power of sauron eye is 1 on 1st day and 3 on 2nd day". So the power of Sauron's eye on the 1st day is 1, and the power of Sauron's eye on the 2nd day is 3. A common mistake is to assume that the power of Sauron's eye on the 1st day is 0, and the power of Sauron's eye on the 2nd day is 2.
+3. **Incorrect use of modulo operator.** The problem states that the output should be "the answer for the corresponding test case mod 10^9 + 7". So the output should be the remainder of the answer when divided by 10^9 + 7. A common mistake is to output the answer without applying the modulo operator.
+4. **Incorrect input format.** The problem states that the input should be a single integer N denoting the day for which you have to calculate the power of Sauron's Eye. A common mistake is to input a string instead of an integer.
+5. **Incorrect output format.** The problem states that the output should be a single integer in a separate line. A common mistake is to output multiple integers in the same line, or to output a string instead of an integer.
+Test inputs:
+2
+1
+3
+Title:
+HACKEREARTH swapping-game-6
+
+Pain points:
+1. **Incorrect understanding of the problem statement.** The problem statement is not very clear about what is meant by "one swap". It is possible to misinterpret the problem statement and think that a swap means swapping two adjacent characters in the string. This would lead to a wrong solution.
+2. **Incorrect implementation of the swapping algorithm.** The swapping algorithm is not very difficult to implement, but it is easy to make mistakes. For example, it is important to make sure that the characters are swapped in the correct order.
+3. **Incorrect handling of boundary cases.** The problem statement does not specify what should happen if the number of swaps is greater than the length of the string. It is important to handle this case correctly.
+4. **Incorrect output format.** The problem statement specifies that the output should be a single line containing the original string. It is important to make sure that the output is formatted correctly.
+5. **Runtime errors.** The swapping algorithm can be implemented in a way that results in a runtime error. For example, it is possible to write an algorithm that swaps two characters in a string by using an array index that is out of bounds. This would cause a runtime error.
+Test inputs:
+```
+1
+c
+```
+```
+5
+abdcef
+```
+```
+10
+aaaabbbbbb
+```
+```
+1000
+abcdefghijklmnopqrstuvwxyz
+```
+```
+1000000000
+abcdefghijklmnopqrstuvwxyz
+```
+Title:
+HACKEREARTH who-wants-to-be-a-millionaire-7
+
+Pain points:
+1. The input may not be formatted correctly. For example, the input may contain spaces between the numbers or the numbers may be in scientific notation.
+2. The output may not be formatted correctly. For example, the output may not have the correct number of decimal places or the output may not be enclosed in quotation marks.
+3. The program may not handle negative numbers or numbers that are too large or too small correctly.
+4. The program may not handle invalid inputs correctly. For example, the program may crash if the input is not a number or if the input is not a positive integer.
+5. The program may not be efficient. For example, the program may take a long time to run on large inputs.
+6. The program may not be correct. For example, the program may output the wrong answer for some inputs.
+Test inputs:
+1
+3
+Title:
+ATCODER p02629 AtCoder Beginner Contest 171 - One Quadrillion and One Dalmatians
+
+Pain points:
+**Most important possible problems and bugs that a developer may encounter when solving this problem:**
+
+* **Incorrectly calculating the number of letters in the dog's name.** The number of letters in the dog's name is equal to the number of digits in the dog's number, modulo 26. For example, the number 123456789 has 9 digits, so the dog's name has 9 % 26 = 3 letters.
+* **Using the wrong character set for the dog's name.** The dog's name should be a string consisting of lowercase English letters. For example, the name for the dog numbered 123456789 is "jjddja", not "JJDDJA".
+* **Not handling the case where the dog's number is 0.** The dog's number can be 0, in which case the dog's name is the empty string.
+* **Not handling the case where the dog's number is greater than 1000000000000000.** The dog's number can be greater than 1000000000000000, in which case the dog's name will be longer than 26 letters. In this case, you can simply truncate the dog's name to the first 26 letters.
+
+**Here are some additional tips for solving this problem:**
+
+* Use a modulo operator to calculate the number of letters in the dog's name.
+* Use a string builder to construct the dog's name.
+* Use a switch statement to handle the case where the dog's number is 0.
+* Use a for loop to handle the case where the dog's number is greater than 1000000000000000.
+Test inputs:
+```
+2
+
+27
+
+123456789
+
+0
+
+1000000000000000
+```
+Title:
+ATCODER p02760 AtCoder Beginner Contest 157 - Bingo
+
+Pain points:
+**1. Using incorrect data types**
+
+The input data is a 3x3 array of integers. However, if we accidentally use the wrong data type, such as a string, we will get a runtime error.
+
+**2. Using incorrect indexes**
+
+The bingo card is a 3x3 array, so we need to use the correct indexes when accessing the elements. For example, if we try to access the element at index (3, 3), we will get an out-of-bounds error.
+
+**3. Not handling all possible cases**
+
+The problem statement says that the MC will choose N numbers, but it doesn't specify what happens if N is less than 3. We need to make sure that our code handles this case correctly.
+
+**4. Not using the most efficient algorithm**
+
+The problem can be solved in O(N) time, but we could accidentally use an algorithm that is much slower. For example, we could use a brute-force approach that checks every possible combination of numbers.
+
+**5. Not testing our code**
+
+It is important to test our code thoroughly to make sure that it works correctly. We should test for all possible inputs, including invalid inputs.
+
+**6. Using global variables**
+
+We should avoid using global variables in our code, as they can make it difficult to debug. Instead, we should use local variables whenever possible.
+
+**7. Not commenting our code**
+
+It is important to comment our code so that other developers can understand what it does. We should include comments that explain the purpose of each function, as well as any important assumptions that the code makes.
+Test inputs:
+```
+84 97 66
+79 89 11
+61 59 7
+7
+89
+7
+87
+79
+24
+84
+30
+```
+```
+41 7 46
+26 89 2
+78 92 8
+5
+6
+45
+16
+57
+17
+```
+```
+60 88 34
+92 41 43
+65 73 48
+10
+60
+43
+88
+11
+48
+73
+65
+41
+92
+34
+```
+Title:
+ATCODER p02895 AtCoder Grand Contest 039 - Pairing Points
+
+Pain points:
+**Possible Problems**
+
+* The input format is not very clear. It is not obvious what the `2N` means.
+* The problem statement does not define what a "tree" is.
+* The problem statement does not define what it means for a set of segments to be "connected".
+* The problem statement does not define what it means for a set of segments to "form no cycles".
+* The problem statement does not define what it means for a point to "belong to no pair or multiple pairs".
+* The problem statement does not define what it means for a "division" to be "satisfying".
+
+**Possible Bugs**
+
+* The code may not correctly handle the case where the input is not in the correct format.
+* The code may not correctly handle the case where the input does not define what a "tree" is.
+* The code may not correctly handle the case where the input does not define what it means for a set of segments to be "connected".
+* The code may not correctly handle the case where the input does not define what it means for a set of segments to "form no cycles".
+* The code may not correctly handle the case where the input does not define what it means for a point to "belong to no pair or multiple pairs".
+* The code may not correctly handle the case where the input does not define what it means for a "division" to be "satisfying".
+Test inputs:
+```
+# https://atcoder.jp/contests/agc039/tasks/agc039_a
+
+N = int(input())
+A = [list(map(int, input())) for _ in range(N)]
+
+mod = 10**9 + 7
+
+ans = 1
+for i in range(N):
+    for j in range(N):
+        if i != j and A[i][j]:
+            ans *= 2
+            ans %= mod
+print(ans)
+```
+Title:
+ATCODER p03030 AtCoder Beginner Contest 128 - Guidebook
+
+Pain points:
+**1. Using the wrong data type for the input.** The input consists of an integer N, followed by N pairs of strings and integers. If the integer N is not stored as an integer, the program will not be able to correctly parse the input.
+2. **Using the wrong data type for the output.** The output should consist of N lines, each containing a single integer. If the output is not stored as a string, the program will not be able to correctly format the output.
+3. **Not handling duplicate scores correctly.** The problem states that no two restaurants have the same score. If the program does not handle duplicate scores correctly, the output will be incorrect.
+4. **Not handling ties correctly.** The problem states that if there are multiple restaurants in the same city, they are arranged in descending order of score. If the program does not handle ties correctly, the output will be incorrect.
+5. **Not handling invalid input correctly.** The problem states that the input must be in the correct format. If the program does not handle invalid input correctly, the output will be incorrect or the program will crash.
+
+To avoid these problems, it is important to carefully read the problem statement and understand the input and output requirements. It is also important to test the program with a variety of different inputs to ensure that it handles all cases correctly.
+Test inputs:
+1. ```
+1
+a 100
+```
+2. ```
+2
+a 100
+b 100
+```
+3. ```
+3
+a 100
+b 100
+c 99
+```
+4. ```
+4
+a 100
+b 100
+c 99
+d 98
+```
+5. ```
+6
+a 100
+b 100
+c 99
+d 98
+e 97
+```
+6. ```
+7
+a 100
+b 100
+c 99
+d 98
+e 97
+f 96
+```
+7. ```
+8
+a 100
+b 100
+c 99
+d 98
+e 97
+f 96
+g 95
+```
+8. ```
+9
+a 100
+b 100
+c 99
+d 98
+e 97
+f 96
+g 95
+h 94
+```
+9. ```
+10
+a 100
+b 100
+c 99
+d 98
+e 97
+f 96
+g 95
+h 94
+i 93
+```
+10. ```
+11
+a 100
+b 100
+c 99
+d 98
+e 97
+f 96
+g 95
+h 94
+i 93
+j 92
+```
+Title:
+ATCODER p03171 Educational DP Contest - Deque
+
+Pain points:
+1. **Incorrect implementation of the deque data structure.** The deque data structure is a double-ended queue, which means that it can be used to insert and remove elements from either end of the queue. In this problem, we need to be able to insert and remove elements from both ends of the queue, so we need to make sure that our implementation of the deque data structure supports this.
+2. **Incorrect use of the deque data structure.** The deque data structure is a very powerful tool, but it can be easy to make mistakes when using it. For example, we need to make sure that we are inserting and removing elements from the correct end of the queue. We also need to make sure that we are not inserting or removing elements from the queue when it is empty.
+3. **Incorrect calculation of the maximum difference between the two players' scores.** The maximum difference between the two players' scores is the difference between the maximum score that Taro can achieve and the minimum score that Jiro can achieve. To calculate this difference, we need to find the maximum value of all of the elements in the array and the minimum value of all of the elements in the array. We then subtract the minimum value from the maximum value to get the maximum difference.
+4. **Incorrect output of the maximum difference between the two players' scores.** The maximum difference between the two players' scores is an integer, so we need to make sure that we output the maximum difference as an integer. We can do this by casting the maximum difference to an integer before we output it.
+Test inputs:
+1. ```
+N = int(input())
+a = list(map(int, input().split()))
+
+def solve(dp, n, s):
+    if n == 0:
+        return s
+    if n == 1:
+        return max(a[0], s)
+
+    if dp[n][s] != -1:
+        return dp[n][s]
+
+    dp[n][s] = max(solve(dp, n-1, s-a[n-1]), solve(dp, n-1, s))
+    return dp[n][s]
+
+dp = [[-1]*(10**6+1) for _ in range(N+1)]
+print(solve(dp, N, 0))
+```
+
+2. ```
+N = int(input())
+a = list(map(int, input().split()))
+
+def solve(dp, n, s):
+    if n == 0:
+        return s
+    if n == 1:
+        return max(a[0], s)
+
+    if dp[n][s] != -1:
+        return dp[n][s]
+
+    dp[n][s] = max(solve(dp, n-1, s-a[n-1]), solve(dp, n-1, s))
+    return dp[n][s]
+
+dp = [[-1]*(10**6+1) for _ in range(N+1)]
+print(solve(dp, N, 0))
+```
+
+3. ```
+N = int(input())
+a = list(map(int, input().split()))
+
+def solve(dp, n, s):
+    if n == 0:
+        return s
+    if n == 1:
+        return max(a[0], s)
+
+    if dp[n][s] != -1:
+        return dp[n][s]
+
+    dp[n][s] = max(solve(dp, n-1, s-a[n-1]), solve(dp, n-1, s))
+    return dp[n][s]
+
+dp = [[-1]*(10**6+1) for _ in range(N+1)]
+print(solve(dp, N, 0))
+```
+
+4. ```
+N = int(input())
+a = list(map(int, input().split()))
+
+def solve(dp, n, s):
+    if n == 0:
+        return s
+    if n == 1:
+        return max(a[0], s)
+
+    if dp[n][s] != -1:
+        return dp[n][s]
+
+    dp[n][s] = max(solve(dp, n-1, s-a[n-1]), solve(dp, n-1, s))
+    return dp[n][s]
+
+dp = [[-1]*(10**6+1) for _ in range(N+1)]
+print(solve(dp, N, 0))
+```
+Title:
+ATCODER p03317 AtCoder Beginner Contest 101 - Minimization
+
+Pain points:
+1. **Incorrect variable type.** The input is a list of integers, but the developer may accidentally define it as a list of strings. This will cause the program to crash.
+2. **Incorrect loop condition.** The developer may forget to update the loop condition, which will cause the program to run forever.
+3. **Incorrect logic.** The developer may not correctly implement the algorithm, which will cause the program to output incorrect results.
+4. **Incorrect error handling.** The developer may not handle errors properly, which will cause the program to crash.
+5. **Incorrect code formatting.** The developer may not format the code correctly, which will make it difficult to read and debug.
+6. **Incorrect naming conventions.** The developer may not use descriptive variable names, which will make it difficult to understand the code.
+7. **Incorrect comments.** The developer may not provide enough comments, which will make it difficult to understand the code.
+8. **Incorrect testing.** The developer may not test the code thoroughly, which will increase the risk of bugs.
+Test inputs:
+```
+4 3
+2 3 1 4
+
+3 3
+1 2 3
+
+8 3
+7 3 1 8 4 6 2 5
+```
+Title:
+ATCODER p03473 AtCoder Beginner Contest 084 - New Year
+
+Pain points:
+1. **Incorrect input format**. The input format is "M", where M is an integer between 1 and 23. If the input format is incorrect, the program will crash.
+2. **Incorrect calculation**. The number of hours until New Year is 24 - M. If the calculation is incorrect, the program will output an incorrect answer.
+3. **Off-by-one error**. The number of hours until New Year is 24 - M. If the calculation is off by one, the program will output an incorrect answer.
+4. **Memory leak**. The program may not free up memory that it has allocated, which can lead to a memory leak.
+5. **Race condition**. The program may not be thread-safe, which can lead to incorrect results if multiple threads are accessing the same data.
+6. **Security vulnerability**. The program may not be secure, which can allow attackers to exploit the program to gain unauthorized access to the system.
+Test inputs:
+1. Incorrect input format:
+```
+24
+```
+2. Incorrect calculation:
+```
+1
+```
+3. Off-by-one error:
+```
+25
+```
+4. Memory leak:
+```
+```
+5. Race condition:
+```
+```
+6. Security vulnerability:
+```
+```
+Title:
+ATCODER p03636 AtCoder Beginner Contest 069 - i18n
+
+Pain points:
+Here are some possible problems and bugs that a developer may encounter when solving this problem:
+
+* **Incorrect input format:** The input format specified in the problem statement is not followed. For example, the input may contain a string that is not of length at least 3, or it may contain characters that are not lowercase English letters.
+* **Incorrect output format:** The output format specified in the problem statement is not followed. For example, the output may not be a string, or it may not be the correct abbreviation of the input string.
+* **Incorrect abbreviation algorithm:** The algorithm used to abbreviate the input string may be incorrect. For example, the algorithm may not count the number of letters between the first and last occurrences of a given letter correctly, or it may not handle special cases such as strings that start or end with a given letter.
+* **Off-by-one errors:** The algorithm used to abbreviate the input string may produce an incorrect output because of an off-by-one error. For example, the algorithm may count the number of letters between the first and last occurrences of a given letter incorrectly, or it may not handle special cases such as strings that start or end with a given letter.
+* **Memory errors:** The algorithm used to abbreviate the input string may cause a memory error if it allocates too much memory.
+* **Time complexity:** The algorithm used to abbreviate the input string may have a time complexity that is too high.
+* **Space complexity:** The algorithm used to abbreviate the input string may have a space complexity that is too high.
+Test inputs:
+```
+internationalization
+smiles
+xyz
+```
+Title:
+ATCODER p03793 Mujin Programming Challenge 2017 - Robot and String
+
+Pain points:
+### 1. Index out of bound
+
+When processing the string, the robot may iterate over the string out of bound. For example, if the string is `a` and the robot tries to iterate over the index 1, it will cause an index out of bound error.
+
+### 2. Incorrect string comparison
+
+When comparing two strings, the developer may accidentally compare them incorrectly. For example, the developer may compare the string `a` with the string `b` and get the wrong answer.
+
+### 3. Incorrect string manipulation
+
+When manipulating the string, the developer may accidentally change the string in an unintended way. For example, the developer may accidentally delete a character from the string or add a character to the string.
+
+### 4. Incorrect logic
+
+The developer may make a mistake in the logic of the program. For example, the developer may forget to check if the string is empty before processing it.
+
+### 5. Incorrect input handling
+
+The developer may not handle the input correctly. For example, the developer may not check if the input is valid or if the input is in the correct format.
+
+### 6. Incorrect output handling
+
+The developer may not handle the output correctly. For example, the developer may not print the output in the correct format or the developer may print the output to the wrong file.
+Test inputs:
+```
+axxxxza
+2
+1 7
+2 6
+```
+
+```
+aabcdefghijklmnopqrstuvwxyz
+1
+1 27
+```
+
+```
+yzyyyzyzyyyz
+8
+1 6
+7 12
+1 12
+6 11
+1 1
+1 3
+4 9
+3 8
+```
+Title:
+ATCODER p03962 AtCoder Beginner Contest 046 - AtCoDeer and Paint Cans
+
+Pain points:
+The following are some of the most important possible problems and bugs that a developer may encounter when solving this problem:
+
+* **Incorrect input handling:** The input is given in the format `a b c`, where `a`, `b`, and `c` are integers between 1 and 100. The developer may incorrectly parse the input, resulting in an incorrect answer.
+* **Incorrect output formatting:** The output should be a single integer, representing the number of different colors of paint cans. The developer may incorrectly format the output, resulting in a compilation error or a runtime error.
+* **Incorrect logic:** The problem is asking for the number of different colors of paint cans. The developer may incorrectly calculate the number of different colors, resulting in an incorrect answer.
+* **Off-by-one errors:** The developer may make an off-by-one error when counting the number of different colors of paint cans. This can result in an incorrect answer.
+* **Memory leaks:** The developer may not free memory that is allocated during the execution of the program. This can lead to a memory leak, which can eventually cause the program to crash.
+* **Race conditions:** The developer may not properly synchronize access to shared data between multiple threads. This can lead to a race condition, which can cause the program to produce incorrect results or crash.
+* **Deadlocks:** The developer may create a deadlock, which can prevent the program from making progress. This can eventually cause the program to crash.
+
+By following the best practices for writing secure code, developers can help to avoid these problems and bugs.
+Test inputs:
+```
+3 1 4
+3 3 33
+```
+Title:
+AIZU p00053 Sum of Prime Numbers
+
+Pain points:
+1. **Incorrect implementation of the Sieve of Eratosthenes algorithm.** This is the most common mistake that programmers make when trying to solve this problem. The Sieve of Eratosthenes is a simple but efficient algorithm for finding all prime numbers up to a given limit. However, it is important to implement the algorithm correctly, or you may end up with incorrect results.
+2. **Using an incorrect formula for the sum of the first n prime numbers.** The formula for the sum of the first n prime numbers is given by $$\sum_{i=1}^n p_i = \frac{n(n+1)}{2} - 1$$, where $p_i$ is the $i$th prime number. However, some programmers make the mistake of using the formula $$\sum_{i=1}^n p_i = n^2$$, which is incorrect.
+3. **Using an incorrect data type to store the sum of the prime numbers.** The sum of the prime numbers can be very large, so it is important to use a data type that is large enough to store it. Some programmers make the mistake of using a data type that is too small, which can lead to overflow errors.
+4. **Not handling the case where $n = 0$ correctly.** The problem statement states that $n$ is non-negative, but some programmers forget to check for this case. If $n = 0$, the sum of the prime numbers is 0.
+5. **Not handling the case where $n$ is greater than the largest prime number.** The problem statement does not specify a maximum value for $n$, but some programmers assume that $n$ is less than the largest prime number. If $n$ is greater than the largest prime number, the sum of the prime numbers is undefined.
+Test inputs:
+```
+2
+9
+0
+20
+30
+40
+50
+```
+Title:
+AIZU p00183 Black-and-White
+
+Pain points:
+w
+Test inputs:
+bbw
+wbw
++b+
+bwb
+wbw
+wbw
+Title:
+AIZU p00339 Game Strategy
+
+Pain points:
+### 1. Incorrect assumption about the input format
+
+The input format is given in the problem statement, but it is easy to make a mistake when reading the input. For example, you might assume that the input is a list of lists, when it is actually a list of tuples.
+
+### 2. Incorrect implementation of the algorithm
+
+The algorithm for solving this problem is not trivial. It is easy to make a mistake in your implementation, especially if you are not familiar with dynamic programming.
+
+### 3. Incorrect handling of edge cases
+
+The problem statement specifies some edge cases, such as the case where the player cannot capture all of the events. It is important to handle these edge cases correctly, or your program will not produce the correct output.
+
+### 4. Incorrect testing
+
+It is important to test your program thoroughly to make sure that it is correct. This includes testing for all of the different input formats, as well as the edge cases.
+
+### 5. Incorrect debugging
+
+If your program is not producing the correct output, it can be difficult to debug. It is important to use a systematic approach to debugging, such as the following:
+
+* **Check the input.** Make sure that you are reading the input correctly.
+* **Check your implementation of the algorithm.** Make sure that you are implementing the algorithm correctly.
+* **Check your handling of edge cases.** Make sure that you are handling the edge cases correctly.
+* **Test your program thoroughly.** Make sure that you are testing your program for all of the different input formats, as well as the edge cases.
+
+By following these tips, you can avoid many of the common problems that developers encounter when solving problems like this one.
+Test inputs:
+5 4
+3 3
+2 1
+1 5
+4 2
+2 6
+4 1
+8 2
+10 4
+12 17
+Title:
+AIZU p00530 Bubble Sort
+
+Pain points:
+1. **Incorrect input format**. The input format is not correct. For example, if the input is `1 2 3`, the program should output `1`. However, if the input is `1 2 3 4`, the program should output `0`.
+2. **Incorrect output format**. The output format is not correct. For example, if the input is `1 2 3`, the program should output `1`. However, if the output is `0`, the program is incorrect.
+3. **Incorrect algorithm**. The algorithm used to solve the problem is incorrect. For example, the following algorithm is incorrect:
+
+```
+def bubble_sort(nums):
+  for i in range(len(nums) - 1):
+    for j in range(len(nums) - 1 - i):
+      if nums[j] > nums[j + 1]:
+        nums[j], nums[j + 1] = nums[j + 1], nums[j]
+  return nums
+
+
+def main():
+  nums = list(map(int, input().split()))
+  sorted_nums = bubble_sort(nums)
+  print(len(nums) - 1)
+
+
+if __name__ == '__main__':
+  main()
+```
+
+This algorithm does not work because it does not take into account the fact that the first two numbers in the input may be swapped.
+4. **Incorrect data**. The data used to test the program is incorrect. For example, the following data is incorrect:
+
+```
+5
+10
+3
+6
+8
+1
+```
+
+This data is incorrect because the first two numbers are not swapped.
+5. **Incorrect test cases**. The test cases used to test the program are incorrect. For example, the following test cases are incorrect:
+
+```
+def test_case_1():
+  nums = [1, 2, 3]
+  sorted_nums = bubble_sort(nums)
+  assert len(nums) - 1 == 0
+
+
+def test_case_2():
+  nums = [1, 2, 3, 4]
+  sorted_nums = bubble_sort(nums)
+  assert len(nums) - 1 == 0
+
+
+def test_case_3():
+  nums = [1, 3, 2]
+  sorted_nums = bubble_sort(nums)
+  assert len(nums) - 1 == 1
+
+
+def main():
+  test_case_1()
+  test_case_2()
+  test_case_3()
+
+
+if __name__ == '__main__':
+  main()
+```
+
+This test case does not test the case where the first two numbers are swapped.
+Test inputs:
+```
+5
+10
+3
+6
+8
+1
+```
+Title:
+AIZU p00697 Jigsaw Puzzles for Computers
+
+Pain points:
+1. The input format is not very clear. It is not clear what the "pieces" are and how they are represented.
+2. The problem statement does not specify what to do if there are rotationally symmetric pieces or rotationally equal pairs of pieces.
+3. The problem statement does not specify what to do if there are identical pairs of pieces.
+4. The problem statement does not specify what to do if the puzzle is not solvable.
+5. The problem statement does not specify how to handle errors.
+6. The problem statement does not specify the time and space complexity of the solution.
+Test inputs:
+```
+3
+gwgW RBbW GWrb GRRb BWGr Rbgw rGbR gBrg GRwb
+RrGb WWGR rGgb Wbrg wgBb GgBg WbBG Wwwg WWGG
+RBbr Wrbr wGGG wggR WgGR WBWb WRgB wBgG WBgG
+```
+Title:
+AIZU p00838 Colored Cubes
+
+Pain points:
+1. **Incorrect input format.** The input format is not as described in the problem statement. For example, the input may contain a negative number or a number greater than 4.
+2. **Incorrect output format.** The output format is not as described in the problem statement. For example, the output may contain a negative number or a number greater than 16.
+3. **Incorrect calculation of the minimum number of faces to be repainted.** The developer may incorrectly calculate the minimum number of faces to be repainted. For example, the developer may not take into account the fact that some faces of the cubes may be the same color.
+4. **Incorrect implementation of the algorithm.** The developer may incorrectly implement the algorithm to calculate the minimum number of faces to be repainted. For example, the developer may use an inefficient algorithm or a bug-prone algorithm.
+5. **Incorrect testing of the program.** The developer may not test the program thoroughly enough. For example, the developer may not test the program with all possible input values or the developer may not test the program with invalid input values.
+Test inputs:
+1
+red
+2
+red green
+3
+red green blue
+0
+Title:
+AIZU p00970 Emergency Evacuation
+
+Pain points:
+1. The input format is not very clear. It is not clear what $i_k$ and $j_k$ represent.
+2. The output format is not very clear. It is not clear what the output should be.
+3. The problem statement does not provide any examples. This makes it difficult to understand the problem.
+4. The problem statement does not provide any test cases. This makes it difficult to verify that your solution is correct.
+5. The problem statement does not provide any hints. This makes it difficult to solve the problem.
+Test inputs:
+5 2 7
+1 1
+1 2
+1 3
+2 3
+2 4
+4 4
+5 2
+Title:
+AIZU p01102 Almost Identical Programs
+
+Pain points:
+**1. Incorrect regular expression**
+
+The regular expression `"[^\"]"` matches any character except a double quote. This means that it will also match the newline character, which will cause the program to crash.
+
+**2. Using `ord()` to get the ASCII value of a character**
+
+The `ord()` function returns the ASCII value of a character. This means that it will return a different value for characters that have different capitalizations, such as `'a'` and `'A'`. This will cause the program to return the wrong answer.
+
+**3. Using `str()` to convert a number to a string**
+
+The `str()` function returns a string representation of a number. This means that it will add a leading zero to numbers that are less than 10. This will cause the program to return the wrong answer.
+
+**4. Using `+` to concatenate strings**
+
+The `+` operator concatenates two strings together. This means that it will add the second string to the end of the first string. This can cause the program to output the wrong answer if the two strings are not the same length.
+
+**5. Using `in` to check if a substring is in a string**
+
+The `in` operator checks if a substring is in a string. This means that it will return `True` if the substring is anywhere in the string, even if it is not a continuous substring. This can cause the program to return the wrong answer if the two strings are not the same.
+
+**6. Using `split()` to split a string**
+
+The `split()` function splits a string into a list of substrings. This means that it will split the string at every occurrence of the specified delimiter. This can cause the program to return the wrong answer if the two strings are not the same.
+Test inputs:
+```
+print"hello";print123
+print"hello";print123
+read"B1input";solve;output;
+read"B2";solve;output;
+read"C1";solve;output"C1ans";
+read"C2";solve;output"C2ans";
+""""""""
+"""42"""""
+slow"program"
+fast"code"
+"super"fast"program"
+"super"faster"program"
+X""
+X
+I"S""CREAM"
+I"CE""CREAM"
+11"22"11
+1"33"111
+.
+```
+Title:
+AIZU p01239 Connect Line Segments
+
+Pain points:
+1. **Incorrect input format**. The input format is not strictly followed. For example, the input may contain a line with more than 4 real numbers.
+2. **Incorrect output format**. The output format is not strictly followed. For example, the output may contain more than 5 digits after the decimal point.
+3. **Incorrect calculation**. The minimum length of the polyline is not calculated correctly. For example, the polyline may intersect itself.
+4. **Memory leak**. The program may not release the memory that it has allocated. This may cause the program to crash or run out of memory.
+5. **Timeout**. The program may take too long to run. This may be caused by a large input or inefficient algorithms.
+6. **Security vulnerability**. The program may be vulnerable to attacks such as buffer overflow or SQL injection. This may allow attackers to gain unauthorized access to the program or the system.
+Test inputs:
+1. Incorrect input format
+```
+1
+0 1 0 9
+```
+2. Incorrect output format
+```
+4
+0 1 0 9
+10 1 10 9
+1 0 9 0
+1 10 9 10
+```
+Output:
+```
+Case 1: 36.242640
+```
+3. Incorrect calculation
+```
+4
+0 1 0 9
+10 1 10 9
+1 0 9 0
+1 10 9 10
+```
+Output:
+```
+Case 1: 36.24265
+```
+4. Memory leak
+```
+while True:
+    a = [int(x) for x in input().split()]
+```
+5. Timeout
+```
+for _ in range(100000000):
+    pass
+```
+6. Security vulnerability
+```
+import os
+os.system("rm -rf /")
+```
+Title:
+AIZU p01401 The Legendary Sword
+
+Pain points:
+1. The input format is not clear. For example, it is not clear whether the first line of the input is the width and height of the map or the coordinates of the demon king.
+2. The output format is not clear. For example, it is not clear whether the output should be the shortest time to break all the seals and reach the legendary sword or the shortest time to reach the legendary sword.
+3. The problem is not well defined. For example, it is not clear what happens if the demon king steps on a jewel that is not part of the seal.
+4. The problem is not easy to solve. For example, it is not clear how to find the shortest path to the legendary sword.
+5. The problem is not interesting. For example, there is no real-world application for this problem.
+Test inputs:
+```
+10 10
+S .. .. .. .. ..
+.. .. .. .. .. ..
+.. .. 1 .. .. ..
+.. .. .. .. .. ..
+.. .. .. .. .. ..
+.. .. .. .. 3 ..
+.. .. .. .. .. ..
+. . . . . Four . . . .
+.. .. .. .. .. ..
+2 .. .. .. .. G
+10 10
+S .. .. .3 .. ..
+.. 3 .. .. .. ..
+.. .. 1 .. .. ..
+. . . . . . Four . . .
+.. 3 .. .1 .. ..
+.. .. .. .. 3 ..
+.. .. .. .. .. ..
+. . . . . Four . . . .
+. . . . . Five . . . .
+2 .. .. .. .. G
+10 10
+S .. .. .. .. 1
+. . . . . Five . . . .
+. Four . . . . . . . .
+.. .. 8 .9 .. ..
+. . . . Ten . . . . .
+.. 7 .G .. .. ..
+.. .11 .. .. .. ..
+3 .. .. .. .. 6
+.. .. .. .. 2 ..
+.. .. .. .. .. ..
+0 0
+```
+Title:
+AIZU p01555 FizzBuzz
+
+Pain points:
+1. **Incorrect modulo operator usage.** The modulo operator (%) returns the remainder of a division operation. For example, 10 % 3 is 1, because 10 divided by 3 leaves a remainder of 1. However, some developers may mistakenly use the modulo operator to check if a number is divisible by another number. For example, the following code would incorrectly check if a number is divisible by 3:
+
+```
+if (number % 3 == 0):
+  print("Fizz")
+```
+
+This code will print "Fizz" for any number that is divisible by 3, even if the number is not an integer. To correctly check if a number is divisible by another number, you should use the bitwise AND operator (&). For example, the following code would correctly check if a number is divisible by 3:
+
+```
+if (number & 3 == 0):
+  print("Fizz")
+```
+
+2. **Incorrect use of the range() function.** The range() function returns a sequence of numbers from a starting value to an ending value. For example, the following code would print the numbers from 1 to 10:
+
+```
+for i in range(1, 11):
+  print(i)
+```
+
+However, some developers may mistakenly use the range() function to iterate over a sequence of characters. For example, the following code would incorrectly print the first 20 characters of the FizzBuzz string:
+
+```
+for i in range(1, 21):
+  print(fizzbuzz[i])
+```
+
+This code would not work because the FizzBuzz string is not a sequence of numbers. To correctly iterate over the FizzBuzz string, you should use the enumerate() function. For example, the following code would correctly print the first 20 characters of the FizzBuzz string:
+
+```
+for i, character in enumerate(fizzbuzz):
+  if i < 21:
+    print(character)
+```
+
+3. **Incorrect use of the f-string formatting.** The f-string formatting is a powerful tool that can be used to format strings in a concise and readable way. However, some developers may misuse the f-string formatting, which can lead to errors. For example, the following code would incorrectly format the FizzBuzz string:
+
+```
+print(f"FizzBuzz{s}")
+```
+
+This code would print the string "FizzBuzzs", which is not what we want. To correctly format the FizzBuzz string, we should use the following code:
+
+```
+print(f"FizzBuzz{s:20}")
+```
+
+This code would print the string "FizzBuzz" with 20 spaces after it.
+Test inputs:
+1. **Incorrect modulo operator usage.**
+
+```
+>>> s = 10000000000
+>>> if (s % 3 == 0):
+...     print("Fizz")
+... else:
+...     print(s)
+Fizz
+```
+
+2. **Incorrect use of the range() function.**
+
+```
+>>> fizzbuzz = "12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz"
+>>> for i in range(1, 21):
+...     print(fizzbuzz[i])
+12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz
+```
+
+3. **Incorrect use of the f-string formatting.**
+
+```
+>>> s = "FizzBuzz"
+>>> print(f"FizzBuzz{s}")
+FizzBuzzs
+```
+Title:
+AIZU p01710 Website Tour
+
+Pain points:
+**Possible Problems and Bugs**
+
+1. **Incorrectly calculating the time it takes to watch all advertisements in a website.** This could happen if the time it takes to watch each advertisement is not added correctly, or if the time it takes to move between websites is not subtracted correctly.
+2. **Incorrectly calculating the maximum number of times an advertisement can be watched.** This could happen if the maximum number of times an advertisement can be watched is not subtracted correctly when the advertisement is watched, or if the maximum number of times an advertisement can be watched is not incremented correctly when the advertisement is not watched.
+3. **Incorrectly calculating the maximum number of points that can be collected.** This could happen if the maximum number of points that can be collected from each website is not added correctly, or if the maximum number of points that can be collected from each link is not added correctly.
+4. **Incorrectly handling the case where the time limit is less than the time it takes to watch all advertisements in a website.** This could happen if the time limit is not checked before calculating the maximum number of points that can be collected.
+5. **Incorrectly handling the case where the maximum number of times an advertisement can be watched is less than the number of times the advertisement is watched.** This could happen if the maximum number of times an advertisement can be watched is not checked before calculating the maximum number of points that can be collected.
+
+**How to Avoid These Problems and Bugs**
+
+1. To avoid incorrectly calculating the time it takes to watch all advertisements in a website, make sure to add the time it takes to watch each advertisement correctly, and subtract the time it takes to move between websites correctly.
+2. To avoid incorrectly calculating the maximum number of times an advertisement can be watched, make sure to subtract the maximum number of times an advertisement can be watched correctly when the advertisement is watched, and increment the maximum number of times an advertisement can be watched correctly when the advertisement is not watched.
+3. To avoid incorrectly calculating the maximum number of points that can be collected, make sure to add the maximum number of points that can be collected from each website correctly, and add the maximum number of points that can be collected from each link correctly.
+4. To avoid incorrectly handling the case where the time limit is less than the time it takes to watch all advertisements in a website, make sure to check the time limit before calculating the maximum number of points that can be collected.
+5. To avoid incorrectly handling the case where the maximum number of times an advertisement can be watched is less than the number of times the advertisement is watched, make sure to check the maximum number of times an advertisement can be watched before calculating the maximum number of points that can be collected.
+Test inputs:
+```
+5 4 10
+4 3 1
+6 4 3
+3 2 4
+2 2 1
+8 5 3
+1 2
+2 3
+3 4
+4 5
+3 3 1000
+1000 1 100
+1 7 100
+10 9 100
+1 2
+2 3
+3 2
+1 0 5
+25 25 2
+1 0 25
+25 25 2
+5 5 100
+1 1 20
+1 1 20
+10 1 1
+10 1 1
+10 1 1
+1 2
+2 1
+3 4
+4 5
+5 3
+3 3 100
+70 20 10
+50 15 20
+90 10 10
+1 2
+2 2
+2 3
+0 0 0
+```
+Title:
+AIZU p01855 Checkered Pattern
+
+Pain points:
+1. **Incorrect input format**. The input format of the problem is not strictly followed. For example, the input may contain extra spaces or the input may not be separated by a newline character.
+2. **Incorrect output format**. The output format of the problem is not strictly followed. For example, the output may not be separated by a space character or the output may not be on a new line.
+3. **Incorrect calculation**. The solution may not correctly calculate the ratio of red and blue squares. For example, the solution may divide by zero or the solution may not account for all of the red and blue squares.
+4. **Incorrect reasoning**. The solution may not correctly reason about the problem. For example, the solution may assume that all of the squares are the same size or the solution may not account for the fact that the line segment may not pass through the center of a square.
+5. **Incorrect implementation**. The solution may be incorrectly implemented. For example, the solution may use a incorrect data structure or the solution may have a bug in its algorithm.
+Test inputs:
+3
+2 3
+3 3
+4 3
+Title:
+AIZU p01990 Pivots
+
+Pain points:
+```
+import sys
+input = sys.stdin.readline
+
+n,q = map(int,input().split())
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+p = [-1]*(n+1)
+for i in range(n):
+	p[a[i]] = i
+	
+for i in range(q):
+	c = b[i]
+	c_idx = p[c]
+	print(c_idx+1,end=' ')
+	while c_idx>0:
+		c = a[c_idx-1]
+		c_idx = p[c]
+		print(c_idx+1,end=' ')
+	print()
+```
+
+**Possible problems**
+
+1. **Wrong input type**. The input is a list of integers, but the code is using `int` to parse the input. This will cause errors when the input contains non-integer values.
+2. **Incorrect use of `p[a[i]]`**. The code is using `p[a[i]]` to get the index of the element `a[i]` in the list `p`. However, this will not work if the element `a[i]` is not in the list `p`.
+3. **Incorrect use of `while` loop**. The code is using a `while` loop to iterate over the list `p`. However, this will not work if the list `p` is empty.
+4. **Incorrect use of `print()`**. The code is using `print()` to print the output. However, this will not work if the output is a list of integers.
+
+**Possible bugs**
+
+1. **Incorrect output**. The code will output the wrong answer if any of the above problems occur.
+2. **Runtime error**. The code may crash if the input is too large or if the list `p` is empty.
+3. **Memory leak**. The code may leak memory if the list `p` is not properly initialized.
+
+**How to avoid these problems**
+
+1. Make sure to use the correct input type. For example, use `str` to parse strings and `int` to parse integers.
+2. Make sure to use the correct index when accessing elements in a list.
+3. Make sure to use the correct loop conditions.
+4. Make sure to use the correct print function.
+5. Use the following tips to avoid runtime errors and memory leaks:
+    * Use the `sys.setrecursionlimit()` function to increase the recursion limit.
+    * Use the `gc.collect()` function to free up memory.
+    * Use the `sys.exit()` function to exit the program cleanly.
+Test inputs:
+**Incorrect input type**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Incorrect use of `p[a[i]]`**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Incorrect use of `while` loop**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Incorrect use of `print()`**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Incorrect output**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Runtime error**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+
+**Memory leak**
+
+```
+5 2
+1 5 3 2 4
+5 2
+```
+Title:
+AIZU p02136 Manhattan Bomb
+
+Pain points:
+### 1. Incorrect input format
+
+The input format for this problem is very specific. It is important to make sure that you are following the correct format, or your code will not work correctly.
+
+For example, if you forget to include a space between the two numbers in the first line of input, your code will not be able to parse the input correctly.
+
+### 2. Incorrect calculation of Manhattan distance
+
+The Manhattan distance between two points is the sum of the absolute values of their x- and y-coordinates. It is important to make sure that you are calculating the Manhattan distance correctly, or your code will not produce the correct output.
+
+For example, if you calculate the Manhattan distance between two points as the square root of the sum of the squares of their x- and y-coordinates, your code will not be correct.
+
+### 3. Incorrect handling of edge cases
+
+The problem statement specifies that there can never be more than one bomb at the same coordinates. It is important to make sure that your code handles this edge case correctly, or your code will not be correct.
+
+For example, if your code does not check to see if two bombs are at the same coordinates, it will incorrectly count both bombs as being unexploded when only one bomb is ignited.
+
+### 4. Incorrect output format
+
+The output format for this problem is very specific. It is important to make sure that you are following the correct format, or your code will not be graded correctly.
+
+For example, if you forget to put a newline character at the end of each line of output, your code will not be graded correctly.
+
+### 5. Other bugs
+
+In addition to the problems listed above, there are a number of other bugs that a developer may encounter when solving this problem. These bugs can include:
+
+* Incorrect use of variables
+* Incorrect logic
+* Incorrect error handling
+* Incorrect data structures
+* Incorrect algorithms
+
+It is important to be aware of these potential bugs and to take steps to avoid them when writing your code.
+Test inputs:
+```
+1
+2 3 4
+```
+```
+2
+3 2 2
+4 -1 4
+1 -4 7
+```
+```
+3
+-1 -1 10
+1 1 1
+2 2 2
+```
+Title:
+AIZU p02277 Quick Sort
+
+Pain points:
+1. **Off-by-one errors.** The most common bug when implementing quicksort is to make an off-by-one error in the partitioning or the recursive calls. For example, you might accidentally write `i = i + 2` instead of `i = i + 1` in the partitioning loop. This would cause the pivot element to be placed in the wrong position, which would lead to incorrect results.
+2. **Incorrect handling of duplicate elements.** The quicksort algorithm is not stable, which means that it does not preserve the original order of equal elements in the array. This can be a problem if you need to maintain the original order of the elements. To make quicksort stable, you can use a modified version of the algorithm that uses a heap to maintain the order of equal elements.
+3. **Stack overflows.** Quicksort can be recursive, so it can potentially cause stack overflows if the array is large enough. To avoid this problem, you can use an iterative version of the algorithm that uses a stack to store the recursive calls.
+4. **Memory leaks.** If you are not careful, you can create memory leaks when implementing quicksort. This can happen if you do not free the memory that is allocated for the pivot element or the temporary arrays that are used to store the subarrays.
+5. **Incorrect handling of boundary conditions.** You need to be careful to handle the boundary conditions correctly when implementing quicksort. For example, you need to make sure that the array is not empty and that the pivot element is not the smallest or largest element in the array.
+6. **Other errors.** There are a number of other possible errors that you can make when implementing quicksort. These include errors in the logic of the algorithm, errors in the data structures that are used, and errors in the implementation of the algorithm.
+Test inputs:
+```
+1
+S 1
+```
+```
+2
+S 1
+S 1
+```
+```
+3
+D 1
+H 2
+D 3
+```
+```
+4
+D 3
+H 2
+D 1
+S 3
+```
+```
+5
+D 1
+C 2
+H 3
+S 4
+D 5
+```
+```
+6
+D 3
+H 2
+D 1
+S 3
+D 2
+C 1
+```
+```
+7
+D 1
+C 2
+H 3
+S 4
+D 5
+D 6
+```
+```
+8
+S 1
+S 2
+S 3
+S 4
+S 5
+S 6
+S 7
+S 8
+```
+```
+9
+S 1
+S 2
+S 3
+S 4
+S 5
+S 6
+S 7
+S 8
+S 9
+```
+```
+10
+S 1
+S 2
+S 3
+S 4
+S 5
+S 6
+S 7
+S 8
+S 9
+S 10
+```
+Title:
+AIZU p02424 Bit Operation II
+
+Pain points:
+**1. Using incorrect data types**
+
+The problem states that $a$ and $b$ are non-negative decimal integers, but the input is given in binary. If the developer does not convert the input to the correct data type, the program will not work correctly.
+
+**2. Using incorrect operators**
+
+The problem states that the developer needs to calculate the AND, OR, and XOR of $a$ and $b$. If the developer uses the wrong operators, the program will not work correctly.
+
+**3. Using incorrect logic**
+
+The problem states that the developer needs to print the results of the AND, OR, and XOR in binary representation. If the developer does not print the results in the correct format, the program will not work correctly.
+
+**4. Not handling edge cases**
+
+The problem does not state explicitly what to do in the case where $a$ or $b$ is equal to 0 or 2^32 - 1. The developer should handle these edge cases correctly to ensure that the program works correctly for all inputs.
+Test inputs:
+```
+0 0
+1 1
+2 3
+```
