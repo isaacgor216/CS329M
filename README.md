@@ -109,6 +109,12 @@ The resulting data is stored in three new folders:
  - `provided_tests`: This folder contains the text files with the names and build-in test cases for each file in the CodeContests dataset.
  - `llm_generation`: This folder contains the text files with the problem names, LLM generated pain points, and LLM generated test cases for each file in the dataset. This folder also contains the subdirectory `tests_only`, which contains the text same files, omitting the pain points for easier comparison. These files can be readile compared with the provided built-in tests stored in `provided_tests`.
 
+## Acknowledgements
+
+Again, many thanks to the CodeContests team for their work in compiling this dataset and the software packages necesary to extract useful information.
+
+Lastly, huge thank you to Dr. Justin Gottschlich and TA Tathagat Verma for outstanding instruction, inspiration, and guidance over the course of this quarter.
+
 ---------------------------------------------------------------------------------------
 
 # CodeContests
@@ -297,9 +303,3 @@ materials.
 ## Disclaimer
 
 This is not an official Google product.
-
-## Acknowledgements
-
-Again, many thanks to the CodeContests team for their work in compiling this dataset and the software packages necesary to extract useful information.
-
-Lastly, huge thank you to Dr. Justin Gottschlich and TA Tathagat Verma for outstanding instruction, inspiration, and guidance over the course of this quarter.
